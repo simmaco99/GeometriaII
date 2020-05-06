@@ -1,0 +1,147 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 26 marzo}
+\begin{defn}Sia $\w$ una 1-forma differenziale esatta su $D$ 
+\begin{itemize}
+\item $\w$ \`e esatta se $\exists F:\, D\to \C$ con $\w =\di F$
+\item $\w$ \`e chiusa se \`e localmente esatta, ovvero 
+$$\forall p\in D\, \, \exists U \subset D \text{ con } p\in U \text{ e } F_U:\, U \to \C \text{ con } \di F_U =\ris \w  U $$
+\end{itemize}
+In tal caso $F$ si chiama primitiva di $\w$, mentre $F_U$ primitiva locale di $\w$
+\end{defn}
+\begin{oss}
+Ricordando che 
+$\di F = \pr F x \di x + \pr F y \di y $ da cui $\w=P\di x + Q \di y $ \`e esatta se esiste $F$ tale che $P =\pr F x $ e $Q = \pr F y $
+\end{oss}
+\section{Integrali curvilinei}
+\begin{defn}[Integrali complessi]\bianco 
+Sia $f:\, [a,b]\to \C$ continua, poniamo 
+$$\int_a^b f(t) \dt = \int_a^b Re(f(t))\dt + i \int_a^b Im(f(t))\dt$$
+\end{defn}
+\begin{defn}Sia $D$ un dominio aperto connesso di $\C$ e fissiamo  $\w$ una 1-forma differenziale complessa su $D$.\\
+Se $\gamma:\, [a,b]\to D$ \`e un cammino $C^1$ definiamo 
+$$\int_\gamma \w = \int_a^b \w_{\amma(t)} (\amma'(t))\dt$$
+dove  se $\amma(t)=(x(t),y(t))=x(t) + iy(t)$ allora $\amma'(t) = (x'(t),y'(t))=x'(t) + iy'(t)$ mentre $\w_{\amma(t)} =\w(\gamma(t))$ 
+\end{defn}
+\begin{oss}Se $\w=P\di x + Q \di y $ allora 
+$$\w_{\amma(t)}(\amma'(t)) = P(\amma(t))\di x (\amma'(t))+ Q(\amma(t))\di y (\amma'(t))=P(\amma(t))x'(t) + Q(\amma(t))y'(t)$$
+\end{oss}
+\spazio 
+\begin{ese}Sia $D=\C^\star = \C \setminus\{ 0 \}$,  $\w = \frac{1}{z}\di z $ e $\gamma(t) =e^{2\pi i t } = \cos (2\pi t) + \sin (2\pi t)$\\
+Calcolare $\int_\amma \w$\\ \\
+Ricordando che $\di z $ \`e l'identit\`a di $\C$ e poich\`e $\amma'(t) = 2\pi i \gamma(t)$ ottengo 
+$$\w_{\amma(t)}(\amma'(t)) = \frac{\di z}{\amma(t) }\cdot 2\pi i\gamma(t) = 2\pi i $$
+da cui $\int_\amma \w=\int_{0}^1 2\pi i \dt = 2\pi i $.\\ \\
+Svolgiamo lo stesso conto in coordinate (usando $\di x $ e $\di y$)
+$$\frac{\di z}{z}= \frac{1}{x+iy }(\di x + i \di y ) = \frac{x-iy}{x^2+y^2}(\di x + i \di y) = \frac{x\di x + y\di y }{x^2+y^2} +i \frac{x\di y -  y \di x }{x^2+y^2}$$
+Ora $\amma(t) = x(t) + i y(t)$ dove $x(t) = \cos (2\pi t) $ e $y(t) =\sin (2\pi t)$
+$$\di x( \amma'(t))=x'(t) =-2\pi \sin(2\pi t)$$
+$$\di y( \amma'(t))=y'(t) =2\pi \cos(2\pi t)$$
+da cui 
+$$(x\di x + y \di y)_{\amma(t)}(\amma'(t)) = \cos (2\pi t ) (-2\pi \sin (2\pi t))+\sin(2\pi t ) (2\pi \cos(2\pi t))=0$$
+
+$$\tonde{i\frac{x\di y - y \di x}{x^2+y^2}}_{\amma(t)}(\amma'(t)) = i\frac{2pi (\cos^2 (2\pi t) + \sin^2(2\pi t))}{\cos^2 (2\pi t) + \sin^2(2\pi t)}=2\pi$$
+Abbiamo ritrovato 
+$$\int_\amma \frac{\di z }{x} =\int_\amma \frac{x\di x + y \di y}{x^2+y^2}+i \int_\amma \frac{x\di y - y \di y}{x^2 + y^2}=2\pi i $$
+
+\end{ese}
+
+\begin{prop}Propriet\`a elementari dell'integrale curvileneo
+\begin{enumerate}
+\item Sia $\amma:\, [a, b]\to D$, se $\psi:[c,d]\to [a,b]$ \`e $C^1$ con $\psi(c)=a $ e $\psi(d)=b$ allora
+$$\int_\amma \w = \int_{\amma \circ \psi} \w $$
+ovvero l'integrale non dipende dalle riparametrizzazioni che preservano il verso 
+\item Sia $\amma:\, [a, b]\to D$, se $\psi:[c,d]\to [a,b]$ \`e $C^1$ con $\psi(c)=b $ e $\psi(d)=a$ allora
+$$\int_\amma \w = -\int_{\amma \circ \psi} \w $$
+\item Se $\amma = \amma_1\star \amma_2$ giunzione di cammini $C^1$ allora
+$$\int_\amma\w = \int_{\amma_1}\w + \int_{\amma_2}\w$$
+\item Se $\amma:\, [a,b]\to D$ \`e un cammino $C^1$ a tratti (ovvero continua e tale che esistono $a=t_0<t_1<\dots<t_n=b$ tali che $\ris{\amma} {[t_i,t_{i+1}]}$ sia $C^1$ allora
+$$\int_\amma \w =\sum_{i=0}^n \int_{\ris \amma {[t_i,t_{i+1}]}} \w $$
+\end{enumerate}
+\proof\bbianco
+\begin{enumerate}
+\item $$\int_{\amma \circ \psi} \w = \int_c^d \w_{\amma(\psi(t))} ((\amma\circ \psi)'(t))\di t = 
+\int_c^d \w_{\amma(\psi(t))} (\amma'(\psi(t))\psi'(t))\di t=\int_c^d \psi'(t) \cdot \w_{\amma(\psi(t))} (\amma'(\psi(t)))\di t$$
+in quanto $\psi'(t)\in \R$ da cui 
+$$\int_{\amma \circ \psi} \w = \int_{\psi(c)}^{\psi(t)} \w(\gamma(s))\gamma'(s)\di s = \int_{a}^{b} \w(\gamma(s))\gamma'(s)\di s= \int_\amma \w$$
+\item Stessa dimostrazione del punto precedente ma usando il fatto che $\int_a^b f(t)\dt=\int_b^a f(t)\dt$
+\end{enumerate}
+\end{prop}
+
+\begin{lem}Sia $D\subseteq \C$ aperto connesso. Allora $D$ \`e connesso per archi (in particolare per archi $C^1$ a tratti)
+\proof Quasi identica a localmente connessa per archi implica connesso per archi.\\
+Basta osservare che ogni punto di $D$ ha un intorno connesso per archi $C^1$: preso $x_0\in D$ si mostra che l'insieme dei punti di $D$ connessi a $x_0$ da un arco $C^1$ a tratti \`e aperto e chiuso
+\end{lem}
+
+\begin{lem}Sia $\w$ una 1-forma differenziale esatta su $D$ con $\w = \di F$.\\
+Allora $\forall \amma:\, [a,b]\to D $ che \`e $C^1$ a tratti vale
+$$\int_\amma \w = F(\amma(b))-F(\amma(a))$$
+\proof Sia $a=t_0<t_1<\dots<t_n=b$ una partizione tale che $\ris \amma {[t_i,t_{i+1}]}$ sia $C^1$.\\
+Basta provare che $\forall i$ vale
+$$\int_{\ris \amma {[t_i,t_{i+1}]}}  \w =F(\amma(t_{i+1}))-F(\amma(t_i))$$ 
+(in quanto si ha 
+$$\int_\amma \w = \sum_{i=0}^{n-1} \int_{\ris \amma {[t_i,t_{i+1}]} } \w= F(\amma(t_n))-F(\amma(t_0))=F(\amma(b))-F(\amma(a))$$
+i termini centrali si cancellano)\\
+Ma 
+$$\int_{\ris \amma {[t_i,t_{i+1}]}}\w = \int_{\ris \amma {[t_i,t_{i+1}]}}\di F =\int_{t_i}^{t_{i+1}} \di F_{\amma(t)} (\amma'(t))\di t =\int_{t_1}^{t_{i+1}} (F\circ \amma)'(t)\dt = F(\amma(t_{i+1}))-F(\amma(t_i)) $$
+\end{lem}
+\begin{cor}Sia $D\subseteq \C$ aperto connesso, $F:\, D\to \C$.
+$$\di F = 0\quad \implica \quad F \text{ costante}$$
+\proof $\forall a,b\in D$ esiste $\amma$ che connette $a$ a $b$ che \`e $C^1$ a tratti da cui 
+$$F(b)-F(a) =\int_\amma \di F = 0$$
+\end{cor}
+
+\begin{cor}Sia $D\subseteq \C$ aperto connesso. Se $F$ \`e una primitiva di $\w$, tutte e sole le primitive di $\w$ si ottengono sommando una costante a $F$
+\proof Se $G$ \`e un'altra primitiva, $\di G = \di F$ allora $\di (G-F) =0$ dunque $G=F + cost$.\\
+Il viceversa\`e ovvio in quanto $\di (F+cost)=\di F$
+\end{cor}
+
+\begin{thm} Sia $D\subseteq \C$ aperto connesso, e $\w$ una 1-forma differenziale su $D$
+$$\w \text{ esatta } \quad \ses \quad \int_\amma \w = 0 \text{ per ogni } \amma \text{ loop } C^1 \text{ a tratti a valori in } D$$
+\proof $\implica$ Se $\amma:\, [a,b]\to D$ \`e un loop e $\w$ \`e esatta, $\w=\di F$ da cui 
+$$\int_\amma \w =F(\amma(b))-F(\amma(a)) = 0 $$
+se $\amma$ \`e un loop allora $\amma(a) =\amma(b)$\\
+$\iimplica$ Costruiamo una primitiva di $\w$ come segue.\\
+Fissato $x_0\in D$, allora $\forall p \in D$ scelgo un cammino $\amma_p:\,[0,1]\to D\, \, C^1$ a tratti con $\amma(0)=x_0$ e $\amma(1) =p$ e pongo $$F(p)=\int_{\amma_p}\w$$
+Mostriamo che $F(p)$ \`e ben definita, cio\`e non dipende dalla scelta di $\amma_p$.\\
+Sia $\alpha_p$ un altro cammino che congiunge $x_0$ a $p$, ora $\amma_p \star \overline{\alpha_p}$ \`e un loop, dunque,  per ipotesi 
+$$0 = \int_{\amma_p\star \overline{\alpha}_p}\w = \int_{\amma_p} \w + \int_{\overline{\alpha}_p} \w = \int_{\amma_p} \w -\int_{\alpha_p}\w$$ 
+cio\`e $\int_{\amma_p} \w = \int_{\alpha_p} \w$\\
+Mostriamo che $F$ \`e differenziabile con $\di F = \w$.\\
+Se $\w=P\di x+ Q\di y$ basta vedere che $\pr F x = P $  e $\pr F y = Q$ (in quanto $P$ e $Q$ sono continue per ipotesi da cui per il teorema del differenziale totale, $F$ ammetterebbe derivati parziali continue dunque \`e differenziabile con $\di F = \pr F x \di x + \pr F y \di y$).\\
+Mostriamo che $\pr F x = P $ (l'altra si fa in modo analogo).\\
+Sia $\amma_{z_0}$ un cammino che connette $x_0$ a $z_0\,\, C^1$ a tratti, sia $\gamma_h$ un cammino che congiunge $z_0$ a $z_0+h$ dunque
+$$F(z_0+h)-F(z_0) =\int_{\gamma_{z_0}\circ \amma_h} \w - \int_{\amma_{z_0}}\w= \int_{\amma_h}\w$$
+Sia $\amma_h (t) = z_0+t$ (cammino lungo $x$ e costante lungo $y$) per cui 
+$$\w_{\amma_{h(t)}}(\amma'_h(t))=\w_{h(t)}(1) = P(z_0+t)\di x (1) + Q(z_0+t)\di y (1)= P(z_0+t)$$
+dunque 
+$$F(z_0+h) - F(z_0) =\int_0^h P(z_0+t) \dt $$
+dividendo per $h$ otteniamo 
+$$\frac{F(z_0+h)-F(z_0)}{h}=\frac{1}{h}\int_{0}^h P(z_0+t)\dt = P(z_0+\xi_h)$$
+dove l'ultima uguaglianza deriva dal teorema della media integrale con $0\leq \xi_h\leq h$\\
+Passando al limite per $h\to 0$ e usando la continuit\`a di $P$ otteniamo 
+$\pr F x (z_0) = P(z_0)$
+\endproof
+
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

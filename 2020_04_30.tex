@@ -1,0 +1,121 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 30 aprile}
+\begin{defn}Sia $\dim V = n+1$ e sia $\s{e_0, \dots, e_n}$ una base di $V$.\\
+Diremo che $\s{e_0, \dots,e_n}$ \`e un \textbf{riferimento proiettivo}
+\end{defn}
+Fissato un riferimento proiettivo $\s{e_0, \dots, e_n}$ sia $v\in V \setminus\s 0$ allora 
+$$ P = [v] = \s{\lambda v \, \vert \, \lambda\in \K} \in \p(V)$$
+Si ha che $v=x_0e_0+\dots + x_n e_n$. Chiamiamo $x_0, \dots, x_n$ le \textbf{ coordinate omogenee } di $P$ rispetto al riferimento proiettivo $\s{e_0, \dots, e_n}$, per notazione $P=[x_0, \dots, x_n]$\\
+Chiamiamo i \textbf{ punti fondamentali } rispetto al riferimento proiettivo fissato, i seguenti punti dello spazio proiettivo
+$$ F_0=[e_0]\, \dots \, F_n = [e_n]$$
+Il \textbf{ punto unit\`a }  rispetto al riferimento fissato 
+$$ U = [ e_0+\dots + e_n]$$
+\begin{oss}Le coordinate omogenee non sono uniche.\\
+$\forall \mu \in \K, \, \mu\neq 0$ si ha $[v]=[\mu v]\in \p(R)$ dunque
+$$ v=x_0e_0+\dots + x_n e_n \quad \implica \quad \mu v =(\mu x_0) e_0+\dots + (\mu x_n) e_n$$
+dunque sia $x_0, \dots, x_n$ che $\mu x_0, \dots , \mu x_n$ sono coordinate omogenee del punto $[v]$.\\ \\
+$\forall\mu \in \K^\star$ si ha $\s{\mu e_0, \dots , \mu w_n}$ \`e ancora una base di $V$, in  particolare, le $2$ basi danno luogo allo stesso sistema di coordinate omogenee
+\end{oss}
+\begin{defn}Nel caso in cui $V =\K^{n+1}$ chiamiamo \textbf{ riferimento proiettivo standard } di $\p(V)$  quello dato dalla base canonica di $\K^{n+1}$.\\
+Se $P=[x_0, \dots, x_n] \in \p(V)$ chiamiamo $x_0, \dots, x_n$ coordinate proiettive standard di $O$
+\end{defn}
+\begin{defn}Sia $W$ un sottospazio vettoriale di $V$, chiamiamo $\p(W)$ il sottospazio proiettivo associato a $W$.\\
+Estendiamo la notazione di dimensione anche a $\p(W)$ ponendo 
+$$ \dim \p(W) = \dim W -1 $$
+Nel caso in cui
+\begin{itemize}
+\item Se $\dim \p(W) = 0$ allora $\p(W)$ lo denotiamo punto  proiettivo
+\item Se $\dim \p(W) = 1$ allora $\p(W)$ lo denotiamo retta proiettiva
+\item Se $\dim \p(W) =2$  allora $\p(W)$ lo denotiamo piano  proiettivo
+\item Se $\dim \p(W) =1-\dim \p(V)$ allora $\p(W)$ lo denotiamo iperpiano proiettivo
+\end{itemize}
+\begin{oss}Il vuoto ha dimensione pari a $-1$
+\end{oss}
+\end{defn}
+\spazio
+\begin{oss}Sia $\s{e_0, \dots, e_n}$ una base di $V$ e siano $a_0,\dots, a_n \in \K$ con $(a_0, \dots, a_n) \neq (0, \dots, 0)$.\\
+Consideriamo l'equazione omogenea
+\begin{equation}
+\label{eq_om}
+a_0X_0+ \dots + a_n X_n =0
+\end{equation}
+Tale equazione definisce un sottospazio vettoriale $W$ di $V$ che \`e un iperpiano.\\
+Notiamo che i punti $P=[v]\in\p(V)$ le cui coordinate omogenee soddisfano l'equazione~\ref{eq_om} sono esattamente quelle per cui $v\in W$ dunque l'equazione~\ref{eq_om} \`e l'equazione dell'iperpiano $\p(W)$
+\end{oss}
+\begin{defn}Nel caso in cui $V = \K^n$ per ogni $i=0, \dots, n$ definiamo l'i-esimo iperpiano coordinato $H_i$ di $p(V)$ l'iperpiano definito da $X_i=0$
+\end{defn}
+\spazio
+\begin{ese}Consideriamo i seguenti punti in $\pror 2 $ 
+$$ P =\quadre{\frac{1}{2},1,1} \quad Q = \quadre{1, \frac{1}{3}, \frac{4}{3}} \quad R =[2,-1,2]$$
+esiste una retta proiettiva che  li contiene?\\
+Osserviamo che le rette sono iperpiani in $\pror 2 $.\\
+Prima di tutto determiniamo la retta passante per $P$ e $Q$, poi ci chiediamo se $R$ \`e contenuta in tale retta.\\
+Siano $P=[v]$ e $Q=[w]$
+$$P\neq Q \quad \ses \quad \not\exists \lambda\in \K^\star \, \, w =\lambda	 v\quad \ses \quad v,w \text{ sono linearmente indipendenti}$$
+Sia $W=Span_\R(v,w)$ dunque $\p(W)$ \`e la retta che passa per $P,Q$.\\
+Essendo i punti equivalenti a meno di scalari prendo $v=(1,2,2)$ e $w=(3,1,4)$.\\
+Sia $[x_0, x_1, x_2]\in\pror 2(V)$
+$$ [x_0, x_1, x_2]\in\p(W) \quad \ses \quad (x_0,x_1,x_2)\in W\quad \ses \quad v,w,(x_0,x_1,x_2)\text{ sono linearmente indipendenti} \quad \ses $$
+$$\ses \quad \det \begin{pmatrix}
+x_0 & 1 & 3 \\
+x_1 &  2 & 1 \\
+x_2 & 2 & 4 
+\end{pmatrix}=0 \quad \ses \quad 6x_0+ 2x_1-5x_2=0$$
+Osserviamo che se $R=[z]$ allora $z\in W$ dunque $R$ appartiene alla retta, i 3 punti sono allineati
+\end{ese}
+\begin{oss}Pi\`u in generale, data una matrice $A\in M(t,n+1,\K)$ possiamo definire un sistama lineare
+\begin{equation}
+\label{sis_lin}
+A \begin{pmatrix}
+x_0 \\ \vdots \\ x_n
+\end{pmatrix} =0
+\end{equation}
+Tali equazioni sono le equazioni cartesiane nella base $\s{e_0, \dots, e_n}$ di un sottospazio vettoriale $W$ di $V$ e sono anche le equazioni cartesiane del sottospazio proiettivo $\p(W)$ nel riferimento proiettivo $\s{e_0, \dots, e_n}$.\\
+Osserviamo inoltre che $\dim W = \dim V -rk(A) $ da cui $\dim \p W =\dim \p V -rk(A)$\\
+Attenzione: un sottospazio proiettivo non ammette un unico sistema di equazioni cartesiane.\\
+Ino
+\end{oss}
+\spazio
+\begin{lem}Siano $\p(W_1)$ e $\p(W_2)$ sottospazi proiettivi di $\p(V)$.
+$$ \p(W_1) \cap \p(W_2)=\p(W_1\cap W_2)$$
+\proof Fissato un riferimento proiettivo siano 
+$$ A_1 \begin{pmatrix}
+x_0 \\ \vdots \\ x_n 
+\end{pmatrix}=0 \text{ un sistema di equazioni di }W_1$$
+$$ A_2 \begin{pmatrix}
+x_0 \\ \vdots \\ x_n 
+\end{pmatrix}=0 \text{ un sistema di equazioni di }W_2$$
+Ora 
+$$ P=[x_0, \dots, x_n] \in \p(W_1)\cap \p(W_2) \quad \ses \quad   
+\tonde{\begin{array}{c}
+A_1 \\
+\hline A_2 
+\end{array}}  \tonde{\begin{array}{c} x_0 \\ \vdots \\ x_n \\ \hline  x_0 \\ \vdots \\ x_n
+\end{array}} =0 \quad \ses \quad  $$
+$$ \quad \ses \quad v=x_0e_0 +\dots + x_n e^n \in W_1\cap W_2 \quad \ses \quad P\in \p(W_1\cap W_2)$$
+\end{lem}
+\spazio
+\begin{ex}In $\proc 2$ consideriamo le rette
+$$ r_1: ax_1 -x_2 +3i x_0=0$$
+$$r_2: -iax_0 +x_1 =ix_2=0$$
+$$ r_3 =3ix_2 + 5x_0+x_1 =0$$
+Calcolare la loro intersezione al variare del parametro $a$\\
+Occorre calcolare il rango della matrice $A$ e osservare che $\dim( r_1 \cap r_2 \cap r_3) = 2 -rk(A)$
+$$A=\begin{pmatrix} 
+3i & a & -1 \\
+-ia & 1 & i \\
+5 & 1 & 3i 
+\end{pmatrix}$$
+\end{ex}
+\spazio
+\begin{defn}Diciamo che due sottospazi $\p(W_1)$ e $\p(W_2)$ di $\p(V)$ sono
+\begin{itemize}
+\item incidenti se $\p(W_1) \cap \p(W_2) \neq \emptyset$
+\item sghembi se $\p(W_1) \cap \p(W_2) = \emptyset$
+\end{itemize}
+\begin{oss}Similmente possiamo dare la seguente definizione:\\
+Due sottospazi si dicono sghembi se $\dim(\p(W_1) \cap \p(W_2))=-1$ e incidenti se tale dimensione \`e non negativa
+\end{oss}
+\end{defn}
+\end{document}

@@ -1,0 +1,74 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 20 aprile }
+\begin{thm}[Lemma di Schwarz]\bianco
+Sia $f(z)$ una funzione olomorfa nel disco aperto $\abs{z} < 1 $.\\
+Assumiamo $f(0)=0$ e $\abs{f(z)}<1$ per $\abs{z} < 1 $ allora 
+\begin{enumerate}
+\item $\abs{f(z)}\leq \abs z $ e $\abs{f'(0)}\leq 1$
+\item Se $\exists z_0\neq 0 $ tale che $\abs{f(z_0)} =z_0$ oppure $\abs{f'(0)}=1$ allora $f(z) = \lambda z $ con $\abs \lambda =1$
+\end{enumerate}
+\proof \bbianco
+\begin{enumerate}
+\item $f$ \`e olomorfa, dunque analitica per $\abs z <1$, sia 
+$$ f(z) = \sum a_n z^n$$
+l'approssimazione di Taylor nell'origine  ( con raggio di convergenza $\rho\geq 1$).\\
+Definiamo la funzione 
+$$ g(z) =\begin{cases}\frac{f(z)}{z} \text{ se }  0<\abs z <1 \\ 
+a_1 = f'(0 \text{ se } z=0
+\end{cases}$$
+Dunque 
+$$ g=\sum a_n z^{n-1}$$ 
+da cui $g$ \`e analitica ovvero olomorfa.\\
+Sia $0<r<1$ e $\abs  z=r$ abbiamo 
+$$ \abs{g(z)} = \abs{\frac{f(z)}{z}} \leq \frac{1}{r} \quad \implica \quad \abs{g(z)} \leq 1 \text{ per } \abs{z} <1 $$
+dove l'implicazione deriva dal principio del massimo modulo per funzioni olomorfe.\\
+Abbiamo dunque provato 
+$$ \abs{\frac{f(z)}{z}}< 1\quad \implica \quad \abs{f(z)}\leq \abs z$$
+In particolare, vale anche $\abs{g(0)}<1$ da cui $\abs{f'(0)}<1$
+\item Se $\exists a$ come nelle ipotesi, allora per il corollario al principio del massimo modulo, $g$ risulta costante da cui 
+$$ g(z) = \lambda \quad \implica \frac{f(z)}{z} =\lambda \quad \implica f(z) = \lambda z$$
+\end{enumerate}
+\end{thm}
+\begin{ex}Cosa succede se assumiamo $\abs{f(z)}\leq 1$ al posto di $\abs{f(z)} <1$ 
+\end{ex}
+\newpage
+\section{Serie di Laurent}
+\begin{defn}Una serie di Laurent \`e un'espressione della forma 
+$$ \sum_{n \in \Z} a_n z^n$$
+\end{defn}
+Ad una serie di Laurent \`e possibile associare $2$ serie di potenze
+$$ \sum_{n\geq 0 } a_n z^n \quad \sum_{n<0} a_n z^{-n}$$
+assumiamo che entrambe le serie abbiano raggio di convergenza diverso da $0$ e $+\infty$ allora poniamo 
+$$ \rho_1=\text{ raggio di convergenza della serie } \sum_{n\geq 0 } a_n z^n$$
+$$ \rho_2=\frac{1}{\text{ raggio di convergenza della serie } \sum_{n< 0 } a_n z^{-n}}$$
+Sia 
+$$ f_2 =\sum_{n<0} a_n z^n$$
+tale serie converge assolutamente per $\abs z >\rho_2$, mostriamo che tale funzione \`a anche olomorfa in $\abs z>\rho_2$.\\
+Poniamo 
+$$g(u)=f_2\tonde{\frac{1}{u}} =\sum_{n<0} a_n \tonde{\frac{1}{n}}^n =\sum_{n<0} a_n u^{-n} = \sum_{k>0} a_{-k} u^k$$
+e tale serie converge assolutamente per $\abs u < \frac{1}{\rho_2}$.\\
+Essendo $g$ analitica si ha 
+$$ g'(z) = \sum_{k>0} k a_{-k} a^k$$
+Notiamo ora  che $f_2(z) = g\tonde{\frac{1}{z}}$ dunque usando la formula di derivazione di funzioni composte otteniamo 
+$$f_2'(z) = -g'\tonde{\frac{1}{z}} \frac{1}{z^2} =-\frac{1}{z^2} \left( \sum_{k>0} ka_{-k} \left(\frac{1}{z}\right)^{k-1} \right) = \sum_{n<0} na_n z^{n-1} $$
+dunque esiste $f_2'(z)$ da cui $f_2$ \`e olomorfa.
+\spazio
+\begin{prop}Sia $\sum_{n\in \Z}a_n z^n$ una serie di Laurent.\\
+Assumiamo che 
+\begin{itemize}
+\item Le serie $\sum_{n \geq 0 } a_n z^n$ e $\sum_{n<0} a_nz^{-n}$ sono assolutamente convergenti
+\item I $\rho_1$ e $\rho_2$ definiti sopra soddisfano $\rho_2<\rho_1$
+\end{itemize}
+allora la somma $f(z)$ della serie di Laurent \`e olomorfa nella corona $\rho_2< \abs z <\rho_	1$ e la serie converge normalmente in $r_2\leq\abs z \leq r_1$ con $\rho_2<r_2<r_1<\rho_1$
+\end{prop}
+\begin{defn}Diciamo che una funzione definita sulla corona $\rho_2<\abs z<\rho_1$ ha un'espansione di Laurent se esiste una serie di Laurent che converge in questa corona e di cui $f(z)$ \`e la somma (per ogni $z$ nella corona)
+\end{defn}
+\begin{oss}Se $f$ ammette una serie di Laurent, allora $f$ \`e olomorfa nella corona.\\
+Infatti se 
+$$ f(z) = \sum_{z\in \Z} a_n z^n$$ 
+sappiamo che le funzione $$f_1(z)=\sum_{z\geq 0 a_n z^n} \quad f_2(z)=\sum_{z<0} a_n z^n$$ sono olomorfe.\\
+Concludiamo osservando che la somma di funzioni olomorfe \`e olomorfa da cui $f(z) = f_1(z) +f_2(z)$ \`e olomorfa 
+\end{oss}
+
+ \end{document}

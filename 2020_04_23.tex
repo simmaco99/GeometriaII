@@ -1,0 +1,125 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 23 aprile}
+\begin{thm}Unicit\`a dello sviluppo in serie di Laurent di una funzione $f$ olomorfa su una corona circolare
+\proof Senza perdit\`a di generalit\`a supponiamo $z_0=0$ e sia $f:\, D \to \C$ olomorfa con 
+$$ D=\s{z\in \C \, : \, \rho_2<\abs z<\rho_1}$$ 
+con sviluppo
+$$ f(z) =\sum_{n \in \Z} a_n z^n$$ 
+Sia $k\in \Z$ fissato e sia $\gamma:\, [0,1]\to D$ con $I(\gamma,0) =1$.\\
+Calcoliamo 
+$$\int_\gamma \frac{f(z)}{z^{k+1}} \dz  = \int_{\gamma} \tonde{\frac{\sum_{n \in \Z} a_n z^n }{z^{k+1}}} \dz = \int_\gamma \tonde{\sum_{n\in \Z} a_nz^{n-k-1}}\dz = \sum_{n\in \Z} a_n \int_{\gamma} z^{n-k-1} \dz $$
+Ora $z^i\dz $ \`e esatta su $C\setminus \s 0$ dunque su $D$ per $i\neq -1$, dunque se $n-k-1\neq -1$ ovveri $n\neq k$ si ha 
+$$\int_\gamma z^{n-k-1} \dz =0$$
+dunque nella somma di sopra otteniamo 
+$$ \int_{\gamma} \frac{f(z)}{z^{k+1}} = \sum_{n \in \Z} \int_{\gamma}z^{n-k-1} \dz = a_k \int_{\gamma} \frac{1}{z} \dz =2\pi i a_k $$
+dunque $a_k$ \`e univocamente determinato da $f$ 
+\end{thm}
+\begin{oss}Osserviamo che per $k=-1$ otteniamo 
+$$ a_{-1}  =\frac{1}{2\pi i } \int_{\gamma} f(z) \dz $$
+tale coefficiente prende il nome di residuo di $f$ in $z_0$
+\end{oss}
+\spazio
+\begin{defn}Sia $f:\, B \setminus \s {z_0}\to \C$ olomorfa.\\
+Chiamiamo residuo di $f$ in $z_0$
+$$Res(f,z_0) = a_{-1}$$ 
+dove 
+$$\sum_{n \in \Z} a_n (z-z_0)^n$$
+\`e lo sviluppo di Lorent di $f$ centrato in $z_0$
+\end{defn}
+\newpage
+\begin{prop}[Caratterizzazione dei poli]\bianco
+Sia $D$ aperto e $z_0\in D$, supponiamo $f:\, D\setminus \s{z_0} \to \C$  olomorfa.\\
+Sia $z_0$ una singolarit\`a isolata di $f$.\\
+Sono fatti equivalenti
+\begin{enumerate}
+\item $z_0$ \`e un polo di ordine $n_0$
+\item $f(z) = \frac{g(z)}{(z-z_0)^{n_0}} $ dove $g$ \`e olomorfa in $D$ con $g(z_0)\neq 0$
+\item $\frac{1}{f(z)}$ si estende ad una funzione olomorfa $k:\, U \to \C$ in un intorno di $z_0$ con $z_0$ zero di ordine $n_0$ per $k$ 
+\end{enumerate}
+\proof\bbianco
+\begin{itemize}
+\item $1\implica 2$.\\
+Dalla definizione di polo si ha 
+$$ f(z) =\sum_{n\in \Z}a_n (z-z_0)^n \text{ con } a_{-n_0} \neq 0$$
+dunque 
+$$ f(z) = (z-z_0)^{-n_0} \sum_{n \geq 0 } a_{n-n_0} (z-z_0)^n =\frac{1}{ (z-z_0)^{n_0} } g(z)$$
+ora $g(z)$ \`e olomorfa (\`e analitica) ed inoltre $g(z_0) =a_{-n_0} \neq 0$
+\item $2\implica 3$\\
+Supponiamo
+$$ f(z) = \frac{g(z)}{(z-z_0)^{n_0}} \text{ con } g(z_0)\neq 0$$
+ora in un intorno di $z_0$, la funzione $g$ non si annulla per cui \`e ben definita e olomorfa la funzione 
+$$k(z) = \frac{1}{f(z)} = \frac{(z-z_0)^{n_0}}{g(z)}$$
+tale funzione ha uno zero di ordine $n_0$ in $z_0$
+\item $3\implica 1 $\\
+Se $$k(z) = h(z) ( z-z_0)^{n_0} \text{ con } h(z_0)\neq 0 \text{ e } k = \frac{1}{f}$$
+allora in $B \setminus\s{z_0}$ ($B$ palla che contiene $z_0$) abbiamo 
+$$ f(z) =  \frac{1}{h(z) (z-z_0)^{n_0}}$$ 
+ora $\frac{1}{h(z)}$ \`e olomorfa dunque analitica da cui 
+$$ f(z) = \tonde{\sum_{n \geq 0} a_n (z-z_0)^n} \frac{1}{(z-z_0)^{n_0}} \sum_{n\geq -n_0} a_{n+n_0} (z-z_0)^n $$ 
+ora $z_0$ \`e un polo di $f$ di ordine $n_0$ in quanto $a_0\neq 0$ infatti $\frac{1}{h(z_0)}\neq 0$
+\end{itemize}
+\end{prop}
+\newpage
+\begin{defn}Una funzione meromorfa su $D$ \`e una funzione olomorfa 
+$$f:\, D\setminus S \to C$$
+dove $S$ \`e un insieme discreto di punti (chiuso in $D$) e 
+$$ \forall z_0\in S \quad f \text{ ha un polo in } z_0$$
+\end{defn}
+\begin{oss}Grazie alla caratterizzazione dei poli, se $f,g:\, D \to \C$ sono olomorfe e $g$ non \`e costantemente nulla, allora $\frac{f}{g}$ \`e meromorfa.\\
+Infatti gli zeri di una funzione olomorfa sono discreti.\\
+L'unica cosa non completamente ovvia \`e capire cosa succede in $z_0$ e tale che $f(z_0) =g(z_0)$.\\
+Se $n$ \`e l'ordine di $z_0$ come zero di $f$ e $m$ \`e l'ordine di $z_0$ come zero di $g$.
+\begin{itemize}
+\item  Se $n\geq m$ allora $\frac{f}{g}$ si estende ad una funzione olomorfa in $D$ 
+\item Se $n<m$ allora $\frac{f}{g}$ ha un polo di ordine $\abs{n-m}$ 
+\end{itemize}
+\end{oss}
+Andiamo a studiare i comportamenti della funzioni "vicino" alle singolarit\`a isolate
+\begin{cor} Se $f$ ha un polo in $z_0$ allora $\ds \lim_{z\to z_0} \abs{f(z)}=+\infty$
+\proof Dalla caratterizzazione dei poli sappiamo che 
+$$ f(z) =\frac{g(z)}{(z-z_0)^n} \text{ con } g(z_0) \neq 0 \text{ e } n>0$$
+dunque 
+$$\abs{f(z)} = \abs{ \frac{g(z)}{(z-z_0)^n} }\to +\infty$$
+\end{cor}
+Al contrario, vicino a singolarit\`a essenziali abbiamo 
+\begin{thm}[di Weistrass]Sia $z_0$ una singolarit\`a essenziale di $f:\, D \setminus \s{z_0}\to \C$.\\
+Allora per ogni intorno contenuto in $D$ $U$ di $z_0$ $f\tonde{U \setminus\s{z_0}}$ \`e denso in $\C$
+\proof Supponiamo per assurdo che esista un intorno $U\subseteq D$ di $x_0$ tale che $f\tonde{U\setminus \s{z_0}}$ non sia denso dunque 
+$$ \exists a \in \C \, \, \exists R>0 \text{ con } B(a,R)\cap f
+\tonde{U\setminus \s{z_0}} =\emptyset $$
+Sia $$g:\, U \setminus \s{z_0} \to \C \text{ con } g(z) =\frac{1}{f(z)-a}$$
+Dunque abbiamo che 
+$$\forall v \in U \quad \abs{g(z)} =\frac{1}{\abs{f(z) -a}}\leq \frac{1}{R}$$
+Abbiamo dunque $g(z)$ limitata in un intorno di $z_0$ da cui $z_0$ \`e una singolarit\`a eliminabile per $z_0$.\\
+Abbiamo che $g$ si estende ad una funzione olomorfa, che denotiamo ancora $g$,  su tutto $U$.\\
+Ma allora $f(z) = \frac{1}{g(z)} +a$ ha un polo in $z_0$ il che contraddice che $z_0$ sia una singolarit\`a essenziale 
+\end{thm}
+\begin{ese}La funzione $f(z) =e^{1/z}$ ha una singolarit\`a essenziale in $z_0=0$
+\end{ese}
+\begin{cor}Se $z_0$ \`e una singolarit\`a essenziale per $f$ allora $\ds \lim_{z\to z_0} f(z) $ non esiste 
+\proof Dal teorema di Weistrass, segue che per ogni  $a\in \C$ allora posso costruire una successione $z_n\to z_0$ tale che $\lim_{n\to +\infty} f(z_n)=a$.
+\end{cor}
+\newpage
+\begin{defn}Sia $D\subseteq\C$ chiuso con $D^\circ\neq \emptyset$  e sia $\Gamma=\partial D $\\
+Diciamo che $D$ ha bordo $C^1$ a tratti se pet ogni $ \Gamma_i$  componente connessa di  $ \Gamma $
+$$\exists \gamma_i:\, J_ i\to \Gamma_i  \, \, C^1 \text{ a tratti  dove } J_i \subseteq \R \text{ intervallo e } \gamma_i \text{ surgettiva  iniettiva eccetto sugli estremi } $$
+\end{defn}
+\begin{ese}\bbianco
+\begin{itemize}
+\item $D=\R\cup \overline{B(0,1)}$ ha come bordo $(-\infty,-1]\cup S^1 \cup[1,+\infty)$ dunque non ha bordo $C^1$ a tratti
+\item $D=\overline{B(0,1)}$ ha $\partial D =S^1$ ed ha perci\`o bordo $C^1$  a tratti
+\item $D_R=\s{ z\in \C\, : \, \abs{z} \leq R \, \, Im(z)\geq 0 }$ con $R>0$ ha bordo $C^1$ a tratti
+\end{itemize}
+\end{ese}
+Le componenti di bordo di un sottoinsieme $D$ con bordo $C^1$ a tratti si possono orientare canonicamente come segue
+\begin{defn}Diciamo che 
+$ \gamma:\, J \to \Gamma' $ \`e positiva se $ \forall t_0\in J $ tale che $\gamma'(t_0)$ sia definita, il vettore $-i\gamma'(t_0)$ punta all'esterno di $D$ in $\gamma(t_0)$
+\end{defn}
+\begin{defn}Un vettore $v$ ``punta all'esterno di $D$ " in $z_0\in \partial D$ se $$\exists\varepsilon>0\quad  \s{t\in (-\varepsilon, \varepsilon) \, \vert \, z_0 + tv\in D } =[-\varepsilon, 0]$$
+\end{defn}
+\begin{defn}Sia $R\subseteq D$ \`e un dominio con bordo $C^1$ di componenti connesse $\Gamma_1, \dots, \Gamma_k$ con parametrizzazioni positive $\gamma_1, \dots, \gamma_k$.\\
+Se $\w$ \`e una $1$-forma su $D$ allora poniamo 
+$$ \int_{\partial R } \w = \sum_{i=1}^ k \int_{\gamma_i} \w $$
+\end{defn}
+\end{document}

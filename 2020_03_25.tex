@@ -1,0 +1,179 @@
+\input{0_Preambolo}
+\begin{document}
+\section{Ancora sul logaritmo complesso}
+\begin{prop}Sia $\log:\, D \to \C$ una branca del logaritmo ($D$ aperto connesso di $\C$) allora $\log$ \`e olomorfa con $log'(z)= \frac{1}{z}$ ($0\not \in D$)
+\proof $\log(exp(x))=z+c$ dunque $\log'(exp(z))exp'(z) = 1$ da cui essendo $exp'(z) = exp(z)$ si ha $\log'(exp(z))= \frac{1}{exp(z)}$\\
+(Detto bene: fissato $z_0\in D$, esiste $y_0\in\C$ con $z_0=exp(y_0)$.\\
+Per continuit\`a di $exp$, dato un intorno $V$ di $z_0$ in $D$, esiste un intorno $W$ di $y_0$ in $\C$  con $exp(W)\subseteq V$.\\
+Le uguaglianze di sopra sono verificate per $y\in W$ e $z\in Y$)
+\end{prop}
+\begin{oss}Nella proposizione abbiamo usato il seguente fatto:\\
+Sia $f:\, D \to D'$ \`e olomorfa e bigettiva e $g:\, D'\to D$ \`e l'inversa di $f$.\\
+Se $f'(z_0)\neq 0 $ allora $g$ \`e olomorfa in $f(z_0)$ e vale 
+$$g'(f(z_0))=\frac{1}{f'(z_0)}$$
+Infatti da $g\circ f = Id $ e dal teorema della funzione inversa (Analisi II) poich\`e $f'(z_0) = a+ ib \neq 0 $, 
+$d_{f_{z_0}}=\begin{pmatrix}
+a & - b \\   b & a
+\end{pmatrix}$ \`e invertibile.\\
+Per cui $g$ \`e differenziabile in $f(z_0)$ e $d_{g_{f(z_0)}}= (d_{f_{z_0}})^{-1}$.\\
+Infine si verifica facilmente che se $A=\begin{pmatrix}
+ a & -b \\ b  & a 
+\end{pmatrix}$ con $a+ib\neq 0 $ allora ha come inversa $\begin{pmatrix}
+c & -d \\ d & c 
+\end{pmatrix}$ con $c+id = \frac{1}{a+ib}$
+\end{oss}
+\spazio
+\begin{prop}Sia $D=B(0,1)$ e sia $\log:\{ Re(z)>0\} \to \C$ la branca principale.\\
+Allora $\forall z\in D$ vale $\log(1+z) =\sum (-1)^{n+1} \frac{z^n}{n}$
+\proof Siano $f,g:\, D \to C$ con $f(z) = \log(1+z)$ e $g(z) =\sum (-1)^{n+1} \frac{z^n}{n}$.\\
+Poich\`e il raggio di convergenza della serie data \`e $1$, $g$ \`e ben definita e analitica, dunque olomorfa e 
+$$g'(z) = \sum_{n\geq 1}  (-1)^{n+1} n \frac{z^{n-1}}{n} = \sum_{n\geq 1} (-1)^{n+1} z^{n-1} =\sum (-1)^n z^n = \sum (-z)^n = \frac{1}{1-(-z)}=\frac{1}{1+z}$$
+Perci\`o se $h=f-g$ si ha $h'(z) = f'(z) - g'(z) = 0$ per $z\in D$.\\
+Dunque $h'\equiv 0$ in $D$, dunque $h$ \`e costante in $D$, $h(z)=c$ ma $h(0)=0$ da cui $f=g$
+\endproof
+\end{prop}
+\newpage
+\begin{prop}Sia $D$ aperto connesso di $\C$ e $f:\, D\to \C$ analitica.\\
+I seguenti fatti sono equivalenti
+\begin{itemize}
+\item[(i)]$\exists z_0\in D$ con $f^{(n)} (z_0)=0$ per ogni $n \in \N$
+\item[(ii)] $\exists U\subseteq D$ aperto con $\ris  f U \equiv 0$
+\item[(iii)] $f\equiv 0 $
+\end{itemize}
+\proof \bbianco
+\begin{itemize}
+\item $(iii) \implica (i)$ ovvio
+\item $(i) \implica (ii)$ Per analicit\`a $f(z)= \sum a_n (z-z_0) $ per $z\in B(z_0,R)$ per qualche $R>0$.\\
+Ora $a_n = \frac{f^{(n)}(z_0)}{n!}$ (vedi alla fine della dimostrazione).\\
+Dunque se $f^{(n)}(z_0)=0$ allora $a_n=0$ perci\`o $f\equiv 0 $ su $B(z_0,R)$
+\item $(ii)\implica (iii)$ Sia $\Omega\subseteq D $ 
+$$\Omega=\{ z\in D \, \vert \, \exists U \ni z \text{ aperto con }\ris f  U\equiv 0\}$$
+Essendo $D$ connesso, basta provare che \`e aperto e chiuso.\\
+$\Omega$ \`e aperto per definizione, proviamo che \`e chiuso .\\
+Sia $z\in D$ con $z=\lim z_n$ dove $z_n \in \W$\\
+Ora $f^{(k)}(z_n)=0$ per ogni $n,k\in \N$ (in quanto se $z_n \in W$ allora $f\equiv 0$ in un intorno di $z_0$ dunque $f^{(k)}(z_n)=0$ per ogni $k\in \N$).\\
+Ma $f^{(k)}$ \`e continua, dunque $f^{(k)}(z) = \lim_n f^{(k)}(z_n)$.\\
+Ora tutte le derivate di $f$ si annullano in $z_0$ dunque $z\in \W$ (ripercorrere la dimostrazione $(i)\implica (ii)$)
+\end{itemize}
+\end{prop}
+\begin{oss}
+Nella dimostrazione abbiamo usato che se $f$ \`e analitica anche $f'$ lo \`e e se $f(z) =\sum a_n z^n $ allora $f'(z) =\sum_{n\geq 1 }  a_n n z^{n-1}$.\\
+Da cui $f'$ \`e analitica, dunque derivabile.\\
+Iterando otteniamo che $f$ \`e derivabile infinite volte e 
+$f^{(n)}(z_0)=a_n n!$
+\end{oss}
+\begin{oss}L'enunciato della proposizione \`e falso se si suppone f $C^\infty$.\\
+Consideriamo la funzione 
+$$f:\, \C\to \C \quad f(a+ib)=
+ \begin{cases} e^{-\frac{1}{a}} \text  { se } a >0 \\  0 \text{ se } a\leq 0 \end{cases}$$
+Ora $f$ \`e $C^\infty$ si annulla in $\{ Re(z) \leq 0 \}$ dunque su un aperto di $\C$ ma non \`e nulla su $\C$ (l'insieme $\W$ sopra definito non \`e chiuso)
+\end{oss}
+\spazio
+\begin{cor}
+Sia $D$ aperto connesso di $\C$ e siano $f,g:\, D \to \C$ analitiche.
+\begin{itemize}
+\item Se $f=g$ su un aperto $U\subseteq D$ allora $f=g$ su $D$ 
+\item Se $\exists z_0\in D$ con $f^{(n)}(z_0)=g^{(n)}(z_0)$ per ogni $n\in \Z$ allora $f=g$ su $D$
+\end{itemize}
+\proof Basta applicare il teorema precedente a $h=f-g$
+\end{cor}
+\begin{cor}L'anello delle funzioni analitiche su $D$ (aperto connesso di $\C$) \`e un dominio di integrit\`a
+\proof Se $f,g:\, D \to \C$ sono tali che $fg\equiv 0 $ allora siano:
+$$A=\{ z \, \vert \, f(z)=0\} \quad B=\{ z \, vert \, g(z)=0\}$$
+Allora $D=A\cup B$, essendo $A,B$ chiusi allora umo di essi ha parte interna non vuota (ex), supponiamo $A^\circ\neq 0 $ da cui $f\equiv 0$ su un aperto e dunque su $D$
+\end{cor}
+\newpage
+\section{Zeri di funzioni analitiche}
+\begin{defn}Sia $f:\, D \to \C$ analitica con $f\not \equiv 0 $.\\
+$\forall z_0\in D $ definiamo $$ord_{z_0}(f)=\min\{ n\in \N \, \vert \, f^{(n)}(z_0)\neq 0\}$$
+\begin{oss}Poich\`e la funziono non \`e identicamente nulla, l'insieme di cui cerchiamo il minimo \`e non vuoto
+\end{oss}
+\begin{oss}$f(z_0)=0 \, \implica ord_{z_0}(f)\geq 1$
+\end{oss}
+\begin{defn}Uno zero $z_0$ di $f$  si dice semplice se $ord_{z_0}(f) =1$\\
+Uno zero $z_0$ di $f$  si dice semplice se $ord_{z_0}(f) >1$\\
+\end{defn}
+\end{defn}
+\begin{oss}Se $f(z)=\sum a_n(z-z_0)$, poich\`e $f^{(n)}(z_0)=n!a_n$ allora $$ord_{z_0}(f)=\min\{ n \in \N\, \vert \, a_n \neq 0 \}$$
+\end{oss}
+\begin{prop} $f:\, D \to C$ con $D$ aperto connesso di $\C$.\\
+Allora si ha
+$$f(z) = (z-z_0)^{ord_{z_0}(f)}g(z)$$
+con $g:\, D \to \C$ analitico e con $g(z)\neq 0 $ in un intorno di $z_0$
+\proof Sia $k=ord_{z_0}(f)$.\\
+In un intorno di $z_0$ si ha
+$$f(z)= \sum a_n(z-z_0)^n =\sum_{n\geq k} a_n (z-z_0)^n =(z-z_0)^k \sum_{n \geq k} a_n (z-z_0)^{n-k}=(z-z_0)^k \sum a_{n+k} (z-z_0)^n$$
+Sia $g(z)=\sum a_{n+k} (z-z_0)^n$, la serie di potenze che definisce $g$ ha lo stesso raggio di convergenza di $f$\\
+In  particolare $\exists U$ intorno di $z_0$ tale che $f(z) = (z-z_0)^k g(z)$.\\
+Ora $g(z_0)=a_k\neq 0$, dunque esiste un intorno di $z_0$ con $g$ non identicamente nulla nell'intorno
+\end{prop}
+\begin{cor}Sia $f:\, D \to \C$ ($D$ aperto connesso di $\C$) e $f\not\equiv 0$\\
+Allora $C=\{ z \in D \, \vert \, f(z)=0\}$ \`e discreto e chiuso in $D$
+\proof Sia $z_0\in C$ con $k=ord_{z_0}(f)$ allora in un intorno $U$ di $z_0$ si ha $$f(z)=(x-x_0)^k g(z)$$ e tale che $g(z)\neq 0 $ per $z\in U$\\
+Se $z\in U \setminus\{ z_0\}$ allora $C\cap U =\{ z_0\}$ dunque \`e discreto.\\
+$C$ \`e chiuso essendo pre-immagine di $\{0\}$ mediante una funzione continua
+\end{cor}
+\newpage
+\section{1-forme differenziali complesse}
+$\C$ pu\`o essere visto come un $\R$-spazio vettoriale di dimensione $2$ con base $\{ 1 , i\}$.\\
+Fissando questa base si ha $End_\R(\C)\cong M(2,2,\R)$ (con $End_\R(\C)$ indichiamo l'insieme degli endomorfismi di $\C$ che sono $\R$-lineari).\\
+L'isomorfismo \`e dato da 
+$$\psi \to \begin{pmatrix}
+Re (\psi(1)) & Re (\psi(i)) \\
+Im(\psi(1)) & Im(\psi(i))
+\end{pmatrix}$$
+Notiamo che 
+$$\di x:\, \C\to \C \quad \di x(a+ib)=a$$
+$$\mathrm{d}y:\, \C\to \C \quad \di y(a+ib)=b$$
+\`e una base di $End_\R(\C)$ inteso come $\C$-spazio vettoriale
+\begin{defn}Sia $D$ un aperto di $\C$ una 1-forma differenziale complessa su $D$ \`e una funzione 
+$\w:\,D \to End_\R(\C)$ continua (rispetto alla topologia di $M(2,2,\R)\cong \R^4$)
+\end{defn}
+\begin{oss}Pi\`u concretamente una 1-forma differenziale complessa $\w$ su $D$ corrisponde a $2$ funzioni $P,Q:\, D \to \C$ tali che 
+$$\w(z)=P(z)\di x + Q(z) \di y = P\di x + Q\di y $$
+\end{oss}
+\begin{oss}
+La continuit\`a di $\w$ deriva da quella di $P$ e $Q$ \\
+Infatti se $$P(z) = a(z) + i b(z) \text{ e }  Q(z) = c(z) + i d(z)$$
+$$\w(z)(1) = P(z) \di x (1) + Q(z)\di y(1)  = P(z) = a(z)= i b(z)$$
+$$\w(z)(i) = P(z) \di x (i) + Q(z)\di y(i)  = Q(z) = c(z)= i d(z)$$ 
+dunque 
+$$\w(z) =\begin{pmatrix}
+a(z) & c(z) \\ b(z) & d(z) 
+\end{pmatrix}$$ 
+da cui $\w$ \`e continua se e solo se $a,b,c,d$ lo sono, se e solo se $P,Q$ lo sono 
+\end{oss}
+\begin{ese}Se $f:\, D \to \C$ \`e $C^1$ allora $\di f $ \`e una 1-forma differenziale complessa, data da 
+$$\di f =\begin{pmatrix}
+ \pr {Re(f} u & \pr {Re(f)} v \\
+ \pr {Im(f)} u & \pr {Im(f)} v 
+\end{pmatrix}$$
+\end{ese} 
+\begin{oss}Un'altra base utile di $End_\R(\C)$ \`e data da 
+$$\di z = \di x + i \di y $$
+$$\di \overline{z}=\di x - i \di y$$
+$\tonde{ \text{\`e una base in quanto } \di x =\frac{\di z + \di \overline{z} }{2} \text{ e } \di y = \frac{\di z - \di \overline{z}}{2i}= -i \frac{\di z - \di \overline{z}}{2}}$
+Ora se $f$ \`e differenziabile allora 
+$$ \di f = \pr f x \di x + \pr f y \di y = $$ $$=\pr f x \tonde{\frac{\di z + \di \overline{z}}{2}}+\pr f y \tonde{ -\frac{i}{2}(\di z -\di \overline{z})} =$$
+$$=\frac{1}{2}\tonde{\pr f x - \pr f y }\di z +\frac{1}{2}\tonde{\pr f x + i \pr f y }\di \overline{z} $$
+\end{oss}
+\begin{defn}Sia $f$ differenziabile 
+$$\pr f z =\frac{1}{2}\tonde{\pr f x - \pr f y }$$
+$$\pr f {\overline{z}} =\frac{1}{2}\tonde{\pr f x + i \pr f y }$$
+Perci\`o risulta per costruzione
+$$\di f = \pr f z \di z + \pr f {\overline{z}} \di \overline{z}$$
+\end{defn}
+\begin{oss}$f$ \`e olomorfa $\ses$ $\di f$ \`e $\C$-lineare dunque 
+$$ f\text{ olomorfa} \quad \ses \quad \pr f y = \di f (i) = i \di f(1) =   i \pr f x  \quad \ses \quad \pr f x = - i \pr f y \quad \ses \quad \pr f z =0 $$
+\end{oss}
+\begin{oss}Assumendo $f$ olomorfa 
+$$\pr f x (z) = \di f_z(1)= f'(z)$$
+$$\pr f y (z) = \di f_z(i) = i \di f_z(1) = i f'(z)$$
+Perci\`o 
+$$\pr f z = f'(z)$$
+\end{oss}
+\begin{cor}Se $f$ \`e olomorfa $\di f = f' \di z$
+\proof
+$\di f = \pr f z \di z + \pr f {\overline{z}} \di \overline{z}= f' \di z + 0 $
+\end{cor}
+\end{document}

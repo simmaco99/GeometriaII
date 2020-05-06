@@ -1,0 +1,110 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 9 aprile}
+\begin{thm}[di Liouville]\spazio
+Una funzione intera limitata \`e costante
+\proof Essendo $f$ intera si ha $f(z) = \sum a_n z^n$ e tale serie ha raggio di convergenza infinito.\\
+Dal disuguaglianza di Cauchy si ha $$\forall r, \forall n \geq 0 \quad  \abs{a_n} r^n \leq M(r)$$
+Inoltre essendo $f$ limitata, esiste $M>0$ con $\abs{f(z)}\leq M$ dunque 
+$$ \abs{a_n} r^n \leq M \quad \implica \quad \abs{a_n} \leq \frac{M}{r^n} \quad \forall r\geq 0,\, \forall n\geq 0$$ 
+dunque per $r\to + \infty$ si ha $\abs{a_n}\to 0$ per $n \geq 1 $ da cui $f(z) =a_0$
+\end{thm}
+\begin{thm}[Teorema fondamentale dell'algebra]\bianco
+Sia $P(z)\in \C[z]$ un polinomio non costante.\\
+Allora ammette almeno uno zero.
+\proof Supponiamo per assurdo $P(z)$ non si annulli da cui $\frac{1}{P(z)}$ \`e intera.\\
+Assumiamo $$P(z) = a_n z^n + \dots + a_0 \text{ con }  a_n \neq 0$$ quindi
+$$ P(z) =z^n \tonde{a_n + \frac{a_{n-1}}{z}+\dots +\frac{a_0}{z^n}}$$
+Per $\abs z\to +\infty$ si ha $P(z) \to +\infty$ da cui $\abs{\frac{1}{P(z)}} \to 0 $\\
+Dunque $\exists R>0$ con $\abs{\frac{1}{P(z)}}$ limitata per $\abs z >R$\\
+D'altra parte anche $\abs{\frac{1}{P(z)}}$ definita su $\{ z\in \C\, \vert \, \abs{z} \leq R\}$ \`e limitata (funzione continua su un compatto).\\
+Ora per il teorema di Louville otteniamo $\frac{1}{P(z)}$ \`e costante dunque anche $P(z)$ lo \`e, in contraddizione con l'ipotesi
+\endproof
+\end{thm}
+\newpage
+\section{Propriet\`a del valor medio}
+\begin{defn}Sia $D\subseteq \C$ e $f:\, D \to \C$ continua.\\
+Diciamo che $f$ ha la propriet\`a del valor medio (PVM) se 
+$$\forall a\in D \quad \exists r_0 >0$$ 
+tale che 
+\begin{enumerate}
+\item $$\{z\, \vert \, \abs{z-a} < r_0\} \subseteq D$$
+\item $$f(a) = \frac{1}{2\pi} \int_0^{2\pi} f\tonde{ a+re^{i\vartheta}} \di \vartheta\text{ per ogni} 0\leq r<r_0$$
+\end{enumerate}
+\end{defn}
+\begin{oss}Se $f$ ha la propriet\`a del valor medio, anche $Re(f)$ e $Im(f)$ lo hanno 
+\end{oss}
+\begin{oss}Se $f$ \`e olomorfa, $f$ ha la propriet\`a del valor medio.\\
+Sia $f$ olomorfa in $D$ e $a\in D$, dunque  dalla formula integrale di Cauchy abbiamo 
+$$f(a) I(\gamma,a) = \int_\gamma \frac{f(z)}{z-a} \dz$$
+dove $\gamma:\, \vartheta \to a +r_0^{2i \vartheta }$ per $\vartheta \in [0,2\pi]$ e  $r_0$ \`e tale che $\{ z\, \vert \, \abs{z-a} \leq r_0\}\subseteq D$. \\
+Tale curva ha indice di avvolgimento $1$ da cui 
+$$ f(a) = \frac{1}{2\pi i } \int_\gamma \frac{f(z)}{z-a} =\frac{1}{2\pi i }\int_0^{2\pi} \frac{f\tonde{a+r_0e^{i\vartheta}}}{a+r_0e^{i\vartheta} -a } a+r_0i e^{i\vartheta} \di \vartheta$$
+Concludiamo notando che la stessa formula vale per ogni $0\leq r< r_0$
+\end{oss}
+\begin{thm}[Principio del massimo modulo]\bianco
+Sia $D\subseteq \C$ un aperto e sia $f:\, D\to \C$ una funzione continua che ha la propriet\`a del massimo modulo.\\
+Se $\abs f $ ha un massimo relativo in un punto $a\in D$ allora $f$ \`e costante in un intorno di $a$ 
+\proof Se $f(a) =0$ allora $\abs{f(z)} \leq \abs{f(a)}=0$ per $z$ sufficientemente vicino ad $a$ e dunque $f(z)=0$ in un intorno di $a$.\\
+Consideriamo adesso il caso $f(a)\neq 0$, possiamo inoltre supporre $f(a) \in \R$ e $f(a) >0$ (se $f(a)=\alpha e^{i\beta}$ allora lo rimpiazzo con $e^{-i\beta} f(a)$.\\
+Siano $u=Re(f)$ e $v=Im(f)$ e sia $r_0>0$ tale che 
+\begin{enumerate}
+\item $r_0$ \`e come nella definizione della propriet\`a del massimo modulo 
+\item $\abs{f(z)}\leq \abs{f(a)}$ per $z\in B(a,r_0)$
+\end{enumerate}
+Dunque se pongo 
+$$ M(r) =\sum\{ \abs{f(z)} \, : \, \abs{z-a} =r\} \text{ per } 0\leq r <r_0$$
+si ha che $M(r) \leq \abs{f(a)}$  per ogni $0\leq r< r_0$ infatti ci\`o segue dalla propriet\`a $2$ sopra esposta.\\
+Inoltre poich\`e $f$ soddisfa la propriet\`a del massimo modulo otteniamo 
+$$ f(a) = \abs{f(a)} \leq \frac{1}{2\pi i }\int_0^{2\pi} \abs{f\tonde{a+re^{i\vartheta} }} \di \vartheta \leq\frac{1}{2\pi}\int_0^{2\pi} M(r) \di \vartheta =M(r) \quad \text{ per } 0\leq r <r_0$$
+dunque otteniamo $f(a) = M(r)$ dunque poich\`e $f(a) \in \R$ otteniamo 
+$$ \int_0^{2\pi} \left[ M(r) - u\tonde{ a+re^{i\vartheta}} \right]\di \vartheta =0$$
+Sia 
+$$ g(\vt) = M(r) - u\tonde{a+re^{i\vt}}$$
+ora $g(\vt)\geq 0$ in quanto $M(r) \leq \abs{f(s)}$.\\
+Abbiamo dunque definito una funzione $g$ non negativa su $[0,2\pi]$ e tale che il suo integrale su $[0,2\pi]$ sia nullo dunque $g$ \`e costante su tale intervallo ovvero 
+\begin{equation}
+\label{pmaxmod}
+M(r) = u\tonde{a+re^{i\vt}}
+\end{equation}
+Usando la definizione di $M(r)$ otteniamo 
+$$M(r) \geq \abs{f\tonde{a+re^{i\vt}}} = \tonde{ u\tonde{a+r e^{i\vt}}^2 + v\tonde{a+re^{i\vt}}^2}^{\frac{1}{2}}$$
+dunque dall'uguaglianza~\ref{pmaxmod} otteniamo 
+$$ M(r) \leq \tonde{M(r)^2 + v\tonde{a+re^{i\vt}}^2}^{\frac{1}{2}} \quad \implica \quad v\tonde{a+re^{i\vt}} =0 $$
+Concludendo otteniamo che $\forall z$ tale che $\abs{z-a}<r_0$ vale 
+$$ f(z) = u(z) = M(\abs z) = f(a) $$ 
+\end{thm}
+\begin{cor}Sia $D$ un aperto connesso e limitato.\\
+Sia $f$ una funzione continua su $\overline{D}$ che la propriet\`a del valor medio su $D$.\\
+Sia $M=\sup \{ \abs{f(z)} \, :\, z\in \partial D\}$ allora
+\begin{itemize}
+\item $\abs{f(z)} \leq M$  per ogni $z\in D$
+\item Se $\exists a\in D$ tale che $\abs{f(a)}=M$ allora $f$ \`e costante su $D$ 
+\end{itemize}
+\proof Sia $$M'=\sup\{ \abs{f(z)} \, : \, z\in \overline{D}\}$$
+allora chiaramente si ha $M'\geq M$ inoltre $M'$ \`e finito infatti $\abs{f}$ \`e continua su un compatto, da cui $\exists a\in \overline{D}$ con $\abs{f(a)}=M'$.\\
+Andiamo a distinguere $2$ casi
+\begin{itemize}
+\item Se $a\in D$ allora per il principio del massimo modulo si ha che $f$ \`e costante su un intorno di $a$. Sia 
+$$ D'=\{ z\in D \, : \, \abs{f(z)}=\abs{f(a)}$$
+Ora $D'$ \`e preimmagine di $\abs{f(a)}$ dunque \`e chiuso.\\
+Mostriamo che $D'$ \`e aperto, il che conclude $D'=D$.\\
+Se $a'\in D$ dunque $\abs{f(a')}=M$ allora con gli stessi argomenti usati nella dimostrazione della propriet\`a del massimo modulo si osserva che 
+$$ f(z)= f(a')\text{ per } \abs{z-a}<r_0' $$
+dunque $D$ \`e aperto.\\
+Essendo $f$ continua su $\overline{D}$ si ha $f$ costante su $\overline{D}$ da cui $M=M'$
+\item $a\not \in D$ allora $a\in \partial D$ dunque otteniamo $M'\leq \abs{f(a)}=M'$ ma poich\`e $M\leq M'$ si ha la tesi
+\end{itemize}
+\end{cor}
+\begin{cor}[Principio del massimo modulo per funzioni olomorfe]\bianco
+Sia $f$ olomorfa su un aperto connesso $D$.\\
+Se $f$ non \`e costante su $D$ allora $\abs f$ non ha massimo relativo in $D$\\
+Inoltre se $D$ \`e limitata ed $f$ continua in $\overline{D}$ allora $\abs f$ ammette massimo nel bordo di $D$ 
+\proof Essendo $f$ olomorfa, $f$ ha la propriet\`a del valor medio .\\
+Se $\abs f$ ha un massimo relativo in $D$ allora per il principio del massimo modulo, otteniamo che $f$ \`e costante su un aperto di $D$, da cui, per il principio di continuazione analitica $f$ \`e costante in $D$ (il che \`e assurdo).\\
+Assumendo che $D$ sia limitata, la tesi segue dal lemma precedente
+\end{cor}
+\begin{oss}Sia $f$ olomorfa in $D(0,r)=\{ z\in \C\, :\, \abs{z} <r\}$ e continua in $\overline{D(0,r)}$ allora 
+$$ \abs{f(z)} \leq M(r) \quad\forall z\text{ con } \abs{z} \leq r $$
+\end{oss}
+\end{document}
