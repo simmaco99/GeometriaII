@@ -1,0 +1,145 @@
+\input{0_Preambolo}
+\begin{document}
+
+\textbf{Lezione del 23 ottobre di Gandini}
+\begin{ese}Il quoziente di uno spazio primo numerabile, in generale, non \`e primo numerabile.\\
+Consideriamo $\R^2$ e $A =\{ (x,0) \, \vert \, x \in \R\}$.\\
+$X=\frac{\R^2}{A}$ non \`e primo numerabile.\\
+Sia $[A]\in X$ il punto definito da $A$, dimostriamo che tale punto non ha un sistema fondamentale di intorni numerabile.\\
+Supponiamo per assurdo che $\ds \{ U_n \}_{n \in \N}$ sia un sistema fondamentali di intoni di $A$ e sia $V_n = \pi^{-1}(U_n)$.\\
+$V_n$ \`e un aperto di $\R^2$ quindi 
+$$ \forall n \in \N \quad \exists \varepsilon_n >0 \quad (n,y) \in V_n \quad \forall y \in [0,\varepsilon_n)$$
+Sia 
+$$f:\, R \to ( 0, + \infty) \text{ continua  e tale che } f(n) = \frac{\varepsilon_n}{2}\quad \forall n \in \N$$
+ad esempio $f$ lineare a tratti ottenuta interpolando i punti $\left( n =, \frac{\varepsilon_n}{2}\right)$.\\
+Poniamo 
+$$ V = \{ (x,y) \, \vert \, \vert y \vert < f(x) \} \text{ aperto in } \R^2 \quad A \subseteq V $$
+Sia $U= \pi (V)$ allora esso \`e un intorno aperto di $[A]$ in $X$ da cui 
+$$  \exists \overline{n} \quad U_{\overline{n}} \subseteq U \quad \implica \quad V_n \subseteq V $$
+L'ultima affermazione \`e assurda infatti, per costruzione, $\exists (x,y) \in V_n \sbarra V $
+\end{ese}
+\subsection{Quozienti per azioni di gruppi}
+\begin{defn}Sia $X$ uno spazio topologico e $G$ un gruppo che agisce su $X$ tramite omeomorfismo, allora definiamo 
+$$ \frac{X}{G} \text{ il quoziente ottenuto dalla relazione } x \sim y \quad \ses \quad \exists g \in G \quad g \centerdot x = y $$
+ovvero le classi di equivalenza sono le orbite
+\end{defn}
+\begin{prop}$\Z$ agisce su $\R$ per traslazione allora
+$$ \frac{\R}{\Z} \cong S^1$$
+\proof Consideriamo
+$$ f:\, \R \to S^1 \quad t \to (\cos (2\pi t) , \sin (2\pi t))$$
+Se proviamo che $f$ \`e un identificazione ho finito, infatti le fibre di $f$ sono le orbite in cui si partiziona $\Z$.\\
+Poich\`e $f$ \`e continua e suriettiva, proviamo che \`e aperta.\\
+Poich\`e gli intervalli aperti $I$ sono una base, basta dimostrare che $f(I)$ \`e aperto.\\
+Sia $a \in \R$ e sia $I=(a,a+1)$ allora
+$$ f_{\vert (a,a+1)} : \, (a,a+1) \to S^1 \sbarra f(a) \text{ \`e omeomorfismo }$$
+da cui $f(I)$ aperto.\\
+Sia $A$ un generico aperto
+\begin{itemize}
+\item Se $A$ contenuto in un intervallo $(a,a+1)$ allora
+$$ f(A) \text{ aperto in } S' \sbarra f(a) \quad\implica \quad f(A) \text{ aperto in } S^1$$
+infatti $S'\sbarra f(a)$ \`e aperto in $S^1$
+\item In generale
+$$A = \bigcup_{j\in J} A_j \text{ con } A_j \text{ contenuti in intervallo di ampiezza }1 $$
+dunque 
+$$ f(A) = f \left( \bigcup_{j \in J } A_j \right) = \bigcup_{j\in J} f(A_j)$$
+ora unione di aperti \`e aperta quindi $f(A)$ \`e aperto.
+\end{itemize}
+\endproof
+\end{prop}
+\begin{oss}\`E presente un ambiguit\`a nella notazione infatti $\frac{\R}{\Z}$ pu\`o indicare 2 cose differenti
+\begin{itemize}
+\item $\R$ facendo collassare $\Z$ in questo caso il quoziente \`e omeomorfo ad un bouquet infinito di circonferenze
+\item $\Z$ che agisce su $\R$ ed in questo caso il quoziente \`e omeomorfo a $S^1$
+\end{itemize}
+\end{oss}
+\spazio
+\begin{ese}$\Q$ agisce su $\R$ con la traslazione allora il quoziente \`e pi\`u che numerabile con la topologia indiscreta.
+\proof
+Le orbite sono di cardinalit\`a numerabile dunque, in quantit\`a, devono essere pi\`u che numerabili.\\
+Sia $A\subseteq \R$ un aperto saturo non vuoto dunque $x_0 \in A $ , essendo aperto $(x_0-\varepsilon, x_0 + \varepsilon ) \subseteq A $ ora essendo saturo
+$$ A \supseteq \bigcup_{q \in \Q} (x_0+q-\varepsilon, x_0+q +\varepsilon) =\R \quad \implica \quad A = \R$$
+\end{ese}
+\spazio
+\begin{prop}\label{az_gruppo_aperta}Sia $G$ un gruppo che agisce su $X$ spazio topologico, allora
+$$ \pi:\, X \to \frac{X}{G}$$
+\`e aperta.
+\proof Sia $U \subseteq X$ un aperto.\\
+Poich\`e $G$ agisce per omeomorfismo $g\centerdot U $ \`e aperto 
+$$ \pi(U) = \pi \left( \bigcup_{g \in G } g\centerdot U \right)$$
+infatti $U$ e $\bigcup g \centerdot U$ hanno la stessa orbita.\\
+Ora $\bigcup g\centerdot U$ \`e un aperto saturo quindi $\pi(U)$\`e aperto.
+\endproof
+\end{prop}
+\begin{oss}Se $G$ \`e finito allora $\pi$ \`e chiusa in quanto unione finite di chiusi \`e chiusa
+\end{oss}
+\spazio
+\begin{prop}Siano $f_i :\, X_i \to Y_i$ identificazioni aperte $i=1,2$ allora
+$$ f_1 \times f_2 :\, X_1 \times X_2 \to Y_1 \times Y_2$$ \`e un'identificazione
+\proof $f_1\times f_2$ \`e iniettiva e suriettiva poich\`e lo sono $f_1$ e $f_2$ resta da provare che \`e aperta.\\
+Sia $U_i\subseteq X_i$ aperto allora
+$$ ( f_1 \times f_2) (U_1 \times U_2 ) = f_1(U_1) \times f(U_2) \text{ aperto della topologia prodotto}$$
+dunque $f_1\times f_2$ \`e un'identificazione.
+\end{prop}
+\spazio
+\begin{prop}Sia $X$ spazio topologico e $G$ gruppo che agisce su $X$ tramite omeomorfismo.\\
+Sia $K = \{ (x,g\centerdot x) \, \vert \,  x\in X \, \, g \in X \}$ allora
+$$ \frac{X}{G} \text{ \`e di Hausdorff } \quad \ses  K \text{ chiuso in } X \times X $$
+\proof $$ \frac{X}{G} \text{ \`e di Hausdorff } \quad  \quad \Delta_{\frac{X}{G}} \text{ \`e chiusa}$$
+Per la proposizione~\ref{az_gruppo_aperta} $\pi$ \`e un identificazione aperta quindi anche $\pi \times \pi$ lo \`e
+$$ \Delta_{\frac{X}{G}} \text{ chiusa } \quad \ses \quad ( \pi \times \pi )^{-1} \left( \Delta_{\frac{X}{G}} \right)\subseteq X \times X \text{ chiuso } $$
+D'altronte $ ( \pi \times \pi )^{-1} \left( \Delta_{\frac{X}{G}} \right)=K$
+\endproof
+\end{prop}
+\newpage
+\section{Ricoprimenti}
+\begin{defn}[Ricoprimento]\bianco
+Sia $X$ uno spazio topologico.\\
+Un ricoprimento \`e una famiglia $\ric \subseteq \mathcal{P}(X)$ se
+$$ X = \bigcup_{U \in \ric} U $$
+se tutti gli $U \in \ric$ sono aperti, $\ric$ \`e detto ricoprimento aperto 
+\end{defn}
+\spazio
+\begin{defn}[Localmente finito]\bianco $\ric \subseteq \mathcal{X}$\`e una famiglia localmente finita se 
+$$ \forall x \in X \exists V \in I(x) \quad V \cap U \neq \emptyset \text{ solamente per finiti } U \in \ric $$
+\end{defn}
+\begin{ese} 
+$$ \R= \bigcup_{n \in \Z} [n, n+1]$$
+\`e un ricoprimento chiuso localmente finito
+\end{ese}
+\spazio
+\begin{defn}[Ricoprimento fondamentale]\bianco
+$\ric$ ricoprimento di $X$ \`e detto fondamentale se dato $A \subseteq X $ allora
+$$ A \text{ aperto in } X \quad \ses \quad A \cap U \text{ aperto in } U \quad \forall U \in \ric $$
+in modo equivalente
+$$ A \text{ chiuso in } X \quad \ses \quad A \cap U \text{ chiuso in } U \quad \forall U \in \ric $$
+\begin{oss}La freccia $\implica$ segue dalla definizione di topologia di sottospazio
+\end{oss}
+\end{defn}
+\spazio
+\begin{prop} $$\ric \text{ ricoprimento aperto di  } X \quad \implica \quad  \ric \text{ ricoprimento fondamentale}$$
+\proof
+Sia $A\subseteq X $ tale che $A\cap U $ aperto in $U$ $\forall U \in \ric$.\\
+Ora $U$ \`e aperto in $X$ e poich\`e aperto di aperto \`e aperto\\
+$$ A\cap U \text { aperto in } X \quad  \forall U \in \ric $$
+dunque 
+$$A = \bigcup_{U \in \ric} A \cap U \text{ aperto in } X $$
+\end{prop}
+\begin{oss}In generale, ricoprimenti chiusi non sono fondamentali.\\
+Sia $\R$ con la topologia euclidea allora
+$$ \R= \bigcup_{x \in \R} \{ x \} \text{ \`e un ricoprimento chiuso } $$
+Ora  $ \forall A\subseteq \R$ allora $A\cap \{x\}$ \`e aperto in $\{x\}$ dunque se il ricoprimento fosse fondamentale
+$$ \forall A \subseteq \R \quad A \text{ aperto } \quad \implica \quad \R \text{ con la topologia discreta}$$ 
+\end{oss}
+\spazio
+\begin{prop}Sia $\ric$ un ricoprimento fondamentale di $X$ e $f:\, X \to Y$ funzione tra spazi metrici.
+$$ f \text{ continua } \quad \ses \quad f_{\vert U } \text{ continua } \forall U \in \ric $$
+\proof $\implica$ $$ \forall A \subseteq Y\text{ aperto} \quad 
+\left( f_{\vert U } \right)^{-1}(A) = f^{-1}(A) \cap U $$
+Ora essendo $f$ continua $f^{-1}(A)$ aperto e poich\`e $\ric$ fondamentale anche $f^{-1}(A) \cap U $ \`e un aperto \\
+$\iimplica$ Sia $A\subseteq Y$ aperto 
+$$ f^{-1}(A) \text{ aperto } \quad \ses \quad f^{-1}(A) \cap U \text{ aperto} \quad \forall U \in \ric $$
+Ma $f_{\vert U} $ continua dunque
+$$ \left( f_{\vert U } \right)^{-1}(A) = f^{-1}(A) \cap U \text{ aperto }\quad \forall U \in \ric$$
+\endproof
+\end{prop}
+\end{document}

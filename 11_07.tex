@@ -1,0 +1,83 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 7 Novembre di Gandini}
+\begin{thm}$S^n $ \`e omeomorfo alla compattificazione di Alexandross di $\R^n$
+\proof Identifichiamo $R^n$ con $S^n \sbarra \{ (1,0, \dots,  0\}$.\\
+Mostriamo che $\hat{\R^n} \cong S^n$, Vale a dire che la topologia euclidea su $S^n$ coincide con la topologia di Alexandross  dove  $\infty=(1,0, \dots, 0)$.\\
+Sia $A\subseteq S^n$ 
+$$ A \text{ aperto } \quad\ses \quad \begin{cases} A \subseteq S^n \sbarra (1, 0,\dots , 0 )  \text{ aperto }\\
+A = S^n \sbarra K \text{ con } K \subseteq S^n \sbarra (1, 0, \dots, 0) \text{ compatto} \end{cases}$$
+Osserviamo che basta richiedere che $K$ sia compatto infatti lo spazio \`e di Hausdorff dunque compatto implica chiuso.
+\begin{itemize}
+\item $(1, 0, \dots,0) \not \in A $ dunque  $A \subseteq S^n \sbarra (1, 0,\dots , 0 ) $.\\
+Consideriamo $i:\, R^n \to S^n$ dove $i$ con codominio ristretto  a $S^n\sbarra (1, 0, \dots, 0) $\`e l'inversa della proiezione stereografica, dunque immersione aperta.\\
+Ora essendo $i$ aperta 
+$$ A \subseteq S^n \text{ aperto } \quad \ses \quad A\subseteq S^n \sbarra (1,0, \dots , 0) \text{ aperto }$$
+\item Supponiamo, adesso, $(1, 0, \dots, 0)\in A$ 
+$$ A \text{ aperto } \quad \ses \quad S^n \sbarra A \text{ chiuso } \quad \ses \quad K = S^n \sbarra A \text{ compatto } \quad \ses $$ $$ \ses \quad A = S^n \sbarra K \text{ con } K \subseteq S^n \sbarra (1,0, \dots, 0) \text{ compatto } $$
+\end{itemize}
+\endproof
+\end{thm}
+\spazio
+\begin{prop}\label{compatt_Haus} $\hat{X}$ Hausdorff $\ses$ $\begin{cases}\ X \text{ Hausdorff} \\ \forall x\in X \quad  x\text{ ammette un intorno compatto } \end{cases}$
+\proof \bbianco
+\begin{itemize}
+\item Caso $1$: $x,y\in X$.\\Gli aperti di $\hat{X}$ sono aperti di $X$  e viceversa quindi 
+$$ \exists U,V \text{ aperti di } \hat{X} \text{ che separano } x \text{ e } y \quad \ses \quad  U,V \text{ aperti di } {X} \text{ che separano } x \text{ e } y$$
+\item Caso $2$: $y = \infty$
+$$ \exists U \ni x \quad V \ni \infty \text{ aperti di } \hat{X} \text{ con } U \cap V = \emptyset \quad 
+\ses \quad \begin{cases} x \in U \subseteq X \text{ aperto } \\ \infty \in V = \hat{X}\sbarra K \text{ K compatto }  \\ U \cap V = \emptyset
+\end{cases} \quad \ses$$
+$$ \ses \quad \begin{cases}\exists U \ni x \text{ aperto di } X \\
+ y\in V \subseteq K  \text{ con } K \text{ intorno compatto di } y\\
+ U \cap V = \emptyset
+\end{cases}$$
+\end{itemize}
+\endproof
+\end{prop}
+\spazio
+\begin{prop}Sia $f:\, X \to Y $ immersione aperta tra spazi di Hausdorff.\\
+Definiamo $g:\, Y \to \hat{X}$ via $g(y) = \begin{cases} x \text{ se } x \in f^{-1}(y)=\{ x \}\\
+\infty \text{ se } f^{-1}(y)=\emptyset
+\end{cases}$.\\
+Allora $g$ \`e continua
+\proof Sia $U \subseteq \hat X $ aperto 
+\begin{itemize}
+\item Caso $1$: $\infty \not \in U $.\\
+$ U\subseteq X \quad \implica \quad g^{-1}(U)=f(U)$ e poich\`e $f$ \`e aperta $g^{-1}(U)$ \`e un aperto 
+\item Caso $2$: $\infty \in U$.\\
+Allora $ U = \hat{X}\sbarra K \, \exists K \text{ compatto }$
+$$g^{-1}(U) = Y \sbarra g^{-1}(K) = Y \sbarra f(K)$$
+ora $K$ \`e compatto dunque anche $f(K)$ lo \`e, ora un compatto in un Hausdorff \`e chiuso quindi $g^{-1}(U)$ \`e aperto
+\end{itemize}
+\endproof
+\end{prop}
+\spazio
+\begin{cor}$X$ compatto di Hausdorff, $x_0\in X$  allora  $X$ \`e omeomorfo alla compattificazione di Alexandross di $X \sbarra \{ x_0\}$
+\proof Mostriamo che $\hat{X\sbarra \{ x_0\}}$ \`e di Hausdorff utilizzando la proposizione~\ref{compatt_Haus}.\\
+Essendo $X$ di Hausdorff anche $X\sbarra \{ x_0\} $ lo \`e, vediamo ora che ogni punto $x\neq x_0$ ammette un intorno compatto.\\
+Essendo $X$ di Hausdorff $\exists U, V $ aperti con $x \in U $ e $x_0 \in V$ tali che $U \cap V = \emptyset$ dunque $x_0 \not \in \overline{U} $  ora essendo $K$ chiuso in un compatto \`e compatto.\\
+$\overline{U}$ \`e l`intorno compatto di $x$ in $X_0 \sbarra \{x_0\}$ ( $x\in U \subseteq \overline{U}$ con $U$ aperto).\\
+
+Sia  $Y=X\sbarra \{ x_0 \sbarra$, l'immersione $i:\, Y \inclu X$ \`e un immersione aperta, dunque per la proposizione precedente
+$$ g:\, X \to \hat{Y} \quad g(x) =\begin{cases}
+                                   x \quad \text{ se } x \neq x_0
+                                   \infty \text{ se } x = x_0
+                                  \end{cases}$$
+\`e continua e biettiva.\\
+Ora essendo $X$ compatto $\forall C \subseteq X$ con $C$ chiuso, $C$ \`e compatto, dunque $f(C)$ \`e compatto in Hausdorff dunque $f(C)$ chisuo.\\
+$g$ \`e una funzione chiusa e biettiva dunque un omeomorfismo.
+\endproof
+\end{cor}
+\begin{ex}$f:\, X \to Y$ continua con $Y$ di Hausdorff.\\
+Sia $\hat{f}:\, \hat{X} \to \hat{Y}$ via $\hat{f}(\infty)=\infty$ e $\hat{f}(x)=f(x)$ se $x \neq \infty$
+\end{ex}
+\newpage
+\section{Esaustione in compatti}
+\begin{defn}
+ Sia $X$ uno spazio topologico, una esaustione in compatti \`e una famiglia di compatti $\ds \{ K_n\}_{n \in \N}$ di $X$ tale che 
+ $$ X = \bigcup_{n \in \N} K_n$$
+ $$ K_n \subseteq K_{n+1}^\circ \quad \forall n \in \N$$
+\end{defn}
+
+\end{document}

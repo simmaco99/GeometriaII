@@ -1,0 +1,147 @@
+\input{0_Preambolo}
+\begin{document}
+
+\textbf{Lezione del 2 ottobre del prof. Frigerio}
+\begin{defn}[Omeomorfismo]\bianco
+  Una funzione $f:\, X \to Y$ tra spazi topologici \`e un omeomorfismo se \`e continua e se esiste $g:\, Y \to X $ continua tale che $f\circ g =Id_y$, $ g\circ f=Id_X$.\\
+  In modo equivalente: $f$ \`e continua, bigettiva e $f^{-1}$ \`e continua
+ \end{defn}
+ \spazio
+ \begin{defn}
+  Due spazi legati da un omeomorfismo si dicono omeomorfi
+ \end{defn}
+
+\begin{oss} \bbianco
+\begin{enumerate}
+ \item Composizione di omeomorfismi \`e un omeomorfismo
+ \item Essere omeomorfi \`e una relazione di equivalenza
+ \item L'insime degli omeomorfismi da $(X,\tau)$ in se \`e un gruppo con la composizione
+ \end{enumerate}
+
+\end{oss}
+\begin{oss}
+Se $f:\, X \to Y$ \`e continua e bigettiva, non \`e detto che sia un omeomorfismo ovvero $f^{-1}$ pu\`o non essere continua.\\
+ Prendiamo come esempio $X=Y=\R$  allora le seguenti mappe sono continue 
+  \begin{itemize}
+   \item $ Id:\, ( \R, \tau_D ) \to (\R,\tau_E)$ \\
+   $\forall A \in \tau_E \quad Id^{-1}(A)=A \in \tau_c$ infatti ogni sottoinsieme \`e un aperto nella topologia discreta
+   \item $Id:\, ( \R, \tau_E ) \to (\R,\tau_C)$ \\
+   $\forall A \in \tau_C $  allora  $A=\R\sbarra \{ \text{ insieme finito} \}$ che \`e un aperto nella topologia euclidea
+   \item $Id:\, ( \R, \tau_C ) \to (\R,\tau_I) $ \\
+   $\forall A \in \tau_I$ allora $A=\emptyset$ oppure $A=\R$ ed in entrambi i casi $A\in \tau_C$
+  \end{itemize}
+Nessuna delle seguenti mappe \'e continua
+\begin{itemize}
+   \item $ Id:\, ( \R, \tau_E ) \to (\R,\tau_D)$ \\
+   $\{ 0\} $ \` un aperto in $\tau_D$ ma $Id^{-1}(\{ 0\})$ non \'e un aperto della topologia euclidea
+   \item $Id:\, ( \R, \tau_C ) \to (\R,\tau_E)$ \\
+   $B(0,1)$ \`e un aperto nella topologia euclidea ma non in quella cofinita ($\R\sbarra B(0,1)$ \`e infinito)
+   \item $Id:\, ( \R, \tau_I) \to (\R,\tau_C) $ \\
+   $X\sbarra\{0\}$ \`e un aperto nella topologia cofinita ma non \`e un aperto in quella indiscreta
+  \end{itemize}
+\end{oss}
+\newpage
+\subsection{Finitezza}
+\begin{defn}
+ Date $\tau$ e $\tau'$ topologie su un insieme $X$ si dice che $\tau$ \`e \textbf{meno fine} di $\tau'$ se $\tau\subseteq \tau'$ (ogni aperto di $\tau$ \`e un aperto di $\tau'$).\\
+ In modo equivalente 
+ $$ \tau \text{\`e meno fine di } \tau' \quad \ses \quad Id:\, (X,\tau') \to (X,\tau) \text{ \`e continua}$$
+ In questo caso scriveremo $\tau < \tau'$
+\end{defn}
+\begin{oss}
+Essere meno fini \`e una relazione di ordine parziale.\\
+In generale $\tau_D$ \`e la pi\`u fine, mentre $\tau_I$ \'e la meno fine.\\
+Su $\R$ vale $ \tau_I < \tau_C < \tau_E < \tau_D $
+\end{oss}
+\spazio
+\begin{lem}
+ Un intersezione arbitaria di topologie su $X$ \`e una topologia su $X$ 
+ \proof Sia $\tau_I $ con $i \in I $ topologie su $X$ e sia $\ds=\bigcap_{i\in I} \tau_i $.\\
+ Mostriamo che $\tau$\`e una topologia
+ \begin{itemize}
+  \item Poich\`e $\emptyset, X \in \tau_i \, \forall i $ allora $\emptyset, X \in \tau $
+  \item Se $A,B\in\tau $ allora  $A, B \in \tau_i \, \forall i $ ed essendo $\tau_i$ una topologia $A\bigcap B \in \tau_i \, \forall i $ quindi $A\bigcap B\in \tau$
+  \item Se $A_j \in \tau  \, \forall j \in J $ allora $A_j \in \tau_i \, \forall i \, \forall j $ ed essendo $\tau_i$ una topologia $\ds \left( \bigcup_{j\in J} A_j\right) \in \tau_i \, \forall i $ quindi  $\ds \left( \bigcup_{j\in J} A_j\right) \in \tau$
+ \end{itemize}
+\endproof
+\end{lem}
+
+\begin{cor}Data una famiglia $\ds \{ \tau_i\}_{i \in I } $ di topologie su $X$ esiste la pi\`u fine tra le topologie meno fini di ogni $\tau_i$
+$$ \tau=\bigcap_{i \in I } \tau_i $$ 
+\proof  Poic\`e $\tau$ deve essere la meno fine ovviamente $$\tau \subseteq \tau_i \, \forall i \quad \implica \quad \tau\subseteq \bigcap_{i \in I} \tau_i $$ 
+Ogni altra topologia meno fine di tutte le $\tau_i$ deve essere contenuta nell'intersezione, dunque, volendo la pi\`u fine (pi\`u grande rispetto l'inclusione) deve essere proprio l'intersezione la topologia voluta infatti essa \`e una topologia per il lemma precedente
+\endproof
+  \end{cor}
+\begin{cor}
+ Sia $X$ un insieme, $S \subseteq \mathcal{P}(X)$.\\
+ Allora esiste la topologia meno fine tra quelle che contengono $S$
+ \proof Sia $\Omega$ l'insieme delle topologie che contengono $S$.\\
+ $\Omega \neq \emptyset $ infatti la topologia discreta vi appartiene dunque esiste $\ds \bigcap_{\tau\in \Omega} \tau $\\
+ L'intersezione \`e una topologia per il lemma precedente ed ovviamente \`e la meno fine possibile
+\end{cor}
+
+\begin{defn}
+ Sia $X$ un insieme e $S\subseteq\mathcal{P}(X)$.\\
+ La topologia meno fine tra quelle che contengono $S$ si dice generate da $S$ e $S$ viene chiamata \textbf{prebase} 
+\end{defn}
+\spazio
+
+\begin{defn}[Base di una topologia]\bianco
+Sia $(X,\tau)$ uno spazio topologico.\\\
+Una base  di $\tau$ \`e un sottoinsieme $\B\subseteq \tau$  tale che 
+$$ \forall A \in A \quad \exists B_i \in \B, \, \,  i \in I \quad A=\bigcup_{i \in I } B_i $$
+\end{defn}
+\spazio
+\begin{defn}
+ $X$ si dice a base numerabile oppure che $X$ soddisfa il secondo assioma di numerabilit\`a se ammette una base numerabile 
+\end{defn}
+\spazio
+
+\begin{prop}[Criterio per una base]\bianco
+ Sia $X$ un insieme (senza topologia).
+ $$ \B \subseteq \mathcal{P}(X) \text{ \'e una base di una topologia su } X  \ses  \begin{cases} 
+                                                                                              (i) X =\bigcup_{B \in \B} B \\ 
+                                                                                              (ii) \forall A, A' \in \B \quad \exists B_i \in \B , \, \, i \in I \quad A\cap A' =\bigcup_{i\in I } B_i 
+                                                                                             \end{cases}$$
+\proof $\implica$ Discende direttamente dagli assiomi di topologia infatti supponendo che $\B$ sia una base di $\tau$ topologia: 
+\begin{itemize}
+ \item[(i)] $X\in \tau $ quindi si esprime come unione di $B \in \B$ 
+ \item[(ii)] Se $A,A'\in \B $ allora essi sono aperti di $\tau$, anche $A\cap A'$ \`e un aperto della topologia e quindi anche $A\cap A'$ si esprime come unione di $B\in\B$
+\end{itemize}
+$\Leftarrow$ Definiamo $\tau$ nell'unico modo possibile
+$$ A\in \tau \quad \ses \quad A = \bigcup_{i \in I} B_i \text{ per qualche } B_i \in \B , \, \, i\in I $$ 
+Verifichiamo che $\tau$ \`e una topologia
+\begin{itemize}
+ \item $\emptyset \in \tau$ perch\`e $\tau$ contiene l'unione nulla\\
+ $ X\in \tau $ per la propiet\`a (i)
+ \item Se $A,A' \in \tau $ allora per definizone 
+ $$ A= \bigcup_{i \in I } B_i \quad A'=\bigcup_{j \in J} B_j  \quad \implica \quad A\cap A'= \left( \bigcup_{i\in I } B_i \right)  \cap \left( \bigcup_{j\in J } B_j \right)= \bigcup_{i\in I \atop{ j \in J }} (B_i \cap B_j )$$
+ Ciascun $B_i \cap B_j$ \`e unione di elementi di $\B$ per (ii) dunque $A\cap A'$ \`e unione di elementi di $\B$ come voluto
+ \item Se $A_i\in \tau \, \, \forall i \in I $ allora $A_i $ si scrive come unione di elementi di $\B$ dunque $\ds \bigcap_{i\in I} A_i$ \`e unione di unione di elementi di $\B$
+ \end{itemize}
+
+\endproof
+
+\end{prop}
+\spazio
+\begin{prop}Siano $X$ un  insieme e $S\subseteq \mathcal{P}(X)$ prebase di $\tau$, allora
+\begin{enumerate}
+ \item Le intersezione finite di elementi di $S \cup \{ X\} $ sono una base di $\tau$
+ \item $A\in \tau $ $ \ses $ $ A$ \`e unione arbitraria di intersezioni finite di elementi di $S \cup \{ X \} $
+\end{enumerate}
+\proof Mostriamo 1.
+\begin{itemize}
+\item Verifichiamo innanzitutto che $\B=\{ \text{ intersezione finita di elementi di } S\cup \{ X \} \}$ \`e una base di qualche topologia utilizzando il criterio precedente
+\begin{itemize}
+ \item $X$ \`e banalmente unione di elementi di $\B$ 
+ \item Se $B_1,B_2\in \B$ allora sia $B_1$ che $B_2$ sono intersezione finita di elementi di $S \cup \{ X\} $ dunque anche $B_1\cap B_2$ lo \`e 
+\end{itemize}
+Poich\`e sono verificate entrambe le propiet\`a $\B$ \`e base di una topologia $\tau'$
+\item Mostriamo che $\tau=\tau'$\\
+Per costruzione $\tau'$ contiene $S$ dunque essendo $\tau$ la meno fine topologia che contiene $S$ $ \tau< \tau' $.\\
+D'altronte una qualsiasi topologia che contiene $S$ deve contenere $\tau'$ (intersezione finita e unione arbitraria di elementi di $S$) quindi $\tau'< \tau $ 
+\end{itemize}
+2. segue da 1. per definizione di base
+\endproof
+\end{prop}
+\end{document}

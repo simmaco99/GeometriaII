@@ -1,0 +1,92 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Seconda parte della lezione del 12  Marzo}
+\section{Morfismi di rivestimento}
+\begin{defn}Dati $p_1:\, E_1 \to X$ e $p_2:\, E_2 \to X$ rivestimenti.\\
+Un morfismo tra $p_1$ e $p_2$ \`e una mappa $\varphi:\, E_1 \to E_2$ tale che $p_2 \circ \varphi=p_1$ cio\`e questo diagramma commuta
+$$\begin{tikzcd} E_1 \arrow{rd}{p_1} \arrow{r}{\varphi} & E_2 \arrow{d}{p_2}\\
+& X
+\end{tikzcd}$$
+
+\end{defn}
+\begin{defn}Un morfismo $\varphi$ come sopra  \`e un isomorfismo se $\exists \psi:\, E_2 \to E_1$ con $\psi$ inversa di $\varphi$
+\end{defn}
+\begin{oss}Composizione di morfismi \`e un morfismo. $Id_E$ \`e un morfismo di $p:\, E \to X$.\\
+Dunque
+$$ Aut(E)=Aut(E,p)=\{ \varphi:\, E \to E\, \vert \, \text{ isomorfismo} \} $$
+tale insieme dotato delle composizione \`e un gruppo
+\end{oss}
+\spazio 
+Fissato un rivestimento connesso $p:\, E \to X$ 
+\begin{thm} Valgono i seguenti fatti 
+\begin{itemize}
+\item[(i)]$Aut(E)$ agisce su $E$ in maniera propriamente discontinua
+\item[(ii)] $Aut(E)$ agisce sulle fibre di $E$
+\item[(iii)] Se $F$ \`e una fibra  di $E$, $\tilde{x}_0, \tilde{x}_1\in F$ allora 
+$$ \exists\varphi\in Aut(E) \text{ con } \varphi(\tilde{x}_0)= \tilde{x}_1 \quad \ses \quad p_\star ( \pi_1(E, \tilde{x}_0)=p_\star ( \pi_1(E,\tilde{x}_1)$$
+\end{itemize}
+\proof \bbianco 
+\begin{itemize}
+\item[(i)]Dato $\tilde{x}\in E$, sia $U$ un intorno ben rivestito e connesso per archi di $p(\tilde{x})\in X$, si ha dunque che 
+$\inv p = \prod V_i$ e sia $i_0$ tale che $\tilde{x}\in V_{i_0}$.\\
+Basta vedere che se $\varphi\in Aut(E)$ e $\varphi(V_{i_0})\cap V_{i_0}\neq \emptyset$ allora $\varphi=Id$.\\
+Se $\varphi(V_{i_0})\cap V_{i_0} \neq \emptyset$ allora sia $z\in V_{i_0}$ tale che $\varphi(z)\in V_{i_0}$.\\
+Poich\`e $p\circ \varphi=p$ allora $p(\varphi(z))=p(z)$ ma per definizione di intorno ben rivestito $\ris{p}{V_{i_0}}$ \`e un omeomorfismo, dunque iniettiva da cui $\varphi(z)=z$.\\
+Ora sia $\varphi$ sia $Id$ sono sollevamenti di $p$ (a partire da $E$) che coincidono in un punto, segue per unicit\`a del sollevamento $\varphi=Id$
+\item[(ii)] Se $F=\inv p (x_0)$ e $\tilde{x}\in F$ allora poich\`e $p \circ \varphi = p $ allora $p(\varphi(\tilde{x}))= p(\tilde{x})$ dunque $f(\tilde{x})\in F$
+\item[(iii)]$\implica$ Se $\varphi\in Aut(E)$ con $\vp(\tilde{x}_0)=\tilde{x}_1$ poich\`e $p\circ \vp = p $ allora $p_\star \circ \vp_\star = p_\star$ come mappe $\pi_1(E,\tilde{x}_0)\to \pi_1(X, x_0)$.\\
+In particolare $p_\star(\vp_\star(\pi_1(E, \tilde{x}_0)) =p_\star ( \pi_1(E,\tilde{x}_0))$.\\
+Ora $\vp_\star (\pi_1(E, \tilde{x}_0)=\pi_1(E, \tilde{x}_1)$ in quanto essendo $\vp$ omeomorfismo  $\vp_\star $ \`e isomorfismo.\\
+$\iimplica$ Se $p_\star(\pi_1(E,\tilde{x}_0))= p_\star(\pi_1(E, \tilde{x}_1))$ applicando il teorema dell'esistenza di sollevamenti a 
+$$\begin{tikzcd}
+& (E, \tilde{x}_1) \arrow[d,"p"]\\
+(E, \tilde{x}_0) \arrow[r,"p"] & (X, x_0)
+\end{tikzcd}$$
+otteniamo $\vp:\, E \to E$ con $\vp(\tilde{x}_0)=\tilde{x}_1$ e tale che $p \circ vp = p $.\\
+Analogamente si ottiene $\psi:\, E \to E$ con $\psi(\tilde{x}_1)=\tilde{x}_0$\\
+Ora $\varphi\circ \psi $ e $\psi \circ \vp $ sono sollevamenti dell'identit\`a che coincidono in un punto in quanto si ha 
+$\vp(\psi(\tilde{x}_1))=\tilde{x}_1$ e $\psi(\vp(\tilde{x}_0))= \tilde{x}_0$.\\
+Per unicit\` del sollevamento si ha $\psi \circ \vp = \vp \circ \psi = Id_E$
+\end{itemize}
+\endproof
+\end{thm}
+\begin{thm}[Le azioni di monodromia e di $Aut(E)$ commutano]\bianco 
+Sia $F=\inv p (x_0)$, sia $\forall \vp \in Aut(E),\, \, \alpha\in \pi_1(X, x_0), \, \, \tilde{x}\in F$ si ha
+$$ \vp(\tilde{x}\az \alpha) = \vp(\tilde{x}) \az \alpha$$
+\proof Sia $\alpha=[\gamma]$.\\
+$\vp \circ \sol{\gamma}{x}$ \`e un sollevamento di $\gamma$ (in quanto $p\circ \vp \circ \sol{\gamma}{x} = p\sol \gamma x = \gamma$) e ha come punto iniziale $\vp\left( \sol \gamma x (0)\right)= \vp (\tilde{x})$, dunque per unicit\`a del sollevamento si ha $\vp \circ \sol \gamma x =  \widetilde{\gamma}_{\vp(\tilde{x})}$ da cui 
+$$\vp(\tilde{x}\az \alpha)=\wt \gamma_{f(\tilde{x})}(1)=\vp \sol\gamma x (1)=\varphi\left( \sol \gamma x (1)\right) = \vp(\tilde{x}\az \alpha)$$
+\endproof
+\end{thm}
+\begin{defn}$p:\, E \to X$ rivestimento connesso si dice \textbf{regolare} se $\forall F$ fibra di $E$, l'azione di $Aut(E)$ su $F$ \`e transitiva
+\end{defn}
+
+\begin{thm}I seguenti fatti sono equivalenti 
+\begin{itemize}
+\item[(i)]$p$ \`e rivestimento regolare
+\item[(ii)]$\exists F$ fibra di $E$ tale che l'azione di $Aut(E)$ su $F$ sia transitiva
+\item[(iii)]$\forall \tilde{x}\in E$ si ha $p_\star(\pi_1(E,\tilde{x})\triangleleft \pi_1(X, p(\tilde{x}))$
+\item[(iv)]$\exists \tilde{x}\in E$ si ha $p_\star(\pi_1(E,\tilde{x})\triangleleft \pi_1(X, p(\tilde{x}))$
+\end{itemize}
+\proof
+\begin{itemize}
+\item $(iii)\implica (iv)$ e $(i) \implica (ii)$ in modo ovvio
+\item Mostriamo che $(iv)\implica (iii)$.\\
+Supponiamo che la condizione valga per un fissato $\tilde{x}$ e sia $\tilde{y}\in E$ generico.\\
+Sia $\tilde{\gamma} \in \Omega(\tilde{x},\tilde{y})$ e poniamo $\gamma=p\circ \tilde{\gamma}$.\\
+Se $x=p(\tilde{x})$ e $y=p(\tilde{y})$ allora $\amma\in \Omega(x,y)$.\\
+Si vede facilmente che il seguente diagramma commuta ($\tilde{\amma}_\sharp$ e $\gamma_\sharp$ sono isomorfismi)
+
+$$\begin{tikzcd}
+\pi_1(E, \tilde{x}) \arrow{d}{p_\star} \arrow{r}{\tilde{\gamma}_\sharp } &\pi_1(E, \tilde{y}) \arrow{d}{p_\star}\\
+\pi_1(X,x) \arrow{r}{\gamma_\sharp} & \pi_1(X,y)
+\end{tikzcd}$$
+Dunque $$p_\star (\pi_1(E, \tilde{x}))\normale \pi_1(X,x) \quad \ses \quad p_\star (\pi_1(E, \tilde{y}))\normale \pi_1(X,y)$$
+\item $(ii) \ses (iv)$ \\
+Sia $F=\inv p (x)$, dati $\tilde{x}, \tilde{y}\in F$ abbiamo visto che $\exists\varphi\in Aut(E)$ con $\vp(\tilde{x})=\tilde{y}$ se e solo se $p_\star(\pi_1(E, \tilde{x}))=p_\star(\pi_1(E, \tilde{y})$.\\
+Inoltre, abbiamo visto, al variare di $\tilde{y}\in F$ i gruppi $p_\star (\pi_1(E,\tilde{y}))$ sono tutti e soli i coniugati di $p_\star (\pi_1(E,\tilde{x}))$.\\
+Dunque l'azione su $F$ \`e transitiva se e solo se $p_\star (\pi_1(E,\tilde{x}))$ coincide con tutti i suoi coniugati (\`e dunque normale)
+\end{itemize}
+\endproof
+\end{thm}
+\end{document}

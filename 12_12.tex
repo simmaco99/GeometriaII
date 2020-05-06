@@ -1,0 +1,74 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 12 Dicembre del Prof. Frigerio}
+\section{$\pi_1$ come funtore}
+Sia $f:\, X\to Y$ continua.\\
+Se $\alpha:\, [0,1]\to X $ \`e continua allora anche $f \circ \alpha$ lo \`e.\\
+$f$ induce $$f_\star:\, \Omega(a,a) \to \Omega(f(a),f(a))$$
+Se $\alpha\sim \beta$ in $\Omega(a,a)$ e $H:\, [0,1]\times [0,1]\to X$ \`e un'omotopia di cammini tra $\alpha$ e $ \beta$ allora $f\circ H : [0,1]\times [0,1]\to Y$ \`e un omotopia di cammini tra $f_\star(\alpha)$ e $f_\star(\beta)$.\\
+Possiamo dunque osservare che $f_\star$ induce
+$$ f_\star:\, \pi_1(X,a) \to \pi_1(Y,f(a))$$
+\begin{enumerate}
+\item $f_\star$ \`e un omomorfismo di gruppi
+$$ f_\star( [\alpha] \cdot [\beta]) =f_\star( [\alpha\star \beta])= [f\circ ( \alpha\star \beta)]= [ ( f\circ \alpha) \star ( f\circ \beta)]=f_\star([\alpha])\cdot f_\star([\beta])$$
+\item se $g:Y \to Z $ allora $g_\star \circ f_\star =(g\circ f)_\star$
+$$ (g\circ f)([\alpha])= [g\circ f \circ \alpha] = g_\star ([f\circ \alpha])= g_\star \left( f_\star( [\alpha]) \right)$$
+\item Data $Id:X\to X$ allora $Id_\star:\, \pi_1(X,a) \to \pi_1(X,a)$ \`e l'identit\`a
+\end{enumerate}
+Dalle 3 propiet\`a sopra enunciate, ho realizzato un funtore tra la categorieadegli spazi topologici puntati con le funzioni continue che preservano la puntatura e quella dei gruppi con gli omomorfismi di gruppi
+\begin{cor}
+$$f:\, X \to Y \text{  omeomorfismo } \quad \implica \quad f_\star :\, \pi_1(X,a) \to \pi_1(Y, f(a))\text{ isomorfismo }$$
+\proof sia $g:\, Y \to Y$ l'inversa continua di $f$ allora $g_\star$ \`e l'inversa di $f_\star$
+\end{cor}
+\begin{oss}Se $X$ e $Y$ sono omeomorfi allora $X$ e $Y$ sono omotopicamente equivalenti
+\end{oss}
+\begin{prop}Sia $f:\, X \to X $ omotopa all'identit\`a tramite $H$.\\
+Fissato $a\in X$, sia $\gamma:\, [0,1]\to X$ data da $\gamma(s)=H(a,s)$\\
+La mappa $f_\star :\, \pi_1(X,a) \to \pi_1(X, f(a))$ e $\gamma_\sharp$ coincidono
+\proof $\forall \alpha\in \Omega(a,a)$ sia 
+$$ K:\, [0,1]\times [0,1] \to X \qquad K(t,s)=H(\alpha(t),s)$$
+Osserviamo che $\alpha\star \gamma \star \overline{f_\star(\alpha)}\star \overline{\gamma}$ \`e omotopa all'identit\`a, dunque la giunzione si estende da $\partial I^2$ a $I^2$.\\
+Lo stesso vale per $f_\star(\alpha) \star \overline{\gamma}\star \overline{\alpha}\star \gamma$ che \`e perci\`o omotopa a $1_{f(a)}$ dunque 
+$$ 1=[ 
+f_\star(\alpha)\star ( \overline{\gamma}
+\star \overline{\alpha}\star \gamma ) ]
+ = \left[ f_\star(\alpha) \right]\cdot [ \overline{\gamma}\star \overline{\alpha}\star \gamma]$$
+ovvero 
+$$ [f_\star(\alpha)]=[\overline{\gamma}\star \overline{\alpha}\star \gamma]^{-1}=[\overline{\gamma}\star \alpha\star \gamma]=\gamma_\sharp([\alpha])$$
+\endproof
+\end{prop}
+\begin{thm}
+$$f:\, X \to Y\text{ equivalenza omotopica } \quad \implica \quad f_\star \text{ isomorfismo}$$
+\proof Sia $g$ un'inversa omotopica di $f$.\\
+Poich\`e $g \circ f \sim Id_X$ allora $(g\circ f)_\star:\, \pi_1(X,a)\to \pi_1(X,g(f(a))$ \`e un isomorfismo in quanto coincide con $\gamma_\sharp$ per un certo $\gamma \in\Omega(a, g(f(a)))$.\\
+Analogamente $f_\star \circ g_\star$ \`e un isomorfismo, $f_\star$ \`e iniettiva e surgettiva, da cui la tesi
+\endproof
+\end{thm}
+\begin{defn}$X$ si dice semplicemente connesso se $X$ connesso per archi e $\pi_1(X,a)=\{ 1\} $ $\forall a\in X$
+\end{defn}
+\begin{cor}$X$ contraibile  $\implica$ $X$  semplicemente connesso
+\end{cor}
+\spazio
+\begin{prop}$A\subseteq X$ retratto con inclusione $i$ e retrazione $r$.
+\begin{enumerate}
+\item $i_\star$ iniettiva e $r_\star$ surgettiva (per ogni scelta del punto base in $A$)
+\item se la retrazione \`e per deformazione $i_\star$ e $r_\star$ sono isomorfismi
+
+\end{enumerate}
+\proof \bbianco
+\begin{enumerate}
+\item Dato $a\in A$ si ha $r\circ i=Id_A$, dunque $r_\star \circ i_\star= Id_{\pi_1(A,a)}$ da cui la tesi
+\item Segue dal fatto che $i$ e $r$ sono equivalenze omotopiche
+\end{enumerate}
+\end{prop}
+\begin{oss}Se $A\subseteq X$  $i_\star:\pi_1(X,a)\to \pi_1(X,a)$ pu\`o non essere iniettiva.\\
+Ad esempio se $X=D^2$ e $A=S^1$
+\end{oss}
+\begin{ex} Sia 
+$$ \psi:\, \pi_1(X,a)\to [S',X] \qquad \psi([\alpha])=[\hat{\alpha}]$$
+Mostrare che 
+$$ X \text{ connesso per archi }\quad \ses \quad \psi \text{ surgettiva}$$
+e
+$$ \psi([\alpha])=\psi([\beta])\quad \ses \quad [\alpha] \text{ coniugato a } [\beta] \text{ in } \pi_1(X,a)$$
+\end{ex}
+\end{document}

@@ -1,0 +1,232 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 16 ottobre di Gandini}
+\section{Assiomi di separabilit\'a}
+
+\begin{defn}
+ Uno spazio topologico $X$ si dice $T1$ se
+ 
+$$ \forall x,y\in X \, x \neq y \quad \exists U,V\subseteq X \text{ aperti } \quad x \in U \sbarra V \text{ e } y \in V \sbarra U $$
+\end{defn}
+
+\begin{prop}[Definizione alternativa]\bianco
+ Sia $X$ uno spazio topologico
+ $$ X \text{ \`e } T1 \quad \ses \quad \text{ i punti sono chiusi}$$
+ \proof $\overline{\{x\}} = \{ y \in X \, \vert \, \text{ tutti gli intorni che contengono } y \text{ contengono } x \}$
+\\ $\implica$ Essendo $X$ $T1$
+$$ \forall y \in X \, y \neq x \quad \implica \quad \exists U \subseteq X \text{  aperto che contiene} y \text{ tale che }  x\not \in V  \quad \implica \quad y\not \in \overline{\{ x \}}$$
+$\iimplica$ Sia $y\neq x $ allora $V=X\sbarra \{x\}$ e $U=X\sbarra\{y\}$ sono aperti in quanto i punti sono chiusi.\\
+Dunque $U$ \`e un aperto che contiene $x$ ma non $Y$ e viceversa $V$ contiene $y$ ma non $x$.
+\endproof
+\end{prop}
+\begin{oss}\label{cofT1}Se $\tau$ \`e una topologia su $X$, allora $\tau$ soddisfa $T1$ se e solo se $\tau$ \`e pi\`u fine della topologia 
+\end{oss}
+\spazio
+\begin{ex}
+$$ X \text{ \`e } T1 \quad \ses \quad \{ x \} = \bigcap_{U\in I(x)} U $$
+\end{ex}
+\spazio
+\begin{defn}
+ Uno spazio topologico $X$ si dice $T2$ se
+$$ \forall x,y\in X \, x\neq y \quad \exists U,V \subseteq X \text{ aperti disgiunti } \quad x \in U \, y \in V $$
+ \end{defn}
+\begin{defn}
+ Uno spazio topologico che verifica l'assioma $T2$ prende il nome di spazio di Hausdorff o spazio separato
+\end{defn}
+\begin{prop}[Definizione alternativa]\bianco
+$$ X\text{\`e } T2 \quad \ses \quad \Delta_X\subseteq X \times X \text{ \`e chiuso con la topologia di sottospazio}$$
+dove $\Delta_X=\{ (x,x) \, \vert \, x \in  X \}$ \`e la diagonale di $X$
+\proof $\implica$ Sia $x\neq y $ allora $(x,y) \not \in \Delta_X$.\\
+Siano $U \in I(x)$ e $V \in I(y)$ disgiunti da cui 
+$$(x,y) \in U \times V \subseteq (X \times X ) \sbarra \Delta_X$$
+ovvero $U\times V$ \`e un intorno di $(x,y)$ dunque \`e aperto\\
+$\iimplica$ Il complementare della diagonale \`e aperto allora se $x\neq y$
+$$ \exists U, V \subseteq X \text{ aperti tali che  }  (x,y)\in U \times V \subseteq (X\times X) \sbarra \Delta_X $$ 
+inoltre $U$ e $V$ sono disgiunti (se $\exists z\in U \cap V $ allora $(z,z)\in U \times V$ e $(z,z)\in \Delta_X$ ma avevamo supposto che $U\times V$ fosse contenuto nel complementare della diagonale)
+
+\end{prop}
+\spazio
+\begin{ex}
+ $$ X \text{ \`e } T2 \quad \ses \quad \{ x\} =\bigcap_{U\in I(x)} \overline{U}$$
+\end{ex}
+
+\begin{prop} Sia $X$ uno spazio topologico allora 
+$T2 \implica T1$
+\proof 
+Se $U,V$ sono aperti disgiunti tali che $x\in U $ e $y\in V$ allora, in particolare, $x\in U\sbarra V $ e $y \in V\sbarra U$
+
+\end{prop}
+
+\spazio
+\begin{prop}
+Sottospazi e prodotti arbitrati di $T2$ (risp. $T1$) sono ancora $T2$ (risp. $T1$)
+\proof Mostriamo che prodotti di $T2$ \`e $T2$\\
+Consideriamo  $$X=\prod_{\alpha \in A} X_\alpha  \text{ dove gli } X_\alpha \text{ sono } T2$$
+Sia $x\neq y$ allora $\exists a \in A $ tale che $x_a=x(a) \neq y(a)=y_a$.\\
+Essendo $X_a$ $T2$ 
+$$ \exists U_a \in I(x_a) \quad \exists V_a \in I(y_a) \quad \text{ con } U_a \cap V_a = \emptyset$$
+Sia
+$$ U= \prod_{\alpha \in A } U_\alpha \text{ dove } U_\alpha = \begin{cases}U_a\text{ se } \alpha=a\\ 
+									   X_\alpha \text{ se } \alpha \neq a 
+                                                  
+                                                              \end{cases}
+ \quad 
+V= \prod_{\alpha \in A } V_\alpha \text{ dove } V_\alpha = \begin{cases}V_a\text{ se } \alpha=a\\ 
+									   X_\alpha \text{ se } \alpha \neq a 
+                                                  
+                                                              \end{cases}$$
+Per come abbiamo definito una base della topologia prodotto $U$ e $V$ sono aperti in $X$ inoltre essi sono disgiunti perch\`e $U_a$ e $V_a$ sono disgiunti
+
+\end{prop}
+\begin{oss}
+Se ho $2$ topologie su $X$ con $\tau_1 \subseteq \tau_2$
+$$ \tau_1 \text{ \`e } T1 \text{(risp. } T2 \text{)} \quad \implica \quad \tau_2 \text{ \`e } T1 \text{(risp. } T2 \text{)}$$
+
+\end{oss}
+\spazio
+\subsection{Alcune propiet\`a di $T2$}
+\begin{prop}
+Sia $Y$ uno spazio $T2$ e $f:\, X \to Y$ una funzione continua, allora il grafico di $f$ \`e chiuso ovvero
+$$ \Gamma_f=\{ (x,f(x)) \, \vert \, x \in X \} \subseteq X \times X \text{ \`e un chiuso }$$
+\proof Consideriamo la funzione
+$$ F:\, X \times Y  \to Y \times Y \quad (x,y) \to (f(x),y)$$
+essa \`e continua per come \`e stata definita la topologia prodotto e perc\`e $f$ \`e continua.\\
+Osserviamo che $F^{-1}(\Delta_X) = \Gamma_f$ dunque essendo la diagonale un chiuso, anche il grafico lo \`e
+\endproof
+\end{prop}
+\begin{prop}
+Sia $Y$ uno spazio $T2$ e $f,g:\, X \to Y$ continue allora
+$$ C= \{ x \in X \, \vert \, f(x)=g(x) \} \text{ \`e chiuso } $$
+\proof Consideriamo la funzione 
+$$ F:\, X \to Y \times Y \quad x \to (f(x),g(x)) $$
+essa \`e continua dunque $F^{-1}(\Delta_X)$ \`e chiuso essendo chiusa la diagonale ma $F^{-1}(\Delta_X)=C$
+\endproof
+\end{prop}
+\begin{cor}
+Sia $X$ uno spazio $T2$ e $f:\, X \to X $ continua, allora $Fix(f)$ \'e chiuso
+\proof Basta porre $g=id_X$ e usare la proposizione precedente
+\end{cor}
+\begin{prop}
+ Sia $Y$ uno spazio $T2$ e $f,g:\, X \to Y $ continue.\\
+ Sia $Z\subseteq X$ un denso tale che $f(z)=g(z)$ $ \forall z \in Z $.\\
+ Allora $f=g$
+\proof Per la proposizione precedente $\{ f(x)=g(x)\}$ \`e un chiuso, tale chiuso contiene un denso quindi contine la sua chiusura, ovvero, tutto lo spazio $X$
+\end{prop}
+
+\spazio
+\begin{prop}
+Sia $X$ uno spazio $T2$ e $\ds \{ x_n \}_{n \in \N} $ una successione convergente. Il limite della successione \`e unico
+\proof Siano $x,y$ due limiti della successione.\\
+Poich\`e la successione converge a $x$ allora
+$$ \forall U \in I(x) \exists n_1 \in \N \quad \{x_n\} \subseteq U \quad \forall n\geq n_1$$
+inoltre converge anche a $y$ quindi 
+$$ \forall V \in I(y) \exists n_2 \in \N \quad \{x_n\} \subseteq V \quad \forall n\geq n_2$$
+quindi vale 
+$$ \exists n_0=\max \{ n_1,n_2\} \quad \{x_n\} \subseteq V\cap U \quad \forall n\geq n_0$$
+dunqe $\forall U\in I(x)\, \forall V \in I(y)$ accade $U\cap V \neq \emptyset$ ma ci\`o viola l'assioma $T2$
+\endproof
+\end{prop}
+\newpage
+
+\begin{defn}[T3]\bianco
+Uno spazio topologico $X$ si dice $T3$ se 
+$$ \forall C \subseteq X \text{ chisuo} \quad \forall x \in X \sbarra C \quad \exists U,V \text{ aperti disgiunti } \quad x\in U \quad C \subseteq V$$
+\end{defn}
+\begin{defn}$X$ \`e uno spazio topologico regolare se soddisfa $T1$ e $T3$
+\end{defn}
+\spazio
+\begin{defn}Uno spazio topologico $X$ si dice $T4$ se 
+$$ \forall C, D \subseteq X \text{ chiusi disgiunti } \quad \exists U,V \subseteq X \text{ aperti disgiunti } \quad C \subseteq U \quad D\subseteq V $$
+\end{defn}
+\begin{defn}$X$ \`e uno spazio topologico normale se soddisfa $T1$ e $T4$
+\end{defn}
+\begin{oss}Possiamo riformulare la condizione in $T4$ come segue:\\
+Per ogni coppia di chiusi $C,D$ , $\exists U \in X$ tale che 
+$$ C \subseteq U \subseteq \overline{U} \subseteq X \sbarra D$$
+Infatti, in queste ipotesi $U$ \`e un aperto che contenente $C$  e $X\sbarra \overline{U}$ \`e un aperto contenente $D$, inoltre i $2$ aperti sono, in modo ovvio, disgiunti.\\
+Se $X$ \`e $T4$ allora $ U \subseteq X \sbarra V $ essendo $U,V$ disgiunti.\\
+Inoltre poich\`e $X \sbarra V $ \`e un chiuso contenente $U$, contiene anche la sua chiusura dunque 
+$$ U \subseteq \overline{ U } \subseteq X\sbarra V $$ 
+concludiamo osservando che $D \subseteq V $ implica  $X\sbarra V \subseteq X \sbarra D $\\
+Possiamo fare un ragionamento analogo anche con $T3$
+\end{oss}
+
+\begin{prop} Sottospazi e prodotti di $T3$ sono $T3$
+\proof  Mostriamo che sottospazi di $T3$ sono $T3$ l'altra \`e analoga a quella fatta nel caso di $T2$.\\
+Sia $X$ uno spazio vettoriale $T3$.\\
+Siano $Z\subseteq X $ (con topologia di sottospazio),  $z\in Z$ e $C\subseteq Z $ chiuso.\\
+Dalla definizione di topologia di sottospazio
+$$ C\text{ chiuso } \implica \exists D \subseteq X \text{ chiuso } \quad C = Z\cap D $$
+Ora essendo $X$ $T3$ 
+\end{prop}
+\spazio
+\begin{prop}Un sottospazio chiuso di $T4$ \`e un $T4$
+\proof Sia $X$ uno spazio $T4$ e $Z\subseteq X $ un chiuso.\\
+Siano $C,D\subseteq Z \text{ chiusi disgiunti }$.\\
+Dalla definizione di topologia di sottospazio
+$$ \exists C_1 \subseteq X \text{ chiusi } \quad C= C_1\cap Z $$
+$$ \exists D_1 \subseteq X \text{ chiusi } \quad D= D_1\cap Z $$
+Ora essendo $Z$ un chiuso di $X$ e poich\`e l'intersezione di $2$ chiusi \`e un chiuso: $C$ e $D$ sono chiusi disgiunti di $X$ dunque 
+$$ \exists U_1,V_1\subseteq X \text{ aperti disgiunti } \quad C\subseteq U_1 \quad D \subseteq V_1$$ 
+Ora poich\`e $C\subseteq Z$ vale in particolare $C\subseteq U_1 \cap Z$ e similmente $D\subseteq V_1\cap Z$.\\
+Ora $U=U_1\cap Z $ e $V=V_1\cap Z$ sono aperti disgiunti di $Z$ otteniamo che $Z$ \`e $T4$
+\endproof
+
+\end{prop}
+\begin{oss}In generale,  sottospazi e prodotti di $T4$ non sono $T4$.\\
+\end{oss}
+\newpage
+
+
+\begin{prop} $\text{ metrizzabile } \implica \text{ normale }$
+\proof Sia $(X,d)$ uno spazio metrico, per provare che $X$ \`e normale basta dimostrare che \`e $T4$ infatti $X$ \`e $T2$ quindi $T1$.\\
+Ricordiamo come avevamo definito la funzione distanza da un sottoinsieme $Z$ (27 Settembre Esercizio 0.2) 
+$$ d_Z(x)=\inf_{z\in Z } d(x,z)$$ 
+ essa \`e continua e $ \overline{Z}=d_Z^{-1}(\{0\}) $ (27 Settembre Esercizio 0.5).\\
+Siano $C,D$ chiusi disgiunti.\\
+Definiamo  $$ f :\, X \to [0,3] \quad x \to \frac{3d_C(x)}{d_C(x)+d_D(x)} $$
+tale funzione, essendo composizione di funzione continue \`e continua ed inoltre \`e ben definita: $C\cap D =\emptyset $ implica $d_C(x) \neq d_D(x)$.\\
+
+$$U=f^{-1}([0,1)) \quad C=\overline{C}=f^{-1}(0) \subseteq U $$
+$$V=f^{-1}((2,3]) \quad D=\overline{D}=f^{-1}(3) \subseteq V $$
+Ora poich\`e $C$ e $D$ sono disgiunti anche $U$ e $V$.\\
+Essendo gli intervalli $[0,1)$ e $(2,3]$ aperti in $[0,3]$ (con la topologia di sottospazio) $U$ e $V$ sono aperti 
+\endproof
+\end{prop}
+\spazio
+\begin{oss}
+$$ \text{ metrizzabile} \implica ( T4 + T1 ) \implica (T3+T1) \implica T2 \implica T1 $$
+in modo equivalente
+$$ \text{ metrizzabile} \implica \text{ normale } \implica \text{ regolare } \implica \text{ Hussdorff } \implica T1$$
+Infatti se $X$ \`e $T1$ allora i punti sono chiusi.
+\end{oss}
+Mostriamo che, in generale, le implicazioni opposte non sono vere.\\
+(quelle che mancano nella prossima lezione)
+\begin{itemize}
+
+\item Normale $\not \implica$ metrizzabile . Sia $\R_S$ la retta di Sorgenfray.\\
+$\R_S$,come sappiamo,  non \`e metrizzabile).\\
+$\R_S$ \`e $T1$ in quanto ha una topologia meno fine di quella euclidea e $T2\implica T1$.\\
+Resta da provare che \`e $T4$, siano $C,D$ chiusi disgiunti.
+$$ \forall c \in C \quad c \in \R\sbarra D \text{ che \`e aperto quindi } \exists c' \in \R \quad [c,c') \subseteq \R \sbarra D $$
+Dunque 
+$$ C \subseteq U = \bigcup_{c\in C} [c,c') \text{ con } U \text{ aperto }$$
+Similmente possiamo fare con $D$ ottenendo
+$$ D\subseteq V = \bigcup_{d\in D} [d,d') \text{ con } V \text{ aperto }$$
+Mostriamo che $U \cap V = \emptyset$ ovvero che $[c,c')\cap [d,d') = \emptyset$ $\forall c \in C \, d\in D$\\
+Essendo $C$ e $ D$ disgiunti in particolare $c\neq d$, assumiamo senza perdere di generalit\`a che $c<d$.
+$$ c \in \R \sbarra D \quad \implica \quad [c,c') \cap D = \emptyset \quad \implica \quad c ' \leq d $$ 
+
+\item Regolare $\not \implica$ normale
+\item $T2$  $\not \implica$ regolare
+\item $T1$   $\not \implica$ $T2$. Sia $X$ uno spazio infinito con la topologia cofinita.\\
+$X$ \`e $T1$ per l'osservazione~\ref{cofT1}, osserviamo che in $X$ non esistono aperti disgiunti.\\
+Siano $U,V$ aperti disgiunti allora $U\subseteq X\sbarra V$ dunque $U$ \`e finito essendo $X\sbarra V$ finito.\\
+ $X\sbarra U$ \`e un chiuso (complementare di un aperto) ma \`e infinito, ci\`o \`e assurdo.\\
+Nella topologia cofinita i chiusi sono finiti 
+
+\end{itemize}
+\end{document}
+
+
+

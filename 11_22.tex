@@ -1,0 +1,82 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 22 Novembre del Prof. Frigerio}
+\begin{defn}[Spazio proiettivo]\bianco
+Sia $\K$ un campo e sia $V$ un $\K$-spazio vettoriale.\\
+Definiamo su $V$ la seguente relazione di equivalenza
+$$ v \sim w \quad \ses \quad \exists \lambda \in \K^\star \quad v - \lambda w $$
+Lo spazio proiettivo associato a $V$ \`e
+$$ \p (V) = \frac{V \sbarra \{ 0 \}}{\sim}= \frac{V \sbarra  \{ 0\}}{G} \quad G = \{ \lambda Id \, \lambda\neq 0 \}$$
+$\p(V)$ \`e detto lo spazio delle rette di $V$
+\end{defn}
+\begin{defn}\bianco$W \subseteq \p(V)$ \`e un sottospazio do dimensione $k$ se 
+$$ W = \pi ( H \sbarra \{ 0\})$$ dove $H \subseteq V $ \`e uno spazio vettoriale di dimensione $k+1$ e $\pi:\, V \sbarra \{ 0 \} \to \p(V)$
+\end{defn}
+\begin{oss}Lo spazio proiettivo $p(V)$ ha dimensione $\dim V +1$
+\end{oss}
+\begin{oss}Se $V=\K^n$ si pone $\p(\K^n)=\p^{n-1}(\K)$.\\
+Nel caso in cui $\K=\R$ oppure $\K=\C$ assumiamo $\p^n(\K)$ dotato della topologia quoziente di $\R^{n+1}\sbarra \{ 0 \}$ e $\C^{n+1}\sbarra \{ 0 \} \cong \R^{2n+2} \sbarra \{ 0 \}$
+\end{oss}
+\spazio
+\begin{oss}Se $S^n\subseteq \R^{n+1}$ la sfera unitaria $S^n$ interseca ogni retta in $2$ punti della forma $\pm v$ per cui COME INSIEME 
+$$ \p^n (\R) = \frac{S^n}{pm Id}$$
+\end{oss}
+\begin{prop}$\p^n(\R) \cong \frac{S^n}{\pm Id}$
+\proof 
+Consideriamo il seguente diagramma
+$$ \begin{tikzcd} S^n \arrow[hook, r,"i"] \arrow[d]& \R^{n+1} \sbarra \{ 0 \} \arrow{d}{\pi} \\ \frac{S^n}{\pm Id} \arrow{r}{\overline{i}} &\p^n(\R)
+\end{tikzcd}$$
+esso \`e commutativo inoltre dalla propiet\`a universale della topologia quoziente $\overline{i}$ \`e continua.\\
+Consideriamo adesso il seguente diagramma commutativo
+$$ \begin{tikzcd} R^{n+1}\sbarra \{ 0\} \arrow[ r,"r"] \arrow{d}{\pi}& \S^{n} \arrow[d] \\ \frac{S^n}{\pm Id} \arrow{r}{\overline{i}} &\p^n(\R)
+\end{tikzcd}$$
+dove $r(x)=\frac{x}{\vert \vert x \vert\vert}$.\\
+Analogamente $\overline{r}$ \`e continua.\\
+Inoltre $\overline{r}$ e $\overline{i}$ sono una l'inversa dell'altra duneq omeomorfismi\endproof
+\end{prop}
+\spazio
+\begin{cor}$\p^n(\R)$ \`e compatto e di Hausdorff
+\proof $\p^n(\R)$ \`e quoziente di $S^n$ che \`e compatto dunque anche $\p^n(\R)$ lo \`e.\\
+$P^n(\R)$ \`e di Hausdorff per l'azione di un gruppo finito (dunque l'azione \`e propria) \endproof
+\end{cor}
+\begin{prop}Sia $$D^n=\{ x\in \R^n\, , \, \vert\vert x \vert \vert \leq 1 \}$$ e definiamo $\sim_D$ la relazione di equivalenza
+$$ x \sim_D y \quad \ses \quad x =y \text{ o } ( \vert \vert x\vert \vert = \vert \vert y \norm =1 \text{ e } x = -y )$$
+Allora $P^n (\R) \cong \frac{D^n }{\sim_D}$
+\proof Sia $H =\{ (x_0, \dots, x_n ) \in S^n \, \vert \, x_0 \geq 0\}$ ovvero $H$ \`e "l'emisfero nord"\\
+Definiamo inoltre la relazione di equivalenza
+$$ v \sim_H w \quad \ses \quad v =w \text{ o } ( v = -w \text{ e } x_0(v)=x_0(w)=0$$
+ovvero i punti sull'equatore stanno in una stessa classe di equivalenza.\\
+La composizione $ H \inclu S^n \to \p^n(\R)$ induce una bigezione continua.\\
+La continuit\`a deriva dalla propiet\`a universale della topologia quoziente, inoltre ogni punto del proiettivo ha un rappresentante nell'emisfero nord (surgettiva), l'iniettivit\`a deriva dal fatto che $\sim_H$ identifica tutti i punti che vanno nella stessa classe del proiettivo.\\
+Ora $H$ compatto dunque $ \frac{H}{\sim H}$ compatto ed essendo $\p^n(\R)$ T2 si conclude che $ \p^n(\R) \cong \frac{H}{
+\sim_H}$.\\
+Infine l'omomorfismo $$H \to D^n \quad (x_0, \dots, x_n) \to (x_1, \dots, x_n)$$ ha come inversa $(x_1, \dots, x_n ) \to ( \sqrt{1-x_1^n - \dots - x_n^2}, x_1, \dots, x_n)$, dunque $\frac{H}{\sim_H} \cong\frac{D}{\sim_D}$\\
+\endproof
+\end{prop}
+\begin{oss}$\p(\R)\cong S^1$ in quanto 
+$$\p(\R) = \frac{D^1}{\sim} = \frac{[-1,1]}{\{ -1,1 \}}=S^1$$
+\end{oss}
+\begin{oss} $\p^2(\R)$ si ottiene attaccando un disco ad un nastro di Möbius lungo il suo bordo (per entrambi \`e $S^1$).\\
+In generale l'inclusione $\R^n \sbarra \{ 0 \} \inclu \R^{n+1}\sbarra \{0 \}$ induce un inclusione $\p^{n-1}(\R) \inclu \p^n (\R)$ tale che $\p^n (\R) \sbarra \p^{n-1}(\R) \cong D^n$
+\end{oss}
+\begin{defn}[Coordinate omogenee]\bianco
+ Un punto di $\p^n (\R)$ \`e descritto da una $(n+1)$-upla a meno di multipli.\\
+ La classe di $(x_0, \dots, x_n)$ si denota con $[x_0:\dots : x_n ]$.
+
+\begin{oss}$[2:0:1]=[4:0:2]$ ed inoltre $[0:0:0]$ non esiste
+\end{oss}
+\end{defn}
+\begin{fatti}\bbianco
+\begin{itemize} \item Se $p\in \K[x_0, \dots, x_n]$\`e un polinomio non ha senso calcolare il polinomio sulle coordinate omogenee ovvero chiedersi quanto vale $p([x_0:\dots :x_n])$.
+\item
+Se $p$ \`e omogeneo di grado $\forall \lambda\in \K^\star $ 
+$$ p( \lambda x_0, \dots, \lambda x_n) = \lambda^d p(x_0, \dots, x_n)$$
+\`e ben definito il fatto che $p$ si annulli in $[x_0: \dots : x_n]$, cosa che avviene per definizione se $p(x_0, \dots, x_n)=0$ per un rappresentante di $[x_0:\dots : x_n]$\\
+In particolare \`e ben definito $U_i=\{ x_i \neq 0 \} \subseteq \p^n(\R)$.
+\item Se $p,q\in\K[x_0, \dots, x_n]$ sono omogenei e dello stesso grado \`e ben definita la funzione 
+$$ \frac{p}{q}:\, V \to \K  \text{ dove } V =\{ x \in \p^n(\R)\, \vert \, q(x) \neq 0 \}$$ 
+\end{itemize}
+\end{fatti}
+
+\end{document}

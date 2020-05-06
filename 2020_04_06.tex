@@ -1,0 +1,121 @@
+
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 4 aprile}
+\section{Indice di avvolgmento}
+Fissato $a\in \C$, sappiamo che $\C\setminus \{a  \}$ si ritrae per deformazione su un cerchio di raggio $1$ e centro $a$, preso $x_0$ sul bordo del cerchio ($x_0\in \partial B(a,1)$), fissiamo un isomorfismo canonico
+$$ f:\, \pi_1(\C\setminus \{a \}, x_0) \to \Z \quad [\gamma] \to 1 $$
+dove $\gamma$ \`e una parametrizzazione di $\partial B(a,1)$ che percorre la circonferenza in senso antiorario.\\
+Come gi\`a osservato esiste  una bigezione naturale
+$$ \Omega(x_0,x_0) \to \W(S^1, x_0) \quad \gamma \to \hat{\gamma}$$
+Questa bigezione induce un omomorfismo 
+$$\partial:\, \pi_1(\C\setminus\{ a \}, x_0) \to [ S^1, \C \setminus\{ a \} \quad [\gamma]\to [\hat{\gamma}]$$
+dove con $[S', \C \setminus \{a \}]$ intendiamo le classi di omotopie di mappe continue $S^1\to \C\setminus\{a\}$
+Tale mappa risulta suriettiva ed inoltre $\partial([\gamma]) = \partial([\gamma'])$ se e solo se $[\gamma]$ e $[\gamma']$ sono coniugati.\\
+Ora $\pi_1(\C\setminus\{a\}, x_0)$ \`e abeliano, dunque la mappa \`e iniettiva.\\
+Definiamo per composizione la mappa 
+$$ \psi:\,  \partial^{-1}\circ f:\,[S^1, \C\setminus\{a\}] \to \Z$$
+\begin{defn}Sia $\gamma:\, [0,1]\to \C\setminus \{a\}$ un cammino chiuso in $x_0$.\\
+Denotiamo indice di $\gamma$ rispetto ad $a$ l'intero $\psi([\hat{\gamma}])$ e lo denotiamo con $I(\gamma, a)$
+\end{defn}
+\begin{thm}Sia $\gamma:\, [0,1]\to \C\setminus\{a\}$ un cammino chiuso. Allora 
+$$ I(\gamma, a) = \frac{1}{2\pi 1 }\int_\gamma \frac{dz}{z-a}$$
+\proof Come sappiamo $\frac{1}{z-a}$ \`e olomorfa in $\C\setminus \{a\}$ dunque la forma $\w=\frac{\dz}{z-a}$ \`e chiusa.\\
+Possiamo integrare $\w$ lungo curve $\gamma$ continue, e il valore dell'integrale non dipende dal rappresentante nella classe di omotopia, dunque \`e ben definita la funzione 
+$$ \varphi:\, [S^1, \C\setminus\{a \}] \to \C$$ 
+$$ [\hat{\gamma}]\to \frac{1}{2\pi i }\int_\gamma \w $$
+Mostriamo che $\varphi = \psi$ il che conclude la dimostrazione.\\
+Notiamo che 
+$$ [S^1, \C\setminus\{ a\}]  =\{ [\hat{\gamma_n}]\, : \, \gamma_n:\, [0,1]\to \C\setminus \{a\} \text{ dove } t \to a + e^{2\pi i n t}\}$$
+dunque $\psi([\hat{\gamma_n}])  =n$ (avvolto $n$ volte).\\
+Ora abbiamo visto che 
+$$ \int_{\gamma_n} \frac{\dz}{z-a} =2\pi i n $$ 
+da cui la tesi 
+\end{thm}
+\begin{oss}Banalmente, 2 curve chiuse continue in $\C\setminus\{a \}$ liberamente omotope hanno lo stesso indice
+\end{oss}
+Vediamo come varia l'indice al variare del punto $a$
+\begin{prop}Sia $\gamma:\, [0,1]\to \C$ una curva chiusa continua.\\
+Allora la funzione 
+$$ \C\setminus  Im \gamma \to \C \quad a\to I(\gamma,a)$$
+\`e localmente costante (costante su ogni componente connessa del  dominio)
+\proof Fissato $a$ nel dominio. Mostriamo che $\forall h \in \C$ sufficientemente piccolo si ha $I(\gamma, a+h) = I(\gamma, a)$.\\
+Sia $$0<\gamma_0< \min \{ | \gamma(t) - a| \, :\, t\in [0,1]\}$$
+\`e ben posto in quanto $|\gamma(t) - a|  \neq  0 $ poich\`e $a\not \in Imm \gamma $.\\
+Per ogni $h\in \C$ con $\abs{h}\leq \gamma_0$ abbiamo 
+$$ I(\gamma, a+h) = \frac{1}{2\pi i }\int_{\gamma } \frac{\dz}{z-(a+h)} =\frac{1}{2\pi i }\int_\gamma \frac{\dz}{(z-h)-a}$$
+Con il cambio di variabili $z'= z-h$ otteniamo 
+$$ I(\gamma, a +h) = \frac{1}{2\pi i }\int_{\gamma '} \frac{\dz'}{z'-a} \text{ dove } \gamma'(t) =\gamma(t) + h$$
+Il che conclude la dimostrazione infatti 
+$$ F(t,s) = \gamma(t) - sh $$ 
+\`e un omotopia tra $\gamma $ e $\gamma'$
+\end{prop}
+\spazio
+\begin{prop}Sia $a\in \C$ e sia $\gamma$ una curva chiusa continua tale che $Im\gamma \subseteq D \subseteq \C \setminus \{ a \}$ dove $D$ aperto semplicemente connesso.\\
+Allora $I(\gamma,a) =0$
+\proof  La forma $\w=\frac{\dz}{z-a}$ \`e chiusa in un semplicemente connesso, dunque esatta da cui 
+$$ I(\gamma,a) = \int_\gamma \w = 0$$
+\endproof
+\end{prop}
+\spazio
+\begin{prop}Sia $\gamma$ una curva chiusa continua e sia $a\in \C\setminus Imm \gamma$.\\
+$I(\gamma,a) = 0$ per ogni $a$ in una componente connessa illimitata di $\C\setminus Imm \gamma$
+\end{prop}
+\begin{ese}Sia $\gamma:\, t\to Re^{it} $ con $R>0$ allora
+\begin{itemize}
+\item $\abs z <R$ allora $I(\gamma, z) =1$
+\item $\abs z >R$ allora $I(\gamma,z) = 0$
+\end{itemize}
+\end{ese}
+\spazio
+\begin{prop}Sia 
+$$ f:\, \{ z\in \C \, \vert \,\abs z \leq R \} \to \C$$
+una mappa continua e sia $\gamma(t) = f(Re^{2\pi i t})$ per $t\in [0,1]$.\\
+Se $a\not\in Imm\gamma$ e $I(\gamma,a) \neq 0 $ allora esiste $z$ con $\abs z <R$ tale che $f(z) = a$
+\proof Assumiamo, per assurdo $f(z) \neq a$ per ogni $\abs z <R$, dunque di conseguenza $f(z) \neq a$ per ogni $\abs \leq R$ (abbiamo supposto $a\not \in Imm \gamma$).\\
+Definiamo 
+$$ F(t,s) = f(tRe^{2\pi i }) \quad \forall t,s\in [0,1]$$
+$F$ \`e un omotopia tra $\gamma $ e il cammino costante $f(0)$ dunque $\gamma $ \`e omotop ad un cammino costante da cui 
+$$ \int_\gamma \frac{\dz}{z-a} = 0$$
+contro l'ipotesi $I(\gamma, a) \neq 0 $
+\end{prop}
+\newpage
+\begin{defn}Siano $\gamma_1, \gamma_2$ due curve continue, allora
+$$ \gamma_1\gamma_2:\, t \to \gamma_1(t) \gamma_2(t)$$
+$$ \gamma_1+ \gamma_2 :\, t\to \gamma_1(t)+\gamma_2(t)$$
+\end{defn}
+\begin{thm}Siano $\gamma_1,\gamma_2$ due curve continue chiuse con $0\not \in Imm \gamma_1, \gamma_2$ allora 
+$$I(\gamma_1\gamma_2,0) =I(\gamma_1,0)+ I(\gamma_2,0)$$
+\proof La forma $\w=\frac{\dz}{z}$ ammette una primitiva locale, sia 
+$$f_i:\, [0,1]\to \C \quad e^{f_i(t)} =\gamma_i(t)$$
+allora $$\gamma_1\gamma_2(t) =e^{f_1(t)} e^{f_2(t)} = e^{f_1(t) + f_2(t)}$$
+dunque $f=f_1+f_2$ \`e una primitiva di $\w$ lungo $\gamma_1\gamma_2$ da cui 
+$$ I(\gamma_1\gamma_2,0) = \frac{f_1(1) +f_2(1) - f_1(0) - f_2(0)}{2\pi i} = I(\gamma_1,0) +I(\gamma_2,0)$$
+\end{thm}
+\begin{thm}Siano $\gamma,\gamma_1$ curve chiuse continue tali che $0\not \in Imm\gamma_1,\gamma$.\\
+Assumiamo che $0\leq \abs{\gamma_1(t)}\leq\abs \gamma(t)$ per ogni $t\in [0,1]$. Allora
+$$ I(\gamma_1+\gamma,0) = I(\gamma,0)$$
+\proof 
+$$ \gamma(t) +\gamma_1(t) = \gamma(t) \tonde{1+\frac{\gamma_1(t)}{\gamma(t)}}  =\gamma(t) \beta(t)$$
+dunque 
+$$ I(\gamma_1+\gamma,0) = I(\gamma\beta,0) =I(\gamma,0) + I(\beta,0)$$
+Mostriamo che $I(\beta,0)=0$ infatti $Imm \beta \subseteq D(1,1)$ dunque $Im \beta $ contenuto in un aperto  semplicemente connesso .\endproof
+\end{thm}
+\spazio
+\begin{thm}[Formula integrale di Cauchy]\bianco
+Sia $D\subseteq \C$ un aperto con $a\in D$ sia 
+$$ \gamma:\, [0,1]\to D\setminus \{a\}$$ 
+un cammino chiuso omotopicamente banale in $D$ e tale che $a\not \in Imm \gamma$.\\
+Sia $f:\, D\to \C$ olomorfa allora 
+$$ \frac{1}{2\pi i }\int_\gamma \frac{f(z)}{z-a}\dz = I(\gamma,a) f(a)$$
+\proof Per ogni $z\in D$ definisco la funzione 
+$$ g(z) =\begin{cases}\frac{f(z) - f(a)}{z-a} \text{ se } z\neq a \\
+f(a) \text{ se } z=a
+\end{cases}$$
+essendo $f$ olomorfa, $g$ \`e continua in $a$ ed \`e olomorfa in $D\setminus r$ con $r$ la retta orizzontale che passa per $a$.\\
+Per un teorema visto $g(z) \dz$ \`e chiusa in $D$.\\
+Visto che $\gamma$ \`e omotopicamente banale in $D$  e $g(z) \dz $ \`e chiusa si ha 
+$$ 0 =\int_\gamma g(z) \dz= \int_\gamma \frac{f(z) -f(a)}{z-a}\dz = \int_\gamma \frac{f(z)}{z-a}\dz - f(a) \int_\gamma \frac{1}{z-a}\dz $$
+dividendo per $2\pi i$ si ha la tesi \endproof 
+\end{thm}
+\end{document}

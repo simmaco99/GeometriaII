@@ -1,0 +1,118 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 4 Ottobre di Gandini.}
+\begin{ex}[Topologia di Zariski]\bianco
+Sia $\K$ un campo  e $\mathfrak{F} \subseteq \K[x_1, \dots, x_n]$ allora definiamo $$V(\mathfrak{F}) = \{ (a_1, \dots, a_n ) \in \K^n \, \vert \, f(a_1,\dots, a_n)=0 \quad \forall f\in \mathfrak{F}$$
+ovvero $\mathfrak{F}$ \`e una famiglia di polinomi in $n$ indeterminate con coefficienti in $\K$ e $V(\mathfrak{F}$ \`e il luogo di zeri della famiglia di polinomi.\\
+Definiamo una topologia su $\K^n$ nel seguente modo
+$$ C\subseteq \K^n \text{ chiuso } \quad \ses \quad \exists \mathfrak{F}\subseteq \K[x_1, \dots, x_n] \quad C=V(\mathfrak{F})$$
+ovvero i chiusi sono tutti e soli i luoghi di zeri di famiglie di polinomi.\\
+Mostriamo che \`e una topologia
+\begin{itemize}
+\item $\emptyset=V(1) $ ovvero del polinomio sempre costante ad $1$\\
+$\K^n=V(0)$ ovvero del polinomio costantemente nullo
+\item $\
+\ds \bigcap_{i\in I } V (\mathfrak{F_i})= V \left( \bigcup_{i \in I } \mathfrak{F_i} \right)$
+\item $V(\mathfrak{F_1})\cup V(\mathfrak{F_2})=V (\mathfrak{F_1}\cdot \mathfrak{F_2}) $ dove $\mathfrak{F_1}\cdot \mathfrak{F_2}=\{ f_1f_2 \, \vert \, f_1\in \mathfrak{F_1} , \, f_2 \in \mathfrak{F_2} \}$\\
+$\subseteq$ Sia $a\in V(\mathfrak{F_1})\cup V(\mathfrak{F_2})$ allora 
+$$ f_1(a)=0 \quad \forall f_1 \in \mathfrak{F_1} \quad  f_2(a)=0 \quad \forall f_2 \in \mathfrak{F_2} \quad \implica \quad (f_1f_2)(a)= 0 \quad \forall f_1 \in \mathfrak{F_1} \,  \forall f_2 \in \mathfrak{F_2} $$
+$\supseteq$ Sia $a\in \K^n \sbarra ( V(\mathfrak{F_1}) \cup  V(\mathfrak{F_2})$ allora
+$$\exists f_1 \in \mathfrak{F_1} \, \, f_1(a)\neq 0 \quad \exists f_2 \in \mathfrak{F_2} \, \, f_2(a)\neq 0 \quad  \implica \quad (f_1f_2)(a)\neq 0 \quad \implica \quad a \not \in V(\mathfrak{F_1}\mathfrak{F_2}) $$
+\end{itemize}
+\end{ex}
+\begin{oss}
+$$D(f) =\{ a \in \K^n \, \vert \, f(a)\neq 0 \}$$
+\`E un aperto in quanto $D(f)=\K^n\sbarra V(f)$\\
+Una base per questa topologie \`e 
+$$ \{ D(f) \, \vert \, f \in \K[x_1, \dots, x_n]\}$$
+infatti $\ds \K^n\sbarra V(\mathfrak{F}) = \bigcup_{f\in \mathfrak{F}} D(f)$ 
+\end{oss}
+\begin{oss}Se prendiamo $\K=\R$ allora la topologia di Zariski \`e meno  fine della topologia euclidea infatti le funzioni polinomiali sono continue nella topologia quindi 
+$$ D(f)=f^{-1}( \R \sbarra \{ 0\}) \text{ ora } \R \sbarra \{0\} \text{ \`e un aperto quindi } D(f) \in \tau_{eucl}$$
+\end{oss}
+\begin{oss}Per $n=1$ la topologia di Zariski \`e la topologia cofinita\\
+
+Se $C$ \`e un chiuso nella topologia cofinita diverso da $\K$ allora $C$ \`e finito ovvero $C=\{ a_1, \dots , a_n\}$.\\
+Presa $\mathfrak{F}=\{ x-a_1, \dots, x-a_n\}$ otteniamo $C=V(\mathfrak{F}$ dunque \`e un chiuso in Zariski.\\
+Sia $C$ un chiuso nella topologia di Zariski diverso da $\K$ allora $C=V(\mathfrak{F})$ allora per $f\in \mathfrak{F}$ abbiamo $V(f)$ finito infatti $f$ ha al pi\`u $\deg f$ radici
+\end{oss}
+\newpage
+\begin{ex}$\R$ con la topologia di Sorgenfray \`e primo-numerabile ma non secondo-numerabile\\
+Sia $x\in \R$ allora $$\B_x=\left\{ \left[x, x+\frac{1}{n}\right) \, \vert \, n \in \N \right\}$$ \`e un sistema fondamentale di intorni per $x$ numerabile.\\
+Mostriamo che $\R_S$ non \`e secondo numerabile.\\
+Sia $\B$ una base di $\R_S$\\
+Sia $a\in \R$ allora $[a,a+1) $ \`e aperto dunque \`e unione di elementi di $\B$ ovvero $$\exists B_a \in \B \quad a\in B_a\subseteq [a,a+1)$$ dunque
+$\B \supset B'=\{ B_a \, \vert \, a \in \R\}$ ora $\B'$ non \`e numerabile essendo i $B_a$ disgiunti dunque anche $\B$ non \`e numerabile
+\begin{oss}Abbiamo anche dimostrato che $\R_s$ non \`e metrizzabile, se $X$ \`e metrico:\\$X$ primo-numerabile $\implica $ $X$ secondo-numerabile
+\end{oss}
+\end{ex}
+\spazio
+\begin{oss} La topologia cofinita su un insieme più che numerabile non soddisfa il primo assioma di numerabilit\`a.
+\proof Sia $x\in X$ e supponiamo che $\ds \{ U_n\}_{n \in \N}$ sia un sistema fondamentale di intorni dunque $ X\sbarra U_n $ \`e finito infatti 
+$$U_n \text{ intorno } \implica \exists A_n \subseteq U_n\text{ aperto} \quad \implica \quad X\sbarra A_n \text{ chiuso dunque finito}$$
+Ora $ X\sbarra A_n \subseteq X\sbarra U_n$ dunque finito.\\
+$$ X\sbarra U_n \text{ finito } \implica \quad \bigcup_{n \in \N} X \sbarra U_n \text{ numerabile }$$
+Ora essendo $X$ pi\`u che numerabile esiste $y$ nel complementare di $\ds \bigcup_{n\in \N} X \sbarra U_n$.\\
+$X\sbarra \{ y\}$ \`e un aperto che contiene $x$ dunque  \`e un intorno di $x$ da cui 
+$$ \exists n \quad U_n \subseteq U$$
+Inoltre $y\in X\sbarra U \subseteq X\sbarra U_n$ \\
+$$ X\sbarra U =\{y \}\subseteq X\sbarra U_n \not \ni  y$$
+ma ci\`o \`e un assurdo
+\end{oss}
+\newpage
+\section{Intorni e continuit\`a}
+\begin{defn}Sia $f:\, X \to Y$ una funzione tra spazi topologici e sia $x_0\in X$.\\
+$f$ si dice continua in $x_0$ se 
+$$ \forall V \text{ intorno di } f(x_0) \quad \exists U \text{ intorno di } x_0 \quad f(U)\subseteq V$$
+ovvero 
+$$ \forall V \text{ intorno di } f(x_0) \quad f^{-1} (V) \text{ \`e intorno di } x_0 $$
+\end{defn}
+\begin{prop}
+$$ f\text{ continua } \quad \ses\quad f \text{ continua in ogni suo punto}$$
+dove $f$ continua \`e intesa con la definizione "La controimmagine di aperti \`e un aperto"
+\proof $\iimplica$ Sia $V$ un aperto 
+$$ f^{-1}(V)\text{ aperto } \ses f^{-1}(V)\in I(x) \quad \forall x\in f^{-1}(V)$$
+infatti $A$ \`e aperto se e solo se \`e intorno di ogni suo punto.\\
+$\forall x \in f^{-1}(V)$
+$$ V\text{ aperto }  \quad \implica \quad V\in I(f(x)) \quad \implica \quad f^{-1}(V) \in I(x)$$
+$\implica$ Sia $x_0\in X$.\\
+Sia $V\in I(f(x_0))$ dobbiamo provare che $f^{-1}(V)\in I(x_0)$
+$$ V \in I(f(x_0)) \quad \implica \quad \exists V'\subseteq Y \text{ aperto } \quad f(x_0) \in V'\subseteq V$$
+Ora $f^{-1}(V')$ essendo $f$ continua \`e un aperto quindi 
+$$ x_0 \in f^{-1}(V') \subseteq f^{-1}(V) \quad \implica \quad f^{-1}(V) \in I(x_0)$$
+\endproof
+\end{prop}
+\newpage
+\begin{defn}Sia $X$ uno spazio topologico e $\ds \{ x_n \}_{n \in \N}$ una successione allora
+$$ \{ x_n\} \text{ converge a } x \in X \text{ se } \forall V \text{ intorno di } x \quad \exists n_0 \tc x_n \in V \quad \forall n \geq n_0$$
+\end{defn}
+\begin{prop}Sia $X$ primo-numerabile e sia $C\subseteq X$ allora
+$$ C \text{ chiuso } \quad \ses \quad \text{ per ogni successione } \{ x_n \} \subseteq C  \text{ convergente a } x \in X \text{ allora } x\in C $$
+\proof $$\overline{C}=\{ x\in X \, \vert \, U \cap C \neq \emptyset \quad \forall U \in I(x)\}$$
+$\implica$ sia $\{ x_n \} $ convergente a $x_0\in X$.\\
+Basta dimostrare che $x_0 \in C = \overline{C}$ ovvero che $U \cap C \neq \emptyset $ con $U \in I(x_0)$.\\
+Dalla definizione di convergenza
+$$ \forall U \in I(x_0) \quad \exists n_0 \quad x_n \in U \quad \forall n \geq n_0$$
+dunque $x_n\in U $ per infiniti $n$, ora la successione ha valori in $C$ dunque $U_n \cap C \neq \emptyset$\\
+$\iimplica$ Sia $x\in \overline{C}$, vediamo che $x\in C$.\\
+Per ipotesi basta costruire una successione $\{x_n \} \subseteq C$ convergente a $x$.\\
+Sia $\ds\{ U_n\}_{n \in \N}$ un sistema fondamentale numerabile di intorni di $x_0$.\\
+$$V_n =\ds \bigcap_{i=1}^n U_i \quad \implica \{ V_n \} \text{ \`e un sistema fondamentale di } x_0 \text{ con } V_1  \supseteq V_2 \supseteq \dots $$
+Poich\`e $x\in \overline{C}$ allora $V_n \cap C \neq \emptyset \quad \forall n \in \N$.\\
+Sia $x_n \in V_n \cap C$ e sia $\{ x_n\}$ la successione cos\`i costruita allora
+\begin{itemize}
+\item $\{ x_n \} \subseteq C $
+\item $\{x_n \} $ converge a $x$ infatti
+$$ \forall U \in I(x) \quad \exists n_0 \quad V_{n_0} \subseteq U \text{ allora } x_n \in V_n \subseteq V_{n_0} \subseteq U \quad \forall n \geq n_0$$
+\end{itemize}
+\endproof
+\end{prop}
+\begin{prop}Sia $X$ primo-numerabile e sia $A\subseteq X$ allora
+$$ A \text{ aperto } \quad \ses \quad \text{ per ogni successione } \{ x_n \} \subseteq X  \text{ convergente a } x \in A \text{ allora } x_n\in A \quad \forall n \geq n_0 $$
+\end{prop}
+\begin{prop}
+ Siano $X,Y$ spazi topologici primo-numerabile e $f:\, X \to Y$ 
+$$ f \text{ continua } \quad \ses \quad \forall \{ x_n \} \subseteq X \text{ convergente a } x \in X \text{ allora } \{ f(x_n)\} \subseteq \text{ \`e convergente a } f(x) \in Y$$
+\end{prop}
+\end{document}

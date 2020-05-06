@@ -1,0 +1,127 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 30 Marzo}
+\begin{cor}Su $C^\star$ la forma $\frac{\di z}{z}$ \`e chiusa ma non esatta
+\proof $\forall z_0\in C^\star$ esiste un aperto $z_0\in U\subset \C^\star$ su cui \`e definita una branca $F$ del logaritmo, ora $\di F = F' \di z =\frac{\di z}{z}z$ su $U$ per cui tale forma \`e chiusa.\\
+Come abbiamo osservato $\gamma(t)=e^{2\pi i t} $ \`e un loop ma $\int_\amma \frac{\di z }{z}\neq 0 $.\\
+Dunque per caratterizzazione la forma non \`e esatta
+\end{cor}
+\begin{cor}Non esiste un "logaritmo" definito su tutto $\C^\star$, altrimenti $\frac{\di z }{z}$ sarebbe esatto su $\C^\star$
+\end{cor}
+\newpage
+\section{Integrazioni su rettangoli}
+\begin{oss}Un rettangolo $R$ in $\C$ \`e caratterizzato da $4$ vertici della forma
+$$a_1 + i b_1 \quad a_2 + i b_1 \quad a_2 + ib_2  \quad a_1 + i b_2 $$
+Possiamo parametrizzare il bordo del rettangolo con il cammino $\amma = \amma_1 \star \amma_2\star \amma_3 \star \amma_4$ 
+dove 
+$$\gamma_1(t) =a_1+t(a_2-a_1) \quad \gamma_2(t)=a_2 + i (b_1+t(b_2-b_1))$$
+similmente si definisce $\amma_3$ e $\amma_4$.\\
+D'ora in poi poniamo per ogni $1$-forma 
+$$\int_{\partial R} \w = \int_\amma \w$$
+Se $\w=P\di x + Q \di y$ poich\`e $\gamma_1'(t) = -\gamma_3'(t) =1 $ e $\gamma_2'(t) = -\gamma_4'(t)=i$ si ha
+$$ \int_{\amma R} \w = \int_{a_1}^{a_2} P(t,b_1) \dt + \int_{b_1}^{b_2}Q(a_2, t) \dt -\int_{a_1}^{a_2}P(t,b_2)\dt - \int_{b_1}^{b_2}Q(a_1, t) \dt $$
+\end{oss}
+
+\begin{prop}Se $D=B(z_0,r)$ \`e il disco aperto e $\w$ \`e una $1$-forma su $D$
+$$\w \text{ esatta } \quad \ses \quad  \int_{\partial R} \w = 0 \,\, \forall \text{ rettangolo } R \subseteq D $$
+\proof $\implica$ $\partial R $ \`e un cammino chiuso, per quanto visto sulla caratterizzazioni delle forme esatte, l'integrale lungo un cammino chiuso di una forma esatta \`e nulla\\
+$\iimplica$ Sia $z_0\in D$ qualsiasi.\\
+ Costruiamo una primitiva, integrando $\w$ lungo un cammino differenziabile a tratti fatti da un tratto orizzontale seguito da un tratto verticale che collega $z_0$ a $z$.\\
+$\forall z\in D$ sia $\amma_z$ un tale cammino (l'esistenza deriva dal fatto che $D$ \`e un disco). Pongo 
+$$F(z) =\int_{\amma_z} \w$$
+Poich\`e $\amma_z$ \`e univocamente determinato da $z$  (a meno di riparametrizzazioni), $F$ \`e ben definita.\\
+Devo mostrare che se $\w=P\di x + Q\di y $ allora $\pr F x =  P$ e $\pr F y=Q$.\\
+Il fatto che $\pr F y = Q$ segue dallo stesso ragionamento fatto per costruire la primitiva la volta scorsa (integrale lungo un loop generico).\\
+Infatti se $z'=z+ih$ allora $\amma_{z+ih}= \gamma_z\star \gamma_h$ ($\amma_h$ \`e un cammino verticale) dunque
+$$F(z+ih)-F(z)=\int_{\amma_h} \w = \int_0^h Q(z+it) \dt$$
+Ora se dividiamo per $h$, il termine di destra tende a $Q(z)$ per $h\to 0$.\\
+Per mostrare che $\pr F x=P$ devo usare l'ipotesi, ci\`o ci consente di dire che 
+$$F(z) = \int_{\alpha_z} \w$$ 
+dove $\alpha_z$ \`e il cammino da $z_0$ a $z$ che va prima in verticale e poi in orizzontale, infatti  $\amma_z\star \overline{\alpha}_z$ \`e il bordo di un rettangolo dunque 
+$$0=\int_{\amma_z\star \overline{\alpha}_z} \w = \int_{\amma_z} \w - \int_{\alpha_z} \w \quad \implica \quad \int_{\amma_z} \w = \int_{\alpha_z}\w$$ 
+A questo punto la dimostrazione che $\pr F x = P$ \`e identica a quella fatta per $\pr F y = Q$ usando gli $\alpha_z$ al posto di $\amma_z$\\
+\endproof
+\begin{oss}Per verificare l'esattezza di $\w$ su un disco, basta controllare i bordi dei rettangoli, per $D$ qualsiasi devo considerare tutti i lacci chiusi
+\end{oss}
+\end{prop}
+\begin{cor}$D$ aperto qualsiasi, $\w$ una $1$-forma differenziale su $D$.
+$$ \int_{\partial R } \w \, \forall \text{ rettangolo } R \subset D \quad \implica \quad \w \text{ chiusa}$$
+\proof Dato $z_0\in D$, sia $U$ una palla centrata in $z_0$ (esiste in quanto un aperto \`e intorno di ogni suo punto).\\
+Ora $\forall$ rettangolo $R\subset D$ si ha $\int_{\partial R} \w=0$, per cui per la proposizione precedente $\w$ ha una primitiva su $U$ dunque $\w$ \`e chiusa
+\end{cor}
+\newpage
+\section{Integrazioni lungo curvo continue}
+\begin{defn}Sia $\w$ una $1$-forma CHIUSA su un aperto $D\subset\C$.\\
+Se $\amma:\, [0,1]\to D$ \`e una curva continua (non necessariamente $C^1$ a tratti), allora una primitiva di $\w$ lungo $\amma$ \`e una funzione $f:\, [0,1]\to \C$ tale che 
+$$\forall t_0\in [0,1] \, \, \exists \varepsilon>0 \text{ e } U \text{ intorno di } \amma(t_0) \quad f(t_0) = F(\amma(t)) \, \, \forall t \in (t_0-\varepsilon,t_0+\varepsilon)$$
+dove $F:\, U \to \C$ \`e una primitiva locale di $\w$
+\end{defn}
+\begin{prop}Nelle ipotesi di sopra, una primitiva lungo $\amma$ esiste.\\
+Due primitive lungo $\amma$ differiscono per una costante.
+\proof Mostriamo l'esistenza.\\
+Per compattezza di $[0,1]$, posso considerare una suddivisione $0=t_0<t_1<\dots <t_n=1$di $[0,1]$ tale che $\gamma([t_i,t_{i+1}])\subseteq U_i$ per $i=0, \dots, n-1$, $U_i$ \`e una palla in $D$ su cui $\w$ ammette una primitiva.\\
+Sia  $F_0:\, U_0\to \C$ e pongo 
+$$f(t) =F_0(\amma(t))\quad \text{ per } t\in [t_0,t_1]$$
+Scelgo $F_1:\, U_1 \to \C$ con $F_1(\amma(t_1))=F_0(\amma(t_0))$ (esiste perch\`e data $F_1$ una primitiva qualsiasi, ne ottengo un'altra tale che $F_1(\amma(t_1))=F_0(\amma(t_1))$ sommando un'opportuna costante). Pongo 
+$$f(t) = F_1(\amma(t))\text{ per } t\in [t_1, t_2]$$
+Iterando costruisco una funzione $f$ continua (lo \`e su $[t_i,t_{i+1}]$ ed \`e ben definita sui $t_i$) ed inoltre \`e una primitiva lungo $\amma$.\\
+Mostriamo ora l'unicit\`a a meno di costanti.\\
+Siano $f_1,f_2:[0,1]\to \C$ due primitive lungo $\amma$ di $\w$.\\
+Allora per definizione di primitiva lungo $\amma$ si ha 
+$$\forall t_0\in[0,1]\, \, \exists\varepsilon>0 \text{ e } U \text{ intorno connesso di } \amma(t_0) \text{ tali che } $$
+$$f_1(t) = F(\amma(t)) \text{ e } f_2(t) =G(\amma(t))\text{ per } t \in (t-\varepsilon, t+\varepsilon)$$ dove $F,G:\, U\to \C$ sono primitive locali di $\w$ 
+Essendo $F$ e $G$ primitive di $\w$  su un connesso  differiscono per una costante dunque anche $f_1$ e $f_2$ differiscono per una costante su $(t-\varepsilon, t+\varepsilon)$.\\
+Ora essendo $[0,1]$ connesso allora $f_1-f_2$ \`e costante su tutto $[0,1]$
+\end{prop}
+\begin{defn}$\w$ una $1$-forma differenziale chiusa su $D$, $\amma:\, [0,1]\to D$ continua
+$$\int_\amma \w = f(1) - f(0)$$
+dove $f$ \`e una primitiva di $\w$ lungo $\amma$
+\begin{oss}La definizione \`e ben posta in quanto se $g$ \`e un altra primitiva, $g$ e $f$ differiscono per una costante dunque $f(1)-f(0)=g(1) - g(0)$
+\end{oss}
+\end{defn}
+\begin{fatti}Sia $\w$ una $1$-forma chiusa e $\gamma_1, \gamma_2, \amma$ cammini continui
+\begin{enumerate}
+\item 
+$$\int_{\amma_1\star \amma_2} \w = \int_{\amma_1} \w + \int_{\amma_2} \w$$
+\item $$\int_{\overline{\amma}}\w=-\int_{\amma}\w$$
+\item Se $\amma$ \`e differenziabile a tratti allora riotteniamo la definizione gi\`a data.\\
+Infatti prendendo una suddivisione $0=t_0< t_1< \dots <t_n=1$ allora $\forall i=0, \dots , n-1$  si ha $\amma_i =\ris \amma {[t_i,t_{i+1}]}$ \`e differenziabile e $\amma_i([t_1, t_{i+1}]) \subseteq U$ su cui $\w$ ha primitiva $F_i$.\\
+Usando la vecchia definizione
+$$\int_\amma \w = \sum_{i=0}^{n-1} \int_{\amma_i} \w = \sum_{i=0}^{n-1} F_i(\amma(t_{i+1})) - F_i(\amma(t_{i})) $$ 
+il che \`e equivalente a $\int_\amma \w =\sum_{i=0}^n \int_{\amma_i} \w$ con la nuova definizione 
+\end{enumerate}
+\end{fatti}
+\begin{thm}[Invarianza omotopica]\bianco 
+Sia $\w$ una $1$-forma differenziale chiusa su $D\subseteq \C$ aperto.\\
+Siano $\amma_1,\amma_2:\, [0,1]\to D$ due cammini 
+$$\amma_1 \sim \amma_2 \quad \implica \quad \int_{\amma_1}\w = \int_{\amma_2}\w$$
+\proof Sia $H:[0,1]\times [0,1]\to \C$ un'omotopia ad estremi fissi tra $\amma_1$ e $\amma_2$, voglio costruire $G:\, [0,1]\times[0,1]\to \C$ continua tale che
+$$\forall (t_0,s_0) \in [0,1]^2 \, \, \exists U \text{ intorno connesso in D } di H(t_0,s_0) \text{ e } F:\, U \to \C \text{ primitiva locale di }  \w $$
+con $ G(t,s) =F(H(t,s))$ per $(t,s)$ in un intorno di $(t_0,s_0)$ \\
+(l'intento \`e quello di costruire una primitiva di $\w$ lungo $H$)\\
+Per compattezza di $[0,1]\times [0,1]$ esistono suddivisioni 
+$$0=t_0< t_1< \dots < t_n =1 $$
+$$0=s_0< t_1< \dots < s_m =1 $$
+tali che $H([t_i,t_{i+1}]\times[s_j,s_{j+1}])\subseteq U_{i,j}$ su cui $\w$ ammette una primitiva.\\
+Fissiamo $s_0=0$ e  occupiamoci della prima riga di "quadratini".\\
+Scelgo $F_{0,0}:\, U_{0,0}\to \C$ una primitiva di $\w$ su $U_{0,0}$ e pongo 
+$$G(t,s)=F_{0,0}(H(t,s)) \text{ per } (t,s)\in [t_0,t_1]\times [s_0,s_1]$$
+Tra tutte le primitive di $\w$ su $U_{1,0}$ scelgo quello che coincide con $F_{0,0}$ su $H(t_1,s_0)$ (tale primitiva \`e unica perch\`e $U_{1,0}$ \`e connesso) e la chiamo $F_{1,0}$.\\
+\`E facile verificare che $F_{0,0}(t_1,s) = F_{1,0}(t_1,s)$ per $s\in [s_0,s_1]$ (sfruttando la connessione) dunque posso porre
+$$G(t,s) = F_{1,0}(H(t,s)) \text{ per } (t,s)\in [ t_1, t_2]\times[s_0,s_1]$$
+Proseguo cos\`i definendo $G$ su tutti i quadratini della forma $[t_i,t_{i+1}]\times [s_0,s_1]$ ottenendo $G$ definita in $[0,1]\times[s_0,s_1]$.\\
+Poi proseguo passando alla seconda striscia orizzontale $[0,1]\times [s_1,s_2]$ cominciando dal quadratino $[t_0,t_1]\times [s_1,s_2]$ e proseguo in questo modo definendo $G$ su tutto $[0,1]\times [0,1]$.\\
+Notiamo che $G(0,s)$ \`e una primitiva di $\w$ lungo il cammino costante $H(0,s)$ dunque \`e costante ($G(0,0)=G(0,1)$), in modo analogo $G(1,0)=G(1,1)$, inoltre $G(t,0)$ \`e una primitiva di $\w$ lungo $\amma_1 $ mentre $G(t,1)$ lo \`e lungo $\amma_2$ abbiamo dunque 
+$$\int_{\amma_1} \w = G(1,0)-G(0,0) = G(1,1)-G(0,1)=\int_{\amma_2}\w$$
+\endproof
+\end{thm}
+\begin{cor}$D\subseteq \C$ semplicemente connesso, $\w$ una $1$-forma su $D$
+$$\w \text{ chiusa } \quad \ses \quad \w \text{ esatta} $$
+\proof $\iimplica$ discende direttamente dalla definizione\\
+$\implica$ Dato $\amma:[0,1]\to D$ dalla semplice connessione segue che $\amma\sim C_{\amma(0)}$ dunque per quanto appena visto 
+$$\int_\amma \w = \int_{C_{\amma(0)}}=0 \quad \implica \quad \w \text{ esatta}$$ 
+\begin{oss}Se $D$ \`e semplicemente connesso, riesco ad incollare le primitive locali di $\w$ per creare una primitiva globale.\\
+Abbiamo visto che ci\`o pu\`o non capitare se $\pi_1(D) \neq \{ 1 \}$ (e.g $\w=\frac{\di z }{z}$ su $D=\C^\star$ in quanto $\pi_1(C^\star)=\Z$)
+\end{oss}
+\end{cor}
+\end{document}

@@ -1,0 +1,102 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 31  Ottobre del prof. Frigerio}
+\begin{thm}Sia $X$ uno spazio topologico e $Y_i$ una famiglia di sottospazi chiusi con $Y_{i_0}$ compatto per qualche $i_0 \in I$.
+$$\forall J \subseteq I \text{ finito } \quad  \bigcap_{i \in J } Y_i \neq \emptyset \quad \implica \quad \bigcap_{i \in I } Y_i \neq \emptyset$$
+\proof $\forall i \in I$ poniamo $Z_i = Y_{i_0} \cap Y_i$ tale insieme \`e chiuso di $Y_{i_0}$.\\
+Sia  $W_i = Y_{i_0} \sbarra Z_i  = Y_{i_0}\sbarra Y_i$ tale insieme \`e un aperto di $Y_{i_0}$.\\
+Supponiamo, per assurdo, che $\bigcap_{i \in I }Y_i=\emptyset$.\\
+La famiglia $\{W_i\}_{i \in I}$ \`e un ricoprimento aperto di $Y_{i_0}$ infatti: 
+$$ \exists p \not \in \bigcup W_i \quad \implica \quad p\in Y_{i_0} \quad \implica \quad p \in \bigcap Y_i $$
+Dalla compattezza di $Y_{i_0}$ segue che $$Y_{i_0}= W_{i_1}\cap \dots \cap W_{i_n} = \left( Y_{i_0} \sbarra Y_{i_1} \right) \cup \dots \cup \left( Y_{i_0} \sbarra Y_{i_n} \right) = Y_{i_0}\sbarra \left( Y_{i_1} \cap \dots \cap Y_{i_n} \right)$$
+Ora se $A = A\sbarra B $ allora $A\cap B = \emptyset $ da cui
+$$ Y_{i_0} \cap \left( Y_{i_1} \cap \dots \cap Y_{i_n} \right)=\emptyset$$
+Ma ci\`o \`e assurdo in quanto ogni famiglia finita di $Y_i$ si deve intersecare in modo non banale.\\
+\endproof
+\end{thm}
+
+\begin{cor}Sia $\{ Y_n \}_{n \in \N}$ \`e una famiglia di sottoinsiemi non vuoti  e chiusi di $X$.\\
+Se $Y_0$  \`e compatto e $Y_{n+1} \subseteq Y_n$ $\forall n \in N $ allora $\ds \bigcap_{n\in \N} Y_n \neq \emptyset$
+\end{cor}
+\begin{oss} Il teorema \`e falso se non si richiede $Y_{i_0}$ compatto, prendiamo come controesempio  $X=\R$ e $Y_n=[n,+\infty)$ con $n \in \N$
+\end{oss}
+\spazio
+\begin{thm}Sia $X$ uno spazio topologico e $\B$ una sua base.\\
+Se ogni ricoprimento di $X$ con aperti di $\B$ ammette un sottoricoprimento finito, allora $X$ \`e compatto
+\proof Sia $\ric =\ds \{ U_i\}_{i\in I}$ un generico ricoprimento aperto di $X$.\\
+Per definizione di ricoprimento 
+$$ \forall x \in X \quad \exists i(x) \in I \quad x \in U_{i(x)}$$
+e dalla definizione di base
+$$\exists B_x\in \B \quad x \in B_x \subseteq U_{i(x)}$$
+Per costruzione $\{ B_x\}_{x\in X}$ \`e un ricoprimento aperto di $X$ con aperti di $\B$ (si dice che $\{ B_x\}$ \`e un raffinamento di $\ric$).\\
+Per ipotesi 
+$$ X= B_{x_i} \cup \dots \cup B_{x_n} \subseteq U_{i(x_1)} \cup \dots \cup U_{i(x_n)}$$
+\endproof
+\end{thm}
+\spazio
+\begin{thm}$X,Y$ compatto $\implica$ $X \times Y$ compatto
+\proof Per il lemma posso partire da un ricoprimento di $X\times Y$ della forma
+$$ \ric =\{ U_i \times V_i \}_{i \in I} \text{ dove } U_i \text{ aperto di }  X \text{ e } V_i \text{ aperto di } Y$$
+$\forall x \in X$ il sottoinsieme $\{ x \} \times Y $ \`e compatto in quanto omeomorfo a $Y$, per cui
+$$ \exists J_x \subseteq I \text{ finito } \quad \{ x \} \times Y \subseteq \bigcup_{ i \in J_x} (U_i \times V_i)$$
+Pongo $U_x = \ds \bigcap_{i \in J_x} U_i$ tale insieme \`e aperto in quanto intersezione di finiti aperti.\\
+Per costruzione $U_x \times Y \subseteq \ds \bigcup_{i \in J_x} (U_i \times V_i)$\\
+Poich\`e $\{ U_x\}_{x\in X} $ \`e un ricoprimento aperto di $X$ compatto si ha $X= U_{x_1} \cup \dots \cup U_{x_n}$ allora 
+$$ X \times Y = \subseteq \bigcup_{k=1}^n \left( U_{x_k} \times Y \right) \subseteq \bigcup_{k=1}^n \bigcup_{i \in J_{x_k}} ( U_i \times V_i)$$
+ho ricoperto $X\times Y$ con finiti elementi di $\ric$\\
+\endproof
+\end{thm}
+\begin{oss}Siano $A\subseteq X $ e $B\subseteq Y$.\\
+La topologia prodotto di $A\times B$ (entrambi muniti della topologia di sottospazio) coincide con quella di sottospazio che $A\times B$ eredita da $X\times Y$.\\
+Per il teorema precedente se $A,B$ sono sottospazio compatti allora $A\times B$ \`e un sottospazio compatto di $X\times Y$
+\end{oss} 
+\begin{prop} $$C\subseteq \R^n \text{ compatto } \quad \ses \quad C \text{ chiuso e limitato}$$
+\proof $\implica$  Essendo $C$ compatto allora \`e limitato.\\
+Essendo $\R^n$ metrico allora \`e di Hausdorff dunque i compatti sono chiusi\\
+$\iimplica$ Se $C$ \`e limitato allora $\exists R>0$ per cui $C\subseteq [-R,R]^n \subseteq \R^n$.\\
+Ora $[-R,R]$ \`e compatto in quanto prodotto finito di copie del compatto $[-R,R]\cong [0,1]$.\\
+Se $C$ \`e chiuso, \`e perci\`o chiuso in un compatto dunque compatto.\\
+\endproof
+\end{prop}
+\newpage
+\begin{thm}$f:\, X \to Y$ continua con $X$ compatto e $Y$ di Housdorff allora $f$ \`e chiusa
+\proof Se $C\subseteq X $ \`e chiuso, allora $C$ \`e compatto (chiuso in compatto) dunque $f(C)$ \`e compatto e perci\`o chiuso in quanto $Y$ \`e di Housdorff.\\
+\endproof
+\end{thm}
+\spazio
+\begin{defn}$X$ topologico si dice \textbf{compattamente generato} se i compatti di $X$ formano un ricoprimento fondamentale
+\end{defn}
+\begin{lem}Se ogni $x\in X$ ha un intorno compatto allora $X$ \`e compattamente generato
+\proof Dalla definizione di ricoprimento fondamentale, basta vedere che 
+$$ A\subseteq X  \text{ con } A \cap K \text{ aperto in } K \, \forall K \text{ compatto } \quad \implica \quad A \text{ aperto in } X $$
+Sia $p\in A$ mostriamo che $p \in A^\circ$\\
+Per ipotesi $\exists U$ intorno compatto di $p$ cio\`e $p\in U^\circ \subseteq U$.\\
+Ora, per ipotesi, $A\cap U$ aperto in $U$ i dunque anche $A \cap U^\circ =(A \cap U )\cap U^\circ $ aperto in $U^\circ$.\\
+Ora $ A \cap U^\circ$ \`e aperto in $X$ essendo aperto di aperto dunque 
+$$ p \in  A\cap U^\circ \subseteq A \quad \implica \quad  p\in A^\circ \text{ essendo } A \cap U^\circ \text{ aperto }$$
+\end{lem}
+\begin{oss}$\R^n$ \`e compattamente generato in quanto ogni punto ammette un intorno compatto
+\end{oss}
+\begin{ex}Nessun punto di $\Q$ ammette un intorno compatto
+\proof Supponiamo che $U \subseteq \Q $ sia un intorno di $p\in \Q$.\\
+Essendo $U$ intorno $\exists V\subseteq \Q$ aperto di $\Q$ con $p\in V \subseteq U $ da cui 
+$$ \exists \varepsilon>0 \quad p \in \left( \, (p-\varepsilon, p+\varepsilon) \cap Q \right) \subseteq U$$
+Se $U$ fosse compatto allora $U$ chiuso in $\R$ da cui 
+$$\overline{(p-\varepsilon, p+\varepsilon) \cap Q } = [p-\varepsilon,p+\varepsilon] \subseteq \Q$$
+tale inclusione \`e assurda infatti $U \subseteq \Q $ ma $[p-\varepsilon , p+\varepsilon ] \not \subset \Q$
+\end{ex}
+\spazio
+\begin{defn}$f:\, X\to Y$ \`e \text{propia} se $f^{-1}(K)$ \`e compatto di $X$ per ogni $K$ compatto di $Y$
+\end{defn}
+\begin{thm}$f:\, X \to Y$ continua e propia.\\
+Se $Y$ \`e di Housdorff e compattamente generato allora $f$ \`e chiusa
+\proof Sia $C\subseteq X $ chiuso.\\
+Poich\`e $Y$ \`e compattamente generato basta vedere che $f(C)\cap K $ \`e chiuso in $K$ $\forall K\subseteq Y $ compatto.\\
+Ora
+$$ f(C) \cap K = f\left(C\cap f^{-1}(K) \right)$$
+ed essendo $f$ propria allora $f^{-1}(K)$ \`e compatto.\\
+Per cui $C \cap f^{-1}(K)$ \`e compatto (chiuso in un compatto).\\
+Ora $f \left( C \cap f^{-1}(K) \right) $ \`e compatto ed essendo $T2$ \`e chiuso
+\endproof
+\end{thm}
+\end{document}	

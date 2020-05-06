@@ -1,0 +1,157 @@
+\input{0_Preambolo}
+\begin{document}
+
+\textbf{Lezione del 24 ottobre del prof. Frigerio}
+\begin{lem}\label{unio_fini_chiusi}Un'unione di chiusi localmente finiti \`e un chiuso
+\proof Sia $\ds \{ C_i \}_{i\in I}$ una famiglia localmente finita di chiusi.
+$$ \forall x \in X  \quad \exists U_x \subseteq X \text{ aperto che contiene } x \quad U_x \text{ interseca solo un numero finito di } C_i$$
+Sia $\ric$ il ricoprimento aperto cos\`i definito
+$$ \ric =\{ U_x \}_{x\in X }$$
+Essendo $\ric$ un ricoprimento aperto, \`e fondamentale quindi 
+$$ \bigcup_{i \in I } C_i \text{ chiuso} \quad \ses \quad \left(  \bigcup_{i\in I } C_i\right) \cap U_x \text{ chiuso in } U_x \quad \forall x \in X$$
+Poich\`e la famiglia \`e localmente finita allora fissato $x$
+$$ \exists i_1, \dots, i_n \quad U_x \cap \left( \bigcup_{i\in I } C_i \right) = U_x \cap \left( C_{i_1} \cup \cdots \cup C_{i_n} \right)$$
+Tale insieme \`e chiuso in $U_x$ poich\`e unione finita di chiusi \`e chiusa
+\endproof
+\end{lem}
+\begin{cor}Se $\ds \{Y_i\}_{i \in I }$ \`e una famiglia localmente finita
+$$ \overline{\bigcup_{i\in I } Y_i }= \bigcup_{i \in I } \overline{Y_i} $$
+\proof In ogni caso vale $\supseteq $ infatti
+$$ \forall j \in I \quad Y_j \subseteq \bigcup_{i \in I } Y_i \quad \implica \quad \overline{Y_j} \subseteq \overline{\bigcup_{i \in I } Y_i} \quad \forall j \in I \quad   \implica \quad \bigcup_{i \in I } \overline{Y_i} \subseteq \overline{\bigcup_{i\in I } Y_i}$$
+Se la famiglia degli $Y_i$ \`e localmente finito allora anche la famiglia degli $\overline{Y_i}$ lo \`e.\\
+Sia $V$ un aperto che contiene $x$ allora essendo la famiglia degli $Y_i$ localmente finita
+$$ \exists A\subseteq N \text{ finito } \quad V \cap Y_a \neq \emptyset \quad \ses \quad a \in A$$
+Proviamo che se $a\not \in A $ allora  $\overline{Y_a}\cap V = \emptyset$ infatti poich\`e
+$$ \overline{Y_a} = \{ x \in X \, \vert \, U \cap Y_a \neq \emptyset \quad \forall U \in I(x) \}$$
+se $y \in V$ allora $V\in I(y)$ e $V\cap Y_a = \emptyset$ dunque $y \not \in \overline{Y_a}$.\\
+Ora $\ds \bigcup_{i \in I } \overline{Y_i}$ \`e un chiuso che contiene $\ds \bigcup_{i \in I } Y_i$ quindi 
+$$ \overline{\bigcup_{i \in I } Y_i} \subseteq \bigcup_{i \in I } \overline{Y_i}$$
+\endproof
+\end{cor}
+\begin{thm}
+$$ \ric \text{ ricoprimento chiuso e localmente finito } \quad \implica \quad \ric \text{ ricoprimento fondamentale }$$
+\proof Sia $\ds \{ C_i \}_{i \in I } $ un ricoprimento chiuso localmente finito.\\
+Sia $Z\subseteq X$ tale che $Z \cap C_i$ \`e chiuso in $C_i$ $\forall i \in I$.\\
+Per\`o $C_i$ \`e un chiuso, e chiuso di un chiuso di $X$ \`e chiuso in $X$, quindi $Z \cap C_i $ \`e chiuso in $X$ $\forall i$.\\
+La famiglia $\ds \{ X \cap C_i\}_{i \in I } $ \`e una famiglia localmente finita di chiusi quindi per il lemma~\ref{unio_fini_chiusi} 
+$$ Z = \bigcup_{i \in I } ( Z \cap C_i ) $$
+\`e chiuso in $X$ quindi la tesi
+\endproof
+\end{thm}
+\newpage
+\section{Connessione e connessione per archi}
+\begin{defn}[Sconnessione]\bianco
+Uno spazio topologico $X$ si dice sconnesso se vale uno delle seguenti condizioni equivalenti
+\begin{enumerate}
+\item[(i)] $X= A \udis B$ con $A,B$ aperti non vuoti
+\item[(ii)] $X= A \udis B$ con $A,B$ chiusi non vuoti
+\item[(iii)] $\exists A \subseteq X$ con $A\neq \emptyset, X $ sia aperto che chiuso
+\end{enumerate}
+\begin{oss}Mostriamo le equivalenze.
+\begin{itemize}
+\item (i) $\implica$ (ii)  $X = (X\sbarra A) \udis (X \sbarra B) $.\\
+ $A,B$ aperti $\implica$ i loro complementari sono chiusi
+ \item (ii) $\implica$ (i) si dimostra come nel caso precedente
+ \item (i) $\implica$ (iii) Se $A$ \`e aperto allora $X\sbarra A =B$ \`e chiuso, ma $B$ per ipotesi \`e aperto 
+ \item (iii) $\implica$ (i)  $X\sbarra A $ \`e aperto essendo $A$ chiuso inoltre $X= A \udis (X\sbarra A)$ con entrambi aperti
+\end{itemize} 
+\end{oss}
+\end{defn}
+\begin{defn}[Connesso]\bianco
+$X$ spazio topologico \`e connesso se non \`e connesso.\\
+$$ \forall A \subseteq X \quad A \neq \emptyset \quad A \text{ aperto e chiuso si ha } A = X $$
+\end{defn}
+\begin{ese}$\R\sbarra \{ 0 \}$ \`e sconnesso in quanto unione degli aperti $(-\infty, 0)$ e $ (0, + \infty)$
+\end{ese}
+\begin{thm}$[0,1]$ \`e connesso.
+\proof Siano $A,B$ aperti non vuoti di $[0,1]$ tali che 
+$$ [0,1]= A \udis B $$ 
+Posso supporre $0\in A$ e poich\`e $A$ \`e aperto 
+$$ \exists \varepsilon>0 \quad [0,\varepsilon ) \subseteq A $$
+Sia $t_0 = \inf B$ (esiste essendo $B$ non vuoto e limitato inferiormente) inoltre $t_0\geq \varepsilon >$.\\
+Essendo $B$ chiuso allora $t_0\in B$ infatti esiste una successione di $B$ convergente all'estremo inferiore.\\
+Essendo $B$ aperto e poich\`e $t_0>0$ si ha $(t_0-\delta , t_0]\subseteq B$ ma ci\`o contraddice il fatto che $t_0$ \`e l'estremo inferiore
+\end{thm}
+\spazio
+\begin{defn}[Connessione per archi]\bianco
+$X$ si dice connesso per archi se 
+$$ \forall x_0,x_1 \in X \quad \exists \alpha:\, [0,1]\to X \text{ continua} \quad \alpha(0)=x_0 \quad \alpha(1)=x_1$$
+\end{defn}
+\begin{prop}
+$$ X \text{ connesso per archi } \quad \implica \quad X \text{ connesso}$$
+\proof Se $X$ fosse sconnesso allora $X= A \udis B $ con $A,B$ aperti non vuoti.\\
+Sia $x_0 \in A $ e $x_1 \in B $
+Se il cammino $\alpha:\, [0,1]\to X$ con $\alpha(0)=x_0$ e $\alpha(1)=x_1$ fosse continua allora avrai una partizione 
+$$ [0,1]=\alpha^{-1}(A) \udis \alpha^{-1}(B) \text{ in aperti non vuoti}$$
+Ma ci\`o \`e assurdo essendo $[0,1]$ connesso, non si pu\'o partizionare in aperti disgiunti non vuoti.\endproof
+\end{prop}
+\begin{prop}Sia $f:\, X \to Y$ continua
+\begin{enumerate}
+\item $X$ connesso $\implica$ $f(X)$ connesso
+\item $X$ connesso per archi $\implica$ $f(X)$ connesso per archi
+\end{enumerate}
+\proof
+\begin{enumerate}
+\item La funzione $f:\, X \to f(X)$ \`e continua per la propiet\`a universale della topologia di sottospazio.\\
+Supponiamo che $f(X)= A \udis B$ con $A,B$ aperti non vuoti allora
+$X = f^{-1}(A) \udis f^{-1}(B)$ ovvero $X$ \`e sconnesso
+\item Essendo $X$ connesso per archi $\exists \alpha:\, [0,1]\to X $ continuo, se considero il cammino $$(f \circ \alpha:)\, [0,1]\to f(X)$$ \`e continuo 
+\end{enumerate}
+\end{prop}
+\spazio
+\begin{lem}Sia $X$ uno spazio topologico, $Y \subseteq X$ connesso
+$$ \forall Z \subseteq \quad Y \subseteq Z \subseteq \overline{Y} \quad \implica \quad Z \text{ connesso}$$
+\proof Osserviamo che $Y$ \`e denso in $Z$ infatti la chiusura di $Y$ in $Z$ \`e $\overline{Y} \cap Z  = Z $.\\
+Sia $\emptyset\neq A\subseteq Z$ un aperto e chiuso, allora $A \cap Y$ \`e sia aperto che chiuso in $Y$.\\
+Ora essendo $Y$ denso in $Z$ ne segue che $A \cap Y \neq \emptyset$ dunque, per connessione di $Y$, deve essere $A \cap Y=Y$ cio\`e $Y\subseteq A$.\\
+Ora essendo $Y$ denso in $Z$ anche $A$ lo \`e dunque $\overline{A}=Z$ ma $A$ \`e anche chiuso dunque $A=Z$
+\endproof
+\end{lem}
+\begin{cor}\label{cor1}$Y$ connesso $\implica$ $\overline{Y}$ connesso
+\proof Valgono le seguenti inclusioni $Y \subseteq \overline{Y} \subseteq \overline{Y}$ dunque concludo usando il lemma precedente
+\end{cor}
+\spazio
+\begin{lem}\label{lemma2} Sia $\ds \{ Y_i\}_{i\in I}$ una famiglia di sottospazi connessi di $X$ tali che $\ds \bigcap_{i \in I} Y_i \neq \emptyset$ allora
+$$ Y= \bigcup_{i \in I } Y_i \text{ \`e connesso}$$
+\proof Sia $x_0 \in \ds \bigcap_{i \in I} Y_i $ e   $A \neq  \emptyset$ aperto e chiuso di $Y$.\\
+A meno di sostituire $A$ con $Y \sbarra A$ posso supporre $x_0 \in A$
+$$ \forall i \in I \quad A \cap Y_i \text{ \`e non vuoto (contiene } x_0 \text{) , aperto e chiuso di } Y_i $$
+Dalla connessione di $Y_i$ segue che $A\cap Y_i=Y_i$ cio\`e $Y_i \subseteq A $ 
+$$ Y = \bigcup_{i \in I } Y_i \subseteq A \quad \implica \quad Y=A$$
+\endproof
+\end{lem}
+\begin{defn}[Componente connessa]\bianco
+Sia $X$ spazio topologico e $x_0\in X$ allora indichiamo con $C(x_0)$ e lo chiamiamo componente connessa di $x_0$: il pi\`u grande sottospazio connesso di $X$ che contiene $x_0$
+\end{defn}
+\begin{prop}Sia $x_0\in X$ allora esiste la componente connessa
+\proof Sia 
+$$ C(x_0) =\bigcup \{ Y \, \vert \, Y \subseteq X \text{ connessp che contiene } x_0\}$$
+Osserviamo che tale unione non \`e vuota infatti $\{ x_0\}$ \`e connesso.\\
+Per il lemma~\ref{lemma2} $C(x_0)$ \`e connesso (tutti i sottospazi che unisco contengono $x_0$) ed inoltre contiene qualsiasi connesso che contiene $x_0$
+\end{prop}
+\spazio
+\begin{prop}Le componenti connesse realizzano una partizione di $X$ in chiusi
+\proof Le componenti connesse ricoprono infatti $\forall x \in X $ allora $x \in C(x)$.\\
+Vediamo che le componenti connesse non disgiunte sono uguali.\\
+Sia $x_0, x_1\in X$ tali che  
+$C(x_0) \cap C(x_1) \neq \emptyset$ dunque per il lemma~\ref{lemma2} $C(x_0) \cap C(x_1)$ \`e connesso.\\
+Ora $$\begin{cases}C(x_0) \cap C(x_1) \subseteq C(x_0)\\ C(x_0) \cap C(x_1) \subseteq C(x_1)
+\end{cases} \quad \implica \quad C(x_0)=C(x_1) \text{ per massimalit\`a}$$
+Mostriamo, infine che le componenti connesse sono chiuse.\\
+Per il corollario~\ref{cor1} $\overline{C(x)}$ \`e un connesso che contiene $x_0$ quindi
+$$ \overline{C(x)} \subseteq C(x) \quad \implica \quad  \overline{C(x)} = C(x) $$
+\end{prop}
+\begin{oss}Se $\emptyset\neq A$ \`e aperto e chiuso. $A$ \`e una componente connessa.\\
+Sia $A\supseteq B$ \`e connesso allora $A$ \`e un aperto e chiuso non vuoto di $B$ allora $A=B$ per cui $A$ \`e un connesso massimale da cui \`e una componente massimale
+\end{oss}
+\begin{oss}Le componenti connesse di $\Q$ sono i punti ovvero $C(x)=\{x\} $ $\forall x \in \Q$.\\
+In questo caso si dice che $\Q$ \`e totalmente sconnesso.\\
+Per assurdo supponiamo che esista una componente connessa $C$ che contiene $x_0$ e $x_1$.\\
+Sia $y \in \R \sbarra \Q$ tale che $x_0< y< x_1$ allora
+$$ C = ( C \cap (-\infty,y) ) \udis ( C \cap (y,+\infty))$$
+dunque $C$ si partiziona in modo non banale in aperti, ovvero \`e sconnesso (assurdo)
+\end{oss}
+\begin{oss}Le componenti connesse, in generale, non sono aperte.\\
+I punti di $\Q$ non sono aperti)
+\end{oss}
+\end{document}

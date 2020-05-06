@@ -1,0 +1,82 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 11 Dicembre del Prof. Frigerio}
+\begin{oss}Con un abuso, notazionale, d'ora in poi indicheremo con $\alpha\star \beta \star \gamma$ il cammino $( \alpha \star \beta) \star \gamma$ o il cammino $\alpha \star ( \beta \star \gamma)$, il che non crea problemi a meno di riparametrazione, dunque a meno di omotopie di cammini, stessa convenzione per giunzioni multiple 
+\end{oss}
+\begin{lem}$1_a$ \`e l'elemento neutro
+\proof
+$1_a \star \alpha$ e $\alpha \star 1_a$ sono riparametrazione di $\alpha $ $\forall \alpha \in \Omega(a,a)$
+$$ [1_a] \cdot [\alpha] = [1_a \star \alpha] = [\alpha] = [ \alpha \star 1_a] = [\alpha]\cdot  [1_a]$$
+\end{lem}
+\begin{lem}Sia $\alpha\in \Omega(a,a)$ allora $\overline{\alpha}$ \`e l'inverso di $\alpha$
+\proof Mostriamo che $\alpha \star \overline{\alpha}\sim 1_a$.
+$$H(t,s)=\begin{cases}\alpha(2t) \text{ se } t \leq \frac{s}{2}\\ \alpha(s) \text{ se } \frac{s}{2}\leq t \leq 1 - \frac{s}{2}\\
+\overline{\alpha}(2t-1) \text{ se } t> 1 - \frac{s}{2}
+\end{cases}$$
+In modo analogo si prova che $\overline{\alpha}\star \alpha \sim 1_a$
+\endproof
+\end{lem}
+\begin{thm}Abbiamo dimostrato che $\pi_1(X,a)$ dotato dell'operazione $[\alpha]\cdot [\beta] := [\alpha\star \beta]$ \`e un gruppo.\\
+Tale gruppo prende il nome di gruppo fondamentale
+\end{thm}
+
+\spazio
+\begin{oss}D'ora in avanti, se non diversamente esplicitato, assumiamo $X$ connesso per archi (in quanto se $Y$ \`e la componente connnessa per archi di $a$ in $X$ allora $\pi_1(X,a)\cong \pi_1(Y,a)$)
+\end{oss}
+\begin{defn} Siano $a, b \in X$ e sia $\gamma \in \Omega(a,b)$.\\
+Poniamo 
+$$\gamma_\sharp:\pi_1(X,a) \to \pi_1(X,b) \qquad \gamma_\sharp([\alpha]) = [ \overline{\gamma} \star  \alpha\star \gamma]$$
+\end{defn}
+\begin{oss}Osserviamo che $\gamma_\sharp$ \`e ben definita.\\
+$$\alpha\sim \beta\quad \implica \quad \overline{\gamma} \star \alpha \sim \overline{\gamma}\star \beta \quad \implica \quad 
+\quad \overline{\gamma}\star \alpha\star \gamma \sim \overline{\gamma}\star \beta \star \gamma $$
+\end{oss}
+\begin{thm}$\gamma_\sharp$ \`e un isomorfismo di gruppi
+\proof Mostriamo che \`e un omomorfismo di gruppi
+$$ \gamma_\sharp ([\alpha]\cdot [\beta]) = \gamma_\sharp( [\alpha\star \beta]) =  [ \overline{ \gamma}\star \alpha\star \beta \star \gamma] = [ \gamma \star \alpha \star ( \gamma \star\overline{\gamma}) \star \beta ]= [( \overline{\gamma}\star \alpha\star \gamma )\star ( \overline{\gamma} \star \beta\star \gamma)]= \gamma_\sharp([\alpha]) \cdot \gamma_\sharp([\beta ])$$
+$\overline{\gamma}_\sharp$ \`e l'inversa di $\gamma_\sharp$ infatti
+$$ \overline{\gamma}_\sharp
+\left( \gamma_\sharp([\alpha]) \right) = \overline{\gamma}_\sharp \left( [\overline{\gamma}\star \alpha \star \gamma ] \right)= \left[ \left( \overline{\overline{\gamma}}\star \gamma  \right)\star \alpha \star \left( \gamma \star \overline{\gamma} \right) \right] = \left[ 1_a \star \alpha \star 1_a \right]= [\alpha]$$
+Analogamente si mostra che vale $\gamma_\sharp \left( \overline{\gamma}_\sharp ([\beta])\right)=[\beta]$
+\end{thm}
+\begin{cor}Il tipo di isomorfismo trovato precedentemente non dipende da $a$, per cui a volte si parla di "gruppo fondamentale di $X$" e lo si denota con $\pi_1(X)$
+\end{cor}
+\newpage
+\begin{defn}
+$$ \Omega(S^1,a)= \{ \gamma:\, S^1 \to X \text{ con } \gamma(1)=a \}$$
+dove $S^1\subseteq\C$ da cui $1\in S^1 $ \`e $(1,0) \in \R^2 $
+\end{defn}
+Esiste una bigezione canonica tra $\Omega(a,a)$ e $ \Omega(S^1, a)$.\\
+Se $\alpha\in\Omega(a,a)$ poich\`e $\alpha(0)=\alpha(1)$, $\alpha$ definisce 
+$$ \hat{\alpha}: \frac{[0,1]}{\{0,1\}} \to X $$ 
+continua.\\
+Identifichiamo $\ds \frac{[0,1]}{\{ 0, 1\}}$ con $S^1 $ $\left(  t \to e^{2\pi i t }\right)$ da cui 
+$$ \hat{\alpha}:\, S^1 \to X$$ 
+e$\hat{\alpha}(1)=a$.\\
+L'invero di $ \alpha \to \hat{\alpha}$\`e  $ \alpha(t) =\hat{\alpha}\left( e^{2\pi i t } \right)$
+\spazio
+%\begin{ex}$\alpha\sim \beta \text{ (come cammini) } \quad \ses \quad \hat{\alpha}\sim \hat{\beta } \text{ tramite } H:\, S^1\times [0,1] \to X \text{ con } H(1,s)=a $$ \end{ex}
+\begin{lem}Sia $Q=[0,1]\times [0,1]$ e $C=\{ s=1\} \cup \{ t=0\} \cup \{ t=1\}$ ($t,s$ sono le coordinate di $Q$) 
+$$ \frac{Q}{C} \cong D^2$$ 
+tramite un omeomorfismo che manda $[t,0]$ in $e^{2\pi i t}$
+\end{lem}
+\spazio
+\begin{prop}$\alpha\in Omega (a,a)$
+$$ [\alpha]=1 \quad \ses \quad \hat{\alpha} \text{ si estende in mondo continuo a } D^2 $$
+\proof $\implica$ se $\alpha\sim 1_a$ allora  esiste 
+$$ H:\, Q \to X \quad H(t,0)=\alpha(t) \text{ e } H(C)=\{a \}$$
+$H$ definisce per passaggio al quoziente 
+$$\tilde{H}: \frac{Q}{C} \to X$$
+e tramite l'identificazione del lemma precedente otteniamo 
+$$ \tilde{H}: D^2 \to X $$ 
+Osserviamo che si ha $\tilde{H}_{\vert S^1}=\hat{\alpha}$ dunque $\hat{\alpha}$ si estende a $D^2$\\
+$\iimplica$ Se $\hat{\alpha}$ si estende a $f:\, D^2 \to X$.\\
+La mappa $H: \, Q \to X$ data da $H = f \circ \pi $ ( $\pi:Q \to \frac{Q}{C}=D^2$ ) da un'omotopia a estremi fissi tra $\alpha$ e $1_a$
+\endproof
+\end{prop}
+\begin{cor}Sia $P\subseteq \R^2$ un poligono convesso con lati $l_1, \cdots, l_n $ parametrizzati da $\varphi_i :[0,1]\to l_i$ e sia $\theta: \partial P \to X$ e poniamo $\alpha_i=\theta \circ \varphi_i$
+$$ \alpha_1 \star cdots \star \alpha_n \sim 1_{\alpha_1(0)} \quad \ses \quad \theta \text{ si estende in modo continuo a } P $$
+\proof Esiste un omeomorfismo $f:\, P\to D^2$ con $f(\partial P) = S^1$ per cui la tesi segue da quanto gi\`a visto 
+\endproof
+\end{cor}
+\end{document}

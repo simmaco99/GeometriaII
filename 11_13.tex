@@ -1,0 +1,69 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 13 Novembre del Prof. Frigerio}
+\begin{defn}[Sottosuccessione]\bianco
+Sia $\{ a_n\}$ una successione a valori in uno spazio topologico $X$.\\
+Una sottosuccessione $\ds \{ a_{n_i}\}$ \`e una sottofamiglia di $\{a_n\}$ dove $\{ n_i\}$ \`e una successione strettamente crescente in $\N$
+\end{defn}
+\spazio
+\begin{defn}Sia $X$ topologico.\\
+$X$ si dice compatto per successioni se ogni successione in $X$ ammette una sottosuccessione convergente
+\end{defn}
+\begin{prop}Sia $X$ primo-numerabile
+$$ X \text{ compatto } \quad \implica \quad X \text{ compatto per successioni}$$
+\proof Sia $\{x_n\}\subseteq X$ una successione
+$$\forall m \in \N \text{ sia } C_m = \overline{\{ x_n \, \vert \, n \geq m }$$ vale che $C_m$ chiuso e $C_{m+1}\subseteq C_m$.\\
+Poich\`e $X$ compatto , deduciamo $\ds \bigcap_{m \in \N} C_m \neq \emptyset$, da cui sia $ \ds \overline{x}\in \bigcap_{m \in \N} C_m$\\
+Costruiamo una successione che tende a $\overline{x}$.\\
+Sia $\ds \{ U_i\}$ il sistema di fondamentale numerabile di  intorni di $\overline{x}$; a meno di sostituire $U_i$ con $ U_1 \cap \dots \cap U_i$ posso supporre $U_{i+1 } \subseteq U_i$ $\forall i\in \N$.\\
+Costruisco induttivamente $\{x_{n_1}\}$ come segue:\\
+Poich\`e $\overline{x}\in C_0$ allora $\exists n_0$ tale che $x_{n_0}\in U_0$ (se  $x\in \overline{C}$ allora tutti gli intorni di $\overline{x}$ intersecano $C$\\
+So che $\overline{x}\in C_{n_0+1} $ allora $\exists n_1 \geq n_0+1 > n_0$ per cui $x_{n_1}\in U_1$\\
+Procedo in questo modo costruendo una successione strettamente crescente $\{ n_i\}$ con  $x_{n_i} \in U_i$.\\
+Proviamo che $x_{n_i}\to \overline{x}$.\\
+Sia $U$ un generico intorno di $\overline{x}$, allora dalla definizione di sistema fondamentale di intorni si ha $$\exists i_0 \in \N \text{ tale che }U_{i_0} \subseteq U$$
+Ora $\forall i\geq i_0 $ si ha $x_{n_i} \in U_i \subseteq U_{i_0} \subseteq U $ da cui la tesi
+\endproof
+\end{prop}
+\spazio
+\begin{thm}Sia $X$ secondo-numerabile
+$$ X \text{ compatto } \quad \ses \quad X \text{ compatto per successioni}$$
+\proof $\implica$ secondo-numerabile $\implica$ primo-numerabile da cui la tesi.\\
+$\iimplica$ In modo contronominale.\\
+Poich\`e $X$ non \`e compatto, $\exists \ric =\{ U_i\}$ ricoprimento con aperti di base senza sottoricoprimenti finiti .\\
+Costruisco una successione, chiedendo che 
+$$ x_i \in X \sbarra ( U_0 \cup \dots \cup U_{i})$$
+la successione \`e ben definita poich\`e per definizione  di $\ric$ $U_0 \cup \dots \cup U_i \neq X $ $\forall i \in \N$ .\\
+Supponiamo, per assurdo, che $x_n$ ammetta una sottosuccessione convergente e sia $\overline{x}$ questo limite.\\
+Poich\`e $\ric$ \`e un ricoprimento di $X$ , $ x \in U_{i_0}$ per un certo $i_0 \in \N$, essendo $U_{i_0}$ un intorno di $\overline{x}$ allora per definizione di limite\\
+$ \vert \{ i \in \N \, \vert \, x_i \in U_{i_0} \}\vert  = \infty$ ma per costruzione $x_i \not \in U_{i_0}$  se $i>i_0$\\
+Ci\`o \`e assurdo, dunque, $x_n$ non ha sottosuccessioni convergenti \endproof
+\end{thm}
+\begin{lem}Sia $\{f_n\}$ una successione di funzioni con $f_n:\, X \to A $.
+$$f_n \to f \text{ in } A^X \quad \ses \quad f_n \to f \text{ puntualmente} $$
+\proof $\implica$ nella lezione dell 8 Novembre\\
+$\iimplica$ Fisso $V$ intorno di $f$ in $A^x$, dunque, dalla definizione di topologia prodotto $f\in U \subseteq V $ dove 
+$$ U = \bigcap_{i=1}^n \pi^{-1}(W_i) \text{ con } W_i \text{ intorno di } f(x_i) \text{ in } A $$
+ovvero $W_i= ( f(x_i) -\varepsilon_i , f(x_i)+\varepsilon_i)$ dunque fissando $x_1, \dots, x_n$ e $\varepsilon_1, dots, \varepsilon_n$ ottengo
+$$ U =\{ g:\, X \to A \, \vert \, \vert g(x_i)-f(x_i) \vert < \varepsilon_i \, \forall i=1,\dots, n \}$$
+Poich\`e $f_n \to f $ puntualmente 
+$$ \forall i=1, \dots, n \quad \exists n_1 \quad f_n(x_i)-f(x_i)\vert \leq \varepsilon_i$$
+da cui
+$$ \forall i=1, 
+\dots, n \quad \exists n_0 =\max_{i=1,\dots, n } \{ n_i \} \quad \vert f_n (x_i) - f(x_i)\vert \leq \varepsilon_i \, \forall n \geq n_0 \quad  \implica \quad f_n \in U \subseteq V \, \forall n \geq n_0$$
+Da cui $f_n \to f$ in $A^X$
+\endproof
+\end{lem}
+\spazio
+\begin{oss}In generale
+$$ X \text{ compatto } \not \implica X \text{ compatto per successioni}$$
+Prendiamo come esempio $X=[0,1]^{[0,1]}$.\\
+Per Tychnoff $X$ \`e compatto.\\
+Cerco una successione $f_n:\, [0,1]\to [0,1]$ senza sottosuccessioni puntualmente convergenti.\\
+Pongo
+$$ f^n(x)= 10^n \cdot x - \lfloor 10^n \cdot x \rfloor \text{ la parte decimale di } 10^n \cdot x $$
+$f_n(x)$ \`e l'allineamento proprio decimale $0,a_1\, a_2 \dots \, a_n \dots $ dove $a_i$ \`e la $(n+i)$-esima cifra dopo la virgola dell'allineamento decimale proprio che rappresenta $x$.\\
+Data una qualsiasi successione crescente $\{ n_i\}$ di indici, prendo $x$ avente $( i \mod 10)$ come $n_i+1$ cifra decimale.\\
+Per costruzione $f_{n_i}(x)$ ha come prima cifra dopo la virgola $(i \mod 10)$ dunque $f_{n_i}$ non converge
+\end{oss}
+\end{document}

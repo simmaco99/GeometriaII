@@ -1,0 +1,133 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 26  Settembre del prof. Frigerio}
+
+\begin{defn}[Topologicamente equivalenti]\bianco
+Due distanze $d$ e $d'$ sullo stesso insieme $X$ sono topologicamente equivalenti se inducono la stessa famiglia di aperti
+\end{defn}
+
+\begin{lem} Siano $d$ e $d'$ distanze sullo stesso insieme $X$ tali che $\exists k\geq 1$ per cui
+$$ \frac{1}{k} \leq \frac{d'(x,y)}{d(x,y)} \leq k \quad \forall x,y \in X$$ 
+allora $d$ e $d'$ sono topologicamente equivalenti
+\proof $\forall x_0 \in X$ $$B_d(x_0,R) \subseteq B_{d'}(x_0, kR)$$ 
+in quanto $ d(x_0, y)< R \quad \implica \quad d'(x_0, y) \leq k d(x_0,y) < k R$.\\
+Sia $A$ un aperto di $X$ rispetto a $d'$, se $x_0 \in A $ allora per definizione
+$$ \exists \varepsilon>0 \quad B_{d'}(x_0, \varepsilon)\subseteq A$$
+allora 
+$$ B_d \left( x_0, \frac{\varepsilon}{k}\right) \subseteq B_{d'}(x_0, \varepsilon)\subseteq A $$
+dunque $A$ \`e aperto rispetto a $d$ (per arbitariet\`a di $x_0$)\\
+La tesi segue dal fatto che l'ipotesi \`e simmetrica in $d$ e $d'$
+\end{lem}
+
+\begin{cor}
+ Le distanze $d_1, d_E, d_\infty $ sono topologicamente equivalenti
+ \proof Per la disuguaglianza tra media aritmetica e quadratica 
+ $$ \frac{1}{n} \sum_{i=1}^n \vert x_i - y_i \vert \leq \sqrt{ \frac{\sum_{i=1}^n (x_i-y_i)^2}{n}}
+ \quad \implica \quad \sum_{i=1}^n \vert x_i - y_i \vert \leq \sqrt{n} \sqrt{\sum_{i=1}^n (x_i-y_i)^2} \quad \implica \quad d_1 \leq \sqrt{n} d_E$$
+$$ \sqrt{\sum_{i=1}^n (x_i-y_i)^2 } \leq \sqrt{\sum_{i=1}^n \left( \max_j \{ \vert x_j-y_j\vert ^2 \} \right) } =\sqrt{\sum_{i=1}^n d_\infty (x,y)^2}= \sqrt{n}d_\infty(x,y) \quad \implica $$
+$$\implica \quad d_2 \leq \sqrt{n} d_\infty(x,y)$$
+Infine ovviamente $d_\infty \leq d_1$ (negli addendi che si sommando per ottenere $d_1$ \`e presente $d_\infty$ e gli altri addendi sono non negativi)
+
+\end{cor}
+\newpage	
+\section{Spazi topologici}
+\begin{defn}[Spazio topologico]\bianco
+Uno spazio topologico \`e una coppia $(X,\tau)$ dove $
+\tau \subseteq \mathcal{P}(X)$ soddisfa:
+\begin{enumerate}
+	\item $\emptyset \in \tau $ e $X\in \tau$
+	\item Se $A_1,A_2 \in \tau$ allora $A_1\cap A_2\in \tau$
+	\item Se $I$ \`e un qualsiasi insieme e $A_i\in \tau\, \forall i\in I $ allora $\ds \cup_{i\in I} A_i \in \tau $
+\end{enumerate}	
+$\tau$ si chiama topologia di $X$ e gli elementi di $\tau$ si chiamano aperti di $\tau$
+
+\begin{oss}
+Con una facile induzione si prova che un intersezione finita di aperti \`e un aperto, mentre l'unione pu\`o essere fatta su una famiglia di aperti anche infinita	
+\end{oss}
+\end{defn}
+\begin{defn}[Chiuso]\bianco
+Sia $(X,\tau)$ uno spazio topologico, $C\subseteq X$ \`e chiuso se $X \sbarra C$ \`e aperto 	
+\end{defn}
+\begin{fatti}
+	\begin{itemize}
+		\item $\exists A \subseteq X $ n\`e aperti n\`e chiusi (es. $\mathbb{Q}\subseteq \R $ con la topologia euclidea)
+		\item $X=X\sbarra \emptyset $ e $ \emptyset=X\sbarra X$ sono sempre aperti e chiusi
+		\item Un'unione finita di chiusi \`e chiusa
+		\item Un'intersezione arbitraria di chiusi \`e chiusa
+	\end{itemize}
+\end{fatti}
+\spazio
+\begin{prop}Se $(X,d)$ \`e uno spazio metrico, gli aperti rispetto a $d$  definiscono una topologia
+\proof Sia $\tau$ la famiglia di aperti rispetto a $d$
+\begin{enumerate}
+	\item $\emptyset \in \tau$ per motivi di logica, $X\in \tau$ per definizione di palla $\forall x_0\in X \, B(x_0,1)\subseteq X $
+	\item $A_1,A_2 \in \tau$.\\
+		  Sia $x_0\in A_1\cap A_2 $ dunque per definizione di aperto rispetto a $d$
+		  $$ \exists \delta_1 >0 \quad B(x_0, \delta_1) \subseteq A_1 $$
+		  $$ \exists \delta_2 >0 \quad B(x_0, \delta_2) \subseteq A_2 $$
+		  $$ \exists \delta=\min(\delta_1, \delta_2) \quad B(x_0,\delta)\subseteq B(x_0,\delta_1)\cap B(x_0,\delta_2)\subseteq A_1\cap A_2$$
+		  Ovvero $A_1\cap A_2 \in \tau$
+	\item Se $A_i \in \tau \, \forall i \in I $ e $ \ds x_0\in \cup_{i\in I} A_i$ allora 
+	$$ \exists i_0 \in I \tc x_0 \in A_{i_0} \quad \implica \quad \exists \delta>0 \quad B(x_0, \delta )\subseteq A_{i_0}$$
+	$$B(x_0,\delta) \subseteq \cup_{i\in I} A_i \quad \cup_{i\in I} A_i \text{\`e aperto}$$ 
+\end{enumerate}
+\endproof
+\begin{oss}
+Ogni spazio metrico \`e "naturalmente" uno spazio topologico	
+\end{oss}
+\end{prop}
+\begin{defn}
+Uno spazio topologico $(X,\tau)$ \`e metrizzabile se $\tau$ \`e indotto da una distanza su $X$	
+\end{defn}
+
+\spazio
+Alcuni esempi di topologia
+\begin{enumerate}
+	\item Topologia metrizzabile
+	\item Topologia discreta.\\
+	 $\tau_D=\mathcal{P}(X)$ o equivalentemente ogni punto di $X$ (singoletto) \`e un intorno.\\
+	 Tale topologia \`e metrizzabile essendo indotta dalla distanza discreta
+	 \item Topologia indiscreta $\tau_I=\{ \emptyset , X \}$
+	 \item Topologia confinata ($\tau_C$)$A\subseteq X $ \`e aperto se $X\sbarra A $ \`e finito o $X$
+\end{enumerate}
+\begin{ex}
+La topologia indiscreta se $\vert X \vert  >1 $ non \`e metrizzabile	
+\end{ex}
+\begin{prop}
+La topologia confinata \`e una topologia
+\proof \bbianco
+\begin{enumerate}
+	\item $X\sbarra X=\emptyset$ ma $\emptyset$ \`e finito quindi $X$ \`e aperto\\
+		 $ X\sbarra \emptyset = X $ quindi $\emptyset$ \`e aperto
+	\item $A_1, A_2 \in \tau $ \\
+	Se almeno uno dei 2 \`e vuoto $A_1\cap A_2 =\emptyset\in \tau$.\\
+	Altrimenti $X\sbarra A_1$ e $X\sbarra A_2$ sono finiti 
+	$$ X\sbarra (A_1\cap A_2 ) = \left( X\sbarra A_1 \right) \cup \left( X\sbarra A_2 \right) \text{ che \`e finito } \quad \implica \quad A_1\cap A_2 \in \tau$$
+	\item Se $A_1\in \tau \, \forall i\in I $ si possono verificare 2 casi:\begin{itemize}
+		\item $A_i=\emptyset \, \forall i\in I \quad \implica \ds \cup_{i\in I} A_i=\emptyset\in \tau$
+		\item  $\exists A_{i_0}$ tale che $X\sbarra A_{i_0}$ \`e finito 
+		$$ X \sbarra \left( \cup_{i\in I} A_i  \right)\subseteq X\sbarra A_{i_0} $$
+		Ora $X\sbarra A_{i_0}$ \`e finito quindi l'unione \`e un aperto di $\tau$
+ 	\end{itemize}
+\end{enumerate}	
+\end{prop}
+\newpage
+\begin{defn}[Funzione continua]\bianco
+$$ f:\, (X,\tau)\to (Y, \tau') \text{ \`e continua se } f^{-1}(A)\in \tau \quad \forall A\in \tau'$$	
+\end{defn}
+\begin{thm}\bbianco
+\begin{enumerate}
+	\item $Id:\, (X,\tau)\to (X,\tau)$ \`e continua
+	\item Se $f:\, X\to Y $ e $g:\, Y \to Z $ sono continue allora $ g\circ f :\, X \to Z $ \`e continua
+\end{enumerate}
+\proof\bbianco
+\begin{enumerate}
+	\item Ovvia
+	\item Sia $A$ un aperto di $Z$.
+	$$ \text{ per continuit\'a di } g \quad g^{-1}(A) \text{ \`e aperto di } Y $$
+	$$ \text{ per continuit\'a di } f \quad f^{-1}\left( g^{-1}(A)  \right) \text{ \`e aperto di } Y $$
+	dunque $(f\circ g)^{-1}(A)$ \`e aperto di $X$
+\end{enumerate}
+\endproof
+\end{thm}
+\end{document}

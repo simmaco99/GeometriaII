@@ -1,0 +1,100 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 27  Febbraio del prof. Frigerio}
+\begin{oss}Siano $p\, E \to X$ rivestimento, $F=\inv p(x)$ e $x_0 \in X$.\\
+La monodomia $F \times \pi_1(X,x_0) \to F$ \`e transitiva $\ses$ E connesso.\\
+\proof $\iimplica$ Dati $\tilde{x_0},\tilde{x_1} \in F$ se $E$ \`e connesso per archi 
+$$ \exists \tilde{\gamma} :\, [0,1]\to E\text{ con }\tilde{\gamma}(0)=\tilde{x_0}\text{ e } \tilde{\amma}(1)=\tilde{x_1}$$
+Posto $\amma = p \circ \tilde{\amma}$ per come \`e definita l'azione si ha
+$$ \tilde{x_0}\az [ \gamma ] = \ammasol {x_0} (1)=\tilde{\gamma} (1) =\tilde{x_1}$$
+$\implica$ Poich\`e l'azione \`e transitiva presi $2$ punti in $F$  allora esiste un cammino che collega questi 2 punti.\\
+Sia $\tilde{x_0}, \tilde{x_1}\in E$, pongo $x_0=p(\tilde{x_0})$ e $x_1=p(\tilde{x_1})$.\\
+Poich\`e $x_0, x_1 \in X$ che \`e connesso per archi, esiste un arco 
+$\amma$ che li connette, sollevando $\gamma$  
+a partire da $\tilde{x_0}$otteno un arco che collega $\tilde{x_0}$ a $\tilde{y}$.\\
+Per definizione di rivestimento $\tilde{y}$ e $\tilde{x_1}$ sono nella stessa fibra e dunque sono connessi da un arco.\\
+\end{oss}
+
+\spazio
+\begin{defn}$p:E \to X$ rivestimento, si dice universale se $E$ \`e semplicemente connesso.
+\end{defn}
+\begin{prop}$p:E \to X$ rivestimento universale.\\
+Siano $x_0\in X$ e $\tilde{x_0}\in F = \inv{p}(x_0)$ allora 
+$$ \psi:\, \pi_1(X,x_0) \to F \quad \psi([\gamma])=x_0 \az [\gamma]$$
+\`e una bigezione
+\proof
+Poich\`e $E$ \`e connesso per archi, la surgettivit\`a discenda dal fatto che l'azione \`e transitiva.\\
+Mostriamo che \`e iniettiva
+$$ \psi ([ \gamma_1]) = \psi ([\gamma_2]) \quad \ses \quad \tilde{x_0}\az[\gamma_1] = \tilde{x_0}\az [\gamma_2] \quad \ses \quad \ssol{\gamma_1}{x_0} (1)= \ssol {\amma_2}{x_0}(1)$$
+Poich\`e $E$ \`e semplicemente connesso 
+$\ds \ssol{\gamma_1}{x_0} \sim \ssol {\amma_2}{x_0}$ (come cammini) 
+dunque $\gamma_1=p \circ \ssol{\gamma_1}{x_0}$ e $\gamma_2=p \circ \ssol{\gamma_2}{x_0}$ sono omotopi come cammini da cui $[\gamma_1]=[\amma_2]$
+\endproof
+\end{prop}
+\spazio
+\begin{thm}$\pi_1\left( S^1 \right) \cong \Z$
+\proof Come abbiamo osservato $p:\, \R \to S^1 $ tale che $p(t)=(\cos (2\pi t ), \sin (2\pi t))$ \`e un rivestimento .\\
+Poniamo $F=\inv{p}((1,0))$ dunque $F=\Z$.\\
+Poniamo 
+$$ \psi:\, \pi_1\left( S^1, (1,0) \right) \to \Z \quad \psi([\gamma])= 0 \az [\gamma]$$
+Poich\`e $\R$ \`e contraibile, \`e semplicemente connesso dunque $\psi$ \`e una bigezione.\\
+Mostriamo che \`e anche un omomorfismo di gruppi.\\
+Dati $[\alpha], [\beta]\in \pi_1\left( S^1,(1,0) \right)$ ho che 
+$$ \psi ([\alpha]\cdot [\beta])=\psi([\alpha\star \beta])= \left(\tilde{\alpha\star \beta}\right)_0 (1)= \tilde{\alpha}_0 \star \tilde{\beta}_{\tilde{\alpha_0}(1)}(1)=\tilde{\beta}_{\tilde{\alpha}_0(1)}(1)$$
+Ora $\tilde{\beta}_{{\tilde{\alpha}}_0(1)}$ e $\tilde{\alpha}_0(1)+\tilde{\beta}_0$ sono entrambi sollevamenti di $\beta$ a partire dallo stesso punto iniziale ($\tilde{\alpha}_0(1)$ \`e un numero \`e indica di quanto occorre "traslare") infatti
+$$ p\left( \tilde{\alpha}_0(1)+\tilde{\beta}_0(t) \right)= p\left( k + \tilde{\beta}_0(t) \right)= p\left( \tilde{\beta}_0(t) \right)=\beta(t)$$
+dove abbiamo sfruttato il fatto che la funzione $p$ \`e intero-periodica.\\
+Concludiamo, osservando, 
+$$ \psi([\alpha\star \beta])=\left(\tilde{\alpha_0}(1)+\tilde{\beta}_0\right)(1)=\tilde{\alpha_0}(1)+\tilde{\beta}_0(1) =\psi([\alpha])+\psi([\beta])$$
+\end{thm}
+\begin{oss}Tramite $\pi_1\left( S^1 \right) \cong \Z$ l'elemento $n\in \Z$ \`e rappresentato da $\amma(t)=( \cos (2n\pi t ) , \sin (2 n \pi t))$ in quanto $\tilde{\gamma}_0(t)=nt$ e $\tilde{\gamma}_0(1)=n$.\\
+$\amma$ \`e un laccio  che fa $n$ giri di $S^1$
+\end{oss}
+\begin{prop}$R\subseteq X$ retratto. Allora $\forall x_0\in R$ si ha $i_\star$ iniettiva e $r_\star$ surgettiva
+\proof Poich\`e $r\circ i = Id_R $ si ha $(r \circ i )_\star=Id_{\pi_1(R,x_0)}= r_\star \circ i_\star$.
+\end{prop}
+\begin{cor}$S^1=\partial D^2$ non \`e un retratto di $D^2$
+\proof Essendo $D^2$ convesso \`e contraibile, dunque semplicemente connesso.\\
+\end{cor}
+\begin{thm}[del punto fisso di Brower]\bianco
+Sia $f:\, D^2 \to D^2 \text{ continua}$ allora $f$ ha un punto fisso
+\proof Supponiamo, per assurdo, $f(x) \neq x \, \, \forall x\in D^2$.\\
+Mostriamo come costruire una retrazione $r:D^2\to S^1$.\\
+Cerco $t\geq 0$ tale che $\left\vert \left \vert  f(x)+t(x-f(x))  \right \vert \right\vert ^2=1$.\\
+Pongo dunque $r(x)=f(x)+t(x-f(x))$.\\
+Mostriamo che $t$ dipende in modo continuo da $X$.\\
+$t$ si ottiene risolvendo 
+$$ 1=\norm{f(x)}^2+2t\langle f(x), x-f(x)\rangle + t^2 \norm{x-f(x)}^2$$
+che \`e un'equazione di secondo grado, i cui coefficienti dipendono in modo continuo da $x$ .\\
+La soluzione che ci interesse \`e quella della forma $\ds \frac{-b+\sqrt{\Delta}}{2a}$ perch\`e voglio $t\geq 0 $ e so che $ a>0$ \\
+Per costruzione si ha che $r(x)\in S^1 \, \, \forall x \in D^2$ e $r(x)=x \,\, \forall x\in S^1$ dunque \`e una retrazione, il che \`e assurdo per il corollario precedente
+\end{thm}
+\begin{oss}La funzione costruita nel teorema \`e la funzione che associa ad $x$ il punto d'intersezione tra la semiretta uscente da $f(x)$ e passante da $x$ con $S^1$
+\end{oss}
+\begin{ex}La funzione $f:\, \C \sbarra \{ 0\}\to \C \sbarra\{ 0 \} $ data da $f(z)=z^n$ \`e un rivestimento di grado $n$
+\end{ex}
+\spazio 
+\begin{thm}Dati $X,Y $ allora si ha $\pi_1(X\times Y, (x_0, y_0) ) \cong \pi_1(X,x_0) \times \pi_1(Y,y_0)$
+\proof Siano $\pi_X$ e $\pi_Y$ le proiezioni canoniche, $i:\, X \to X\times Y $ e $j:\, Y \to X\times Y$ date da $i(x)=(x,1)$ e $j(y)=(1,y)$.\\
+Pongo 
+$$ \psi: \pi_1 ( X\times Y, (x_0, y_0)) \to \pi_1 (X,x_0) \times \pi_1(Y,y_0) \quad \psi([\alpha])=\left( \left( \pi_X \right)_\star([\alpha]), \left( \pi_Y \right)_\star ([\alpha]) \right)$$
+$\psi$ \`e un ben definito omomorfismo di gruppi.\\ 
+Mostriamo che \`e suriettivo.\\
+ Dati $\beta\in \p1_(X,x_0)$ e $\gamma\in \pi_1(Y,y_0)$, poch\`e 
+ $$\pi_X \circ i =Id_X \text{ e } \pi_Y \circ i = \text{costante}_{y_0}$$
+si ha 
+$$ \left( \pi_X \right)_\star \left( i_\star(\beta) \right)=\beta \text{ e } \left( \pi_Y \right)_\star \left( i_\star(\beta) \right)=1 $$ 
+similmente si prova che 
+$$ \left( \pi_X \right)_\star \left( j_\star(\gamma) \right)=1 \text{ e } \left( \pi_Y \right)_\star \left( j_\star(\gamma) \right)=\gamma $$ 
+da cui $\psi\left( i_\star(\beta) \cdot j_\star(\gamma) \right)= (\beta, \gamma)$\\
+Mostriamo l'iniettivit\`a .\\
+Sia $\psi(\alpha)=1 $ con $\alpha=\left[ \left( \amma_1, \amma_2 \right)\right]$ dove 
+$$ \gamma_1:\, [0,1]\to X \quad  \gamma_2:\, [0,1]\to Y$$
+Se $H_1$ \`e un omotopia tra $\amma_1 $ e $c_{x_0}$ (a valori in $X$) e $H_2$ \`e un omotopia tra $\amma_2$ e $c_{y_0}$ allora la mappa
+$$ H :\, [0,1]\times [0,1]\to X \times Y \quad H(t,s)=\left( H_1(t,s), H_2(t,s) \right)$$ 
+mostra che $\alpha=1$\\
+\endproof
+\end{thm}
+\begin{cor}
+\end{cor} $$ \pi_1\left( S^1 \times S^1 \right) = \Z \oplus \Z$$
+\end{document}

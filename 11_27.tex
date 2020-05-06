@@ -1,0 +1,87 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 27 Novembre tenuta dal Prof. Frigerio}
+\begin{prop}Sia 
+$$ U_i = \{ [x_0:\, \dots \, : x_n ] \in \p^n(\K) \, \vert \, x_i \neq 0 \} $$
+allora esiste una biezione naturale tra $U_i$ e $\K^n$ che, nel caso $\K=\R$ \`e un omeomorfismo 
+\proof Siano
+$$ \varphi:\, U_i \to \K^n \quad \varphi([x_0:\, \dots \, : x_n) = \left( \frac{x_0}{x_i}, \dots , \frac{x_{i-1}}{x_i}, \frac{x_{i+1}}{x_i}, \dots , \frac{x_n }{x_i} \right)$$
+e 
+$$ \psi:\, \K^n \to U_i \quad \psi( x_1, \dots , x_n ) = [ x_1 : \dots :x_{i-1}: x_i : x_{i+1} : \dots : x_n]$$
+Osserviamo che queste 2 funzioni sono una l'inversa dell'altra.\\
+Supponiamo $\K=\R$.\\
+$ \psi $ \`e composizione di 
+$$ \R^n \inclu \R^{n+1}\sbarra \{ 0 \} \to \p^n(\R) \quad (x_1, \dots, x_n ) \inclu (x_1, \dots, 1 ,  \dots , x_n ) \to [ x_1 : \dots : 1: \dots : x_n ]$$
+dunque \`e continua.\\
+$\varphi$ si ottiene per passaggio al quoziente da $ \tilde{\varphi}:\, \pi^{-1}(U_i) \to \R^n $ ora $\tilde{\varphi}$ \`e continua dunque lo \`e anche $\varphi$.\endproof
+\end{prop}
+\begin{oss}Il proiettivo \`e unione degli $U_i$, inoltre 
+gli $U_i$ sono aperti in $\p^n(\R)$.\\
+$\forall p \in \p^n(\R)$ esiste $U$ aperto omeomorfo a $\R^n$ con $p\in U$
+\end{oss}
+\spazio
+\begin{defn}Sia $X$ topologico. X si dice variet\`a $n$-dimensionale se 
+\begin{itemize}
+\item $X$ \`e di Hausdorff
+\item $\forall p \in X$ $\exists U$ aperto omeomorfo ad un aperto $V$ di $\R^n$
+\item $X$ \`e a base numerabile 
+\end{itemize}
+\begin{oss}Poich\`e le palle aperte sono una base della topologia di $\R^n$ e una palla aperta \`e omeomorfo a $\R^n$ la propiet\`a 2 \`e equivalente a richiedere che $U$ sia omoemorfa ad una palla aperta oppure a $\R^n$
+\end{oss}
+\end{defn}
+\begin{oss}Per quanto osservato sul proiettivo $\p^n(\R)$ \`e una $n$-variet\`a (manca da dimostrare che \`e a base numerabile)
+\end{oss}
+\begin{oss}Le $3$ propiet\`a che definiscono una variet\`a sono indipendenti.\\
+Se prendiamo $\frac{\R\times \{ -1, 1 \} }{\sim}$ dove $(x,t)\sim (y,s) \ses (x,t)=(y,s) \text{ o }  (x=y \text{ e } x \neq 0 )$.\\
+Tale spazio verifica la seconda propiet\`a  ma non \`e di Hausdorff.
+\end{oss}
+\newpage
+Studiamo ora i proiettivi complessi.\\
+Con le dimostrazioni analoghe possiamo dimostrare che $ \p^n(\C)$ \`e compatto di Hausdorff e viene ricoperto dagli $U_i$, inoltre \`e a base numerabile.\\
+Ora essendo $\C^n \cong \R^{2n}$ $\p^n(\C)$ \`e una variet\`a $2n$ dimensionale
+\begin{prop}$\p^1( \C) \cong S^2$
+\proof $$\p^1(\C) =\{ z_0 = 0\} \cup \{ z_0 \neq 0 \} = \{ [0:1]\} \cup U_0$$
+Poich\`e $\p^1(\C)$ \`e compatto e di Hausdorff, per unicit\`a della compattificazione di Alexandross si ha 
+$$ \p^1(\C) \cong \hat{U_0} \cong \hat{\R^2} = S^2$$
+\begin{oss}In generale 
+$$ \p^n(\K) = \{ x_0 = 0 \}  \cup U_0 \cong \p^{n-1}(\K) \cup U_0 \cong P^{n-1}\cup \K^n$$
+\end{oss}
+\end{prop}
+\spazio
+Consideriamo la mappa 
+$$ f:\, S^{2n+1} \to \p^n(\C)$$ ottenuta restringendo $\pi$.\\
+Tale mappa \`e suriettiva  perch\`e $\pi(v) = \pi\left(\frac{v}{\norma v \norma } \right)$  dunque $\p^n(\C)$ \`e compatto.\\
+ $\forall p \in \p^n(\C)$ si ha $f^{-1}(P)\subseteq S^{2n+1}$.\\
+ Ora se $v \in f^{-1}(p)$ si ha $f^{-1}(p)=\{ \lambda v \, \vert \, \lambda\in \C \, \, \vert \lambda\vert =1\}$ da cui $f^{-1}(p)$ \`e omeomorfo a $S^1$ tramite la mappa 
+ $$ S^1=\{ \lambda \in \C \, \vert \, \vert \lambda \vert \} \to f^{-1}(p) \qquad \lambda \to \lambda v$$
+ tale mappa \`e continua, biettiva e chiusa (va da un compatto ad uno spazio di Hausdorff)
+ \newpage
+
+ \begin{ese}Compatto per successione $\not \implica$ compatto
+ \proof Sia $\ds X =[0,1]^{[0,1]}$ con la topologia prodotto (convergenza puntuale).\\
+Definiamo $supp(f)=\{ x \in [0,1]\, \vert \, f(x)\neq 0\}$ e sia 
+$$ Y = \{ f\in X \, \vert \, \vert supp(f) \vert \leq \vert \N \vert \}$$
+Osserviamo che
+\begin{enumerate}
+\item $Y$ \`e denso.\\
+Sia $U$ un aperto di $X$ allora posso prendere una funzione in $Y$ che appartiene a tale aperto 
+\item $X$ \`e $T2$.\\
+Prodotto di $T2$ \`e $T2$
+\item $Y$ non \`e compatto .\\
+Supponiamo $Y$ compatto allora $Y$ sarebbe chiuso, ma data la densit\`a di $Y$ si avrebbe  $Y=X$ ma ci\`o \`e assurdo
+\item $Y$ \`e compatto per successione.\\
+Sia $\{ f_n\}$ una successione in $Y$, devo trovare una sua estratta che converge puntualmente a $f\in Y$.\\
+Sia $\ds A=\bigcup_{n \in \N} supp (f_n)$ dunque $\vert A \vert \leq \vert \N \vert $, dunque
+$$ A = \{ a_1, \dots, a_n , \dots \}$$
+La successione $\{f_n (a_0) \}\subseteq [0,1]$ 
+ammette una scelta crescente di indici $k_0(n)$ tale che $f_{k_0(n)}(a_0) \to l_0 $ ($[0,1]$ \`e compatto).\\
+Analogamente considerando la successione $\ds \left\{ f_{k_0(n)}(a_1) \right\} \subseteq [0,1]$ dunque esiste una sottosuccessione $k_1(n)$ estratta da $k_0(n)$  con 
+$f_{k_1(n)}(a_1)\to l_1$.\\
+Iterando la costruzione $\forall m \in \N$ costruisco una sottosuccessione  $k_{m+1}(n)$ estratta da $k_m(n)$ e tale che 
+$$\ds \lim_{n \to + \infty} f_{k_{m+1}(n)}\left( a_{m+1} \right) \to l_{m+1}$$
+Segue che $\forall m \in \N$ $\ds \lim_{i \to + \infty} f_{k_i(i)}(a_m)=l_m$.\\
+Sia $f(a_i)=l_i$ dunque $f \in Y$ infatti il supporto di $f$ \`e $A$ che \`e numerabile inoltre $f_{k_i} \to f $
+\end{enumerate}
+ \end{ese}
+\end{document}

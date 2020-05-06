@@ -1,0 +1,121 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 25  Settembre del prof. Frigerio}
+\section{Spazi metrici}
+
+\begin{defn}[Spazio metrico]\bianco
+Uno spazio metrico \`e una coppia $(X,d)$
+$X$ \`e un insieme e $d:\, X \times X \to \R$ con le seguenti propiet\'a:
+\begin{itemize}
+	\item[(i)] Assioma di non negativit\'a
+	$$\forall x,y \in X \quad d(x,y) \geq 0 \text{ inoltre  }  d(x,y)=0 \ses x=y$$
+	\item[(ii)] Assioma di simmetria
+	$$ \forall x,y \in X \quad d(x,y)=d(y,x)$$
+	\item[(iii)] Disuguaglianza triangolare
+	$$ \forall x,y,z\in X \quad d(x,z)\leq d(x,y)+d(y,z)$$
+	
+\end{itemize}	
+\end{defn}
+
+\begin{enumerate}
+	\item $X=\R$ con $d(x,y)=\vert x - y \vert $
+	\item $X=\R^n$ sia $x=(x_1, \dots, x_n ) $ e $y=(y_1, \dots, y_n)$ allora consideriamo
+	 $$ d_E(x,y)=\sqrt{ \sum_{i=1}^n (x_i-y_i)^2} \text{ distanza euclidea }$$
+	 $$ d_1(x,y)= \sum_{i=1}^n \vert x_1 -y_1 \vert \text{ distanza l1 } $$
+	 $$ d_\infty(x,y) = \max\{ \vert x_i - y_i \vert  \, i=1,\dots, n \} 	\text{ distanza l}\infty$$
+	 \item $X$ un insieme generico, definiamo la distanza discreta
+	 $$ d(x,y)=\begin{cases}
+	 	1 \quad \text{ se } x\neq y \\
+	 	0 \quad \text{ se } x=y 
+	 \end{cases}$$
+	 \item $X=\{ f:\, [0,1] \to \R \, : \, f \text{ continua} \}$
+	 $$ d_1(f,g) = \int_0^1 \vert f(t)- g(t)\vert \dt $$
+	 $$ d_2(f,g)=  \sqrt{ \int_0^1 \vert f(t)-g(t)\vert^2 } \dt$$
+	 $$ d_\infty(f,g)= \sup_{t\in[0,1]} \{ \vert f(t)-g(t)\}$$
+	 
+	\end{enumerate}	
+
+\begin{prop}$d_\infty$ \`e  una distanza
+\begin{itemize}
+	\item[(i)] Essendo $d_\infty$ il $\max$ di numeri non negativi essa \`e necessariamente non negativa, inoltre se $d_\infty(x,y)=0$ allora necessariamente $\vert x_i - y_i\vert =0 $ ovvero $x_i=y_1 \, \forall i$ dunque $x=y$
+	\item[(ii)] La simmetria segue dal fatto che $\vert x_i -y_i \vert = \vert y_i - x_i\vert$
+	\item[(iii)] Dalla definizione di $max$ 
+	$$ \exists j \, d_\infty (x,z) = \vert x_j - z_j \vert \leq \vert x_j - y_j \vert   + \vert y_j - z_j \vert $$
+	Dove abbiamo usato la disuguaglianza triangolare del valore assoluto su $\R$.\\
+	Ora
+	$$ \vert x_j - y_j\vert \leq \max \{ x_i - y_i \, i=1, \dots, n \} = d_\infty(x,y)$$
+	$$ \vert y_j - z_j\vert \leq \max \{ y_i - z_i \, i=1, \dots, n \} = d_\infty(y,z)$$
+Dunque otteniamo la disuguaglianza triangolare voluta
+
+\end{itemize}
+\end{prop}
+
+\spazio 
+\begin{defn}[Embedding isometrico]\bianco 
+Sia $f:\, (X,d) \to (Y,d')$ allora $f$ \`e un embedding isometrico se 
+$$ d'(f(x), f(y))= d(x,y) \quad \forall x,y \in X$$	
+\end{defn}
+\begin{fatti}\bbianco
+\begin{enumerate}
+	\item $id:\, (X,d) \to (X,d)$ \`e un embedding isometrico
+	\item Composizione di embedding isometrici \`e un embedding isometrico
+	\item Se un embedding isometrico $f$ \`e bigettivo, $f^{-1}$ \`e un embedding isometrico.\\ In tal caso $f$ \`e una isometria
+	\item Un embedding isometrico \`e iniettivo (da cui il nome)
+	$$ f(x_1)=f(x_2) \quad \implica \quad  0= d'(f(x_1), f(x_2))=d(x_1,x_2) \quad \implica \quad x_1=x_2$$
+	\item Un embedding isometrico \`e un isometria se e solo se \`e surgettivo 
+	\item Se $(X,d)$ \`e fissato. L'insieme delle isometrie da $X$ in se stesso \`e un gruppo con la composizione, tale gruppo si chiama $Isom(X,d)$
+\end{enumerate}
+\end{fatti}
+\newpage
+\subsection{Continuit\'a}
+
+\begin{defn}[Palla]Sia $(X,d)$ uno spazio metrico, $r\in \R$ e $P\in X$
+$$ B(P,r) =\{ x \in X \, : \, d(P,x)<r \}$$	
+\end{defn}
+
+\begin{defn}[Continuit\'a locale]\bianco
+$ f:\, (X,d) \to (Y,d')$ si dice continua in $x_0 \in X$ se 
+$$ \forall \varepsilon >0 \, \exists \delta >0 \quad f(B(x_0,\delta))\subseteq B(f(x_0), \varepsilon)$$
+o in modo equivalente
+	$$ \forall \varepsilon >0 \, \exists \delta >0 \quad B(x_0,\delta)\subseteq f^{-1}(B(f(x_0), \varepsilon))$$
+\end{defn}
+\begin{defn}[Continuit\'a globale]\bianco
+$f:\, (X,d) \to (Y,d')$ \`e continua se \`e continua in ogni $x_0\in X$
+\end{defn}
+\begin{oss}\bbianco
+\begin{enumerate}
+	\item Gli embedding isometrici sono continui (basta porre $\delta=\varepsilon$)
+	\item Una funzione costante \`e continua ($\delta=1$), ma le funzioni costanti non sono embedding isometrici dunque le funzioni continue sono maggiori degli \`e isometrici
+\end{enumerate}	
+\end{oss}
+Svincoliamo formalmente la continuit\'a dalla distanza
+\begin{defn}[Aperto]\label{aperti_d}\bianco
+Sia $X$ uno spazio metrico, Un insieme  $A\subseteq X $ \`e aperto se 
+$$ \forall x\in A \quad \exists r>0 \tc B(x,r)\subseteq A $$
+ \end{defn}
+ \begin{ex}
+ Le palle aperte sono aperte	
+ \end{ex}
+ 
+\begin{thm}
+$$ f:\, (X,d) \to (Y,d') \text{ \`e continua } \quad \ses \quad \forall A \text{ aperto di } Y \quad f^{-1}(A) \text{\`e aperto in } X $$
+\proof $\implica$ Sia $A\subseteq Y$ un aperto.\\
+Sia $x_0 \in f^{-1}(A)$ allora  $f(x_0)\in A$ ed essendo $A$ un aperto 
+$$ \exists \varepsilon >0 \tc B(f(x_0),\varepsilon) \subseteq A $$
+Ora sfruttando la continuit\'a di $f$ 
+$$ \exists \delta>0 \quad B(x_0,\delta)\subseteq f^{-1}(B(f(x_0), \varepsilon))$$
+Ora poich\`e 
+$B(f(x_0), \varepsilon)) \subseteq A $ allora $B(x_0,\delta) \subseteq f^{-1}(A)$\\
+Per arbitrariet\'a di $x_0$ $f^{-1}(A)$ \`e aperto\\
+$\Leftarrow$
+Sia $x_0\in X$ e $\varepsilon>0$.\\
+Ora $B(f(x_0), \varepsilon)$ \`e un aperto di $Y$, dunque $ f^{-1}(B(f(x_0),\varepsilon)) $ \`e un aperto di $X$ per ipotesi.\\
+Dalla definizione di aperto  e poich\`e  $x_0 \in f^{-1}(B(f(x_0),\varepsilon))$  segue che
+$$ \exists \delta >0 \quad B(x_0, \delta) \subseteq f^{-1}(B(f(x_0),\varepsilon))$$
+dunque $f$ \`e continua in $x_0$, da cui la tesi per arbitariet\`a di $x_0$
+\endproof
+\begin{oss}
+La continuit\`a di $f$ dipende solo dalla famiglia degli aperti di $X$ e di $Y$, solo indirettamente da $d$ e $d'$
+\end{oss}
+\end{thm}
+\end{document}

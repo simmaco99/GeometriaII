@@ -1,0 +1,130 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 6 Novembre di Gandini}
+\begin{thm}[di Weistrass]\bianco
+Sia $f:\, X \to \R$ continua con $X$ spazio compatto. AllorA $f$ ammette massimo e minimo in $X$
+\proof Poich\`e $f(X)$ \`e un compatto di $\R$ \`e chiuso e limitato dunque ammette massimo e minimo 
+\end{thm}
+
+\newpage
+\section{Norme}
+\begin{defn}Sia $V$ un $\R$-spazio vettoriale, una norma su $V$ \`e una funzione 
+$$ \nnorma :\, V \to \R$$ con le seguenti propiet\`a 
+\begin{itemize}
+\item[(i)]$\norma v \norma \geq 0 $ $\forall v \in V$ inoltre $\norma v \norma =0 \, \ses \, v =0 $
+\item[(ii)]$\norma \lambda v \norma = \vert \lambda \vert \cdot \norma v \norma $ $\forall \lambda\in \R$ e $ \forall v \in V $
+\item[(iii)]$\norma v + w \norma \leq \norma v \norma + \norma w \norma $ $\forall v, w \in V $
+\end{itemize}
+
+\end{defn}
+\begin{defn}Sia $(V, \nnorma)$ uno spazio normato, allora definiamo la distanza associata alla norma come 
+$$ d(v,w) = \norma v - w\norma $$
+\begin{oss}Non tutte le distanze sono indotte da una norma, prendiamo ad esempio la distanza discreta su $\R^n$ infatti non \`e omogenea
+\end{oss}
+\end{defn}
+\begin{defn}Due norme si dicono topologicamente equivalenti se lo sono le distanze associate
+\end{defn}
+\spazio
+\begin{lem}Sia $\vert \vert \, \cdot \, \vert \vert :\,\R^n \to \R^n$ una norma, allora tale funzione \`e continua nella topologia euclidea
+\proof Sia $\{ e_1,\dots, e_n \}$ la base canonica di $\R^n$ e sia $M =\max_{i=1,\dots, n } \norma e_1 \norma $ allora
+$$ \bignormal \sum_{i=1}^n x_i e_1\bignormar \leq \sum_{i=1}^n \vert x_1 \vert \cdot \norma e_1 \norma \leq M \sum_{i=1}^n \vert x_1 \vert $$
+Ora essendo $d_1$ e $d_2$ topologicamente equivalenti basta dimostrare che $\nnorma$ \`e continua nella topologia indotta da $d_1$.\\
+Sia $d$ la distanza indotta da $\nnorma$ e siano $x= \left( x_1 , \, \dots , \, x_n \right)$ e $y= \left( y_1 , \, \dots , \, y_n \right)$ allora 
+$$ d(x-y) \leq \norma x  -   y \norma \leq \bignormal \sum_{i=1}^n ( x_i - y_1) e_1 \bignormar \leq M \sum_{i=1}^n \vert x_1 - y_1 \vert = M d_1(x,y)$$
+Dunque $\nnorma$ \`e continua rispetto alla distanza $d_1$ dunque rispetto a $d_2$\\
+\endproof
+\end{lem}
+\begin{thm}Sia $V$ un $\R$-spazio vettoriale di dimensione finita, allora tutte le norme su $V$ sono topologicamente equivalenti.
+\proof Fissando un qualunque isomorfismo lineare $\phi:\, \R^n \to V$ posso ricondurmi al caso $V=\R^n$.\\
+Sia $\nnorma$ una norma su $\R^n$, vediamo che tale norma \`e equivalente a $\nnorma_2$.\\
+Per il lemma precedente $\nnorma:\, \R^n \to \R^n$ \`e continua rispetto a $d_2$.\\
+Sia $S^n \subseteq \R^n$ allora essendo chiuso e limitato \`e compatto da cui per il Teorema di Weistrass: $\nnorma $ ammette massimo $M$ e minimo $m$ su $S^n$.\\
+Sia $v \in \R^n$ allora $$ \norma v \norma  = \bignormal \norma v \norma_2 \cdot \frac{v}{\norma v \norma_2} \bignormar = \norma v \norma_2 \cdot \bignormal \frac{v}{\norma v \norma_2} \bignormar \quad \implica \quad m \norma v \norma_2 \leq \norma v \norma \leq M \norma v \norma_2$$
+dove l'implicazione deriva dal fatto che $\frac{\norma v \norma}{\norma v \norma 2}=1$.\\
+Posto $k=\max \left( M, \frac{1}{m}\right)\geq 1 $ si ha 
+$$ \frac{1}{k} \norma v \norma_2 \leq \norma v \norma \leq k \norma v \norma_2 $$
+Sia $d$ la distanza indotta da $\nnorma$ allora
+$$\forall v, w \quad  \frac{1}{k} d_2(v,w) \leq d(v,w) \leq k d_2(v,w)$$ 
+Dunque le distanze indotte sono topologicamente equivalenti \endproof
+\begin{oss}Se la dimensione di $V$ \`e infinita il teorema non vale.\\
+Si pensi ad esempio $V=C^0([a,b])$ allora le distanze $d_1$ e $d_\infty$ non sono topologicamente equivalenti, tale distanze sono indotte da $\nnorma_1$ e $\nnorma_\infty$
+\end{oss}
+\end{thm}
+\newpage
+\section{Proiezione stereografica}
+Il 18 ottobre abbiamo dimostrato il seguente teorema
+\begin{thm}$$ \frac{D^n}{S^{n-1}}\cong S^n$$
+\end{thm}
+\begin{cor}$$S^n - \{ pt \} \cong \R^n$$
+\proof Dalla definizione di collassamento di un insieme ad un punto, $\frac{D^n}{S^{n-1}}$ contiene un aperto omeomorfo a $D^n \sbarra S^{n-1}$ tale aperto \`e l'insieme 
+$$ \{ x \in \R \, \vert \, \norma x \norma < 1\} $$
+Se consideriamo la seguente funzione 
+$$ B\left( 0 , \frac{\pi}{2} \right) \to \R^n \qquad v \to \tan ( \norma v ) v $$ 
+tale funzione \`e un omeomorfismo da cui $D^n \sbarra S^{n-1} \cong \R^n $.\\
+Ora dalla definizione di collassamento $D^n \sbarra S^{n-1}$ \`e omeomorfo a $\frac{D^n}{S^{n-1}}$ privato del punto ottenuto dal collasso di $S^{n-1}$ dunque abbiamo l'omeomorfismo cercato. \endproof
+\end{cor}
+\spazio
+Mostriamo un omeomorfismo esplicito  $S^n - \{ pt \} \to \R^n$.\\
+Fissiamo il punto $A=(1, 0, \dots, 0)$ e identifichiamo $\R^n$ con $\{ (x_0, \dots, x_n) \, \vert \, x_0=0 \}\subseteq \R^{n+1}$
+$$ f:\, S^n \sbarra (1, 0, \dots, 0) \to \R^n$$
+Sia $B=(x_0, \dots, x_n) \in S^n$ con $B\neq A $ allora definiamo $f(B)$ come  il punto di intersezione tra lo spazio $\{ x_0 =0\}$ e la retta passante per $A$  e $B$.\\
+Esplicitiamo tale funzione.\\
+La retta passante per $A$ e $B$ \`e 
+$$ t(x_0-1, x_1, \dots, x_n) + ( 1, 0, \dots, 0)$$ dunque 
+$$ f((x_0, \dots, x_n)) = \left( 0, \frac{x_1}{1-x_0}, \dots, \frac{x_n}{1-x_0}\right)$$
+Mostriamo che $f$ \`e omeomorfismo.\\
+Poniamo $y_i= \frac{x_i}{1-x_0}$ dunque  $f((x_0, \dots, x_n)) = (0, y_1, \dots, y_n )$.\\
+Vediamo come possiamo ricavare $x_0$ da $y_1, \dots, y_n$
+
+$$ \sum_{i=1}^n y_1^2+1 = \frac{\sum_{i=1}^n x_i^2}{(1-x_0)^2}+1 = \frac{\sum_{i=1}^n x_i^2+1 +x_0^2 +2x_0}{(1-x_0)^n}$$
+Ma $(x_0, \dots, x_n) \in S^n$ dunque $\ds \sum_{i=0}^n x_i ^2 =1$ da cui
+$$ \sum_{i=1}^n y_1^2+1 = \frac{2(1-x_0)}{(1-x_0)^2}=\frac{2}{1-x_0}$$
+dunque dagli $y_i$ ricavo $x_0$ 
+$$ x_0 = \frac{\left( \sum_{i=1}^n y_i^2\right)-1}{\left( \sum_{i=1}^n y_i \right) +1}$$
+Definiamo $g: \, \R^n \to S^n \sbarra (1, 0, \dots 0)$  come 
+$$ g( (y_1, \dots, y_n)) = \left(   x_0 = \frac{\left( \sum_{i=1}^n y_i^2\right)-1}{\left( \sum_{i=1}^n y_i \right) +1}, y_1(1-x_0), \dots, y_n (1-x_0) \right)$$
+Ora $f$ e $g$ sono continue ed inverse l'una dell'altra dunque $f$ \`e un omeomorfismo 
+\newpage
+\section{Compattificazione di Alexandross}
+Sia $X$ uno spazio topologico definiamo 
+$$ \hat{X}= X \cup \{ \infty\}$$ 
+dove $\infty \not \in X $.\\
+Definiamo su $\hat{X}$ una topologia $\tau$
+$$ \tau =\{ A  \, \vert \, A\subseteq X \text{ aperto } \} \cup \{ \hat{X} \sbarra K \, \vert \, K \subseteq X \text{ chiuso e compatto} \}$$
+\begin{prop}La famiglia appena descritta \`e una topologia
+\proof \bbianco
+\begin{enumerate}
+\item $\emptyset$ \`e un aperto di $X$.\\$\emptyset$ \`e chiuso e compatto in $X$ dunque $\hat{X} \in \tau$
+\item L'intersezione di $2$ aperti di $X$  \`e un aperto di $X$.\\
+$ ( \hat{X}\sbarra K_1) \cap ( \hat{X}\sbarra K_2) = \hat{X}\sbarra ( K_1 \cup K_2)$ ora $K_1 \cup K_2 $ \`e un chiuso e compatto di $X$\\
+$A \cap (\hat{X}\sbarra K)= A \sbarra K $ \`e un aperto in $X$ essendo $A$ aperto e $K$ chiuso
+\item L'unione di aperti di $X$ \`e un aperto di $X$.\\
+$\ds \bigcup_{i\in I } \hat{X}\sbarra K_i = \hat{X}\sbarra \left( \bigcap_{i\in I } K_i\right)$ ora $\ds \bigcap_{i\in I } K_i$ \`e un chiuso e compatto di  $X$\\
+$A \cup (\tilde{X}\sbarra K) = \hat{X}\sbarra ( K \sbarra A )$ ora chiuso in un compatto \`e compatto ed \`e chiuso
+\end{enumerate}
+\endproof
+\end{prop}
+\spazio
+\begin{prop}[Propiet\`a]\bianco
+\begin{enumerate}
+\item $i:\, X \inclu \hat{X}$ \`e un immersione aperta
+\item $\hat{X}$ \`e compatto
+\end{enumerate}
+\proof \bbianco
+\begin{enumerate}
+\item Da come abbiamo definito la topologia su $\hat{X}$ 
+$$ A \subseteq X \text{ aperto } \quad \ses \quad i(A) \subseteq \hat{X}\text{ aperto}$$
+dunque l'immersione \`e aperta
+\item  Sia $\ric= \ds \{ U_i\}_{i\in I } $ un ricoprimento aperto di $\hat{X}$.\\
+Essendo un ricoprimento $ \exists i_0\in I $ tale che $\infty \in U_{i_0}$ da cui $\exists K \subseteq X $ chiuso e compatto con $U_{i_0}=\hat{X}\sbarra K $
+Ora essendo $K$ compatto 
+$$ K \subseteq \bigcup_{i\in I } U_i \quad \implica \quad \exists i_1, \dots, i_n \in I \text{ con } K \subseteq U_{i_1} \cup \dots \cup U_{i_n}$$ 
+da cui 
+$$ \hat{X}= U_{i_0} \cup   U_{i_1} \cup \dots \cup U_{i_n}$$
+\end{enumerate}
+\endproof
+\end{prop}
+\begin{defn}$\hat{X}$ \`e detta compattificazione di Alexandross di $X$
+\end{defn}
+\end{document}

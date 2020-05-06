@@ -1,0 +1,33 @@
+\input{0_Preambolo}
+\begin{document}
+\section{Indice di avvolgmento}
+Fissato $a\in \C$, sappiamo che $\C\setminus \{a  \}$ si ritrae per deformazione su un cerchio di raggio $1$ e centro $a$, preso $x_0$ sul bordo del cerchio ($x_0\in \partial B(a,1)$), fissiamo un isomorfismo canonico
+$$ f:\, \pi_1(\C\setminus \{a \}, x_0) \to \Z \quad [\gamma] \to 1 $$
+dove $\gamma$ \`e una parametrizzazione di $\partial B(a,1)$ che percorre la circonferenza in senso antiorario.\\
+Come gi\`a osservato esiste  una bigezione naturale
+$$ \Omega(x_0,x_0) \to \W(S^1, x_0) \quad \gamma \to \hat{\gamma}$$
+Questa bigezione induce un omomorfismo 
+$$\partial:\, \pi_1(\C\setminus\{ a \}, x_0) \to [ S^1, \C \setminus\{ a \} \quad [\gamma]\to [\hat{\gamma}]$$
+dove con $[S', \C \setminus \{a \}]$ intendiamo le classi di omotopie di mappe continue $S^1\to \C\setminus\{a\}$
+Tale mappa risulta suriettiva ed inoltre $\partial([\gamma]) = \partial([\gamma'])$ se e solo se $[\gamma]$ e $[\gamma']$ sono coniugati.\\
+Ora $\pi_1(\C\setminus\{a\}, x_0)$ \`e abeliano, dunque la mappa \`e iniettiva.\\
+Definiamo per composizione la mappa 
+$$ \psi:\,  \partial^{-1}\circ f:\,[S^1, \C\setminus\{a\}] \to \Z$$
+\begin{defn}Sia $\gamam:\, [0,1]\to \C\setminus \{a\}$ un cammino chiuso in $x_0$.\\
+Denotiamo indice di $\gamma$ rispetto ad $a$ l'intero $\psi([\hat{\gamma}])$ e lo denotiamo con $I(\gamma, a)$
+\end{defn}
+\begin{thm}Sia $\gamma:\, [0,1]\to \C\setminus\{a\}$ un cammino chiuso. Allora 
+$$ I(\gamma, a) = \frac{1}{2\pi 1 }\int_\gamam \frac{\dz}{z-a}$$
+\proof Come sappiamo $\frac{1}{z-a}$ \`e olomorfa in $\C\setminus \{a\}$ dunque la forma $\w=\frac{\dz}{z-a}$ \`e chiusa.\\
+Possiamo integrare $\w$ lungo curve $\gamma$ continue, e il valore dell'integrale non dipende dal rappresentante nella classe di omotopia, dunque \`e ben definita la funzione 
+$$ \varphi:\, [S^1, \C\setminus\{a \}] \to \C$$ 
+$$ [\hat{\gamma}]\to \frac{1}{2\pi i }\int_\gamma \w $$
+Mostriamo che $\varphi = \psi$ il che conclude la dimostrazione.\\
+Notiamo che 
+$$ [S^1, \C\setminus\{ a\}]  =\{ [\hat{\gamma_n}]\, : \, \gamma_n:\, [0,1]\to \C\setminus \{a\} \text{ dove } t \to a + e^{2\pi i n t}\}$$
+dunque $\psi([\hat{\gamma_n}])  =n$ (avvolto $n$ volte).\\
+Ora abbiamo visto che 
+$$ \int_{\gamma_n} \frac{\dz}{z-a} =2\pi i n $$ 
+da cui la tesi ]
+\end{thm}
+\end{document}

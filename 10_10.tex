@@ -1,0 +1,145 @@
+\input{0_Preambolo}
+\begin{document}
+\section{Sottospazio prodotto}
+\textbf{Lezione del 10 ottobre di Gandini}
+\begin{defn}[Prodotto cartesiano]\bianco
+Sia $ \ds \{X_\alpha\}_{\alpha\in A}$ una famiglia di insiemi, il prodotto cartesiano della famiglia \`e 
+$$ X=\prod_{\alpha\in A} X_\alpha = \left. \left\{ f:\, A \to \bigcup_{\alpha\in A} X_\alpha \, \right\vert \,  f(\alpha) \in X_\alpha \, \forall \alpha\in A  \right\}$$
+Nel caso in cui $A=\{ 1, \dots , n \}$ 
+$$ X = \prod_{i=1}^n X_i = X_1 \times \dots \times X_n$$
+$$ x\in X \quad \implica \quad x= (x_1, \dots , x_n ) \text{ ovvero } f(i)=x_i$$
+\end{defn}
+\begin{defn}[Proiezioni]Lo spazio cartesiano $X$ ammette delle proiezioni naturali $\forall \alpha \in A $
+$$ P_\alpha:\, X \to X_\alpha \quad f \to f(\alpha) $$
+\end{defn}
+\spazio
+\begin{defn}La topologia prodotto su $X$ \`e la topologia meno fine  che rende  tutte le proiezioni $P_\alpha$ continue.
+\end{defn}
+\begin{prop}Una base per la topologia prodotto \`e data da 
+$$\B=\left\{ \left. \prod_{\alpha\in A} U_\alpha \, \right \vert \, U_\alpha\subseteq X_\alpha \text{ aperto e } U_\alpha \neq X_\alpha \text{ per un numero finito di } \alpha \right\}$$
+\proof Sia $U_\alpha \subseteq X_\alpha $ aperto allora
+$$ P_\alpha^{-1} (U_\alpha)= \prod_{\beta \in A } V_\beta  \text{ dove } V_\beta = \begin{cases} U_\alpha \text{ se } \beta= \alpha\\ X_\beta \text{ se } \beta \neq \alpha \end{cases} $$
+Dunque le $P_\alpha$ sono continue se e solo se tutte le controimmagini di tale forma sono aperte \\
+Siano $\alpha_1, \dots, \alpha_n\in A$ e $U_{\alpha_i} \subseteq X_{\alpha_i} $ aperti $\forall i=1,\dots, n $ allora
+$$ A=\bigcap_{i=1}^n P_{\alpha_i}^{-1}(U_{\alpha_i} ) \subseteq X \text{ aperto nella topologia prodotto} $$
+intersezione finita di aperti \`e un aperto; ora 
+$$ A=\prod_{\alpha \in A } V_\alpha \text{ dove } V_\alpha = \begin{cases}
+U_{\alpha_i} \text{ se } \alpha=\alpha_i \\ X_\alpha \text{ se } \alpha\neq \alpha_i \end{cases}$$
+Dunque osserviamo che  $A\in \B$ infatti solo un numero finito di aperti \`e diverso da tutto lo spazio $X_i$, ovvero ogni elemento di $\B$ \`e un aperto nella topologia prodotto.\\
+Se $\B$ \`e una base di una topologia possiamo concludere in quanto, per definizione, cerchiamo la topologia meno fine che rende continue le proiezioni.\\
+Mostriamo che $\B$ \`e una base.\begin{enumerate}
+\item Se prendiamo $U_\alpha=X_\alpha $ $\forall \alpha\in A $ allora $\prod U_\alpha=X$ ovvero $\B$ ricopre $X$
+\item  
+$$ \left( \prod_{\alpha \in A} U_\alpha \right) \cap  \left( \prod_{\alpha \in A} V_\alpha \right)=   \prod_{\alpha \in A} (U_\alpha \cap V_\alpha)$$
+Se $U_\alpha , V_\alpha$ sono aperti in $X_\alpha$ allora $U_\alpha \cap V_\alpha$ \`e un aperto di $X_\alpha$.\\
+Inoltre se il numero dei $U_\alpha \neq X_\alpha $ e dei $V_\alpha \neq X_\alpha$ \`e finito allora sar\`a finito anche il numero dei $U_\alpha \cap V_\alpha \neq X_\alpha$
+\end{enumerate}
+Abbiamo provato che $\B$ verifica il criterio per essere una base 
+\endproof
+\end{prop}
+\spazio
+\begin{oss}Supponiamo $B_\alpha $ base per la topologia di $X_\alpha$ e assumiamo che $X_\alpha \in B_\alpha$ allora
+$$\B'=\left\{ \left. \prod _{\alpha \in A} B_\alpha \, \right\vert\, B_\alpha \in \B_\alpha \text{ e } B_\alpha=X_\alpha \text{ tranne per finiti } \alpha \right\}$$
+\`e una base della topologia prodotto su $X$\\
+Segue direttamente dal fatto che $\B$ definita nella proposizione precedente \`e una base
+\end{oss}
+\begin{cor}Sia $A$ numerabile e $X_\alpha$ secondo-numerabile $\forall\alpha\in A$ allora $X$ \`e secondo-numerabile.\\
+\proof Sia $\B_\alpha$ una base numerabile per $X_\alpha$ e supponiamo che $X_\alpha\in \B_\alpha$
+Sia 
+$$A_i= \left(  \left.\prod_{\alpha\in A} B_\alpha \, \right \vert B_\alpha \in \B_\alpha  \text{ e } B_\alpha\neq X_\alpha \text{ per le prime } i  \right\}$$
+Allora $A_i$ \`e ovviamente numerabile inoltre 
+$$\B'=\bigcup_{i \in A } A_i$$
+quindi $\B'$ \`e numerabile essendo unione numerabile di insiemi numerabili
+\endproof
+\end{cor}
+\begin{cor}Sia $A$ numerabile e $X_\alpha$ primo-numerabile $\forall\alpha\in A$ allora $X$ \`e primo-numerabile
+\end{cor}
+\begin{oss}Se $A$ non \`e numerabile, i corollari precedenti, in generale, sono falsi
+\end{oss}
+\newpage
+
+\subsection{Propiet\`a della topologia prodotto}
+\begin{prop}La proiezione $P_\alpha$  \`e un' applicazione aperta
+\proof Sia $\B$ una base di $X$ allora 
+$$ P_\alpha \text{ aperta } \ses P_ \alpha(B) \text{ aperta } \forall B \in \B$$
+Per come abbiamo definito una base della topologia prodotto
+$$ B = \prod_{\beta\in A }  U_\beta
+ \text{ dove } U_\beta \subseteq X_\beta \text{ aperto e  } U_\beta \neq X_\beta \text{ per finiti } \beta $$
+ quindi $P_\alpha(B) = U_\alpha$ che \`e aperto per definizione.
+ \endproof
+\end{prop}
+\begin{oss}$P_\alpha$, in generale, non \`e chiusa.\\
+Prendiamo $\R^2$ e consideriamo $P_1$.\\
+Sia $Z=\{ (x,y) \, \vert xy=1 \}$ ovvero un iperbole equilatera, 
+$Z$ \`e chiuso in quanto luogo di zeri di un polinomio $(Z=p^{-1}(\{ 0\} ))$, un polinomio \`e una funzione continua e $\{ 0 \} $ \`e chiuso.\\
+$$P_1(Z) =\R \sbarra \{ 0 \} \text{ non \`e chiuso perch\`e in } \R \text{ } \{ 0 \} \text{ \`e aperto }$$
+\end{oss}
+\spazio
+\begin{prop}Dato $\alpha\in A $, fissiamo $x_\beta \in X_\beta $ con $\beta \neq \alpha$, sia 
+$$X(\alpha) = \{ f\in X \, \vert \, f(\beta)= x_\beta \} \subseteq X $$ 
+Allora la restrizione 
+$$ P_{\vert \alpha} :\, X(\alpha) \to X_\alpha \text{ \`e un omeomorfismo } $$
+dove $X(\alpha)$ eredita la topologia di sottospazio
+\proof \bbianco
+\begin{itemize}
+\item La restrizione \`e continua infatti $P_{\vert \alpha} = P_\alpha \circ i $ con $i:\, X(\alpha) \inclu X $, ora $i$ \`e continua per definizione di topologia di sottospazio 
+\item La restrizione \`e biunivoca infatti l'inclusione \`e iniettiva 
+\item Mostriamo che la funzione \`e aperta.\\
+Gli aperti di $X(\alpha)$ sono gli insiemi della forma 
+$$U= \left( \prod_{\gamma \in A } U_\gamma \right) \cap X(\alpha)$$
+Se $U\neq \emptyset$ allora 
+$$ U = \{ f\in X(\alpha) \, \vert \,  f(\alpha)\in U_\alpha\} $$
+D'altra parte $P_{\vert \alpha}(U) = P_\alpha(U) = U_\alpha$ che \`e aperto 
+\end{itemize}
+\endproof
+\end{prop}
+\begin{oss}$P_{\vert \alpha} $ non \`e canonica come la proiezione infatti dipende dalla scelta di $x_\beta$
+\end{oss}
+
+\newpage
+\subsection{Propiet\`a universale}
+\begin{prop}\bianco
+La topologia prodotto verifica la seguente propiet\`a:\\
+dato $Z$ topologico e $f:\, Z \to X $ una funzione arbitraria
+$$ f \text{ continua} \quad \ses \quad P_\alpha \circ f \text{ continua}$$
+\proof$\implica$ Composizione di funzioni continue \`e una funzione continua.\\
+$\iimplica$ Sia $U\subseteq X$ un aperto, dimostriamo che $f^{-1}(U)$ \`e aperto.\\
+Basta vederlo per $U\in \B$ (base della topologia prodotto) ovvero per un $U$ della forma
+$$ U = \prod_{\alpha\in A} U_\alpha \text{ dove } U_\alpha\subseteq X_\alpha \text{ aperto } $$
+inoltre $\exists A_0 \subseteq A \text{ finito, tale che } \forall \alpha \not \in A_0 \quad U_\alpha = X_\alpha$\\
+D'altra parte $\ds f^{-1}(U) =f^{-1} \left( \prod_{\alpha\in A} U_\alpha \right)$ e osservando che 
+$U=\ds\bigcap_{\alpha\in A_0} P_\alpha^{-1}(U_\alpha)$ otteniamo
+$$ f^{-1}(U)= f^{-1} \left( \bigcap_{\alpha\in A_0} P^{-1}_\alpha(U_\alpha)\right) = \bigcap_{\alpha\in A_0 } (P_\alpha \circ f )^{-1}(U_\alpha)$$
+Ora intersezione finita di aperti \`e un aperto quindi 
+$$ \forall U \in \B \quad f^{-1}(U) \text{ \`e aperto } \quad \implica f \text{ continua } $$
+\endproof
+\end{prop}
+\begin{thm}La topologia prodotto \`e univocamente determinata dalla propiet\`a universale.\\
+Vale a dire:\\
+Se $\tau_X$ \`e una topologia sul prodotto con la propiet\`a 
+$$ \forall Z \text{ topologico } \, f:\, Z \to X \text{ allora } $$
+$$ f \text{ continua } \quad \ses \quad P_\alpha \circ f \text{ continua } \forall \alpha\in A  $$
+Allora $\tau_X$ \`e la topologia prodotto
+\proof Abbiamo dimostrato che la topologia prodotto soddisfa la propiet\`a universale.\\
+Sia $\tau_X$ una topologia che soddisfa la propiet\`a, $\tau_\alpha$ la topologia su $\tau_X$ e $\tau_{prod}$ la topologia prodotto, abbiamo dunque il seguente diagramma 
+$$\begin{tikzcd} & (X, \tau_X) \arrow{d}{P_\alpha}\\
+(Z,\tau_Z) \arrow[bend left]{ur}{f} \arrow{r}{P_\alpha\circ f} &(X_\alpha,\tau_\alpha)
+\end{tikzcd}$$
+\begin{itemize}
+\item Prendiamo $Z=(X, \tau_{prod})$ allora
+$$\begin{tikzcd} & (X, \tau_X) \arrow{d}{P_\alpha}\\
+(X,\tau_{prod}) \arrow[bend left]{ur}{id_X} \arrow{r}{P_\alpha} &(X_\alpha,\tau_\alpha)
+\end{tikzcd}$$
+$P_\alpha:\, (X,\tau_{prod})\to (X,\tau_\alpha)$ \`e continua per definizione allora per definizione \`e continua anche 
+$$id_X:\, (X,\tau_{prod})\to (X,\tau_X) \quad \implica \quad \tau_X < \tau_{prod}$$
+\item Proviamo che $P_\alpha:\,(X,\tau_X) \to (X_\alpha,\tau_\alpha)$ \`e continua e poi concludere per minimalit\`a.\\
+Prendiamo $Z=(X,\tau_X)$  allora 
+$$\begin{tikzcd} & (X, \tau_X) \arrow{d}{P_\alpha}\\
+(X,\tau_{X}) \arrow[bend left]{ur}{id_X} \arrow{r}{P_\alpha} &(X_\alpha,\tau_\alpha)
+\end{tikzcd}$$
+e poich\`e $id_X:\, (X, \tau_X)\to (X,\tau_X)$ \`e continua allora per la propiet\`a $P_\alpha:\, (X,\tau_X) \to (X_\alpha, \tau_\alpha)$ 
+\`e continua
+\end{itemize}
+\end{thm}
+
+\end{document}

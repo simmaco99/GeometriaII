@@ -1,0 +1,163 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 18  Marzo}
+\begin{defn}Se $U\subseteq \C$ \`e un aperto e $f:\, U \to \C$ \`e una funzione possiamo scrivere 
+$$f(z)=u(z)+iv(z)$$
+chiamiamo 
+\begin{itemize}
+\item $u:\, U \to \R$ la parte reale di $f$ 
+\item $v:\, U \to \R$ la parte immaginaria di $f$ 
+\end{itemize}
+\end{defn}
+\begin{fatto}Sia $U,f,u,v$ come sopra e $z_0\in U$
+$$ f \text{ continua in } z_0 \quad \ses \quad u,v\text{ continue in } z_0 $$
+\end{fatto}
+\begin{defn}Sia $U \subseteq \C$.\\
+La funzione $f:\, U \to \C$ \`e differenziabile in $z_0 \in U$ se $\exists A:\, \C \to \C$ applicazione $\R$-lineare tale che 
+\begin{enumerate}
+\item $f(z)=f(z_0)+A(z-z_0)+r(z)$
+\item $\ds \frac{\abs{r(z)}}{\abs{z-z_0}} \to 0  \text{ per } z \to z_0$
+\end{enumerate}
+In questo caso chiameremo l'applicazione $A$ lo Jacobiano di $f$ e lo denoteremo con $J_{f_{z_0}}$ 
+\end{defn}
+\begin{oss}$f$ differenziabile in $z_0$ allora $f$ continua in $z_0$
+\end{oss}
+\begin{fatti}\bbianco
+\begin{enumerate}
+\item Se $f$ \`e differenziabile in $z_0\in U$ allora esistono le derivate parziali di $f\in z_0$ e si ha 
+$$ J_{f_{z_0}} =\begin{pmatrix}
+\pr u x (x_0,y_0) & \pr u y (x_0, y_0) \\
+\pr v x (x_0,y_0) & \pr v y (x_0, y_0) \\
+\end{pmatrix}$$ 
+dove $u,v$ sono la parte reale ed immaginaria di $f$ e $z_0=x_0+ i y_0$
+\item (Teorema del differenziale totale)\\
+Siano $u,v$ come sopra. Se esistono $\pr u x ,\, \pr u y,\, \pr v x \text{ e } \pr v y $ in un intorno di $z_0$ e sono continue in $z_0$ allora $f$ \`e differenziabile in $z_0$
+\end{enumerate}
+\end{fatti}
+\begin{ex}Sia $f:\, R^2 \to \R$ con $f((x,y))=\begin{cases} x \text{ se } y \neq x^2 \\ 0 \text{ se } y=x^2\end{cases}$\\
+$f$\`e differenziabile in $(0,0)$?
+\end{ex}
+\begin{defn}\bianco 
+Sia $U\subseteq \C$ un aperto e $f:\, U \to \C$ continua\\
+$f$ si dice olomorfa in $z_0\in U$ se esiste il limite 
+$$\lim_{h \to 0\atop{h\neq 0}}\frac{f(z_0+h)-f(z_0)}{h}$$
+se tale limite esiste, lo chiamiamo derivata di $f$ in $z_0$ e lo denotiamo con $f'(z_0)$\\ \\ 
+Diciamo che $f$ \`e olomorfa in $U$ se lo \`e in ogni punto di $U$\\ \\
+Diciamo che $f$ \`e intera se \`e definita su $\C$ ed \`e olomorfa su $\C$
+\end{defn}
+\begin{prop}Sia $U\subseteq \C$ aperto e siano $f,g:\, U \to \C$ olomorfe in $z_0$ allora 
+\begin{itemize}
+\item $f+g$ \`e olomorfa in $z_0$ con $(f+g)'(z_0)=f'(z_0)+g'(z_0)$
+\item $fg$ \`e olomorfa in $z_0$ con $(fg)'(z_0)=f'(z_0)g(z_0)+f(z_0)g'(z_0)$
+\item se $g(z_0)\neq 0 $ allora $\frac{f}{g}$ \`e olomorfa in $z_0$ con 
+$$ \left(\frac{f}{g}\right)'(z_0)=\frac{f'(z_0)g(z_0)-f(z_0)g'(z_0)}{g(z_0)^2}$$
+\end{itemize}
+\end{prop}
+\begin{prop}
+Siano $U,V$ aperti di $\C$. Siano $f:\, U \to V$ e $g:\, V\to \C$ funzioni.\\
+Assumiamo $f$ olomorfa in $z_0\in U$ e $g$ olomorfa in $f(z_0)$, allora $g\circ f$ \`e olomorfa in $z_0$ e si ha
+$$ (g\circ f)'(z_0)= g'(f(z_0))f'(z_0)$$
+\end{prop}
+\begin{ese}\bbianco
+\begin{itemize}
+\item $f(z)=z$ \`e intera
+$$\frac{f(z+h)-f(z)}{h}=\frac{z+h-z}{h}=1 \to 1 $$
+dunque $f'(z)=1 \, \forall z\in \C$
+\item $f(z)=z^n$ \`e intera con $n>1$
+$$ \frac{(z+h)^n - z^n}{h}= \frac{\sum_{k=0}^n {n\choose k} z^k h^{n-k} -z^n }{h} = \sum_{k=0}^{n-1}{n\choose k} z^k h^{n-k-1} \to n z^{n-1}$$
+dunque $f'(z)= n z^{n-1}$
+\item $f(z)=z^n $ con $n<0$ \`e olomorfa in $C\sbarra \{0\}$ (esercizio)
+\item Dagli esempi precedenti segue che i polinomi sono interi e le funzioni razionali sono olomorfe dove definite (denominatore non nullo)
+\item $f(z)=\overline{z}$ non \`e olomorfa\\
+$$ \frac{f(z+h) - f(z)}{h}=\frac{\overline{h}}{h}$$
+Se esiste la derivata, il limite dovrebbe esistere per ogni possibile direzione $h=0$ dunque dovrebbe succedere
+$$ 1 = \lim_{h \to 0 \atop{Im(h) = 0}} \frac{\overline{h}}{h} = \lim_{h \to 0 \atop{Re (h)=0}}\frac{\overline{h}}{h}=-1$$
+\item $f(z)=\overline{z}$ \`e differenziabile
+\end{itemize}
+\end{ese}
+\begin{oss}Se $f$ \`e olomorfa in $z_0$ allora \`e anche continua.
+$$ f(z)-f(z_0)= \left( \frac{f(z)-f(z_0)}{z-z_0}\right) (z-z_0) \to f'(z_0) \lim_{z\to z_0} (z-z_0)= 0$$
+\end{oss}
+
+\begin{thm}
+Sia $U \subseteq \C$ un aperto e $f:\, U \to \C$ continua
+
+$$ f\text{ olomorfa in } z_0 \quad \ses \quad \begin{cases} a)\, f \text{ differenziabile in } z_0 \\
+																								  b)\, J_{f_{z_0}} \text{ corrisponde alla moltiplicazione per } a \in \C
+\end{cases}$$
+\proof $\implica$ La condizione di olomorfit\`a implica cche 
+\begin{equation}
+\label{eq1}
+f(z_0+h)=f(z_0)+f'(z_0)h + r(h)
+\end{equation}
+con $\ds \frac{\abs{r(h)}}{\abs h} \to 0 $ per $h \to 0 $\\
+Nella base $\{1 , i\}$ di $\C$ visto come spazio vettoriale reale, possiamo riscrivere la \ref{eq1} come 
+$$ f(x_0+\alpha, y_0+\beta)=f(x_0,y_0) + f'(z_0)(\alpha+i\beta) + r(\alpha,\beta)$$ 
+con $\ds \frac{\abs{r(\alpha,\beta)}}{\sqrt{\alpha^2 + \beta^2 }}\to 0 $ (intendiamo $z_0=x_0+iy_0$ e $h =\alpha+i\beta$)\\
+La mappa $\C \to \C$ che manda $z$ in $f'(z_0)z$ \`e $\R$-lineare, dunque sono soddisfatte a) e b)\\
+$\iimplica$ Si procede in modo analogo
+\begin{itemize}
+\item Si parte dalla condizione di derivabilit\`a nelle variabili $x$ e $y$
+\item Si riscrive la condizione di sopra in termini della variabile $z=x+iy$
+\item Si pone per b) lo jacobiano uguale alla moltiplicazione per $f'(z_0)$
+\end{itemize}
+\endproof
+\end{thm}
+\begin{lem}Sia $A:\, \C\to \C$ una funzione $\R$-lineare.\\
+I seguenti fatti sono equivalenti
+\begin{itemize}
+\item $A$ indotta dalla moltiplicazione per un numero complesso: $A(z) = a\cdot z $ con $a\in \C$
+\item $A$ \`e $\C$-lineare
+\item $A(i)=1A(i)$
+\item $A$ \`e la moltiplicazione per la matrice $\begin{pmatrix}
+ \alpha & - \beta \\ \beta & \alpha
+\end{pmatrix}$ con $\alpha, \beta \in \R$ (l'applicazione \`e rappresentata nella base $\{1 , i\}$)\\
+$a$ del punto $1$ \`e $\alpha+i\beta$
+\end{itemize}
+\proof Esercizio
+\end{lem}
+\begin{thm}[di Cauchy-Riemann]\bianco
+Sia $U\subseteq \C$ aperto e $f:\, U\to \C$ continua.\\
+Denotiamo $f(x,y)=u(x,y)+iv(x,y)$ nella base $\{1 , i\}$ di $\C$
+$$ f \text{ olomorfa in } z_0\in U \quad \ses \quad \begin{cases} a)\, f \text{ differenziabile in } z_0\\ 
+b')\, \pr u x (x_0,y_0) = \pr v y (x_0, y_0)  \text{ e } \pr u y (x_0,y_0) = -\pr v x (x_0,y_0)\end{cases}$$
+dove $z_0=x_0+iy_0$\\
+Nel caso $f$ sia olomorfa allora $f'(z_0)=\pr u x (x_0,y_0) + i \pr v y (x_0,y_0)$
+\proof Mostriamo che la condizione b) del precedente teorema implica la condizione b' (nota come condizione di Cauchy-Riemann)
+Poich\`e $f$ \`e differenziabile il suo Jacobiano \`e della forma
+$$J=\begin{pmatrix}
+\pr u x (x_0,y_0) & \pr u y (x_0, y_0)\\
+\pr v x (x_0, y_0) & \pr v y (x_0, y_0)
+\end{pmatrix} $$
+Per il Lemma precedente essendo lo Jacobiano $\R$-lineare e corrispondente alla moltiplicazione per un numero complesso si avr\`a 
+$J=\begin{pmatrix}
+ \alpha & -\beta \\ \beta & \alpha
+\end{pmatrix}$ da cui
+$$ \pr u x (x_0,y_0) = \pr v y (x_0, y_0) = \alpha \text{ e } \pr u y (x_0, y_0) = - \pr v x (x_0, y_0) =\beta $$
+\endproof
+\end{thm}
+\begin{defn}$\forall z=x + i y \in \C$, chiamiamo esponenziale del numero complesso $z$ la quantit\`a 
+$$e^z=e^x(\cos y + i \sin y)$$
+\end{defn}
+\begin{ese}$f(z)=e^z$ \`e intera con $f'(z) = e^z$\\
+Osserviamo che $u(x,y)= e^x \cos x $ mentre $v(x,y) = e^x \sin y$, in modo ovvio sono soddisfatte le ipotesi del teorema di Cauchy-Riemann
+\end{ese}
+
+\begin{defn}
+$$\sin z = \frac{e^{iz}-e^{iz}}{2i} \qquad \cos z= \frac{e^{iz}+e^{-iz}}{2}$$
+$$\sinh z = \frac{e^{z}-e^{z}}{2} \qquad \cosh z= \frac{e^{z}+e^{-z}}{2}$$
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

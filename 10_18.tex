@@ -1,0 +1,122 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 18 ottobre del Prof. Frigerio}
+\begin{defn}Un insieme $Z\subseteq X $ \`e $f$-saturo se 
+$$ Z = f^{-1}(f(Z))$$ 
+in modo equivalente
+$$ Z = f^{-1}(C) \quad C\subseteq Y$$
+
+\begin{oss}In generale, vale $ Z \subseteq f^{-1}(f(Z))$
+\end{oss}
+\end{defn}
+\begin{defn}[Identificazione]\bianco
+$f:\, X \to Y$ si dice identificazione se \`e continua, suriettiva e se 
+$$ A\subseteq X \text{ aperto } \quad \ses \quad f^{-1}(A)\subseteq X \text{ aperto }$$
+in modo equivalente
+$$ A\subseteq X \text{ aperto } \quad \ses \quad \exists B \text{ aperto saturo } \quad A= f(B)$$
+\end{defn}
+\begin{oss}La freccia "vera" \`e $\iimplica$ infatti l'altra \`e la definizione di continuit\`a
+\end{oss}
+\begin{oss}Sia $f:\, X \to Y $ continua \`e biettiva. Allora
+$$ f\text{ immersione } \ses f \text{ identificazione } \ses f \text{ omeomorfismo}$$
+\end{oss}
+\spazio
+\begin{prop}Sia $f:\, X \to Y$ identificazione.\\
+Definendo la relazione $x\sim x' \ses f(x)=f(x')$ allora $\overline{f}$ che fa commutare il seguente diagramma
+$$ \begin{tikzcd} X \arrow[r,"f"] 
+\arrow{rd}{\pi}&Y\\ &\frac{X}{\sim} \arrow{u}{\overline{f}}
+\end{tikzcd}$$
+\`e un omeomorfismo 
+\proof $\overline{f}$ \`e ben definita e biettiva per motivi insiemistici, inoltre \`e continua per la propiet\`a universale della topologia quoziente.\\
+Devo vedere che $f$ \`e aperta.\\
+Sia $A\in \frac{X}{\sim}$ aperto.\\
+$$ \overline{f}(A)= f(\pi^{-1}(A))$$
+Ma $f$ \`e un identificazione  
+$$f(\pi^{-1}(A))  \subseteq Y \text{ aperto } \quad \ses  \quad f^{-1}(f(\pi^{-1}(A))) \subseteq X \text{ aperto }$$
+Ora $\pi^{-1}(A)$ \`e $f$-saturo (per come \`e stata definita la relazione di equivalenza) per cui 
+$$f^{-1}(f(\pi^{-1}(A)))=\pi^{-1}(A) \text{ aperto perch\`e  } \pi \text{ continua}$$
+\begin{oss} $\overline{f} $ come sopra \`e un omeomorfismo $\ses$ $f$ \`e identificazione.\\
+Basta leggere con attenzione la dimostrazione 
+\end{oss} 
+\end{prop}
+\spazio
+\begin{prop}Sia $f:\, X \to Y$ continua e suriettiva
+\begin{itemize}
+\item $f$ \`e aperta allora \`e un'identificazione
+\item $f$ \`e chiusa allora \`e un'identificazione 
+\end{itemize}
+\proof Mostriamo solamente il caso aperto.\\
+Dato $A\subseteq Y$, devo dimostrare che
+$$A \text{ aperto } \quad \ses \quad f^{-1}(A) \subseteq X \text{ aperto } $$
+$\implica$ deriva dalla continuit\`a di $f$\\
+$\iimplica$ essendo $f$ aperta $f^{-1}(A)$ aperto $\implica$ $ f(f^{-1}(A))$ aperto.\\
+Inoltre essendo $f$ surgettiva allora $f(f^{-1}(A))=A$
+\endproof
+\end{prop}
+\spazio
+Notazione: se $A \subseteq X $ si pone con $\frac{X}{A}=\frac{X}{\sim} $ dove 
+$$ x\sim y \quad\ses \quad x=y  \text{ o }  (x\in A \text{ e } y \in A $$
+Tale insieme \`e ottenuto da $X$ condensando $A$ ad un punto 
+\begin{ese} $\frac{[0,1]}{\{ 0, 1\}}$\\
+Cerco un identificazione 
+$$ f:\, [0,1]\to S' =\{ x \in \R^2 \, \vert \, \norma x \norma =1 \}$$
+tale che $f(x)=f(y) \ses x=y \text{ o } \{ x ,y \}=\{ 0,1\}$.\\
+Pongo 
+$$ f(t)= (\cos 2\pi t, \sin 2\pi t )$$ 
+tale funzione \`e continua, suriettiva e induce la relazione di equivalenza.\\
+Mostriamo che \`e chiusa 
+\begin{itemize}
+\item $f_\vert: \, \left[ 0, \frac{1}{2} \right] \to  C_1 =S' \cap \{ y \geq 0 \}$ con $C_1$ chiuso.\\
+Tale restrizione \`e un omeomorfismo essendo $g=\frac{\arccos x}{2\pi}$ una sua inversa continua
+\item In modo analogo $f_\vert:\, \left[ \frac{1}{2}, 1 \right] \to C_2=S'\cap \{ y<0\}$ \`e un omeomorfismo.\\
+\item Sia $Z\subseteq [0,1]$ chiuso allora 
+$$ f(Z) = f\left( Z \cap \left[ 0, \frac{1}{2}\right] \right) \cup f\left( Z \cap \left[ \frac{1}{2},1\right] \right)$$
+Ora $Z \cap \left[ 0, \frac{1}{2}\right]$ \`e un chiuso di $\left[0, \frac{1}{2}\right]$ e poich\`e $f_\vert$ \`e un omo sul chiuso $C_1$ allora $$f\left(  Z \cap \left[ 0, \frac{1}{2}\right] \right) \text{ \`e un chiuso di } S' \text{ (chiuso di un chiuso)}$$
+Analogamente
+$$ f\left(  Z \cap \left[ \frac{1}{2},1\right] \right) \text{ \`e un chiuso di } S'$$
+quindi $f(Z)$ \`e unione di $2$ chiusi quindi \`e chiuso
+\end{itemize}
+\begin{oss}La funzione decritta non \`e aperta infatti $[0,1)$ aperto 
+in $[0,1]$ ma $f([0,1)$ non \`e aperto (arco di circonferenza) con un solo "estremo chiuso"
+\end{oss}
+\end{ese}
+\spazio
+Enunciamo $2$ teoremi che ci servono per generalizzare il risultato precedente
+\begin{thm} $X$ compatto, $Y$ \`e $T2$ con $f:\, X \to Y$ continua. Allora $f$ \`e chiusa
+\end{thm}
+\begin{thm}I chiusi e limitati di $\R^n$ sono compatti
+\end{thm}
+\begin{defn}Su $\R^n$ definiamo i seguenti insiemi
+$$ D^n = \{ x \in R^n \, \vert \, \norma x \norma  \leq 1 \} \overline{B^n(0,1)}$$
+$$ S^{n-1} =\partial D^n = \{ x \in \R^n \, \vert \, \norma x \norma =1 \}$$
+\end{defn}
+
+\begin{thm}
+$$ \frac{D^n}{\partial D^n} \text{ omeomorfo a } S^n$$
+\proof Cerco $f:\, D^n \to S^n $ tale che
+$$ f(x)=f(y) \quad \ses \quad x=y \text{ o } \norma x \norma = \norma y \norma =1 $$
+continua (per il teorema precedente, chiusa) e surgettiva.\\
+Pongo
+$$ f(x) = ( \lambda x , 2  \norma x \norma ^2 -1 ) $$
+Poich\`e $f(x)\in S^n$ allora
+$$\lambda^2 \norma x \norma ^2 + ( 2\norma x \norma ^2 -1) ^2 = 1  $$
+$$ \lambda = 2 \sqrt{ 1 - \norma x \norma ^2 }$$
+Si verifichi che $f$ \`e continua (dunque chiusa), biettiva e ha la propiet\`a richiesta
+\end{thm}
+\spazio
+\begin{oss}Esistono identificazioni che non sono chiuse n\`e aperte.\\
+Sia  $$ X =\{ x \geq 0  \} \cap \{ y =0 \}  \subseteq \R^2 $$
+Allora $\pi:X \to \R \quad \pi(x,y)= x$ \`e un identificazione.\\
+Sia $ C \subseteq \R$  allora dobbiamo provare che 
+$$ \pi^{-1} ( C) \text{ chiuso } \quad \implica  \quad C \text{ chiuso } $$
+Sia $p \in \overline{C}$ allora essendo $\R$ Hausdorff 
+$$ \exists \{ p_n \}\subseteq C \quad \lim p_n = p $$
+Ora $(p_n, 0 ) \in \pi^{-1}(C) $ $\forall n $ quindi supponendo che la controimmagine sia chiusa
+$$ \lim (p_n , 0 ) = (p,0) \in \overline{\pi^{-1}(C)} =\pi^{-1}(C)$$
+Dunque $p=\pi(p,0) \in C$ ovvero abbiamo provato che $C=\overline{C}$.\\
+Mostriamo che non \`e aperta.\\
+Sia  $ Y = \{ x \in X \quad d( x,0)<1 \}$ $Y$ \`e aperta in $X$ infatti 
+$Y = B^2(0,1) \cap X $ mentre $\pi(Y) =[0,1)$ non \`e aperto in $\R$\\
+Se prendiamo come chiuso un ramo di iperbole (primo quadrante) otteniamo che essa \`e chiusa in $X$ mentre la sua immagine non \`e chiusa in $\R$
+\end{oss}
+\end{document}

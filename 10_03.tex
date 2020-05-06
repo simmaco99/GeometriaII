@@ -1,0 +1,168 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 3 Ottobre del prof. Frigerio}
+
+\begin{prop}$f:\, (X,\tau)\to (Y,\tau')$ e siano $S$ e $\B$ una prebase e base di $\tau$.\\
+I seguenti fatti sono tra loro equivalenti
+\begin{itemize}
+\item[(i)]$f$ \`e continua
+\item[(ii)]$f^{-1}(A) $ \`e aperto $\forall A \in S$
+\item[(iii)]$f^{-1}(A)$ \`e aperto $\forall A \in \B$
+\end{itemize}
+\proof \bbianco
+\begin{itemize}
+\item (i)$\implica$(ii) Ogni elemento di $S$ \`e aperto ed essendo $f$ continua la controimmagine di aperti \`e un aperto 
+\item (ii)$\implica$(i) Sia $\overline{\B}=\{ \text{ intersezione finite di elementi di } S \cup \{ Y \} \} $\\
+Dalla distributivit\`a di $f^{-1}$ rispetto all'intersezione e dal fatto che un' intersezione finite di aperti \`e un aperto 
+$$ \forall B \in \overline{\B} \quad f^{-1}(B)\text{ \`e un aperto di } X $$
+Dalla definizione di prebase $\forall A \in \tau'$ 
+$$ A = \bigcup_{i\in I } B_i \text{ dove } B_i \in \B $$ 
+Ora se $A=Y$ allora $f^{-1}(A)=X$ che \`e aperto altrimenti 
+$$f^{-1}(A)= f^{-1} \left( \bigcup_{i \in I } B_i \right)$$ 
+ora essendo $f^{-1}$ distributiva rispetto all'unione 
+$$ f^{-1}(A)= \bigcup_{i \in I} f^{-1}(B_i)$$
+Ma l'unione arbitraria di aperti \`e un aperto 
+\item (i)$\ses$(iii)  Ogni base \`e in particolare una prebase
+\end{itemize}
+\endproof
+\end{prop}
+
+\newpage
+
+\begin{prop}Sia $(X,\tau)$ uno spazio topologico e $B\subseteq X$ allora
+$$ X = B^\circ \amalg \partial B \amalg (X\sbarra B)^\circ$$
+\proof Poich\`e $\overline{B}$ \`e il pi\`u piccolo chiuso che contiene $B$  allora $X\sbarra \overline{B}$ \`e il piu grande aperto contenuto in $X\sbarra B$ dunque 
+$$ (X\sbarra B)^\circ = X \sbarra \overline{B}$$
+Inoltre, per definizione di frontiera e poich\`e $B^\circ \subseteq \overline{B}$
+$$\overline{B}=B^\circ \amalg \partial B $$
+Da cui segue
+$$ X=\overline{B} \amalg ( X\sbarra \overline{B}) = B^\circ \amalg \partial B \amalg (X\sbarra B)^\circ$$
+\endproof
+\end{prop}
+\spazio
+\begin{defn}$Y \subseteq X $ si dice denso se $\overline{Y}=X$
+\end{defn}
+\begin{oss}$$ Y \text{ denso } \quad \ses \quad Y \cap A \neq \emptyset \quad \forall A \text{ aperto non vuoto}$$
+Dalla decomposizione mostrata precedentemente $ X =  \overline{Y} \amalg (X\sbarra Y)^\circ$
+$$ Y \text{\`e denso } \quad \ses \quad (X\sbarra Y)^\circ = \emptyset$$ 
+L'ultima \`e equivalente a dire che gli unici aperti contenuti in $X\sbarra Y$ sono vuoti che \`e equivalente alla tesi.
+\end{oss}
+\spazio
+\begin{defn}$X$ si dice separabile se ammette un sottoinsieme denso e numerabile
+\end{defn}
+\begin{prop} $X$ \`e a base numerabile $\implica$  $X$ separabile
+\proof Sia $ \ds \B=\{ B_i \}_{i \in \N} $ una base numerabile di $X$ (posso supporre che  $B_i$ non vuoto per ogni $i$)\\
+$\forall i $ scegliamo $x_i\in B_i$ e sia $Y=\{ x_i \, \vert \, i \in \N\}$\\
+Osserviamo che $Y$ \`e al pi\`u numerabile, resta da provare che \`e denso.\\
+Sia $A$ un aperto non vuoto, dunque, $A$ \`e unione di elementi della base $\B$ dunque 
+$$ \exists j \quad B_j \subseteq A \quad \implica \quad \{ x_j \} \subseteq A \cap Y $$ 
+Dunque grazie all'osservazione precedente $Y$ \`e denso  
+\endproof
+\end{prop}
+\spazio
+\begin{prop}Se $(X,\tau)$ \`e metrizzabile.
+$$ X \text{ separabile} \quad \ses \quad X \text{ \`e a base numerabile} $$
+\proof
+$\iimplica$ \`e vera per un qualsiasi spazio topologico\\
+$\implica$ Sia $Y$ un denso numerabile su $X$ e sia $d$ la distanza che induce $\tau$\\
+Consideriamo l'insieme 
+$$ \B=\{ B(x,R) \, \vert \, x \in Y , \, R \in \Q_+ \}$$ 
+osserviamo che $\B$ \`e numerabile infatti \`e in bigezione con $\N \times \N $ ($\Q$ \`e in bigezione con $\N$ e $Y$ essendo numerabile \`e in bigezione con $\N$)\\
+Occorre provare che $\B$ \`e una base.\\
+Sia $A$ aperto, allora, per definzione $\exists R>0$ tale che $B(x,R)\subseteq A$.\\
+L'insieme $\ds A'=B\left(x, \frac{R}{3} \right)$ \`e un aperto per cui essendo $Y$ denso  $A\cap Y\neq \emptyset $ dunque $\exists y\in Y$ tale che $\ds d(x,y)<\frac{R}{3}$\\
+Sia $R'\in \Q$ tale che $\ds \frac{R}{3}<R' < \frac{2}{3}R $ allora 
+$ B(y,R') \in \B $ \\
+Osserviamo che $x\in B(y,R')$ e infatti $d(x,y)< \frac{R}{3}<R'$ .\\
+Sia $z\in B(y,R')$ allora
+$$ d(x,z) \leq d(x,y)+ d(y,z) < \frac{R}{3}+R' < R $$ dunque
+$z\in B(x,R) \subseteq A$ e perci\`o $B(y,R') \subseteq A $
+\endproof
+\end{prop}
+\newpage
+
+\begin{defn}Sia $(X,\tau)$ uno spazio topologico e $x_0\in X$.\\
+Un insieme $U\subseteq X$ \`e un intorno di $x_0$ se $x_0\in U^\circ$.\\
+In modo equivalente, se $\exists V $ aperto con $x_0 \in V \subseteq U$.\\
+Denoteremo con $I(x_0)$ l'insieme degli intorni di $x_0$
+\end{defn}
+
+\begin{defn}Un sistema fondamentale di intorni per $x_0$ \`e una famiglia $\mathfrak{F}\subseteq I(x_0)$ tale che $$\forall U \in I(x_0) \quad \exists V \in \mathfrak{F} \quad V \subseteq U$$
+%contiene intorni suff. piccoli
+\end{defn}
+\begin{oss}Se $X$ \`e metrico.
+$$ U \text{ intorno di } x_0 \quad \ses \quad \exists R>0 \quad B(x_0, R) \subseteq U $$
+Dunque la famiglia
+$$\mathfrak{F}=\left\{ B \left(x_0, \frac{1}{n}\right) ,\, n \in \N_+ \right\}$$
+\`e un sistema fondamentale (numerabile) di intorni di $x_0$ 
+\end{oss}
+\spazio
+\begin{defn}[Primo numerabile]\bianco$X$ soddisfa il primo assioma di numerabilit\`a se ogni $x_0\in X$ ha un sistema fondamentale di intorni numerabili
+\end{defn}
+
+\begin{fatto}
+$$X \text{ metrizzabile} \quad \implica \quad X \text{ primo numerabile}$$
+\end{fatto}
+\begin{prop}
+$$ \text{ II assioma di numerabilit\`a } \quad \implica \text{ I assioma di numerabilit\`a}$$
+\proof Se $\B$ \`e una base numerabile, sia $x_0 \in X$ 
+$$ \mathfrak{F}=\{ B \in \B , \vert \, x_0\in B \}$$
+osserviamo che $\mathfrak{F}$ \`e un sistema fondamentale di intorni per $x_0$.\\
+Sia $U$ un intorno di $x_0$, essendo  $U^\circ$ un aperto 
+$$ \exists I \subseteq \N \quad \exists B_i \in \B \quad U^\circ = \bigcup_{i\in I } B_i$$
+Dunque $\exists i_0 $ tale che 
+$$ x_0 \in B_{i_0} \subseteq U^\circ \subseteq U \text{ in quanto } x_0 \in U^\circ$$
+Da ci\`o segue la tesi in quanto $B_{i_0}\in \mathfrak{F}$ ed inoltre $\mathfrak{F}\subseteq \B$ dunque \`e numerabile
+\endproof
+\end{prop}
+\spazio
+\begin{prop}[Aperti e intorni]
+$$ A\subseteq X \text{ \`e aperto } \quad \ses \quad \text{  \`e intorno di ogni suo punto } $$
+\proof
+$$ A\text{ \`e apeto } \ses A = A^\circ \ses ( x\in A \ses x\in A^\circ ) \ses$$
+$$\ses ( x\in A \ses A\text{ intorno di x}) \ses A\text{ intorno di ogni suo punto } $$
+\endproof
+\end{prop}
+\begin{prop}Sia $C\subseteq X$ generico
+$$ x \in \overline{C} \quad \ses \quad \forall U \in I(x) \quad U \cap C \neq \emptyset$$
+\proof$\implica$ 
+$ x\in \overline{C}\implica x\not \in (C\sbarra X)^\circ \implica X \sbarra C \text{ non \`e un intorno di } X$\\
+Se $\exists U \in I(x_0)$ tale che $U \cap C = \emptyset$ allora $U \subseteq X\sbarra C$ ovvero $X\sbarra C $ \`e un intorno di $x$ (assurdo).\\
+$\iimplica$  $x\not \in \overline{C}\implica x\in (X\sbarra C)^\circ$ dunque 
+$\exists U \in I(x_0)$ tale che $U \subseteq X \sbarra C $ dunque $X\sbarra C$ \`e l'intorno disgiunto cercato
+\endproof
+
+\end{prop}
+\newpage
+
+Sia $X=\R$ e $\B=\{ [a,b) , \, a<b \}$ allora
+\begin{enumerate}
+\item $\B$ \`e una base di una topologia $\tau$ 
+\item $\tau$ \`e la pi\`u fine della topologia euclidea
+\item $\tau$ \`e separabile
+\item $\tau$ non \`e a base numerabile
+\item $\tau$ non \`e metrizzabile
+\end{enumerate}
+\begin{enumerate}
+\item Mostriamo che la base ricopre $\R$ 
+$$ \R = \bigcup_{n \in \Z} [n , n+1)$$
+inoltre 
+$$ [a,b) \cap [c,d) =\begin{cases} \emptyset \\
+[e,f) \text{ con } e=\max \{ a,c \} \text{ e } f = \min \{ b ,d \} 
+\end{cases}$$
+Valgono entrambi le richieste del criterio dunque $\B$ \`e una base
+\item Basta vedere che ogni aperto della topologia euclidea \`e anche un aperto di $\tau$
+$$ B(x_0,R)= (x_0-R, x_0+R) = \bigcup_{n \in \N_+}=\left[ x_0-R+\frac{1}{n}, x_0+R \right) $$
+\item $\Q$ incontra tutti gli aperti non vuoti di $\B$, dunque di $\tau$ da ci\`o segue che \`e denso 
+\item Sia $\B'$ una qualsiasi base di $\tau$.\\
+$\forall	 B \in \B' $ sia $f(B)=\inf B \in \R \cup \{ - \infty \} $\\
+Si dimostra che $\R \subseteq Im f $ perci\`o $\B'$ non \`e numerabile
+\item Uno spazio separabile e a base numerabile se e solo se $\tau$ \`e metrizzabile. Dunque $\tau$ non \`e metrizzabile
+\end{enumerate}
+\newpage
+
+\end{document}
+
+
+
+

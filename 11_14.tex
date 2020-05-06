@@ -1,0 +1,109 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 14 Novembre del Prof. Frigerio}
+\begin{defn}[Successione di Cauchy]\bianco
+Sia $(X,d)$ uno spazio metrico.\\
+Una successione $\{ a_n\}\subseteq X$ \`e detta di Cauchy se 
+$$ \forall \varepsilon>0 \quad \exists n_0 \quad d(x_n, x_m)\leq \varepsilon \quad \forall n,m \geq n_0$$
+\end{defn}
+\begin{lem}Se $\{ x_n\}$ \`e convergente allora \`e di Cauchy
+\proof Sia $\overline{x}$ il limite di $x_n$ dunque 
+$$ \forall \varepsilon>0 \quad \exists n_0 \quad d(x_n,\overline{x}) \leq \frac{\varepsilon}{2} \quad \forall n \geq n_0$$
+dunque $$\forall n, m \geq n_0 \quad d(x_n,x_m) \leq d(x_n , \overline{x}) + d(x_m, \overline{x}) = \frac{\varepsilon}{2}+ \frac{\varepsilon}{2}=\varepsilon$$
+\endproof
+\end{lem}
+\spazio
+\begin{defn}[Spazio completo]\bianco
+$X$ spazio topologico si dice completo se ogni successione di Cauchy in $X$ \`e convergente
+\end{defn}
+\begin{oss}$\Q$ non \`e completo, sia $\{ x_n \} \subseteq \Q $ convergente a $\sqrt{2}$ tale successione \`e di Cauchy, essendo convergente, ma non converge in $\Q$
+\end{oss}
+\spazio
+\begin{lem}Sia $\{ x_n\}$ di Cauchy. Se $\{ x_n \} $ ammette una sottosuccessione convergente allora $\{ x_n\}$ \`e essa stessa convergente.
+\proof Poich\`e $\{ x_n\}$ \`e di Cauchy
+$$ \forall \varepsilon>0 \quad \exists n_0 \quad d(x_n, x_m)\leq \frac{\varepsilon}{2} \quad \forall n, m \geq n_0$$
+Ora sia $\overline{x}=\ds \lim_{i \to + \infty} x_{n_i}$ dunque per definizione di limite
+$$ \forall \varepsilon>0 \quad \exists j \in \N  \quad d (\overline{x}, x_{n})\leq \frac{\varepsilon}{2} \quad \forall n\geq n_j$$
+Sia $n_{\overline{i}} \geq n_j \geq n_0$ dunque 
+$$ \forall n \geq n_{\overline{i}} \quad d(\overline{x},x_n) \leq d(\overline{x},x_{n_{\overline{i}}})+ d(x_{n_{\overline{i}}},x_n)\leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}= \varepsilon$$
+dunque $\ds \lim_{n\to +\infty} x_n =\overline{x} $
+\endproof \end{lem}
+\begin{cor}Sia $X$ uno spazio metrico
+$$ X \text{ compatto per successioni} \quad \implica \quad X \text{ completo}$$
+\end{cor}
+\spazio
+\begin{lem}Sia $X$ \`e completo  e $Y \subseteq X $ con la metrica indotta
+$$ Y \text{ completo } \quad \ses \quad Y \text{ chiiuso in } X $$
+\proof In modo contronominale.\\
+Se $Y$ non \`e chiuso allora $\exists \{ y_n\} \subseteq Y $ con $\ds \lim_{n\to \infty} y_n =\overline{y}\not \in Y $,infatti essendo $Y$  primo numerabile, 
+ $\overline{Y}= \{ \text{ punti limiti delle successioni } \subseteq Y  \} $.\\
+Ora $\{ y_n\}$ converge, dunque \`e di Cauchy ma non converge in $Y$, $Y$ non \`e completo.\\
+$\iimplica$ Sia $\{ y_n\}\subseteq Y$ di Cauchy.\\
+Per completezza di $X$ $\ds\exists \lim_{n\to \infty} y_n =\overline{x}$, ora essendo $Y$ chiuso $\overline{x}\in \overline{Y}=Y $ dunque $Y$ completo 
+\endproof
+\end{lem}
+\spazio
+\begin{defn} Sia $X$ uno spazio metrico.\\
+$X$ \`e totalmente limitato se $\forall\varepsilon>0$ esiste un ricoprimento finito di $X$ fatto con palle di raggio $\varepsilon$
+\end{defn}
+\begin{lem}$$ X \text{ totalmente limitato } \quad \implica \quad X \text{ limitato}$$
+\proof Dalla totale  limitatezza  ponendo $\varepsilon=1$ si ottiene 
+$$ X = \bigcup_{i=1}^n  B(x_i, 1)$$
+Posto $M=\max_{i,j=1,\dots, n } \{ d(x_i,x_j)$ 
+$$ \forall x, y \in X \quad \exists x_i, x_j \quad x \in B(x_i,1) \text{ e } y \in B(x_j,1)$$
+da cui
+$$ d(x,y)\leq d(x,x_i)+ d(x_i,x_j)+ d(x_j,y)\leq 1 + M +1 +M = M +2 $$
+\endproof
+\begin{oss}Non vale il viceversa.\\
+Se su $\R$ poniamo $d(x,y)=\min \{ \vert x-y \vert, 1\}$ allora $(\R,d)$ \`e limitato ma non totalmente limitato, non esistono ricoprimenti finiti con palle di raggio $1/2$
+\end{oss}
+\end{lem}
+\begin{prop} $(X,d)$ totalmente limitato $\implica$ a base numerabile
+\proof Per un teorema gi\`a visto basta vedere che \`e separabile (metrico e separabile implica a base numerabile)
+$$ \forall n \quad \exists F_n \subseteq X \text{ finito con } X = \bigcup_{p \in F_n} B\left( p, \frac{1}{n} \right)$$
+Allora $\bigcup_{n \geq 1} F_n $ \`e numerabile, mostriamo che \`e denso.\\
+Sia $U\subseteq X$ un aperto non vuoto, dunque $\exists n_0 \in \N $ $\exists z \in X$ tale che $B \left( z , \frac{1}{n_0}\right) \subseteq U $.\\
+Ora le palle di raggio $\frac{1}{n_0}$ sono un ricoprimento da cui  $\exists p \in F_{n_0}$ tale che  $z \in B\left( p, \frac{1}{n_0} \right)$.\\
+Dunque $p \in \bigcup F_n $ e $ p  \in B \left( z, \frac{1}{n_0}\right) \subseteq U $ da cui $\bigcup F_n$ interseca ogni aperto non vuoto da cui denso.
+\endproof
+\end{prop}
+
+\begin{thm}
+ Sia $(X,d)$ metrico. I seguenti fatti sono equivalenti
+ \begin{itemize}
+  \item[(i)] $X$ compatto
+  \item[(ii)] $X$ compatto per successioni
+  \item[(iii)] $X$ totalmente limitato e completo
+ \end{itemize}
+ Inoltre in questi casi $X$ ammette una base numerabile
+ \proof \bbianco
+\begin{itemize}
+ \item (i) $\implica$ (ii) Deriva dal fatto che metrico implica primo-numerabile
+ \item (ii) $\implica$ (iii) Abbiamo gi\`a visto che compatto per successione implica completo.\\
+ Mostriamo che $X$ \`e totalmente limitato in modo contronominale.\\
+ Se $X$ non fosse totalmente limitato allora $\exists \varepsilon>0$ tale che $X$ non sia ricoperto da un numero finito di palle di raggio $\varepsilon$.\\
+ Costruiamo induttivamente una successione $\{x_n\}$.\\
+ Prendiamo $x_0\in X$ (qualunque).\\
+ Poniamo $x_{n+1}\not\in B(x_0,\varepsilon) \cup \dots \cup B(x_n, \varepsilon)$.\\
+ Tale successione non ammette sottosuccessione convergenti infatti $d(x_n, x_m) \geq \varepsilon $ per tutti gli $n \neq m $
+\item (iii) $\implica$ (i) Poich\`e totalmente limita implica a base numerabile, sotto le ipotesi (iii) vale (i) $\ses$ (ii).\\
+Mostriamo, dunque, che $X$ \`e compatto per successioni.\\
+Sia $\{ x_n\}$ una successione in $X$, essendo $X$ completo, troviamo una sottosuccessione di Cauchy (dunque convergente).\\
+Per totale limitatezza, $\forall n \in \N$ esiste un ricoprimento finito $\ric_n$ di X fatto con palle di raggio $2^{-n}$.
+Essendo $\ric_0$ finito
+$$ \exists W_0 \in \ric_0 \quad I_0=\{ n \in \N \, \vert \, \vert \, x_n \in W_0 \} \text{ infinito}$$
+(la successione si deve ripartire in finite palle, dunque deve esistere una palla che contiene infinti termini della successione)\\
+Pongo $n_0=\min I_0$.\\
+Essendo $\ric_1$ finito
+$$ \exists W_1 \in \ric_1 \quad I_1=\{ n \in \N \, \vert \, \vert \, n> n_0 \text{ e } x_n \in W_1 \} \text{ infinito}$$
+
+Pongo $n_1=\min I_1$.\\
+Proseguo induttivamente ottenendo una sottosuccessione $\{x_{n_i}\}$.\\
+Mostriamo che tale successione \`e di Cauchy; per ogni $i,j \geq j_0$ segue che $x_{n_i}, x_{n_j} \in W_{j_0}$\\
+Ora $W_{j_0}$ \`e una palla di raggio $2^{-j_0}$ da cui $d(x_{n_i}, x_{n_j}) \leq 2^{-j_0+1} < \varepsilon$
+\end{itemize}
+\endproof
+\end{thm}
+
+
+\end{document}

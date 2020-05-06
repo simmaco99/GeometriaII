@@ -1,0 +1,140 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 30  Ottobre del prof. Frigerio}
+\begin{defn}[Compatto]\bianco
+Uno spazio topologico $X$ \`e \textbf{compatto} se ogni suo ricoprimento aperto un sottoricoprimento finito, cio\`e se dato 
+$$ \ric =\{ U_i \}_{i \in I} \quad U_i \text{ aperto } \forall i \in I \quad X = \bigcup_{i \in I} U_i $$
+$$ \exists i_0, \, \dots , \, i_n \quad U = U_{i_0} \cup \dots \cup U_{i_n}$$
+\end{defn}
+\begin{defn}Un sottospazio si dice compatto se \`e compatto con la topologia di sottospazio
+\end{defn}
+\begin{defn}Uno spazio metrico \`e limitato se $$\exists x_0 \in X \text{ e } \exists R >0 \quad X=B(x_0,R)$$
+In modo equivalente 
+$$ text{diam}(X) = \sup_{x,y \in X} \{ d( x,y)\} < + \infty$$
+\begin{oss}Mostriamo l'equivalenza delle definizioni.\\
+Supponiamo $X=B(x_0,R) $ allora $ \forall x ,y \in X$  vale $d(x,y) < d(x_0,x)+d(x_0,y)<2R$\\
+se $diam(X)=d<+\infty$ allora $\forall x_0 \in X$ vale $X=B(x_0,d+1)$
+\end{oss}
+\end{defn}
+\spazio
+\begin{lem}$X$ metrico compatto $\implica$ $X$ limitato
+\proof Scelto $x_0 \in X $ e posto $U_n =B(x_0,n)$ con $n\in \N$ allora $\ds \ric =\{ U_n \}_{n\in \N}$ \`e un ricoprimento aperto.\\
+Dalla compattezza di $X$ segue
+$$ X \subseteq U_{n_0} \cup \cdots \cup U_{n_k}$$
+da cui $X  \subseteq B(x_0,R)$ con $R=\max \{ n_0, \cdots , n_k \}$
+\endproof
+\end{lem}
+\begin{cor}$\R$ non \`e compatto
+\end{cor}
+\spazio 
+\begin{thm}$[0,1]$ \`e compatto
+\proof Sia $\ric= \{ U_i\}_{i \in I } $ un ricoprimento aperto di $[0,1]$
+$$ A=\left\{   t \in [0,1] \, \left | \, \exists J \subseteq I \text{ finito con } [0,t] \subseteq \bigcup_{i \in J } U_i \right\} \right.$$
+La tesi, \`e dunque equivalente a $1\in A$.\\
+Poich\`e $0\in U_{i_0}$ e $U_{i_0}$ \`e aperto abbiamo $[0,\varepsilon) \subseteq U_{i_0}$ per un qualche $\varepsilon>0$.\\
+se $t\in [0,\varepsilon)$ si ha $[0,t]\subseteq U_{i_0}$  dunque $[0,\varepsilon) \subseteq A$.\\
+Ora $A$ non \`e vuoto ed \`e limitato superiormente dunque \`e ben definito $t_0=\sup A>0$.\\
+Mostriamo che $t_0$ \`e un massimo per $A$\\
+Per definizione di ricoprimento 
+$ \exists\, U_{i} $ aperto con  $ t_0 \in U_i  $ e poich\`e $t_0>0$
+$$\exists\, \delta >0 \quad (t_0 -\delta , t_0] \subseteq U_i $$
+e dalla definizione di estremo superiore
+$$ \exists \,\overline{t} \in (t_0-\delta, t_0] \cap A \quad \implica \quad [0, \overline{t}] \subseteq U_{i_1} \cup \cdots \cup U_{i_n}$$
+dunque 
+$$ [0,t_0] \subseteq U_{i_1} \cup \cdots \cup U_{i_n} \cup U_i \quad \implica \quad t_0\in A   $$
+Proviamo che $t_0=1$, supponiamo che $t_0<1$.\\
+Come prima $\exists \, U_i $ con $t_0\in U_i$ e $[t_0, t_0+\delta) \subseteq U_i $ per qualche $\delta>0$.\\
+Poich\`e $t_0 \in A$ 
+$$ [0,t_0] \subseteq U_{i_1} \cup \cdots \cup U_{i_n} \quad \implica \quad  \left[ 0 , t_0 + \frac{\delta}{2}\right] \subseteq U_{i_1}\cup \cdots \cup U_{i_n} \cup U_i \quad \implica \quad t_0 +\frac{\delta}{2} \in A $$
+Ma ci\`o \`e un assurdo poich\`e $t_0 =\max A$\\
+\endproof
+\end{thm}
+\spazio
+\begin{thm}$f:\, X \to Y $ continua.
+$$ X \text{ compatto } \quad \implica \quad f(X) \text{ compatto }$$
+\proof  Sia $\ds \ric=\{ U_i \}_{i \in I } $ un ricoprimento aperto di $f(X)$\\
+Ora essendo $f$ continua, dalla propiet\`a universale della topologia di sottospazio, anche la funzione $\tilde{f}:\, X \to f(X)$ \`e continua.\\
+Osserviamo che $\ds \{ \tilde{f}^{-1} (U_i) \}_{i \in I} $ \`e un ricoprimento aperto di $X$.\\
+Dalla compattezza di $X$ segue $\exists J \subseteq I$ finito con
+$$ X = \bigcup_{i \in J } \tilde{f}^{-1}(U_i) \quad \implica \quad f(X) =\bigcup_{i \in J } U_i $$
+dunque $f(X)$ \`e compatto
+\end{thm}
+\spazio
+\begin{fatti}\bbianco
+\begin{itemize}
+\item Ogni spazio finito \`e compatto 
+\item Unione finita di sottospazi compatti \`e compatto
+\end{itemize}
+\end{fatti}
+\spazio
+\begin{thm}\label{chiuso_in_compatto}Sia $X$ uno spazio compatto
+$$ Y \subseteq X \text{ chiuso } \quad \implica \quad Y \text{ compatto}$$
+\proof Sia $\ds \ric=\{ U_i \}_{i \in I} $ un ricoprimento aperto di $Y$.\\
+Dalla topologia di sottospazio posso supporre che $\forall i \in I $ si ha $V_i$ aperto di $X$ con $U_i = Y \cap V_i$.\\
+Poich\`e $\{ U_i\}$ \`e un ricoprimento di $X$ si ha $\ds Y \subseteq \bigcup_{i \in I } V_i$.\\
+Poich\`e $Y$ \`e chiuso $W=X\sbarra Y$ \`e aperto allora
+$$ \{ V_i \}_{i \in I} \cup W \text{ \`e un ricoprimento aperto di } X $$
+Per compattezza $X=V_{i_1} \cup \cdots \cup V_{i_n} \cup W$.\\
+Poich\`e $W \cap Y = \emptyset$ se ne deduce che 
+$$ Y \subseteq V_{i_1}\cup \cdots \cup V_{i_n} \quad \implica \quad Y= U_{i_1} \cup \cdots \cup U_{i_n}$$
+da cui la tesi \endproof
+\end{thm}
+\begin{oss}
+Abbiamo visto che $$Y \subseteq X \text{  compatto } \quad \ses $$
+$$\ses \forall \{ U_i\}_{i \in I } \text{ famiglia di aperti di } X \quad  Y \subseteq \bigcup_{i\in I } U_i \text{ si ha }  \exists J\subseteq I \text{ finito } \quad Y \subseteq \bigcup_{i \in J } U_i$$
+\end{oss}
+\spazio
+\begin{oss}Un sottospazio compatto non \`e chiuso.\\
+Prendiamo $X$ con la topologia cofinita, mostriamo che ogni sottoinsieme \`e un compatto.\\
+Sia $Y \subseteq X $ e supponiamo che $ \ds Y \subseteq \bigcup_{i \in I } U_i$ con $U_i $ aperto di $X$.\\
+Se $Y = \emptyset$ allora \`e compatto, altrimenti $\exists\, y_0 \in Y$ e  dunque $y_0 \in U_{i_0}$ per un $i_0 \in I$.\\
+Ora essendo $U_{i_0}$ aperto $X\sbarra U_{i_0}$ \`e finito dunque a maggior ragione anche $Y \sbarra U_{i_0}$ \`e finito.
+$$ Y \sbarra  U_{i_0} =\{ y_1, \dots, y_n\} \quad \forall j=1,\dots,n \quad \exists i_j \text{ con } y_j \subseteq U_{i_j}$$
+$$ Y = U_{i_0} \cup U_{i_1} \cup \dots  \cup U_{i_n}$$
+ovvero $Y$ \`e compatto.\\
+\\
+Potevamo prendere come controesempio un generico $X$ con la topologia indiscreta.\\
+Tutti i ricoprimenti aperti sono fatti da $X$ stesso dunque ogni sottoinsieme \`e compatto ma nessuno escluso il vuoto e $X$ stesso sono chiusi
+\end{oss}
+\spazio
+
+\begin{thm}Sia $X$ spazio $T2$ e $ Y \subseteq X$
+$$ Y \text{ compatto } \quad \implica \quad Y \text{ chiuso}$$
+\proof Dobbiamo mostrare che $X\sbarra Y$ \`e aperto ovvero intorno di ogni suo punto.\\
+Fissiamo $x_0 \in X \sbarra Y$ 
+$$ \forall y \in Y \quad \exists \, U_y, \, V_y \text{ aperti  disgiunti di } X \quad x_0 \in U_y \quad y \in V_j $$
+Ora $\ds \{ V_y\}_{y\in Y}$ \`e un ricoprimento di $Y$ con aperti di $X$.\\
+Per compattezza di $Y$, $\exists \, y_1, \cdots , y_n \in Y$ con
+$$Y \subseteq V_{y_1}\cup \cdots \cup V_{y_n}$$
+Pongo  $$ V = V_{y_1}\cap \cdots \cap V_{y_n}$$
+$$ U = U_{y_1}\cup \cdots \cup U_{y_n}$$
+ora $U$ aperto e $x_0\in V$ aperto essendo intersezione finita di aperti.\\
+Per costruzione $U \cap V =\emptyset$ dunque 
+$x_0 \in U \subseteq X \sbarra V \subseteq X\sbarra Y$
+\end{thm}
+
+\begin{lem}$X$ compatto $T2$ $\implica$ $X$ regolare
+\proof $T2 \implica T1$ per cui basta vedere che vale $T3$\\
+Siano $x_0 \in X$ e $Y\subseteq X $ chiuso con $x_0 \not \in Y$\\
+Poich\`e chiuso in un compatto \`e compatto (Teorema~\ref{chiuso_in_compatto}), $Y$ \`e compatto.\\
+Gli aperti $U$ e $V$ della dimostrazione precedente verificano $x_0 \in U$,  $Y \subseteq V $ ed inoltre $U\cap V =\emptyset$
+\endproof
+\end{lem}
+\begin{thm}$X$ compatto $T2$ $\implica$ $X$ normale
+\proof $T2\implica T1$ dunque basta dimostrare che vale $T4$\\
+Siano $C,D$ chiusi di $X$ con $C\cap D=\emptyset$ \\
+Poich\`e $X$ regolare per il lemma precedente 
+$$ \forall x\in C \quad \exists U_x,\, V_x \text{ aperti disgiunti di } X \text{ con } x \in U_x \quad D \subseteq V_x $$
+$$ C \subseteq \bigcup_{x \in C } U_x $$
+inoltre $C$ \`e chiuso in un compatto dunque compatto 
+$$ \exists x_1, \cdots , x_n \in C \quad C \subseteq U_{x_1} \cup \cdots \cup U_{x_n }$$
+Pongo
+$$U = U_{x_1} \cup \cdots \cup U_{x_n}$$
+$$V = V_{x_1} \cap \cdots \cap V_{x_n}$$
+$U$ e $V$ sono aperti con la propiet\`a richiesta da $T4$ 
+\endproof
+\end{thm}
+\begin{oss}Abbiamo dimostrato di pi\`u.\\
+Se $X$ \`e $T2$ con $C,D\subseteq X $ compatti disgiunti allora essi si possono separare con aperti.
+\end{oss}
+\end{document}

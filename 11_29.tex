@@ -1,0 +1,85 @@
+\input{0_Preambolo}
+\begin{document}
+
+\textbf{Lezione del 20 Novembre di Gandini}
+\begin{defn}Sia $X$ uno spazio topologico e $Y \subseteq X$ allora 
+\begin{itemize}
+\item $Y$ \`e detto \textbf{ raro } in $X$ se $\overline{Y}^\circ =\emptyset$
+\item $Y$ \`e detto \textbf{ magro } o di I categoria  se \`e unione numerabile di rari 
+\end{itemize}
+\end{defn}
+\begin{oss}Un chiuso $Z\subseteq X $ \`e raro $\ses$ $Z^\circ= \emptyset$\\
+in modo equivalente se e solo se $X \sbarra Z$ \`e aperto denso
+\end{oss}
+\begin{defn}$X$ \`e detto di \textbf{ Baire } se $Y^\circ = \emptyset$ per ogni magro $Y \subseteq X$
+\end{defn}
+\begin{prop}I seguenti fatti sono equivalenti
+\begin{itemize}
+\item[(i)]$X$ \`e uno spazio di Baire
+\item[(ii)]Unione numerabile di chiusi rari ha parte interna vuota
+\item[(iii)]Intersezione numerabile di aperti densi \`e densa
+\end{itemize}
+\proof \bbianco
+\begin{itemize}
+\item (ii)$\ses$(iii) Usando l'osservazione di sopra e passando al complementare
+\item (i)$\implica$(ii) \`E un indebolimento della definizione di spazio di Baire
+\item (ii)$\implica$(i) Sia $Y \subseteq X$ magro allora 
+$$ Y = \bigcup_{n \in \N} Y_n \quad Y_n \text{ raro }$$
+Ora 
+$$ Y^\circ = \left( \bigcup Y_n \right)^\circ \subseteq \left( \bigcup \overline{Y_n} \right)^\circ$$
+Ora $\overline{Y_n}$ \`e chiuso raro dunque per la propiet\`a  (ii) si ha  $Y^\circ \subseteq \emptyset$ dunque $Y^\circ = \emptyset$ 
+\end{itemize}
+\end{prop}
+\begin{thm}$X$ spazio metrico completo $\implica$ $X$ spazio di Baire
+\proof Usiamo la caratterizzazione  (ii).\\
+Sia $\{F_n\} $ una famiglia numerabile di chiusi rari.\\
+Supponiamo per assurdo che $\ds \left( \bigcup F_n \right)^\circ\neq \emptyset$.\\
+Sia $x_0\in X$ e $r_0>0$ tali che 
+$$ B(x_0,r_0)\subseteq \bigcup_{n \in \N} F_n$$
+Costruiamo induttivamente una successione di Cauchy, il cui limite (che esiste, vista la completezza) porta ad un assurdo.\\
+$$F_0^\circ = \emptyset \quad \implica \quad B\left( x_0, \frac{r_0}{3} \right) \not \subset F_0$$
+Ora essendo $F_0$ chiuso 
+$$ \exists x_1 \in B\left( x_0, \frac{r_0}{3}\right) \sbarra F_0 \quad \exists r_1<\frac{r_0}{3} \text{ tale che } B(x_1, r_1) \cap F_0 = \emptyset$$
+Ripetendo il ragionamento con $x_1, r_1, F_1$ 
+$$ \exists x_2 \in B\left( x_1, \frac{r_1}{3} \right)\sbarra F_1 \quad \exists r_2 < \frac{r_1}{3} \text{ tale che } B(x_2,r_2) \cap F_1 = \emptyset$$
+In questo modo costruisco  successione $\{ x_n \}\subseteq X $ e $\{ r_n\}\subseteq R_+$ con le seguenti propiet\`a
+\begin{enumerate}
+\item $r_{n+1}< \frac{r_n}{3}\leq \frac{r_0}{3^{n+1}}$
+\item $x_{n+1}\in B\left( x_n, \frac{r_n}{3} \right)\sbarra F_n$ dunque $d(x_n, x_{n+1})< \frac{r_n}{3} \leq \frac{r_0}{3^{n+1}}$
+\item $B(x_{n+1}, r_{n+1}) \cap F_n = \emptyset$
+\end{enumerate}
+Mostriamo adesso che $\{ x_n\}$ \`e di Cauchy.\\
+Siano $m>n$ allora 
+$$ d(x_n,x_m) \leq d\left( x_n, x_{n+1} \right)+ \cdots + d\left( x_{m-1},x_m \right)< \frac{r_n}{3}+ \frac{r_{n+1}}{3} + \cdots + \frac{r_{m-1}}{3} \leq \frac{r_n}{3}\sum_{k=0}^\infty \frac{1}{3^k}=\frac{r_n}{2}\leq \frac{r_0}{2\cdot 3^2}$$
+Essendo la successione di Cauchy esiste $x_\infty=\lim x_n$.\\
+Mostriamo che $x_\infty\not \in F_n$.\\
+Passando $m\to \infty	$ in $d\left( x_{n+1},x_m \right)<\frac{r_{n+1}}{2}$
+ si ha $d\left( x_{n+1}, x_\infty \right)\leq \frac{r_{n+1}}{2}$ dunque $x_\infty \in B\left( x_{n+1}, r_{n+1} \right)$ tale palla per 3 non interseca $F_n$.\\
+ Mostriamo che $d\left( x_\infty, x_0 \right)<r_0$.\\
+ Passando $m \to + \infty$ alla disuguaglianza $d\left( x_0, x_m \right)< \frac{r_0}{2}$ otteniamo $d(x_0, x_\infty) < r_0$ ovvero 
+$$ x_\infty \in b\left( x_0, r_0 \right)\subseteq \bigcup_{n \in \N} F_n$$ il che \`e assurdo 
+\endproof
+\end{thm}
+\begin{oss}
+\end{oss}Il Teorema \`e detto di Baire, che contiene anche un altro enunciato (non dimostriamo) :
+\begin{thm}$X$ localmente compatto e $T2$ $\implica$ $X$ spazio di Baire
+\end{thm}
+\spazio 
+\begin{defn}Sia $X$ topologico, $y \in X$ si dice punto isolato se $\{y\} \subseteq X$ \`e un aperto 
+\end{defn}
+\begin{defn}$Y \subseteq X$ si dice \textbf{ perfetto } se e chiuso e privo di punti isolati
+\end{defn}
+\begin{prop}
+$Y\subseteq \R$ perfetto, allora $Y$ \`e pi\`u che numerabile
+\proof Supponiamo $Y=\ds\{y_n\}_{n \in \N}$.\\
+Vogliamo trovare $n \in \N$ per cui $y_n\in Y$ \`e isolato.
+$$ Y \subseteq \R \text{ chiuso } \quad \implica \quad Y \text{ spazio metrico completo} \quad \implica \quad Y \text{ spazio di Baire}$$
+Ora $Y=\ds \bigcup_{n\in \N} \{y_n\}$ \`e unione numerabile di chiusi e $Y^\circ = Y \neq \emptyset$.\\
+Per il teorema esiste un chiuso non raro dunque $\exists n$ tale che $y_n\in Y$ punto isolato (non pu\`o essere $\overline{\{y_n\}}^\circ =\emptyset$ per ogni $n \in \N$
+\endproof
+\end{prop}
+\newpage
+\begin{thm}Esiste una funzione $f:\, [0.1]\to \R$ continua non derivabile in nessun punto
+\proof A BREVE
+\end{thm}
+\end{document}

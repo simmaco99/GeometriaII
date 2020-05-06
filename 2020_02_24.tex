@@ -1,0 +1,93 @@
+\input{0_Preambolo}	
+
+\begin{document}
+\textbf{Lezione del 24 Febbraio del Prof. Frigerio}
+\begin{defn}[Omeomorfismo locale]\bianco
+$f:\, X \to Y$ \`e un omeomorfismo locale se 
+$$ \forall x \in  \quad \exists U \ni p \text{ aperto in } X \text{ e } V \ni f(p) \text{ aperto in } Y $$
+tale che 
+$$ f(U)=V \text{ e } f_{\vert U} : U \to V \text{ omeomorfismo}$$
+\end{defn}
+\begin{fatti}\bbianco
+\begin{enumerate}
+\item Un omeomorfismo locale \`e una mappa aperta\\
+Sia $\Omega \subset X $ aperto, $\forall p\in X$ seleziono un aperto $U_p \ni p $ come nella definizione di sopra
+$$ f( \Omega) = f\left( \bigcup_{p\in X} ( \Omega\cap U_p) \right)= \bigcup_{p \in X} f(\Omega \cap U_p)$$
+Ora poich\`e $U_p$ \`e omeomorfo mediante $f$ ad un aperto di $Y$ ne segue che $f(\Omega \cap U_p)$ \`e un aperto di un aperto di $Y$ dunque aperto.\\
+Ora la tesi segue in quanto unione di aperti \`e aperto
+\item $f$ omeomorfismo locale $\implica$ $f^{-1}(y)$ discreto in $Y$\\
+Dato $x \in f^{-1}(y)$ per definizione di omeomorfismo locale, $\exists U \ni x $ aperto in $X$ e tale che $f_{\vert U} $ \`e iniettiva.\\
+Ora $f^{-1}(x) \cap U=\{x \}$ da cui $\{ x \} $ \`e aperto
+\end{enumerate}
+\end{fatti}
+\spazio
+\begin{defn}[Rivestimento]\bianco
+Una mappa $p:\, E \to X$ \`e un rivestimento se 
+\begin{itemize}
+\item $X$ \`e connesso per archi
+\item 
+$$ \forall x \in X \quad \exists U \ni x \text{ aperto in } X \quad p^{-1}(U) = \amalg_{i\in I} V_i$$
+tali che $I \neq \emptyset$ e 
+$$ V_i \text{ aperto in } Y \text{ e } p_{\vert V_i}:\, V_i \to U \text{ omeomorfismo } \forall i \in I$$
+
+\end{itemize}
+\end{defn}
+\begin{defn}Un intorno come nella definizione si dice ben rivestito
+\end{defn}
+\begin{fatti}\bbianco
+\begin{enumerate}
+\item Un rivestimento \`e un omeomorfismo locale
+\item Un rivestimento \`e surgettivo
+\end{enumerate}
+\end{fatti}
+
+\begin{ese}Sia $p:\, \R \to S^1 $ con $p(t)=( \cos 2\pi t, \sin 2 \pi t)$, $p$ \`e un rivestimento.
+\proof Dato $x_0 \in S^1$, allora $x_0 = p(t_0)$ per qualche $t_0$.\\
+Scelgo $U= S^1\sbarra \{ -x_0\}$, ora $$p^{-1}(U) = \amalg_{k \in \Z} \left( t_0 - \frac{1}{2}+k, t_0+\frac{1}{2}+k \right)$$
+Ora $\forall k$ la restrizione di $p$ su $\left( t_0 - \frac{1}{2}+k, t_0+\frac{1}{2}+k \right)$ \`e un omeomorfismo
+\end{ese}
+\begin{ese} Sia $p:(-1,1) \to S^1 $ con $p(t) = ( \cos 2 \pi t , \sin 2\pi t)$.\\
+Tale mappa \`e un omeomorfismo locale surgettivo, ma non \`e un rivestimento in quanto $(1,0) \in S^1 $ non ha un intorno ben rivestito
+\end{ese}
+\begin{ex}[Retta con 2 origini]\bianco Sia $\sim $ la relazione su $\R \times \{-1,1 \}$ dato da 
+
+$$ (x,\varepsilon) \sim (y , \varepsilon') \quad \ses \quad (x,\varepsilon)=(y,\varepsilon') \text{ o }( x = y \text{ e } x \neq 0 )$$
+Allora la mappa $\pi: \frac{\R \times \{ -1 , 1\} }{\sim} \to \R$ \`e un omomorfismo locale surgettivo \\($0\in \R$ non ha intorni ben rivestiti)
+\end{ex}
+\begin{ex}$\pi:\, S^n \to \mathcal{P}^n \left( \R \right)$ \`e un rivestimento \\
+La dimostrazione verr\`a fatta avanti con strumenti diversi e non a mano.
+\end{ex}
+\spazio
+\begin{prop}[Unicit\`a del sollevamento]\bianco
+Sia $p:\, E \to X $ un rivestimento, $Y$ connesso per archi e $f:\, Y \to X$.\\
+Siano $\tilde{f}, \tilde{g}:\, Y \to E$ con $f=p\circ \tilde{f}=p \circ \tilde{g}$.\\
+Se $\exists y_0 \in Y$ tale che $\tilde{f}(x_0)=\tilde{g}(x_0)$ allora $\tilde{f}=\tilde{g}$
+\proof Poich\`e $Y$ \`e connesso per archi basta mostrare che $\Omega=\{ y \in Y \, \vert \, \tilde{f}(y)=\tilde{g}(y)\}$ \`e sia aperto che \`e chiuso ( $\Omega$ non \`e vuoto, dunque \`e tutto $Y$).\\
+Mostriamo che $\Omega$ \`e aperto.\\
+Sia $y\in \Omega$ allora $\tilde{x_0}=\tilde{f}(y)=\tilde{g}(y)$ e $x_0=p(\tilde{x_0})$\\
+Per definizione di rivestimento $\exists U\in I(x_0)$ ben rivestito dunque $\pi^{-1}(U)=\amalg V_i$.\\
+Sia $i_0$ tale che $\tilde{x_0}\in V_{i_0}$.\\
+Essendo $\tilde{f}$ e $ \tilde{g}$ continue, $\exists W \in I(y)$ tale che $\tilde{f}(W)\subset V_{i_0}$ e $\tilde{g}(W)\subset V_{i_0}$\\
+Ora $p_{\vert V_{i_0}}$ \`e iniettiva dunque da $p\circ \tilde{f}=p \circ \tilde{g}$ deduco che $\tilde{f}_{\vert W}= \tilde{g}_{\vert W}$\\
+Mostriamo $\Omega$ \`e chiuso, mostrando che $Y \sbarra \Omega$ \`e aperto.\\
+Sia $y\in Y \sbarra \Omega$ per cui $\tilde{f}(y) \neq \tilde{g}(y)$, tuttavia $p\circ \tilde{f}(y)=p \circ \tilde{g}(y)=f(y)=x_0$.\\
+Se $U$ \`e un intorno ben rivestito di $x_0$ si ha $p^{-1}(U) \amalg V_i$.\\
+Ora essenndo $\tilde{f}(y) \neq \tilde{g}(y)$ deduco che $\tilde{f}(y) \in V_{i_0}$ e $\tilde{g}(t) \in V_{i_1}$ con $i_0 \neq i_1$.\\
+Dalla continuit\`a delle funzioni $\exists W \in I(y)$ con $\tilde{f}(W)\subset V_{i_0}$ e $\tilde{g}(W)\subset V_{i_1}$.\\
+Ora $V_{i_0}$ e $V_{i_1}$ sono disgiunti, da cui $W \in Y \sbarra \Omega$
+\end{prop}
+\spazio
+\begin{prop}[Esistenza del sollevamento di cammini]\bianco
+Siano $p:\, E \to X$ e $\gamma :\, [0,1] \to X$ continua .\\
+Sia $x_0 =\gamma(0)$ e $\tilde{x_0} = p^{-1}(x_0)$, allora $\exists ! \tilde{\gamma}:\, [0,1]\to E $ continua con $\tilde{\gamma}(0)=\tilde{x_0}$ e $\gamma=p \circ \tilde{\gamma}$
+\proof L'unicit\`a segue dalla proposizione precedente essendo $[0,1]$ connesso per archi e avendo fissato $\tilde{x_0}$.\\
+Ricopriamo $X$ con aperti ben rivestiti $\ds \{ U_i\}_{i \in I}$ e sia $\varepsilon>0$ un numero di Lebesgue per il ricoprimento .\\
+Se $\frac{1}{n}< \varepsilon$ $\forall k =0, \dots, n-1$ si ha $\gamma \left( \left[ \frac{k}{n},\frac{k+1}{n} \right] \right)\subset U_k$ ben rivestito.\\
+Definisco induttivamente $\tilde{\gamma}$ su $\left[ \frac{k}{n},\frac{k+1}{n} \right]$ come segue.\\
+Per definizione di rivestimento $\exists V_0$ aperto di $E$ tale che $\tilde{x_0}\in V_0$ e $p_0=p_{\vert V_0}$ \`e un omeomorfismo.\\
+$\forall t\in \left[ 0, \frac{1}{n} \right]$ pongo $\tilde{\gamma}(t)= p_0^{-1} (\gamma(t))$.\\
+Una volta definito $\tilde{\gamma}$ continua su $ \left[ 0 ,\frac{k}{n}\right]$, trovo $V_k \subset E$ tale che $\tilde{\gamma}\left( \frac{k}{n} \right) \in V_k$ e $p_k= p_{\vert V_k}$ omeomorfismo.\\
+Pongo $\forall  t \in \left[ \frac{k}{n},\frac{k+1}{n} \right]$ $\tilde{\gamma}=p_k^{-1}(\gamma(t))$.\\
+\endproof
+\end{prop}
+\end{document}

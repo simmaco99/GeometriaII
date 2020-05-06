@@ -1,0 +1,136 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 17 ottobre di Gandini}\\
+Continuo dei controesempi della lezione precedente
+\begin{lem}Sia $X$ uno spazio $T4$ separabile e $D\subseteq X$ chiuso e discreto.\\
+Allora $D$ ha cardinalit\`a meno che continua.
+\proof Sia $Q\subseteq X $ un denso numerabile.\\
+Mostriamo che 
+$$ \vert \mathcal{P}(D) \vert \leq \vert \mathcal{P}(Q) \vert \leq \vert \R\vert$$
+Infatti $\vert D \vert < \vert \mathcal{P}(D) \vert$ quindi $ \vert D  \vert < \vert \R \vert $\\
+
+Sia $S \subseteq D$, $D$  \`e discreto quindi  $S$ \`e  un chiuso, ora chiuso di chiuso \`e un chiuso da cui $S\subseteq X $ \`e un chiuso.\\
+Ora anche $S$ \`e anche un aperto quindi $D\sbarra S $ \`e un chiuso in $X$.\\
+Dal fatto che $X$ \`e $T4$ posso separare $D$ da $D \sbarra S$ ovvero 
+$$ \exists U_S, V_S\subseteq X \text{ aperti disgiunti} \quad S \subseteq U_S \quad D\sbarra S \subseteq V_S$$
+Consideriamo l'applicazione   
+$$\mathcal{P}(D) \to \mathcal{P}(Q) \quad S \to Q \cap U_S$$
+osserviamo che  $U_S \cap Q \neq \emptyset$ in quanto un denso interseca tutti gli aperti non vuoti.\\
+Mostriamo che la funzione \`e iniettiva:
+$$ S\neq T \quad \implica S\sbarra T \neq \emptyset $$
+Allora
+$$ \begin{cases} S \subseteq U_S \quad D \sbarra S \subseteq V_S\\
+T \subseteq U_T \quad D \sbarra T \subseteq V_T 
+\end{cases} \quad U_S \cap V_S = U_T \cap V_T$$
+Ora per costruzione $S\sbarra T \subseteq U_S \cap V_T$ quindi $U_S \cap V_T$ \`e un aperto non vuoto da cui 
+$$ U_S \cap V_T \cap Q \neq \emptyset \quad \implica \quad (U_S \cap Q ) \cap V_T \neq (U_T \cap Q ) \cap V_T \quad \implica \quad U_S \cap Q \neq U_T \cap Q$$
+Abbiamo trovato un'applicazione iniettiva quindi vale la disuguaglianza cercata
+\endproof
+\end{lem}
+\begin{cor}$\R_S^2$ non \`e $T4$ 
+\proof Abbiamo provato che $\R_S^2$ \`e separabile.\\
+Ora l'antidiagonale \`e discreta , xhiusa e ha cardinalit\`a continua
+\end{cor}
+\begin{oss}
+\item Regolare $\not \implica$ normale. Sia $\R_S^2$ il piano di Sorgenfray.\\
+Il piano di Sorgenfray \`e regolare in quanto $\R_S$ lo \`e ed il prodotto di regolari \`e regolare mentre per il corollario precedente non \`e normale
+\end{oss}
+\begin{oss}Abbiamo mostrato un esempio di prodotto di spazi normali che non \`e normale
+\end{oss}
+\begin{oss}$T2 \not \implica$ regolare.\\
+Sia $$K=\left\{ \left. \frac{1}{n} \, \right\vert \, n \in \N \right\}$$ e consideriamo su $\R$ la topologia generata dagli aperti 
+$$ (a,b) \quad a,b \in \R $$ 
+$$ (a,b) \sbarra K \quad a,b \in \R$$
+Questa topologia chiamata $\R_K$ \`e $T2$ essendo un raffinamento di quella euclidea ma non \`e regolare.\\
+Infatti per costruzione $K$ \`e un chiuso, ma non posso separarlo da $0$.
+$$ A \in I(0) \quad \implica \quad A \supseteq (-\varepsilon, \varepsilon) \sbarra K$$ 
+Sia $B$ aperto con $K \subseteq B$ 
+$$ \forall n \quad \frac{1}{n}\in K \quad \exists \varepsilon_n \quad \left(\frac{1}{n}-\varepsilon , \frac{1}{n}+\varepsilon \right) \subseteq B $$
+quindi in particolare $A\cap B \neq \emptyset$
+\end{oss}
+\spazio
+\begin{thm}
+$$ \text{ regolare a base numerabile} \quad \implica \quad \text{ normale}$$
+\proof Sia $\B$ una base numerabile per $X$ spazio regolare.\\
+Siano $C,D\subseteq X $ chiusi disgiunti 
+$$ \forall c \in C \quad \exists U \subseteq X \quad c \in U \subseteq \overline{U}\subseteq X\sbarra D $$
+in particolare posso scegliere $U \in \B$.\\
+Sia
+$$ \mathfrak{C}=\{ U \in \B \, \vert \, \overline{U}\cap D =\emptyset \}$$
+in particolare $U \in \mathfrak{C}$ esiste in quanto $$ \overline{U} \subseteq X\sbarra D \ses \overline{U}\cap D=\emptyset$$
+Similmente
+$$ \mathfrak{D}=\{ V \in \B \, \vert \, \overline{V}\cap C =\emptyset \}$$
+Ora essendo $\B$ numerabile posso considerare $\mathfrak{C}=\{C_n\}$ e $\mathfrak{D}=\{ D_n\}$.\\
+Dato $n$ siano 
+$$ A_n = U_n \left\sbarra \bigcup_{j\leq n }\overline{V_j}\right.$$
+$$ A = \bigcup A_n \text{ \`e un aperto, in quanto lo sono gli  } A_n  $$
+Segue dalla costruzione che $C \subseteq A $ infatti $\overline{V_j}\cap C = \emptyset$\\
+In modo analogo possiamo definire $B=\bigcup B_n$.\\
+Osserviamo che 
+$$ \forall n, m \quad A_n \cap B_n =\emptyset $$
+Infatti se $m\leq n $ allora $B_n \subseteq V_n$ dunque $A_m \cap B_n =\emptyset$  similmente $A_n \cap B_m =\emptyset$.\\
+Dunque abbiamo costruito $2$ aperti disgiunti che separano $C,D$
+\endproof
+\end{thm}
+\spazio 
+\begin{thm}[Teorema di Urysohn]\bianco
+$$ \text{ regoalare a base numerabile } \implica \text{ metrizzabile}$$
+\end{thm}
+\begin{cor}
+$$ \text{ regolare a base numerabile} \ses \text{ normale a base numerabile} \ses$$ $$ \ses \text{ metrizzabile a base numerabile } \ses \text{ metrizzabile separabile } $$
+\end{cor}
+\newpage
+\section{Quozienti topologici}
+\begin{defn}[Insieme saturo]\bianco
+Sia $\pi:\, X \to Y$ proiezione al quoziente.\\
+Sia $ Z\subseteq X $ allora $Z$ \`e detto saturo se \`e unione di classe di equivalenza.\\
+In modo equivalente
+$$ Z = \pi^{-1}(\pi(Z))$$
+\end{defn}
+\begin{oss}In generale \`e vera solo l'inclusione $\subset$
+\end{oss}
+\begin{defn}La topologia quoziente su $Y=\frac{X}{\sim}$ 
+\`e la pi\`u fine topologia su $Y$ che rende continua la proiezione al quoziente $$\pi:\, X \to Y \quad x\to [x]$$
+
+\end{defn}
+\begin{oss}Non \`e detto che tale topologia esista.
+\end{oss}
+
+
+\begin{prop}$$ \{ \pi(B) \, \vert \, B \subseteq X \text{ aperto saturo }\}$$ 
+\`e una topologia
+\proof \bbianco 
+\begin{itemize}
+\item $\emptyset = \pi(\emptyset)$ ed essendo la proiezione  suriettiva $Y=\pi(X)$
+\item 
+$$ \bigcup (\pi(B_i))=\pi \left( \bigcup B_i \right) $$
+ora l'unione dei $B_i$ \`e un aperto e poich\`e ogni $B_i$ \`e unione di classi di equivalenza anche $\bigcup B_i$ lo \`e
+\item $\pi (B_1) \cap \pi(B_2)=\pi(B_1\cap B_2)$ essendo $B_1$ e $B_2$ saturi
+\end{itemize}
+\endproof
+\end{prop}
+\begin{prop}La topologia sopra descritta \`e la pi\`u fine topologia che rende la proiezione continua, tale topologia prende il nome di $\tau_{quot}$
+\proof Infatti se $\tau$ \`e una qualsiasi topologia su $Y$ che rende continua $\pi$ allora
+$$ \forall A \in \tau \quad B = \pi^{-1}(A) \text{ \`e un aperto sautro}$$
+dunque $A= \pi(B)$ con $B$ aperto saturo di $X$
+\endproof
+\end{prop}
+\begin{oss}
+$$ A \subseteq Y \text{ aperto } \ses \pi^{-1}(A) \subseteq X\text{ aperto } \ses A = \pi(B) \text{ con } B \subseteq X \text{ aperto saturo}$$
+similmente con i chiusi
+$$ C \subseteq Y \text{ chiuso } \ses \pi^{-1}(C) \subseteq X\text{ chiuso }\ses C = \pi(B) \text{ con } B \subseteq X \text{ chiuso saturo}$$
+\end{oss}
+\newpage
+\begin{prop}[Propiet\`a universale]\bianco
+La topologia quoziente \`e l'unica topologia su $Y$ con la seguente propiet\`a
+$$ \forall Z\text{ spazio topologico} \, \forall f:\, Y \to Z $$
+$$ f\text{ continua } \quad \ses \quad f \circ \pi \text{ continua}$$
+\proof Vediamo che la topologia quoziente soddisfa la propiet\`a (l'unicit\`a \`e simile a quanto visto per le altre propiet\`a universali)\\
+$\implica$ La composizione di funzioni continue \`e continua
+$\iimplica$ Sia $A \subseteq Z$ un aperto allora dobbiamo provare che 
+$$ f \text{ continua } \quad \ses \quad f^{-1}(A)\subseteq  Y \text{ \`e aperto } \forall A\subseteq Z \text{ aperto }  $$
+$$ f^{-1}(A) \subseteq Y \text{ aperto } \quad \ses \quad \pi^{-1} (f^{-1}(A)=(f\circ \pi)^{-1}(A))\subseteq X \text{ aperto } $$
+\endproof
+\end{prop}
+
+\end{document}

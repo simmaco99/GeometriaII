@@ -1,0 +1,97 @@
+ \input{0_Preambolo}
+\begin{document}
+\textbf{Lezioni del 26  Febbraio del prof. Frigerio}
+\begin{oss}a $p:\, E \to X$ un rivestimento e $x_0\in X$ e sia $\gamma$ \`e un cammino in $X$ con punto iniziale $x_0$.\\
+
+Se $\tilde{x_0} \in \inv{p}(x_0)$ 
+allora esiste un unico sollevamento di $\amma$ con punto iniziale $\tilde{x_0}$, indichiamo tale cammino con 
+$\ammasol{x_0}$
+
+\end{oss}
+
+\spazio
+\begin{prop}Sia $p:\, E \to X$ un rivestimento e $x_0, x_1\in X$ allora esiste una bigezione tra $\inv{p} (x_0)$ e $\inv{p}(x_1)$ 
+\proof Poich\`e $X$ \`e connesso per archi, $\exists \amma \in \W(x_0,x_1)$.
+$$ \psi:\, \inv{p}(x_0) \to \inv{p}(x_1) \quad 
+x_0 \to \ammasol{x_0}(1)$$
+Tale mappa \`e ben definita in quanto se $\gamma(1)=x_1$ allora $\ammasol{x_0}(1)\in \inv{p}(x_1$ ed inoltre \`e invertibile (basta usare la stessa definizione di $\psi$ usando il cammino $\overline{\gamma}$
+\end{prop}
+\begin{oss}La  bigezione non \`e canonica, se cambio $\amma$, viene a modificarsi l'identificazione tra le 2 fibre
+\end{oss}
+\begin{defn}[Grado del rivestimento]\bianco
+Sia $p:\,E \to X$ rivestimento, per la proposizione precedente, \`e ben definito il grado del rivestimento come la cardinalit\`a di una fibra $\left\vert  \inv{p}(x_0)\right\vert$, tale cardinalit\`a si inndica con $\deg p$
+\end{defn}
+\spazio
+\begin{defn}Una sezione di un rivestimento $p: E \to X$ \`e una mappa continua $s:\, U \to E$ tale che $p(s(x))=x \, \, \forall x \in U$.\\
+Si dice che la sezione \`e locale se $U$ \`e un aperto di $X$ e globale se $U=X$.\\
+(Ha senso di parlare di sezione per ogni mappa $p$)
+\end{defn}
+\begin{oss}Dalla definizione di rivestimento si ha $\forall x \in X\, \, \exists U \ni x $ aperto con sezione locale definita su $U$ ( prendo $U$ intorno ben rivestito e scelgo uno degli intorni della preimmagine di $x$)
+\end{oss}
+\begin{thm}[Sollevamento delle omotopie]\bianco
+Sia $p:\, E \to X$ rivestimento e $f:\, X \to Y$ continua con $Y$ localmente connesso.
+Sia $F:\, Y \to [0,1] \to X $ tale che $F(y,0)=f(y) \, \, \forall y \in Y$.\\
+Supponiamo che esista $\tilde{f}: Y \to E$  un sollevamento di $f$.\\
+Allora esiste unico sollevamento $\tilde{F}:\, T \to [0,1] \to E$ di $F$ (ovvero tale che $\tilde{F}(y,0)=\tilde{f}(y)$
+\proof Andiamo a definire $\tilde{F}$ e poi verifichiamo che con questa definizione risulta continua.\\
+$\forall y_0\in Y$ sia $\amma_{y_0}$ il cammino dato da $\amma_{y_0}(t)=F(y_0,t)$.\\
+Sia $\tilde{\gamma}_{y_0}$ il sollevamento di $\gamma_{y_0}$ s partire da $\tilde{f}(y_0)$.\\
+Poniamo dunque $$\tilde{F}(y_0,t)= \tilde{\gamma}_{y_0}(t)$$
+\`e chiaro che con questa scelta $\tilde{F}$ solleva $F$ e dunque se tale cammino \`e continuo, \`e l'unico sollevamento.\\
+Mostriamo la continuit\`a.\\
+Basta vedere che $\forall (y_0,t) \in Y \times[0,1]$ esiste un intorno $U$ in $Y \times [0,1]$ tale che $\tilde{F}_{\vert U} = s\circ F_{\vert U}$ dove $s$ \`e una sezione locale continua del rivestimento.\\
+Andiamo a ""quadrettare"" $Y \times [0,1]$\\
+Poich\`e $y_0\times [0,1]$ \`e compatto e $\{ F^{-1}(W) \, \vert \, W \text{ aperto ben rivestito di } X \}$ 
+\`e un suo ricoprimento otteniamo che $Z_1, \dots, Z_n$ sono un numero finito  di aperti di $Y \times [0,1]$ che ricoprono $\{ y_0\} \times [0,1]$ e sono tali che $F(Z_i)$ \`e contenuto in un intorno ben rivestito di $X$.\\
+Per la definizione di topologia prodotto, posso supporre $Z_i =A_i \times B_i$ con $A_i$ aperto in $Y$ e $B_i$ aperto in $[0,1]$ e tale che $y_0 \in A_i$ $\, \, \forall i$.\\
+Sia $A=\ds \bigcap_{i=1}^n A_i $ che \`e aperto in $Y$ e $y_0 \in A$.\\
+Ora $B_1 \cup \dots \cup B_n =[0,1]$ allora sia $\frac{1}{k}$ minore del numero di Lesbbegue di $\{ B_1, \dots, B_n\}$.\\
+$$\forall j=0,\dots, k-1 \quad A \times \left[ \frac{j}{k} , \frac{j+1}{k}\right] \subseteq A_i \times B_i \quad \implica\quad F \left( A \times \left[ \frac{j}{k},\frac{j+1}{j} \right] \right) \subseteq U_j \text{ intorno ben rivestito}$$
+In questo modo abbiamo ricoperto $Y \times [0,1]$ con dei "quadrati" che finiscono tramite $F$ in intorni ben rivestiti di $X$, mostriamo che su questi "quadrati" $\tilde{F}$ coincide con $s\circ F$.\\
+Supponiamo $A$ connesso per archi.\\
+Sia $s_0:\, U_0 \to E$ una sezione locale.\\
+Su $A\times\{0\}$ confrontando le mappe $\tilde{F}$ e $s_0\circ F$ esse coincidono su un punto, sonp continue e poich\`e $A$ connesso per unicit\`a dei sollevamenti, le 2 mappe coincidono su $A\times\{0\}$ e per definizione di $\tilde{F}$ coincidono su tutto il quadrato $A\times\left[ 0, \frac{1}{k} \right]$ ($\tilde{F}$ \`e definito in base a  dove viene mandato $F(A\times\{0\})$.\\
+Induttivamente si mostra che 
+$$ \tilde{F}_{\left\vert \left[ \frac{j}{k},\frac{j+1}{k} \right] \right.} = s_k \circ F $$
+\end{thm}
+\begin{oss}Il teorema dice che se ho un omotopia tra $f$ e una certa funzione, se riesco a sollevare $f$ allora l'omotopia si solleva
+\end{oss}
+\begin{cor}Siano $\gamma_1, \amma_2:\, [0,1]\to X$ cammini omotopi a estremi fissi con stesso punto iniziale $x_0$.\\
+Se $\tilde{x_0}\in \inv{p}(x_0)$ allora 
+$$ \ssol{\amma_1}{x_0} \sim \ssol{\amma_2}{x_1} \text{ a estremi fissi}$$
+in particolare si ha ${\amma_1}{x_0}(1)= \ssol{\amma_2}{x_1}(1)$
+\proof Sia $F:\, [0,1]\times [0,1] \to X$ un omotopia tra $\gamma_1$ e $\gamma_2$.\\
+Usando il teorema appena dimostrato con $f=\amma_1$ e $\tilde{f}=\ssol{\amma_1}{x_0}$ otteniamo $\tilde{F}:\, [0,1]\times[0,1]\to E$ che solleva $F$ dove 
+$$ \tilde{F}(t,0)=\ssol{\gamma_1}{x_0}(t)$$
+Se prendo $s\to \tilde{F}(0,s)$  \`e un sollevamento del cammino costante a $x_0$ a partire da $\tilde{x_0}$ perci\`o \`e il cammino costante a $\tilde{x_0}$.\\
+Analogamente $\tilde{F}(1,s)= \ssol{\amma_1}{x_0}$.\\
+Il cammino $t \to \tilde{F}(1,t)$ solleva $\amma_2$ a partire da $\tilde{x_0}$ dunque per unicit\`a dei sollevamenti tale sollevamento \`e $\ssol{\amma_2}{x_0}$\\
+Dunque $\tilde{F}$ \`e un omotopia e estremi fissi cercata.\\
+
+\end{cor}
+\spazio
+\begin{cor}$p:\, E \to X $ rivestimento
+$$ p_\star:\, \pi_1(E, \tilde{x_0}) \to \pi_1(X,x_0)$$
+\`e iniettiva 
+\proof Sia $\alpha=[\amma]\in \ker p_\star$ dunque si ha 
+$$ p \circ \gamma \sim c_{x_0} \quad \implica \quad \amma=\ssol{p\circ \amma}{x_0} 
+\sim \ssol{c_{x_0}}{x_0} 
+= c_{\tilde{x_0}}$$
+dunque $[\amma]=1 \in \pi_1(E, \tilde{x}_0)$
+\end{cor}
+\spazio
+\begin{defn}[Monodromia]\bianco
+Sia $p:\, E \to X$ rivestimento, $x_0\in X$ e $F=\inv{p}(x_0)$ allora esiste un azione destra di $\pi_1(X,x_0) $ su $F$ 
+$$ F \times \pi_1(X,x_0) \to F \qquad \tilde{x}\az[\amma] = \ssol{\amma}{x}(1)$$
+\end{defn}
+\begin{oss}Se $\amma\sim\amma'$ allora $\ssol{\amma}{x} \sim \ssol{\amma'}{x}$ da cui $\ssol{\amma}{x}(1)= \ssol{\amma'}{x}(1)$.\\
+Da quanto osservato l'azione di monodromia \`e ben definita.\\
+Mostriamo che \`e un azione 
+$$ \tilde{x}\az \left( [\amma]\cdot [\alpha] \right) =\left( \tilde{x}\az [\amma] \right)\az [\alpha]$$ in quanto
+$$ \tilde{x}\az \left( [\amma]\cdot [\alpha] \right)
+= \tilde{x}\az
+ [ \gamma\star \alpha] 
+ = \ssol{\amma\circ \alpha}{x}(1)
+ =\left( \ssol{\amma}{x} \star \left( \tilde{\alpha}_{\tilde{\amma}_{\tilde{x}}(1)} \right) \right)(1) = \tilde{\alpha}_{\tilde{\amma}_{\tilde{x}}(1)}(1)=\sol{\amma}{x}(1) \az [\alpha]=\left( \tilde{x} \az [\amma] \right)\az [\alpha]
+  $$\end{oss}
+\end{document}

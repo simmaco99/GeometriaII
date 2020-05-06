@@ -1,0 +1,176 @@
+\input{0_Preambolo}
+\newcommand{\vt}{\vartheta}
+\begin{document}
+\textbf{Lezione del 16  Marzo}
+
+\begin{thm}Sia $p:\, E\to X$ rivestimento regolare, allora
+$$ Aut(E) \cong \frac{\pi_1(X,x)}{p_\star(\pi_1(E, \tilde{x}))}$$
+\proof Per prima cosa osserviamo che il termine di destra \`e un gruppo, il sottogruppo per cui stiamo quozientando \`e normale (essendo il rivestimento regolare).\\
+Sia $\vt:\, \pi_1(X,x)\to Aut(E)$ tale che $\forall \alpha\in \pi_1(X,x)$ definiamo $\vt(\alpha)$ come l'unico elemento di $Aut(E)$ tale che $\vt(\alpha)(\tilde{x})=\tilde{x}\az \alpha$.\\
+Osserviamo che tale isomorfismo esiste in quanto il rivestimento \`e regolare (azione \`e transitiva) ed \`e unico poich\`e l'azione \`e libera.\\
+Mostriamo che $\vt$ \`e un omomorfismo 
+$$ (\vt(\alpha_1)\vt(\alpha_2))(\tilde{x}= \vt(\alpha_1) ( \tilde{x}\az \alpha_2)= (\vt(\alpha_1) (\tilde{x}))\az \alpha_2=(\tilde{x}\az\alpha_1) \az \alpha_2$$
+Dove la seconda uguaglianza deriva dal fatto che l'azione di monodromia \`e quella indotta da $Aut(E)$ commutano\\
+Mostriamo che $\vt$ \`e suriettivo.\\
+Se $\vp\in Aut(E)$ poich\`e l'azione di monodromia \`e transitiva, $\exists\alpha\in \pi_1(X, x)$ con $\tilde{x}\az \alpha=\vp(\tilde{x})$, dunque $\vt(\alpha)=vp$ in quanto i due isomorfismi coincidono su $\tilde{x}$ ($Aut(E)$ agisce in maniera libera).\\
+Mostriamo che $Ker \vt = p_\star(\pi_1(E, \tilde{x}))$, da cui per il primo teorema di isomorfismo si ha la tesi.\\
+Poich\`e $Aut(E)$ agisce liberamente si ha
+$$\vt(\alpha)=Id \quad \ses \quad \vt(\alpha)(\tilde{x})=\tilde{x} \quad \ses \quad \tilde{x}\az \alpha =\tilde{x}\quad \ses 
+\quad \alpha\in p_\star(\pi_1(E,\tilde{x}))$$
+\endproof
+\end{thm}
+\begin{cor}$$p:\, E\to X \text{  regolare } \quad \implica \quad X\cong \frac{X}{Aut(E)}$$
+\proof Essendo aperto e suriettivo $p$ \`e un'identificazione, per cui $X \cong \frac{X}{\sim}$ dove 
+$$\tilde{x}\sim
+\tilde{y} \quad \ses \quad p(\tilde{x})=p(\tilde{y}) \quad \ses \quad \tilde{x}=\vp (\tilde{y}) \, \exists \vp \in Aut(E)
+$$
+dove per l'ultima implicazione abbiamo usato il fatto che $\varphi\circ p = p $ e in quanto $Aut(E)$ agisce in maniera transitiva sulle fibre 
+\end{cor}
+Vale una sorta di viceversa
+\begin{prop}Se $G$ agisce in maniera propriamente discontinua su uno spazi connesso $E$ allora la proiezione $p:\, E \to \frac{E}{G}$ \`e un rivestimento regolare
+\proof Dato $x\in \frac{E}{G}$ devo costruire un intorno ben rivestito $U$.\\
+Scelgo $\tilde{x}\in E$ con $p(\tilde{x})=x$, dalla definizione di azione propriamente discontinua, $\exists V \subseteq X$ aperto che contiene $\tilde{x}$ tale che $\gamma(V) \cap V=\emptyset \ , \, \forall \gamma \in G\sbarra \{ Id\}$\\
+Pongo $U=p(V)$ che \`e aperto (le proiezioni al quoziente per azioni di gruppi sono aperte).\\
+Per costruzione $\ds \inv p  (U) =\bigcup_{\gamma\in G} \gamma(V)$ ora $\gamma(V)$ \`e aperto ($\amma$ \`e omeomorfismo)  e l'unione \`e disgiunta.\\
+$$\amma_1(V) \cap \amma_2(V)\neq \emptyset \quad \implica\quad V \cap (\inv {\gamma_1} \gamma_2(V)) \neq \emptyset \quad \implica \quad \inv{\gamma_1}\gamma_2=Id\quad \implica \quad \amma_1=\amma_2$$
+Infine $\ris p  {\gamma(V)}$ \`e un omeomorfismo su $U$ in quanto \`e continua, aperta, suriettiva e iniettiva
+\end{prop}
+\spazio
+\begin{oss} Un rivestimento universale \`e regolare.\\
+$p_\star(\{1\})=\{ 1 \}\normale \pi_1(X,x)$
+\end{oss}
+
+\begin{cor}Sia $p:\, E \to X$ un rivestimento universale, allora $Aut(E) \cong \pi_1(X,x)$
+\end{cor}
+\begin{cor} Se $E$ \`e semplicemente connesso e $G$ agisce su $E$ in maniera propriamente discontinua, $\pi_1\left(\frac{E}{G}\right) \cong G$
+\end{cor}
+\begin{ese}\bbianco
+\begin{enumerate}
+\item $S^1=\frac{\R}{\Z}$ ora essendo $\R$ semplicemente connesso si ha $\pi_1(S^1)=\Z$
+\item $(S^1)^n=\frac{\R^n}{\Z^n}$ da cui $\pi_1((S^1)^n)=\Z^n$
+\item $\pror n= \frac{S^n}{\{ \pm Id\}}$ dunque se $n\geq 2 $ allora $\pi_1(\pror n) \cong \{ \pm Id \} = \Z_2$
+\end{enumerate}
+\end{ese}
+
+\newpage
+\begin{defn}\bianco 
+$X$ spazio topologico connesso per archi si dice \textbf{semilocalemente semplicemente connesso} se 
+$$\forall x \in X\, \, \exists U \subseteq X \text{ aperto  con } x \in X \quad i:\, U \to X \text{ induce il morfismo banale } i_\star:\, \pi_1(U,x) \to \pi_1(X,x)$$
+ovvero $\forall x \in X \, \, \exists U\ni x$ tale che tutti i lacci basati in $x$ e contenuti in $U$ sono banali in $X$ 
+\end{defn}
+\begin{oss}La propiet\`a sopra definita \`e verificata, ad esempio, se ogni punto ha un intorno semplicemente connesso
+\end{oss}
+\begin{oss}Se $X$ ammette un rivestimento universale, allora \`e semilocalmente semplicemente connesso.\\
+Dato $x\in X$, posso prendere un suo intorno $U$ connesso per archi e ben rivestito.\\
+Se $p:\, E \to X$ \`e il rivestimento universale $V\subseteq \inv p(U)$ \`e un aperto con $\ris p V :\, V \to U $ omeomorfismo dunque abbiamo il seguente diagramma
+$$ \begin{tikzcd}
+V \arrow{d}{\ris p V} \arrow[hook,r,"j"] & E \arrow[d, "p"] \\
+U \arrow[hook, r ,"i"] \arrow[bend left, u,"s"]& X 
+\end{tikzcd}$$
+da cui $i=p\circ j \circ s $ dunque $i_\star = p_\star \circ j_\star \circ s_\star$ ma $j_\star$ \`e banale in quanto lo \`e $\pi_1(E)$ da cui $i_\star$ \`e banale 
+\end{oss}
+
+\begin{lem}Quando esiste, il rivestimento universale \`e unico a meno di isomorfismi
+\proof Siano $p_1:\, E_1 \to X$ e $p_2:\, E_2 \to X$ rivestimenti universali di $X$.\\
+Abbiamo dunque:\\
+$ \begin{tikzcd}
+& E_2 \arrow{d}{p_2} \\
+E_1 \arrow[dashed]{ru}{\vp} \arrow{r}{p_1} & X 
+\end{tikzcd}$
+dove l'esistenza di $\vp$ ($p_2 \circ \vp = p_1$) deriva dal fatto che  $E_1$ \`e semplicemente connesso.\\
+Fissati $\tilde{x}_1\in \inv{p_1}(x)$ e $\tilde{x}_2 \in \inv{p_2}(x)$ posso richiedere $\vp(\tilde{x}_1) =\tilde{x}_2$.\\
+In modo analogo $\exists \, \psi:\, E_2 \to E_1$ con $p_1\circ \psi=p_2$ e $\psi(\tilde{x}_2) =\tilde{x}_1$\\
+Ne segue che $\vp $ e $\psi$ sono isomorfismi l'uno l'inverso dell'altro
+\end{lem}
+
+\begin{thm}$X$ spazio topologico localmente connesso per archi e connesso
+$$ X \text{ ammette rivestimento universale } \quad \ses \quad X \text{ semilocalmente semplicemente connesso }$$
+inoltre, in tal caso il rivestimento \`e unico
+\proof $\implica$ gi\`a visto\\
+$\iimplica$ Fissato $x\in X$. Si definisce $E = \ds \frac{\bigcup_{y \in X}\Omega(x,y)}{\sim}$ dove $\gamma_1\sim \gamma_2 $ se e solo se sono omotopi come cammini.\\ Si topologizza $\ds \bigcup_{y \in X}\Omega(x,y)$tale insieme con la topologia compatta-aperta e si dota $E$ della topologia quoziente.\\
+Sia $p:\, E \to X$ dove $p([\gamma])=\gamma(1)$
+\end{thm}
+
+\begin{thm}$X$ connesso e semilocalmente semplicemente  connesso per archi, $x\in X$\\
+$\forall H < \pi_1(X,x) $ esiste $p:\,E \to X$ tale che $p_\star (\pi_1(E, \tilde{x}))=H$ dove $\tilde{x}\in \inv p (x)$.\\
+Tale rivestimento \`e unico
+\proof Sia $g:\, \wt{X} \to X$ il rivestimento universale di $X$ e fissiamo $\wt{\wt{x}}\in \inv g (x)$.\\
+Abbiamo un isomorfismo $\pi_(X, x) \to Aut(\wt{X})$, con un abuso di notazione denoto anche con $H$ la copia di $H$ in $Aut(\wt X)$, pongo $E=\frac{\wt X}{H}$
+
+$$\begin{tikzcd}
+\wt X\arrow{r}{\pi}  \arrow[bend right,rr,"g"]& E=\frac{\wt E}{H}\arrow[r,"p"] & X =\frac{\wt X}{\pi_1(X,x)} 
+\end{tikzcd}$$
+Si verifica facilmente che $p$ \`e un rivestimento (un aperto ben rivestito rispetto a $g$ lo \`e anche rispetto a $p$)\\
+Inoltre se $\tilde{x}=\pi\left( \wt{\wt{x}}\right)\in E$ abbiamo $p_\star (\pi_1(E, \tilde{x}))=Stab(\tilde{x})$ rispetto all'azione di monodromia.\\
+Dato $\alpha\in \pi_1(X,x)$ con $\alpha=[\amma]$ siano 
+
+$\wt \gamma $ e $\wt{\wt{\gamma}}$ i sollevamenti di $\amma$ in $E$ a partire da $\tilde{x}$ e $\wt{\wt{x}}$ cos\`i che $\wt \amma = \pi\circ \wt{\wt{\amma}}$\\
+Ora $\wt x \az \alpha =\wt \amma(1)= \pi \left( \wt{\wt{\amma}}(1)\right)$ che \`e uguale a $\tilde{x}$ se e solo se $\wt{\wt{\amma}}(1)$ \`e equivalente a $\wt{\wt{x}}$ tramite l'azione di $H$ che equivale alla tesi 
+\end{thm}
+
+\newpage
+
+%AGGIUNGERE DISEGNI degli esempi 
+
+Sia $\Gamma$ un grafo finito connesso avente $V$ vertici e $E$ lati
+\begin{itemize}
+\item $\Gamma$ \`e un albero se non contiene cicli, cio\`e loop iniettivi
+\item Un albero \`e contraibile (induzione sul numero di vertici: un albero deve avere un vertice libero, \`e possibile retrarre per deformazione  il lato che lo contiene sul resto dell'albero)
+\item Se $\Gamma$ \`e un albero allora $V-E=1$ (induzione: ogni retrazione toglie un vertice e un lato, si finisce con un vertice e 0 lati)
+\item $\Gamma $ conesso allora contiene $\Gamma'$ albero massimale che contiene tutti i vertici di $\Gamma$
+$$ \Gamma = \Gamma' \cup \{ \text{ qualche lato} \}$$
+\item Definisco $\chi(\Gamma)= V-E$ che prende il nome di caratteristica di Eulero.\\
+Se $\Gamma'\subset\Gamma $ massimale allora $\chi(\Gamma')=1$ e $\Gamma=\Gamma'\cup \{ (1-\chi(\Gamma)) \text{ lati}\}$
+
+\end{itemize}
+
+\begin{thm}$$\pi_1(\Gamma)\cong F_{1-\chi(\Gamma)}$$
+\proof Si dimostra usando induttivamente Van Kampen e dal fatto che $\Gamma$ si ottiene da un albero massimale aggiungendo $1-\chi (\Gamma)$ lati 
+\end{thm}
+
+\begin{thm}$F$ gruppo libero su $n$ generatori, $H < F$ di indice $k$.\\
+Allora $H$ \`e un gruppo libero su $k(n-1)+1$ generatori
+\proof $F=\pi_1(\Gamma)$ con $\chi(\Gamma)=1-n$ per il teorema appena visto.\\
+Sia $\wt \Gamma$ il rivestimento di $\Gamma$ associato ad $H$.\\
+Poich\`e vertici e lati sono semplicemente connessi, se $V,E$ sono i vertici ed i lati di $\Gamma$ allora i vertici di $\wt \Gamma$ sono $kV$ e $kE$ in quanto il grado del rivestimento \`e $k$ da cui 
+$H=\pi_1(\wt \Gamma)= F_{1-\chi(\wt\Gamma)}=F_{1+k(n-1)}$
+\endproof
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

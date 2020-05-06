@@ -1,0 +1,146 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 27 Settembre di Gandini}
+\begin{defn}[Palle chiuse]\bianco
+$$C(x_0, R)=\{ x \in X \, \vert \, d(x,x_0) \leq R \}$$
+\end{defn}
+\begin{prop} Sia $(X,d)$ uno spazio metrico, allora
+\begin{enumerate}
+\item Le palle aperte sono degli aperti
+\item Le palle chiuse sono dei chiusi
+\end{enumerate}
+\proof \bbianco
+\begin{enumerate}
+\item  Sia $x_0 \in X $ e $r>0$ allora vogliamo provare che 
+$$ \forall y\in B(x_0,r) \quad \exists \varepsilon>0 \quad B(y_0, \varepsilon) \subseteq B(x_0,r)$$
+Sia $\varepsilon= r-d(x_0,y)$ e poich\`e $y\in B(x_0,r) $ $\varepsilon>0$\\
+Sia $z\in B(y,\varepsilon) $ allora $d(x_0,z)< \varepsilon $ e usando la disuguaglianza triangolare
+$$ d(x_0,z)\leq d(x_0,y)+ d(y,z) < d(x_0,y) + \varepsilon <r $$
+\item $C(x_0,R)$ \`e chiuso $\ses$ $X\sbarra C(x_0,R)$ \`e un aperto $\ses $ $A=\{ x\in X \, \vert \, d(x,x_0)>r\} $ \`e aperto.\\
+Sia $y\in A$ allora per definizione $d(y,x_0)>r $ e dunque ponendo $\varepsilon=d(y,x_0)-r>0$ otteniamo 
+$$ d(z,x_0) \geq \vert d(y,x_0) - d(z,y) \vert = d(y,x_0)-d(z,y)>r$$
+\end{enumerate}
+\endproof
+\end{prop}
+\spazio
+\begin{ese}Sia $(X,d)$ spazio metrico, $Z\subseteq X $ arbitrario, allora 
+$$ d_Z:\, X \to \R \quad x \to \inf_{z\in Z} d(x,z)$$
+\`e continua
+\proof Dobbiamo dimostrare che $\forall x,y\in X$ vale 
+$$ \vert d_Z(x) -d_Z(y) \vert \leq d(x,y)$$
+infatti da ci\`o segue la continuit\`a.\\
+Mostriamo la disuguaglianza; data la simmetria della distanza possiamo togliere il valore assoluto.\\
+Dalla definizione di estremo inferiore
+$$ \forall \varepsilon>0 \exists z \in Z \quad d(x,z) \leq d_Z(x) + \varepsilon$$
+Ora $$d_Z(y)\leq d(y,z)\leq d(y,x)+d(y,z)\leq d(x,y) +d_Z(x)+\varepsilon$$
+dunque otteniamo la disuguaglianza
+\end{ese}
+\newpage
+\begin{ese}\bianco 
+\begin{itemize}
+\item[(i)]L'intersezione di famiglie arbitrarie di aperti non \`e aperto 
+\item[(ii)]L'unione di famiglie arbitrarie di chiusi non \`e un chiuso 
+\end{itemize}
+In $\R$ 
+$$ \bigcap_{n \in \N} \left( -\frac{1}{n}, \frac{1}{n}\right) =\{ 0\} \text{ che non \`e aperto } $$
+$$ \bigcup_{n\in \N}  \left[ \frac{1}{n}, 1-\frac{1}{n}\right]=(0,1)\text{ che non \`e chiuso} $$
+\end{ese}
+\newpage
+\begin{defn}\bianco 
+Siano $X$ uno spazio topologico e $Z\subseteq X $ allora 
+\begin{itemize}
+\item La chiusura di $Z$ ($\overline{Z}$) \`e il pi\`u piccolo chiuso contenente $Z$ .\\
+In modo equivalente $$\overline{Z}=\bigcap_{ C\subseteq  X \text{ chiuso} \atop{ Z\subseteq C}} C $$
+\item La parte interna di $Z$ $\left( Z^\circ \right) $ \`e il pi\`u grande aperto contenuto in $Z$.
+$$ Z^\circ =\bigcup_{A\subseteq \text{ aperto}\atop{A\subseteq Z}} A$$
+\item La frontiera di $Z$ ($\partial Z $) \`e l'insieme $\overline{Z}\sbarra Z^\circ $  ed \`e un chiuso della topologia
+\end{itemize}
+\end{defn}
+\begin{ese}In $\R$ 
+ \begin{itemize}
+\item $\overline{(a,b)}=\overline{[a,b)}=\overline{(a,b]}=\overline{[a,b]}=[a,b]$ 
+\item $(a,b)^\circ=[a,b)^\circ=(a,b]^\circ=[a,b]^\circ=(a,b)$ 
+\item Nei casi precedenti $\partial ( ...) = \{ a,b \} $
+\end{itemize}
+\end{ese}
+\spazio
+\begin{oss}Sia $(X,d)$ uno spazio metrico allora 
+$$ B(x,r)\subseteq C(x,r) \quad \implica \quad \overline{B(x,r)}\subseteq C(x,r)$$
+in $\R^2$ con la distanza euclidea (anche con $d_2, \, d_\infty$) vale l'uguaglianza.\\
+In generale \`e falso infatti se prendiamo $d$ la distanza discreta:
+$$ B(x,1)=\{x\} \text{ chiuso} \quad \implica \overline{B(x,1)}=B(x,1)$$
+Mentre $C(x,1)=X$
+\end{oss}
+\spazio 
+
+\spazio
+\begin{prop}Sia $(X,d)$ spazio metrico, $Z\subseteq X $ arbitrario, allora 
+$$ \overline{Z}=\{ x\in X \quad \vert \quad \inf_{z\in Z } d(x,z)=0\} = d_Z^{-1}( \{ 0 \} )$$
+Sia $x\in X$ allora
+$$ \inf_{z\in Z} d(x,z)=0 \quad \ses \quad \forall \varepsilon>0 \quad B(x,\varepsilon) \cap Z \neq \emptyset \quad \ses \quad x\in \overline{Z}$$
+\end{prop}
+\newpage
+\begin{prop}Consideriamo l'insieme $C^0 ( [a,b])$ con le funzioni
+\begin{enumerate}
+\item $d_1(f,g)= \int_{a}^b \vert f(t)-g(t) \vert \dt $
+\item $d_2(f,g)=  \left( \int_{a}^b \vert f(t)-g(t) \vert ^2 \right)^{\frac{1}{2}}\dt $
+\item $d_\infty(f,g)= \sup_{t\ in [a,b]} \vert f(t)-g(t) \vert  $
+\end{enumerate}
+allora le 3 funzioni sono distanze
+\proof Mostriamolo solamente nel caso di $d_1$.\begin{itemize}
+\item 
+$d_1(f,g)= d_1(g,f)$  segue dalle propiet\`a del valore assoluto 
+\item  $d_1(f,g)\geq 0)$ infatti l'integrale di una funzione non negativa \`e non negativo.\\
+Sia $d_1(f,g)=0$ e supponiamo $f\neq g$.\\
+Essendo le funzioni diverse sia $t_0\in [a,b]$ tale che $f(t_0)\neq g(t_0)$ dunque essendo le funzioni continue\\
+$$ \text{ Sia } \delta>0 \quad \exists \varepsilon \quad \vert f(t)-g(t) \vert \leq \delta \text{ per } t \in [t_0-\varepsilon , t_0+\varepsilon]$$
+Dunque
+$$ d_1(f,g) > \int_{t_0-\varepsilon}^{t_0+\varepsilon} \vert f(t)-g(t)\varepsilon \dt >0 $$
+\item La disuguaglianza triangolare deriva dalla linearit\`a dell'integrale e dalla disuguaglianza triangolare del modulo
+\end{itemize}
+\endproof
+\end{prop}
+
+\begin{oss}Le distanza sopra definite non sono equivalenti.\\
+Siano $\tau_1, \tau_2, \tau_\infty$ le topologie indotte.\\
+Sia $f_n \in C^{0}([0,1])$ definita come 
+$$ f_n(t) = \begin{cases} 1-nt \text{ se } t \leq \frac{1}{n}\\ 0 \text{ se } t > \frac{1}{n}
+\end{cases}$$
+Calcoliamo la distanza di $f_n$ da $0$(funzione nulla)
+$$ d_\infty(f_n, 0)= \sup_{t\in [0,1]} \vert f_n(t)\vert = 1\quad \forall n \in \N$$
+$$d_1(f_n,0) =\frac{1}{2n} \quad \implica \quad \forall	 \varepsilon >0 \quad \exists n_0 \quad f_n \in B_{d_1}(0, \varepsilon) \quad \forall n \geq n_0$$
+Dunque ogni aperto di $\tau_1$ che contiene la funzione nulla contiene anche infinite funzioni $f_n$.\\
+Consideriamo $B=B_{d_\infty}(0,1) $ essa \`e un aperto di $\tau_\infty$ ma non contiene nessuna $f_n$ dunque $B$ non \`e un aperto di $\tau_1$
+\end{oss}
+\newpage
+
+\begin{ex}[Topologia della semicontinuit\`a]\bianco
+Su $\R$ definiamo una topologia come segue
+$$ \tau= \{ (-\infty , a) \, \vert a \in \R \} \cup \{ \emptyset ,\R\}$$
+\`e una topologia e prende il nome di topologia della semicontinuit\`a
+\proof \bbianco
+\begin{itemize}
+\item L'insieme stesso e il vuoto sono aperti per definizione
+\item Siano $A$, $B$ aperti.\\
+Se $A=\emptyset$  allora $A\cap B=\emptyset$ quindi \`e aperto.\ Se  $A=\R$ allora $A\cap B = B$ che \`e aperto.\\
+Supponiamo allora $A=(-\infty , a ) $ e $B=(-\infty,  b)$ dunque $A\cap B = (-\infty, \min(a,b)) \in \tau$
+\item Consideriamo  $A\subseteq \R$  non vuoto allora sia
+$$ X=\bigcup_{a\in A} (-\infty, a)$$
+se $A$ \`e limitato allora $\exists \sup A $ dunque $X=(-\infty , \sup A) \in \tau$\\
+altrimenti $X=\R$
+\end{itemize}
+\end{ex}
+\spazio
+\begin{ex}Sia $f:\, X\to \R$ con $X$ spazio topologico e $\R$ con la topologia della semicontinuit\`a.
+$$ f\text{ continua } \ses \forall x\in X  \, \forall \varepsilon>0 \, \exists U \subseteq X \text{ aperto che contiene } x \quad f(y)<f(x)+\varepsilon \quad \forall y\in U$$
+\proof$\implica$ Sia $x\in X$ e sia $\varepsilon >0$  $$f(y) < f(x)+ \varepsilon \quad \implica \quad y \in f^{-1}((-\infty, f(x)+\varepsilon)) \text{ che \`e aperto in quanto controimmagine di aperto}$$
+$\iimplica$ Dobbiamo provare che $A=f^{-1}((-\infty, a))$ \`e aperto $\forall a \in \R$.\\
+Sia $x\in f^{-1}((-\infty, a))$ allora $\exists \varepsilon>0$ tale che $f(x) + \varepsilon < a$.\\
+allora dalla tesi segue che 
+$$ \exists U_x \subseteq X \text{ aperto tale che } f(U_x) \subseteq (-\infty,a)$$
+allora $x\in U_x $ dunque $U_x\subseteq A$.\\
+Dunque $A$ \`e un aperto in quanto unione di aperti $A = \ds \bigcup_{x\in f^{-1}((-\infty, a))} U_x$
+\endproof
+\end{ex}
+\end{document}

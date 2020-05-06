@@ -1,0 +1,84 @@
+\input{0_Preambolo}
+\begin{document}
+\section{Sottospazio prodotto}
+\textbf{Lezione del 11 ottobre del prof. Frigerio}
+
+\begin{prop}Sia $(X,d)$ metrico.\\
+Allora $\overline{d}:\, X \times X \to \R $ definita come $\overline{d}(x,y)=\min\{ d(x,y), 1\}$ \`e una distanza topologicamente equivalente a $d$ dunque la topologia di uno spazio metrizzabile \`e indotta da una distanza $\leq 1$
+\proof  \bbianco
+\begin{itemize}
+\item
+
+Mostriamo che $\overline{d}$ \`e una distanza.\\
+La non negativit\`a e la simmetria seguono in maniera diretta dalle analoghe propiet\`a su $d$.\\
+Siano $x,y,z$ e proviamo che $\overline{d}(x,z)\leq \overline{d}(x,y) +\overline{d}(y,z)$\\
+Se almeno uno tra $\overline{d}(x,y)$ e $\overline{d}(xyz)$ \`e uguale a 1 ho concluso infatti $\overline{d}(x,z)\leq 1$.\\
+Altrimenti
+$$ \overline{d}(x,z) \leq d(x,z)\leq d(x,y)+ d(y,z)$$
+ma $\overline{d}(x,z) \neq 1 $ dunque $\overline{d}(x,y) = d(x,y)$ in modo analogo $\overline{d}(y,z)=d(y,z)$.
+\item Mostriamo che le $2$ topologie indotte sono topologicamente equivalenti\\
+Come base della topologia associata ad una distanza si prendono le palle di raggio $R$ al variare di $R<1$.\\
+Ora $\forall x \in X $ e $\forall R<1 \quad B_d(x,R)= B_{\overline{d}}(x,R)$ dunque le 2 topologie coincidono
+\end{itemize}
+\endproof
+\end{prop}
+\spazio
+\begin{defn}[Funzione lipschitziana]\bianco
+Sia $f:\, (X,d)\to (Y, d') $ diciamo che $f$ \`e $k$-lipschitz se $k>0$ e
+$$ \forall x_1, x_2 \in X \quad d'(f(x_1),f(x_2))\leq k \cdot d(x_1,x_2)$$
+\end{defn}
+\begin{oss}Sia $f:\, X \to Y $ una funzione $k$-lipschitz.\\
+Poich\`e $f\left( B\left( x, \frac{\varepsilon}{k} \right) \right) \subseteq B(f(x),\varepsilon)$ una funzione lipschitziana \`e continua 
+\end{oss}
+\newpage
+\begin{thm}Siano $(X_i,d_i)$ spazi metrici con $i\in \N$, allora
+$$ X =\prod_{i \in \N} X_i \text{ \`e metrizzabile}$$
+\proof Devo costruire $d:X\times X \to \R$ che induce la topologia prodotto.\\
+$\forall i \in \N$ posso supporre che $d_i \leq 1$.\\
+Denotiamo con $\ds (x_i)_{i \in \N} $ gli elementi  di $X$, dove $x_i \in X_i$.\\
+Pongo
+$$ d(x,y)= \sum_{i=0}^\infty 2^{-i} d_i(x_i,y_i)$$ 
+tale serie converge poich\`e $d_i<1$ e la serie $\ds \sum 2^{-i}$ converge.\\
+\`E di facile verifica che $d$ cos\`i definita \`e una distanza, sia $\tau_d$ la topologia che induce.\\
+Sia $P_i:\, X\to X_i$ la proiezione su $X_i$ 
+$$ d_i(\pi_i(x),\pi_i(y))= d_i(x_i,y_i) = 2^i(2^{-i} d_i(x_i,y_i) \leq 2^i d(x,y)$$
+dunque la funzione $P_i$ \`e $2^i$-lipschitz dunque continua quindi $\tau_d > \tau_{prod}$
+infatti $\tau_{prod}$ \`e la meno fine proiezione che rende continue le proiezioni.\\
+Resta da vedere che $\tau_d> \tau_{prod}$.\\
+Sia $B=B_d(x,\varepsilon)\subseteq X$ un aperto, dunque  per  $y \in B$  $\exists \delta>0 $ tale che $B_d(x,\delta)\subseteq B$.\\ Resta da dimostrare che $\exists U $ aperto di $\tau_{prod}$ con $y\in U \subseteq B_d(x,\delta)$.\\
+Sia $n_0\in \N$ tale che $\ds \sum_{i=n_0+1}^\infty 2^{-i} <\frac{\delta}{2}$ che esiste essendo la serie convergente.
+Pongo
+$$ U = B_{d_0}\left( y_0, \frac{\delta}{4} \right)\times \dots \times 
+ B_{d_{n_0}}\left( y_{n_0}, \frac{\delta}{4}\right) \times X_{n_0+1}\times \dots \times X_n \times \dots$$
+ Se $z\in U $ allora $d_i(y_i,z_i)< \frac{\delta}{4} \quad  \forall i \leq n_0 $
+Allora
+$$ d(y,z) = \sum_{i=0}^\infty 2^{-1} d_i(y_i,z_i) = \sum_{i=0}^{n_0} 2^{-1}d(y_i,z_i)+ \sum_{i=n_0+1}^\infty 2^{-1} d_i(y_i,z_i)<$$ 
+$$< \frac{\delta}{4} \sum_{i=0}^{n_0} 2^{-i}+ \sum_{i=n_0+1}^\infty < 2 \frac{\delta}{4} + \frac{\delta}{2}=\delta$$
+Dunque $U\subseteq B_d(y, \delta)\subseteq B $
+\endproof
+ \end{thm}
+ \begin{oss}Genericamente, il prodotto pi\`u che numerabile di spazi metrici non \`e primo-numerabile dunque non \`e metrizzabile
+ \end{oss}
+ \begin{fatto}
+ Se $(X,d)$ e $(Y,d')$ sono metrici, $X \times Y $ \`e metrizzabile ed ha topologia indotta da una delle seguenti metriche
+ \begin{enumerate}
+ \item $d_\infty(x_1,y_1),(x_2,y_2)) = \max \{ d(x_1, x_2) ,d'(y_1,y_2)\}$
+ \item $d_2(x_1,y_1),(x_2,y_2))= \sqrt{d(x_1,x_2)^2+ d'(y_1,y_2)^2}$
+ \item $d_1(x_1,y_1),(x_2,y_2))= d(x_1,x_2)+ d'(y_1,y_2)$
+ \end{enumerate}
+ L'equivalenza si dimostra come abbiamo provato l'equivalenza su $\R^n$.\\
+Per vedere che inducono la topologia prodotto usiamo il teorema precedente utilizzando $\frac{1}{2}d_1$  che \`e topologicamente equivalente a $d_1$ e ponendo $x=(x_1,x_2, 0, \dots )$ e $y=(y_1,y_2,0, \dots)$ 
+ \end{fatto}
+ \newpage
+ \begin{ex}Sia $X$ topologico, $A,B \subseteq X$ 
+ \begin{enumerate}
+ \item $\overline{A\cup B}= \overline{A} \cup \overline{B}$
+ \item L'uguaglianza \`e falsa per unioni infinite
+ \item Enunciati "duali" per la parte interna
+ \item In generale  $\overline{A\cap B} \neq \overline{A} \cap \overline{B}$
+ \item $ \overline{\overline{A}^\circ}^\circ = \overline{A}^\circ$
+ \item Trovare $A\subseteq X$ per cui $A$, $\overline{A}$, $\overline{A}^\circ$ , $ \overline{\overline{A}^\circ}$ sia tutte diverse
+ \item Sia $A\subseteq Y \subseteq X$ allora la chiusura di $A$ in $Y$ (con topologia di sottospazio) \`e $\overline{A}\cap Y$
+ \end{enumerate}
+ \end{ex}
+\end{document}

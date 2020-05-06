@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, top=2cm,bottom=2cm,right=2cm,left=2cm]{geometry}
+
+\usepackage{bm,xcolor,mathdots,latexsym,amsfonts,amsthm,amsmath,
+					mathrsfs,graphicx,cancel,tikz-cd,hyperref,booktabs,caption,amssymb,amssymb,wasysym}
+\hypersetup{colorlinks=true,linkcolor=blue}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\newcommand{\s}[1]{\left\{ #1 \right\}}
+\newcommand{\sbarra}{\backslash} %% \ 
+\newcommand{\ds}{\displaystyle} 
+\newcommand{\alla}{^}  
+\newcommand{\implica}{\Rightarrow}
+\newcommand{\iimplica}{\Leftarrow}
+\newcommand{\ses}{\Leftrightarrow} %se e solo se
+\newcommand{\tc}{\quad \text{ t. c .} \quad } % tale che 
+\newcommand{\spazio}{\vspace{0.5 cm}}
+\newcommand{\bbianco}{\textcolor{white}{,}}
+\newcommand{\bianco}{\textcolor{white}{,} \\}% per andare a capo dopo 																					definizioni teoremi ...
+
+
+% campi 
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\K}{\mathbb{K}} 
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\p}{\mathbb{P}}
+
+%GEOMETRIA
+\newcommand{\B}{\mathfrak{B}} %Base B
+\newcommand{\D}{\mathfrak{D}}%Base D
+\newcommand{\RR}{\mathfrak{R}}%Base R 
+\newcommand{\Can}{\mathfrak{C}}%Base canonica
+\newcommand{\Rif}{\mathfrak{R}}%Riferimento affine
+\newcommand{\AB}{M_\D ^\B }% matrice applicazione rispetto alla base B e D 
+\newcommand{\vett}{\overrightarrow}
+\newcommand{\sd}{\sim_{SD}}%relazione sx dx
+\newcommand{\nvett}{v_1, \, \dots , \, v_n} % v1 ... vn
+\newcommand{\ncomb}{a_1 v_1 + \dots + a_n v_n} %a1 v1 + ... +an vn
+\newcommand{\nrif}{P_1, \cdots , P_n} 
+\newcommand{\bidu}{\left( V^\star \right)^\star}
+
+\newcommand{\udis}{\amalg}
+\newcommand{\ric}{\mathfrak{U}}
+\newcommand{\inclu}{\hookrightarrow }
+%ALGEBRA
+
+\newcommand{\semidir}{\rtimes}%semidiretto
+\newcommand{\W}{\Omega}
+\newcommand{\norma}{\vert \vert }
+\newcommand{\bignormal}{\left\vert \left\vert}
+\newcommand{\bignormar}{\right\vert \right\vert}
+\newcommand{\normale}{\triangleleft}
+\newcommand{\nnorma}{\vert \vert \, \cdot \, \vert \vert}
+\newcommand{\dt}{\, \mathrm{d}t}
+\newcommand{\dz}{\, \mathrm{d}z}
+\newcommand{\dx}{\, \mathrm{d}x}
+\newcommand{\dy}{\, \mathrm{d}y}
+\newcommand{\amma}{\gamma}
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\az}{\centerdot}
+\newcommand{\ammasol}[1]{\tilde{\gamma}_{\tilde{#1}}}
+\newcommand{\pror}[1]{\mathbb{P}^#1 (\R)}
+\newcommand{\proc}[1]{\mathbb{P}^#1(\C)}
+\newcommand{\sol}[2]{\widetilde{#1}_{\widetilde{#2}}}
+\newcommand{\bsol}[3]{\left(\widetilde{#1}\right)_{\widetilde{#2}_{#3}}}
+\newcommand{\norm}[1]{\left\vert\left\vert #1 \right\vert \right\vert}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert }
+\newcommand{\ris}[2]{#1_{\vert #2}}
+\newcommand{\vp}{\varphi}
+\newcommand{\vt}{\vartheta}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\pr}[2]{\frac{\partial \, #1}{\partial\, #2}}%derivata parziale
+%per creare teoremi, dimostrazioni ... 
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}[section] 
+\newtheorem{ese}[thm]{Esempio} 
+\newtheorem{ex}[thm]{Esercizio} 
+\newtheorem{fatti}[thm]{Fatti}
+\newtheorem{fatto}[thm]{Fatto}
+
+\newtheorem{cor}[thm]{Corollario} 
+\newtheorem{lem}[thm]{Lemma} 
+\newtheorem{al}[thm]{Algoritmo}
+\newtheorem{prop}[thm]{Proposizione} 
+\theoremstyle{definition} 
+\newtheorem{defn}{Definizione}[section] 
+\newcommand{\intt}[2]{int_{#1}^{#2}}
+\theoremstyle{remark} 
+\newtheorem{oss}{Osservazione} 
+\newcommand{\di }{\, \mathrm{d}}
+\newcommand{\tonde}[1]{\left( #1 \right)}
+\newcommand{\quadre}[1]{\left[ #1 \right]}
+\newcommand{\w}{\omega}
+
+% diagrammi commutativi tikzcd
+% per leggere la documentazione texdoc

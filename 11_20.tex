@@ -1,0 +1,66 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione del 20 Novembre di Gandini}
+\begin{thm}[del numero di Lebegue]\bianco
+Sia $(X,d)$ uno spazio metrico compatto.\\
+Sia $\ric$ un ricoprimento aperto di $X$
+$$ \exists \varepsilon >0 \quad \forall x \in X \quad \exists U \in \ric \quad B(x,\varepsilon) \subseteq U $$
+\proof Sia 
+$$ X_n = \{  x \in X \, \vert \, \exists U \in \ric \quad B\left(  x, 2^{-n}\right)\subseteq U \}$$
+la tesi \`e dunque equivalente a dire che $X_n =X $ per un certo $n \in \N$
+Osserviamo che $U = \ds \bigcup_{n \in \N } X_n$ infatti $\ric $ \`e un ricoprimento aperto.\\
+Osserviamo,  inoltre, $X_n \subseteq X_{n+1}$, in realt\`a vale che 
+$$ X_n \subseteq X_{n+1}^ \circ $$ 
+infatti preso $x\in X_n$ si ha $B\left( x, 2^{-n} \right) \subseteq U $ con $U\in \ric $.\\
+Mostriamo adesso che $B \left( x, 2^{-(n+1)}\right) \subseteq X_{n+1}$ da cui $x \in X_{n+1}^\circ$.\\
+Sia $y \in B \left( x, 2^{-(n+1)} \right)$ dunque $d(y,x) < {2^{-(n+1)}}$.\\
+Sia $z \in B\left( y, 2^{-(n+1)} \right)$ da cui  $d(z,y)< 2^{-(n+1)}$.\\
+ $d(x,z)<{2^{-n}}$ ovvero $z\in B \left( x, 2^{-n}\right)$.\\
+Abbiamo provato che 
+$$ y \in B\left( x , 2^{-(n+1)}\right) \quad \implica \quad y \in X_{n+1} \quad  \implica \quad X_n \subseteq X_{n+1}^\circ$$
+Dunque $\{ X_n^\circ\}$ \`e un ricoprimento aperto e data la compattezza di $X$ posso estrarre un sottoricoprimento finito, dunque posso estrarre il massimo (gli aperti sono inscatolati), da cui $X=X_n^\circ$ da cui la tesi
+\endproof
+\end{thm}
+\begin{defn}[Uniforme continuit\`a]\bianco
+Sia $f:\,(X,d_X) \to (Y,d_Y)$ una funzione tra spazi metrici, $f$ \`e uniformemente continua se 
+$$ \forall \varepsilon>0 \quad \exists \delta>0 \quad d_Y(f(x),
+f(x')) \leq \varepsilon  \text{ se } d_X(x,,x') \leq \delta$$
+\end{defn}
+\begin{thm}[Heine-Cantor]\bianco
+Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici con $X$ compatto.
+$$f:\, X \to Y \text{ continua } \quad \implica \quad f \text{ uniformemente continua}$$
+\proof Sia $\varepsilon>0$ cerchiamo un $\delta>0$ tale che 
+$$f(B(x, \delta))\subseteq B\left( f(x), \frac{\varepsilon}{2}\right) \,  \forall x \in X \text{  ossia per cui } B(x,\delta)\subseteq f^{-1}\left( B \left( f(x), \frac{\varepsilon}{2}\right)\right)$$
+Applichiamo il teorema del numero di Lebague al ricoprimento aperto 
+$$ \ric = \left\{ f^{-1} \left( B \left( f(x) , \frac{\varepsilon}{2}\right)\right)\right\}_{x \in X }$$
+da cui $\exists \delta>0$ tale che $$\forall x \in X \quad \exists U \in \ric \quad B(x,\delta)\subseteq U$$ in modo equivalente $$\forall x \in X\quad  \exists x' \in X   \quad B(x,\delta) \subseteq f^{-1}\left( B \left( f(x'),\frac{\varepsilon}{2}\right)\right)$$
+Sia $y \in B(x,\delta)$ allora 
+$$ f(y) \in B \left( f(x'), \frac{\varepsilon}{2}\right) \text{ e } f(x) \in B \left( f(x'), \frac{\varepsilon}{2}\right) $$ 
+da cui $d_y(f(x), f(y) ) \leq \varepsilon$\endproof
+\end{thm}\newpage
+
+Sia $X$ un insieme arbitrario e $Y$ spazio metrico completo
+$$ B(X,Y)=\{ f:\, X \to Y \text{ limitate}\}$$
+Mostriamo che $B(X,Y)$ \`e completo con la distanza $$d_\infty( f, g) =\sup_{x\in X } d_y (f(x),g(x))$$
+Sia $\{ f_n\} \subseteq B(X,Y)$ una successione di Cauchy allora proviamo che $f_n \to f $.\\
+Essendo la successione di Cauchy $\forall x \in X $ anche $\{f_n(x)\}\subseteq Y$ \`e di Cauchy e per completezza di $Y$ ammette un limite in $Y$, sia $f(x)=\lim f_n(x)$.\\
+Proviamo che $f$ cos\`i definita \`e limitata
+$$ d_Y(f(x),f(x'))  \leq d_Y(f(x), f_n(x))+ d_Y(f_n(x),f_n(x'))+ d_Y(f_n(x')+f(x')) $$
+Tale distanza \`e limitata infatti  poich\`e $f_n$ converge a $f$ puntualmente $d_Y(f_n(x),f(x))$ e $d_Y(f_n(x'),f(x'))$ sono limitate ed essendo $f_n$ limitata anche $d_Y(f_n(x),f_n(x'))$ lo \`e.\\
+Mostriamo che $f_n \to f$ in $d_\infty$
+$$ d_\infty(f,f_n) = \sup_{x\in X} d_y(f(x), f_n(x))$$
+ora 
+$$ d_Y(f(x), f_n(x))= d_Y \left( \lim_{m \to \infty} f_m (x),f_n(x) \right)$$
+Essendo $d_Y(\cdot. f_n(x))$ continua si ha 
+$$ d_Y(f(x),f_n(x)) = \lim_{n \to \infty} d_Y(f_n(x),f_m(x)) \leq\varepsilon \quad \forall \varepsilon>0 \quad n \geq n_0$$
+infatti la successione \`e di Cauchy dunque $\forall \varepsilon>0 $ $\exists n_0$ tale che $d_\infty(f,f_n)\leq \varepsilon$ per $n \geq n_0$.\\
+Abbiamo provato che $B(X,Y)$ \`e completo in $dd_\infty$
+\begin{ex}
+Supponiamo, adesso, $X$ topologico e poniamo 
+$$ C_B(X,Y)=\{ f \in B(X,Y) \text{ continue}\}$$
+Allora 
+$C_B(X,Y)$ \`e chiuso dunque $C_B$ con $d_\infty$ completo.\\
+Inoltre se $\{ f_n\} \subseteq C_B(X,Y)$ di Cauchy con limite $f \in B(X,Y)$ allora $f$ \`e continua
+\end{ex}
+\end{document}

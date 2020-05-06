@@ -1,0 +1,67 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 8 Novembre del Prof. Frigerio}
+\begin{thm}[di Alexander]\bianco
+Sia $X$ spazio topologico con una prebase $P$.\\
+Se da ogni ricoprimento con elementi di $P$ si pu\`o estrarre un sottoricoprimento finito, $X$ \`e compatto
+\proof Supponiamo per assurdo che $X$ non sia compatto.\\
+Sia $\Omega$ l'insieme dei ricoprimenti aperti da cui non \`e possibile estrarre sottoricoprimenti finiti, e su $\Omega$ definiamo una relazione d'ordine tramite l'inclusione.\\
+$X$ non compatto $\implica$ $\Omega\neq \emptyset$.\\  \\
+Proviamo che ogni catena di $\Omega$ ammette un maggiorante.\\
+Sia $C \subseteq \Omega$ una catena, cio\`e $C= \ds \{ \ric_i \}_{i\in I} $ dove gli $\ric_i$ sono ricoprimenti aperti in $\Omega$.\\
+Pongo $\ric=\ds \bigcup_{i \in I } \ric_i$, sicuramente $\ric$ \`e un ricoprimento e $\ric > \ric_i $ $\forall i \in I $.\\
+Proviamo che $\ric \in \Omega$.\\
+Supponiamo, per assurdo, che da $\ric$ si estrae un sottoricoprimento finito ovvero
+$$ \exists A_i, \dots, A_n \in \ric \quad X = A_1 \cup \dots \cup A_n \text{ dove } A_j \in \ric_{i(j)} \text{ per qualche } i(j)\in I $$
+Poich\`e gli $\ric_{i(j)}$ appartengono ad una catena e sono finiti, esiste il massimo, poniamo $\ric_{\overline{i}}\in C$ tale massimo.\\
+Allora $A_J \in \ric_{\overline{i}}$ $\forall j=1, \dots n $ dunque da $\ric_{\overline{i}}$ si estrae un sottoricoprimento finito, il che \`e assurdo. $ \ric \in \Omega$ \`e il maggiorante della catena cercato.\\ \\
+Per il Lemma di Zorn, esiste un elemento $\ds Z =\{ Z_i\}_{i \in I } \in \Omega$ massimale, ovvero un ricoprimento $Y$ che contiene $Z$ e un aperto non contenuto in $Z$ non appartiene ad $\Omega$ dunque da $Y$ si estrae un sottoricoprimento finito.\\ \\
+Mostriamo che $P \cap Z$ \`e un ricoprimento di $X$.\\
+Mostrando ci\`o, concludo la dimostrazione  infatti da $P\cap Z$ non posso estrarre sottoricoprimenti finiti (non posso da $Z$). Dunque $P\cap Z $ \`e un ricoprimento con aperti di $P$ dal quale non posso estrarre sottoricoprimenti finiti, il che \`e assurdo per ipotesi.\\
+Sia $x\in X$, per definizione di ricoprimento $\exists i \in I $ con $ x\in Z_i$.\\
+Ora $Z_i$ \`e aperto, dunque per definizione di prebase, 
+$$ \exists P_1, \dots, P_n \in P \quad x \in P_1 \cap \dots \cap P_n \subseteq Z_i$$
+Mostriamo che un $P_j \in Z$.\\
+Supponiamo, per assurdo, che $P_j \not \in Z $ $\forall j =1, \dots, n $ dunque per massimalit\`a di $Z$,  $Z\cup \{ P_j\} \not \in \Omega$ ovvero
+$$ \exists I_j \subseteq	 I \text{ finito tale che } X = P_j \cup \bigcup_{i\in I_j} Z_i $$
+Poich\`e ci\`o vale $\forall j$ allora
+$$ X = \left( \bigcap_{i=1}^n P_j \right) \cup \left( \bigcup_{j=1}^n \bigcup_{i \in I_j }Z_i \right)$$ infatti 
+se $x \not \in \bigcap P_j$ allora appartiene ad un certo $Z_i$ dove $\ds i \in \bigcup_{j=1}^n I_j$.\\
+Ora $\ds \bigcap_{j=1}^n P_j \subseteq Z_i$ dunque abbiamo trovato un sottoricoprimento finito di $Z$, da cui $P\cap Z$ \`e un ricoprimento, da cui la tesi.
+\endproof
+\end{thm}
+\newpage
+\begin{thm}[di Tychonoff]\bianco
+Sia $X_i$, $i\in I$ una famiglia di spazi topologici compatti
+$$ X=\prod_{i \in I } X_i \text{ \`e compatto}$$
+\proof Per il teorema di Alexander, basta vedere che ogni  ricoprimenti $\ric$ fatto con aperti di una prebase ammette un sottoricoprimento finito.\\
+Scegliendo la prebase canonica, sia $\ric=\bigcup_{i\in I } A_i$ un ricoprimento di $X$ dove 
+$$ A_i =\{ \pi_i^{-1}(D)\, \vert \, D\in \D_i\} \text{ dove } \D_i \text{ famiglia di aperti di } X_i$$
+Ora $\exists i \in I $ per cui $\D_i$ \`e un  ricoprimento di $X_i$.\\
+Supponiamo, per assurdo, che
+$$ \forall i \in I \quad \exists \overline{x_i} \in X_i \quad x_i \not \in \bigcup_{D \in \D_i} D $$
+dunque l'elemento $\ds (\overline{x_i}_{i \in I } $  non appartiene ad alcun elemento di $\ric$ il che \`e assurdo.\\
+Dunque $\exists i_0 \in I $ tale che $\D_{i_0}$ \`e un ricoprimento di $X_{i_0}$, ma $\D_{i_0}$ ammette un sottoricoprimento finito $B_1, \dots, B_n $ dunque 
+$$ \{ \pi_{i_0}^{-1}(B_1), \dots , \pi_{i_0}^{-1}(B_n)\}$$
+\`e il sottoricoprimento di $\ric$ cercato.\endproof
+\end{thm}
+\spazio
+\begin{ese}Sia $X$ un insieme, $A\subseteq \R$ 
+$$ A^X=\{ f :\, X \to A\}$$
+Dotando $A^X$ della topologia prodotto ($A$ con topologia euclidea) si ottiene la topologia della convergenza puntuale
+\end{ese}
+\begin{oss}Gli elementi di $A^X$, spesso, si denotano con $(a_x)_{x\in X}$, pensandoli come "stringhe di elementi di $A$"
+\end{oss}
+\begin{lem}Sia $\{f_n\}$ una successione di funzioni con $f_n:\, X \to A $.
+$$f_n \to f \text{ in } A^X \quad \implica \quad f_n \to f \text{ puntualmente} $$
+\proof Sia $x_0 \in X $. Per definizione di topologia prodotto, se $f(x_0)=a \in A$ allora
+$$\forall \varepsilon>0 \quad  \{ (a_x)_{x\in X }\text{ con } \vert a_{x_0} -a \vert < \varepsilon \} = \pi_{x_0}^{-1}((a-\varepsilon, a+\varepsilon))$$ 
+\`e un aperto, dunque un intorno di $f$.\\
+Poich\`e $f_n \to f $ allora
+$$ \exists n_0 \in \N \quad \forall n \geq n_0  \quad \vert f(x_{n_0}) - a\vert = \vert f_n(x_0) - f(x_0) \vert \leq \varepsilon $$ 
+ovvero $f_n \to f $ puntualmente 
+\endproof
+\begin{oss}Vale anche il viceversa, verr\`a dimostrato nelle successive lezioni
+\end{oss}
+\end{lem}
+\end{document}

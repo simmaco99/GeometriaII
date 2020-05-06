@@ -1,0 +1,113 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 2 Marzo}
+\begin{defn}[Prodotto libero]\bianco
+Sia  $\ds (G_i)_{i\in I}$ una famiglia di gruppi.\\
+Il prodotto libero dei $G_i$ \`e 
+\begin{itemize}
+\item[a)]un gruppo $G$
+\item[b)]$ \left( \phi_i:\, G_i \to G \right)_{i\in I} $ omomorfismi di gruppi che soddisfano la seguente propiet\`a universale:\\
+dati $\psi_{i}:\, G_i \to H$ omomorfismi di gruppi con $H$ gruppo arbitrario, $\exists ! \psi$ che fa commutare il diagramma $\forall i$
+$$ \begin{tikzcd}G_i  \arrow{rr}{\phi_i}
+								   \arrow{rd}{\psi_i} & & G \arrow[dashed]{dl}{\psi}  \\
+& H
+\end{tikzcd}$$
+ovvero tale che $\psi\circ \phi_i = \psi_i$
+\end{itemize}
+In questo caso denotiamo $G= \star_{i\in I} G_i$
+\end{defn}
+\begin{ese}Nel caso di $I=\{ 1,2\}$ abbiamo la seguente situazione 
+$$\begin{tikzcd}
+{}  G_1	\arrow{rd}{\phi_1}
+			\arrow[bend left]{rrd}{\psi_1}&                     &    \\
+                                      & G \arrow[ dashed]{r}{\psi} &H \\
+G_2\arrow{ru}{\psi_2} \arrow[bend right]{rru}{\psi_2} &                     &   
+\end{tikzcd}$$
+dove $\psi$ \`e tale che i due triangoli commutino 
+\end{ese}
+
+\begin{prop}[Unicit\`a del prodotto libero]\bianco
+\proof Fissiamo una famiglia $\ds (G_i)_{i\in I}$ di gruppi e siano $(G,\phi_i)$ e $(G', \psi_i')$ due prodotti liberi.\\
+Usando la propiet\`a universale ponendo $H=G'$ e $\psi_i=\phi_i'$ si ha $\exists ! \phi':\, G \to G'$ tale che $\phi'\circ \phi_i =\phi_i'$\\
+Usando la propiet\`a universale ponendo $H=G$ e $\psi_i=\phi_i$ si ha $\exists ! \phi:\, G' \to G$ tale che $\phi\circ \phi_i' =\phi_i$\\
+Dunque mettendo insieme le 2 relazioni otteniamo $$\phi_i=\phi\circ \phi_i' = \phi \circ \left( \phi' \circ \phi_i \right)=\left( \phi \circ \phi' \right)\circ \phi_i$$
+dunque abbiamo che i seguenti diagrammi commutano
+$$\begin{tikzcd} G_i \arrow{rd}{\phi_i} \arrow{r}{\phi_i} & G \arrow{d}{\phi\circ \phi'} & &G_i \arrow{rd}{\phi_i} \arrow{r}{\phi_i} & G \arrow{d}{id_G } 
+\\
+ &G & & & G
+\end{tikzcd}$$
+dunque dalla propiet\`a universale $\phi \circ \phi'=id_G$ da cui $\phi$ \`e l'isomorfismo cercato 
+\endproof
+\end{prop}
+\spazio
+\begin{prop}[Esistenza del prodotto libero]\bianco
+\proof Denotiamo con $e_i \in G_i$ l'identit\`a $\forall i \in I$.\\
+Definiamo $$W=\bigcup_{i\in I} ( G_i - \{e_i\})$$
+e definiamo $G$ nel seguente modo
+\begin{itemize}
+\item come insieme
+$$ G=\left\{\, (g_1, \dots, g_m) \, \left\vert \,
+{ {m\geq 0\, \,  g_i \in W }\atop{ g_k\text{ e } g_{k+1} \text{ appartengono a insiemi diversi}}}\right.\right\}$$
+dove $(g_1, \dots, g_m)$ \`e chiamata parola ridotta sull'alfabeto $W$
+\item definiamo su $G$ un prodotto
+$ (g_1,\dots, g_m)\cdot(h_1,\dots,h_s)= $ $$=\begin{cases} (g_1,\dots, g_m,h_1,\dots,h_s)  \text{ se } g_m \text{ e } h_1 \text{ non appartengono allo stesso } G_i\\
+(g_1,\dots, g_mh_1,\dots,h_s)  \text{ se } g_m \text{ e } h_1 \text{ appartengono allo stesso } G_i \text{ e } g_m h_1\neq e_i \\
+(g_1,\dots, g_{m-1},h_2,\dots,h_s)  \text{ se } g_m \text{ e } h_1 \text{ appartengono allo stesso } G_i \text{ e } g_m h_1= e_i 
+\end{cases}$$
+Nel terzo caso si procede induttivamente analizzando $g_{m-1}$ e $h_2$.\\
+La parola verr\`a indicata senza tonde e senza virgole 
+\end{itemize}
+Definiamo 
+$\phi_i:\, G_i \to G \quad x \to (x)$ dove $(x)$ \`e una parola.\\
+Verifichiamo che tale coppia soddisfa la propiet\`a universale.\\
+Dati $\psi_i:\, G_i \to H $ omomorfismi di gruppi  ($H$ arbitrario) definiamo $\psi:\, G \to H $ nel seguente modo
+$$ \psi(g_1\dots g_m)=\psi_{i_1}(g_1) \cdots \psi_{i_m}(g_m)$$
+dove $g_j \in G_{i_j}$.\\
+\`E di facile verifica che con tale scelta si ha $\psi \circ \phi_i=\psi_i$
+\endproof
+\end{prop}
+\begin{defn}[Gruppo libero generato da un insieme]\bianco
+Sia $S$ un insieme.\\
+Un gruppo libero generato da $S$ \`e il dato di un gruppo $F$ e di un'applicazione $\phi$ che gode della seguente propiet\`a universale.\\
+Data $\psi:\, S \to H$ mappa con $H$ arbitrario, esiste unico omomorfismo $\vartheta:\, F \to H$ tale che $\psi=\vartheta \circ \phi$
+\end{defn}
+\begin{prop}Per ogni insieme, esiste un unico gruppo libero generato da $S$
+\proof
+Sia $S=\{ x_i \, i\in I\}$ allora definiamo
+$$ F(S)= \star_{i\in I } G_i \text{ dove } G_i = \{ x_i^m \, \vert \, m \in \Z\}\cong\Z$$
+ovvero \`e il prodotto libero di copie di $\Z$ indicizzate dagli elementi di $S$\\
+Prendiamo come $\phi$ l'ovvia inclusione di $S$ in $F(S)$
+Si pu\`o provare che due prodotti liberi generati da un insiemi sono canonicamente isomorfi (la dimostrazione \`e analoga a quanto osservato per i prodotti liberi)
+\end{prop}
+\begin{oss}Dalla propiet\`a universale di $F(S)$ possiamo concludere che dato $H$ gruppo arbitrario 
+$$ Hom(F(S),H)=Mappe(S,H)$$
+\end{oss}
+\newpage
+\begin{defn}[Sottogruppo generato da un insieme]\bianco
+Sia $S\subseteq G$ sottoinsieme con $G$ gruppo allora
+$$ \langle S\rangle =\bigcap_{{K < G}\atop{S\subseteq K}}K$$
+\begin{oss}
+$$\langle S \rangle=\left\{ a_1^{\pm 1} \dots a_k^{\pm 1} \, \vert \, a_i \in S \text{ e } k \in \N\right\}$$
+\end{oss}
+\end{defn}
+\begin{defn}[Chiusura normale]\bianco
+Sia $S\subseteq G$ sottoinsieme con $G$ gruppo allora
+$$N(S)=\bigcap_{{K\lhd G}\atop{S\subseteq K}}K$$
+\begin{oss}
+$$N(S)= \{ g a g^{-1}  \, \vert \, g \in G ,\, \in S\}$$
+\end{oss}
+\end{defn}
+\begin{oss}Vogliamo studiare la relazione tra $G=\langle S \rangle$ e $F(S)$\\
+Consideriamo il seguente diagramma
+$$\begin{tikzcd} S \arrow[r,"i"]  \arrow[hook,rd]& F(S) \\ &  G
+\end{tikzcd}$$
+Dunque per la propiet\`a universale di $F(S)$ esiste una mappa $\phi:\, F(S) \to G$ tale che il diagramma commuta.\\
+Dalla definizione di $G$ segue che la mappa \`e suriettiva, da cui 
+$$ G \cong \frac{F(S)}{Ker \, \phi} =\frac{F(S)}{N(R)}$$ 
+Poniamo per notazione $G=\langle S \, \vert \, R \rangle$, dove $S$ \`e l'insieme dei generatori, mentre $R$ l'insieme dei generatori
+\end{oss}
+\begin{ese}$$\Z \cong \langle 1 \rangle$$
+$$\Z\oplus \Z \cong \langle a, b \, \vert \, ab a^{-1}b^{-1}\rangle$$
+
+\end{ese}
+\end{document}

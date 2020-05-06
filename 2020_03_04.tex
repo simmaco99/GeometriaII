@@ -1,0 +1,140 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 4 e 9  Marzo}
+\begin{fatto} Sia $R\subseteq F(S)$ e sia $\psi:\, F(S) \to H $ omomorfismo di gruppi, se $\psi(r)=e_H \, \, \forall r \in R$ allora la  mappa $\overline{\psi}:\,\langle R \, \vert \, S \rangle \to H$   tale che $\overline{\psi}([s])=\psi(s)$ \`e ben definita.
+\end{fatto}
+
+\begin{prop}Siano 
+$$G_0=\langle S_0 \, \vert R_ \rangle \quad G_1=\langle S_1 \, \vert R_1 \rangle \quad G_2=\langle S_2 \, \vert R_2 \rangle$$
+$$\psi_1:\, G_0\to G_1  \quad \psi_2:\, G_0 \to G_2 \text{ omomorfismi di gruppo } $$
+$$N = N( \{ \phi_1(g) \phi_2(g)^{-1} \, \vert\, g \in G_0 \})$$
+Allora $$G=\frac{G_1\star G_2}{N} \cong \langle S_1 \cup S_2 \, \vert \, R_1 \cup R_2 \cup R\rangle$$
+dove  $R=\{ \tilde{\phi}_1 (s) \tilde{\phi}_2(s)^{-1} \, \vert \, s\in S_0\} $ con  $\tilde{\phi}_i : F(S_0) \to F(S_i)$ omomorfismo con  $ [ \tilde{\phi}_i(s)]
+ =\phi_i ([s])$ per $i=1,2$
+\end{prop}
+
+\begin{thm}[di Van Kampen]\bianco
+Sia $X$ uno spazio topologico e supponiamo che $X=A\cup B$ con $A,B$ aperti connessi per archi e con $\emptyset\neq A\cap B$ connesso per archi.\\
+Siano 
+$$\alpha:\, A \cap B \inclu A \quad \beta:\, A \cap B \inclu B  $$
+$$ f: \, A \inclu X \quad g:\, B \inclu X$$
+le inclusioni.\\
+Sia $G$ un gruppo con  $h:\, \pi_1(A) \to G$ e $k:\, \pi_1(B) \to G$ omomorfismi tali che $ h \circ \alpha_\star = k \circ \beta_\star$ allora esiste unico $\pi:\, \pi_1(X) \to G $ tale che $\phi \circ f_\star=h$ e $ \phi \circ g_\star = k $\\
+Tutti i gruppi fondamentali si intendono puntati in un medesimo $x_0\in A \cap B$ 
+\proof 
+Sia $x\in X$ allora $\alpha_x\in \Omega(x_0,x)$ \`e un cammino tale che 
+\begin{itemize}
+\item se $x=x_0$ allora $\alpha_x=C_{x_0}$
+\item se $x\in A $ allora $\alpha_x( [0,1])\subset A $
+\item se $x\in B$ allora $\alpha_x([0,1])\subseteq B$
+\end{itemize}
+come conseguenza se $x\in A\cap B$ allora $\alpha_x([0,1])\subseteq A\cap B$ .\\
+Le ipotesi del teorema ci danno un diagramma del tipo 
+$$ \begin{tikzcd}
+															& \pi_1(A) \arrow{rd}{f_\star}  \arrow[bend left]{rrd}{h} \\
+\pi(A\cup B) \arrow{ru}{\alpha_\star}	 \arrow{rd}{\beta_\star}											 & & \pi_1(X) & G \\
+															&\pi_1(B) \arrow{ru}{g_\star} \arrow[bend right]{rru}{k}											
+\end{tikzcd}$$
+Dato $[\gamma]\in \pi_1(X)$ con $\gamma$ suo rappresentante, andiamo a definire chi dovrebbe essere $\pi([\gamma])$ affinch\`a la mappa $\phi:\, \pi_1(X) \to G$ renda i 2 triangoli commutativi.\\ \\ 
+Poich\`e il ricoprimento $\{\gamma^{-1}(A), \gamma^{-1}(B)\}$ ammette un numero di Lesbegue, esiste una suddivisione $0=t_0< t_1< \dots < t_n=1$ tali che $\gamma([t_{i-1},t_i])$ \`e contenuto in $A$ oppure in $B$.\\
+Poniamo, per convenzione, $\alpha_i= \alpha_{\gamma(t_i)}$ e andiamo a costruire una serie di cammini 
+$$ \gamma_1= \gamma_{\vert [ 0,t_1]} $$
+$$ \gamma_i= \alpha_{i-1} \star \gamma_{\vert [ t_{i-1}, t_i]} \star \overline{\alpha_i} \text{ per } i = 2, \dots , n-1 $$
+$$ \gamma_n = \alpha{n-1} \star \gamma_{\vert [ t_{n-1}, t_n]}$$
+Osserviamo che $\gamma \sim \gamma_1 \star \dots \star \gamma_n $ in quanto ogni qual volta giungo con un $\alpha_i$ giungo anche per $\overline{\alpha}_i$.
+Pongo ora $\phi([\gamma])=g_1\dots g_n$ dove 
+$$ g_i =\begin{cases} h([\gamma_i]) \text{ se } Imm \gamma_i \subseteq A \\
+									k([\gamma_i]) \text{ se } Imm \gamma_i \subseteq B \\
+\end{cases}$$
+Abbiamo dunque provato l'unicit\`a di $\phi$ e per costruzione $\phi$ rende i triangoli commutativi
+\begin{itemize}
+\item[(a)]Proviamo che $\phi$ non dipende dalla suddivisione scelta.\\
+Basta provare che se aggiungiamo un punto alla suddivisione allora il valore della funzione non cambia (se abbiamo 2 suddivisioni, scegliamo un loro raffinamento).\\
+Sia $0=t_0 < t_1< \dots < t_i < t_{i+1} < \dots <t_n=1$ come nella definizione di $\phi$.\\
+Sia $\overline{t}$ tale che $t_i< \overline{t} < t_{i+1}$\\
+Come nella definizione di $\phi$ fatta precedentemente siano  $\beta= \alpha_{\gamma(\overline{t}}$ e 
+$$\delta_1 =\alpha_i \star \gamma_{\vert [ t_i, \overline{t}]} \star \overline{\beta} \quad \delta_2 = \beta \star  \gamma_{\vert [\overline{t}, t_{i+1}} \star \overline{\alpha_{i+1}}$$
+Sia 
+$$ l_j= \begin{cases}k(\delta_j) \text{ se } Im \gamma_j \subseteq A \\
+								h(\delta_j) \text{ se } Im \gamma_j \subseteq B 
+\end{cases}$$
+Osserviamo che $\gamma_{i+1}\sim \delta_1 \star \delta_2$ dunque
+$$ \phi([\gamma])= g_1 \dots g_i g_{i+1}g_{i+2}\dots g_n= g_1\dots g_i ( l_1 l_2) g_{i+2} \dots g_n$$
+dunque abbiamo provato che $\phi$ non dipende dalla suddivisione scelta
+\item[(b)] Proviamo che $\phi$ non dipende dal rappresentante scelto\\
+Sia $\beta \sim \gamma $.\\
+Sia $H:[0,1]^2 \to X$ l'omotopia allora $\{ H^{-1}(A), H^{-1}(B)\}$ \`e un ricoprimento aperto di $[0,1]\times [0,1]$ da cui esiset $n \in \N$ con $H \left( \left[ \frac{k}{n}, \frac{k+1}{n} \right]\right) $ contenuto in $A$ oppure in $B$.\\
+(da inserire disegnini)
+\item[(c)]Il fatto che $\phi$ \`e omo \`e lasciato come esercizio
+
+\end{itemize}
+\end{thm}
+\begin{cor} Sia $X,A,B$ come nell'epotesi del Teorema di Van Kamper allora 
+$$\pi_1(X)= \frac{\pi_1(A)\star \pi_1(B)}{N} \text{ dove } N = N(\{i(\alpha_\star(g))j(\beta_\star(g) \, \vert \, g \in \pi_1(A\cap B)\}$$
+con $i,j$ le ovvie inclusioni
+\proof
+
+$$ \begin{tikzcd} \pi_A \arrow[bend left] {rrd}{f_\star} \arrow[rd,"i"] \\   &\pi_1(A)\star \pi_1(B) & \pi_1(X) \\ 
+\pi_1(B)\arrow[bend right]{rru}{g_\star} \arrow[ru,"j"]  \end{tikzcd}$$ 
+Allora dalla propiet\`a universale del prodotto libero segue che esiste unica $$\psi:\, \pi_1(A) \star \pi_1(B) \to \pi_1(X)$$
+che rende commutativi i 2 triangoli.\\
+\`E di facile verifica che $\psi(n)=e \, \, \forall n \in N$ da cui $\psi$ passa al quoziente .\\
+Usando il teorema di Van Kampen con $h=i,\, k=j$ e $G=\frac{\pi_1(A) \star \pi_1(B)}{N}$ si ottiene che esiste $\phi$.\\
+Dall'unicit\`a di $\phi$ e $\psi$ segue che una \`e l'inversa dell'altra
+\end{cor}
+\spazio 
+\begin{cor}Assumiamo le stesse ipotesi dei teorema di Van Kampen su $X$, se $A$ e $B$ sono semplicemente connessi allora anche $X$ lo \`e.
+\end{cor}
+\begin{ese}$S_n$ \`e semplicemente connesso per $n\geq 2$
+\proof Siano $A=S^n \sbarra \{ (1, 0, \dots, 0)\}$ e $B=S^n \sbarra \{ (-1, 0, \dots, 0)\}$ ora $A,B$ sono omeomorfi a $\R^n$ che \`e semplicemente connsesso
+\end{ese}
+\begin{oss}$\pi_1(\mathbb{P}^n(\R)) \cong \Z_2\, \, \forall n \geq 2 $.\\
+$S^n$ \`e rivestimento universale di $\mathbb{P}^n(\R))$ avente grado $2$ da cui il gruppo fondamentale \`e un gruppo con 2 elementi 
+\end{oss}
+\begin{ese}$\pi_1(\mathbb{P}^n(\C))= \{ e\} \, \, \forall n $
+\proof Se $n=0$ allora $\mathbb{P}(\C)$ \`e un punto dunque non ho nulla da dimostrare\\
+Sia $H=\{ [ x_0:\dots : x_n] \in \mathbb{P}^n(\C)\, \vert \, x_0=0\}$.\\
+Siano $H=\mathbb{P}^n(\C)\sbarra A $ e $B=\mathbb{P}^n(\C) \sbarra \{ [1:0\dots : 0]\}$ ora 
+$$ A \to \C^n \quad [x_0:\,\dots \, : x_n] \to \left( \frac{x_1}{x_0}: \, \dots \, : \frac{x_n}{x_0}\right) $$ 
+\`e un omeomorfismo, dunque $\pi_1(A)=\{ e \} $.\\
+Similmente $A\cap B$ \`e omeomorfo a $\C^n$ meno un punto dunque \`e connesso per archi.\\
+Mostriamo che $B$ \`e omotopicamente equivalente a $\mathbb{P}^{n-1}(\C)$\\\
+$H \cong \mathbb{P}^{n-1}(\C)$ \`e B si ritrae per deformazione su $H$.\\
+Sia $r\in \C^{n+1} $ la retta generata da $(1,0,\dots, 0)$ e sia $$h:\, (C^{n+1} \sbarra r )\times [0,1]\to C^{n+1}\sbarra r \quad ((x_0, \dots, x_n), t) \to (tx_0, x_1,\dots, x_n)$$
+
+Tale mappa passa al quoziente ottenendo $K:\, B \times [0,1] \to B$ che induce la retrazione cercata.\\
+Usando l'ipotesi induttiva  $\pi_1(B)=\{ e \} $ e per un corollario del teorema di Van Kamper si giunge alla tesi
+\end{ese}
+\newpage
+\section{Wedge di cerchi}
+\begin{defn} Sia $X$ topologico. Diciamo che $X$ \`e un wedge di cerchi se esiste una famiglia $S_\alpha$ con $\alpha\in I$ con 
+\begin{itemize}
+\item $X=\bigcup S_\alpha$ , inoltre $\exists p $ con $S_\alpha\cap S_\beta = \{ p \} $ se $\alpha\neq \beta$
+\item $S_\alpha\cong S^1$
+\item $U \subseteq	 X $ aperto $\ses \, U \cap S_\alpha$ \`e aperto in $S_\alpha$ per ogni $\alpha\in I $
+\end{itemize}
+Denotiamo $X=\ds \wedge_{\alpha\in I } S_\alpha$
+\end{defn}
+\begin{prop}Sia $X$ un wedge di cerchi allora $\pi_1(X,p)$ \`e un gruppo libero inoltre se $[\gamma_\alpha]$ \`e un generatore di $\pi_1(S_\alpha, p)$ allora $\{ [\gamma_\alpha]\, \vert \, \alpha\in I \} $ \`e un insieme di generatori liberi 
+\end{prop}
+\begin{cor}
+Sia $X=\ds \wedge_{i=1}^n S_i $ allora $\pi_1(X,p)=F_n$ dove $F_n$ \`e il gruppo libero generato da $n$ elementi
+\end{cor} 
+\begin{ese} Sia $X= C_1 \cup C_2$ con 
+$$C_1 = \{ (x,y)\in \R^2\, \vert \, (x-1)^2+ y^2=1\}\text{ e } C_2=\{ (x,y) \in \R^2 \, \vert \, (x+1)^2 +y^2=1\}$$
+allora $\pi_1(X)= \Z \star \Z$
+\proof Sia $p=(-2,0)$ e $q=(2,0)$ allora \`e di facile verifica che $A=X\sbarra\{ p\}$ e $B=X \sbarra\{ q\}$ si retraggono per deformazione rispettivamente  su $C_1$ e $C_2$\\
+Ora $A\cap B$ \`e omotopicamente equivalente a $S^1 \sbarra \{ pt\}\cong\R$ dunque \`e semplicemente connesso.
+$$ \pi_1(X)= \frac{\pi_1(A)\star \pi_1(B)}{N}$$ 
+ora $N$ dipende dall'intersezione ma essendo banale si ha $\pi_1(X)=\pi_1(C_1)\star \pi_1(C_2)\cong \Z\star \Z$
+\end{ese}
+\begin{ex}
+Provare che $\pi_1(\R^2 \sbarra \{x_1, \dots , x_n\})
+=F_n$ dove $x_i\in \R^2 $ e $x_i \neq x_j$ 
+se $i=j$ 
+[Suggerimento: Mostrare che $\R^2 \sbarra \{x_1, \dots , x_n\}$ 	\`e omotopicamente equivalente al wedge di $n$ cerchi
+\end{ex}
+\begin{ex}Siano $r_1, \dots, r_n \subseteq \R^3$ rette distinte passanti per l'origine.\\
+$R^3\sbarra \ds \bigcup r_i$ si ritrae per deformazione su $S^2 \sbarra (S^n \cap \bigcup r_i)$ dunque $\pi_1 ( \R^3\sbarra \bigcup r_i) = F_{2n-1}$
+\end{ex}
+\end{document}

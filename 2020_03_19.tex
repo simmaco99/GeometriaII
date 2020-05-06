@@ -1,0 +1,180 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 19 + parte del 23 marzo}
+\begin{cor}Sia $f:\, U \to \C$ olomorfa con $U \subseteq \C$ aperto connesso.\\
+Le seguenti affermazioni sono equivalenti
+\begin{itemize}
+\item[(i)] $f$ \`e costante in $U$
+\item[(ii)] $f'$ \`e identicamente nullo 
+\item[(iii)] $Re(f)$ \`e costante in $U$
+\item[(iv)] $Im(f)$ \`e costante in $U$
+\end{itemize}
+\proof \bbianco
+\begin{itemize}
+\item $(i) \implica (iii)$ e $(i) \implica (iv)$ sono ovvie
+\item  $(i)\ses (ii)$ Una funzione \`e costante se e solo se ha Jacobiano nullo.\\
+Ora essendo $f$ olomorfa il suo Jacobiano \`e rappresentata dalla matrice  
+$\begin{pmatrix}
+\alpha & -\beta \\ \beta & \alpha
+\end{pmatrix}$ 
+con $f'(z_0)=\alpha + i \beta$.\\
+Ora il jacobiano \`e identicamente nullo se e solo se $\alpha=\beta =0$ da cui se e solo se $f'(z)=0$
+\item $(iii)\implica (i)$ Scriviamo  nella base $\{ 1, i\}$ di $\C$ 
+$$f(x,y)=u(x,y)+i v(x,y)$$ 
+$Re(f)$ costante \`e equivalente a $u$ costante equivalentemente
+ $\pr u x = 0 = \pr u y $\\
+Per Cauchy-Riemann si ha $\pr v x = \pr u x = 0 $ dunque la tesi 
+\item $(iv)\implica (i)$ in modo analogo al punto precedente
+\end{itemize}
+\endproof
+\end{cor}
+\newpage
+\section{Serie di potenze}
+\begin{defn}[Assoluta convergente]\bianco 
+Sia $\ds (c_n)_{n \in \N} $ una successione di numeri complessi.\\
+Diciamo che $\ds \sum_{n\geq 0} c_n$ \`e assolutamente convergente se la serie $\sum \vert c_n \vert$ \`e convergente
+\end{defn}
+\begin{ex}La serie $\sum\frac{i}{n!}$ \`e assolutamente convergente?
+\end{ex}
+\begin{prop}Siano $\sum a_n$ e $\sum b_n$ due serie assolutamente convergenti 
+\begin{itemize}
+\item $\sum (a_n + b_n) $ \`e assolutamente convergente e la somma di questa serie \`e ottenuta sommando la somma delle serie dati 
+\item se $c_n =\sum_{p=0}^ n a_p b_{n-p}$ la serie $\sum c_n$ \`e assolutamente convergente e la sua somma \`e uguale al prodotto della somma delle 2 serie date
+\end{itemize}
+\end{prop}
+
+\begin{defn}[Raggio di convergenza]\bianco 
+Sia $\sum a_n z^n$ una serie di potenza chiamiamo raggio di convergenza la quantit\`a 
+$$\rho = \sup \{ r\in \R \, r>0 \, \vert \, \sum \vert a_n \vert r^n  \text{ \`e convergente } \}$$
+\end{defn}
+\begin{oss} $\rho$ pu\`o essere finito e in questo caso, $\rho\geq 0 $ oppure $\rho$ \`e infinito
+\end{oss}
+\begin{defn}Chiamiamo disco di convergenza l'insieme $\{ z \in \C \, \vert \,  \, \vert z\vert < \rho\}$
+\end{defn}
+\begin{oss}Il disco di convergenza \`e aperto.\\
+Se $\rho=0$ allora il disco \`e vuoto 
+\end{oss}
+\begin{prop}Data una serie di potenza $\sum a_n z^n$ esiste $0\leq \rho \leq  \infty$ tale che 
+\begin{itemize}
+\item $\rho=0$ la serie converge per $z=0$
+\item $\rho=\infty$  la serie converge assolutamente per ogni $z$
+\item $0<\rho<\infty$ allora se $\vert z\vert > \rho $ la serie converge assolutamente, per $\vert z \vert > \rho $ la serie non converge
+\end{itemize}
+Inoltre si ha la formula di  Hadamard
+$$\frac{1}{\rho}=\limsup \vert a_n \vert^{1/n}$$ 
+con la convenzione 
+$$\rho = 0 \text{ se  il limite superiore \`e } \infty$$
+$$\rho = \infty \text{ se  il limite superiore \`e } 0$$
+\end{prop}
+\begin{ex}Calcolare il raggio di convergenza delle seguenti serie
+\begin{itemize}
+\item $\sum n! z^n$
+\item $\sum \frac{1}{n!}z^n$
+\item $\sum (-1)^n \frac{z^{2n}}{(2n)!}$
+\item $\sum (-1)^n \frac{z^{2n+1}}{(2n+1)!}$
+\end{itemize}
+\end{ex}
+\begin{fatto}Siano $\sum a_n z^n$ e $\sum b_n z^n $ serie di potenze con raggio di convergenza $>R$ per un certo $R$ allora
+$$S(z)=\sum a_n z^n + \sum b_n z^n$$
+$$P(z)=\left(\sum a_n z^n \right) \left( \sum b_n z^n\right)$$
+hanno raggio di convergenza minore di $R$.\\
+Inoltre $\forall r \in \C $ con $\abs{r} < R$ si ha
+$$ S(r) =\sum a_n r^n + \sum b_n r^n$$
+$$P(r)=\left(\sum a_n r^n \right) \left( \sum b_n r^n\right)$$
+\end{fatto}
+\begin{fatto}
+Sia $f(z)=\sum a_n z^n$ chiamiamo serie derivata la serie di potenze $\sum n a_n z^{n-1}$ e la denotiamo con $f'(z)$.\\
+$f$ e $f'$ hanno lo stesso raggio di convergenze
+\end{fatto}
+\newpage
+\section{Esponenziale e logaritmo complesso }
+\begin{defn}Fissato $z\in \C$ chiamiamo esponenziale del numero complesso $z$ la quantit\`a
+$$e^z = \sum \frac{1}{n!}z^n$$
+\end{defn}
+\begin{defn}
+Fissato $z\in \C$ chiamiamo coseno del numero complesso $z$ la quantit\`a
+$$\cos z  = \sum (-1)^n \frac{z^{2n}}{(2n)!}$$
+\end{defn}
+\begin{defn}
+Fissato $z\in \C$ chiamiamo seno  del numero complesso $z$ la quantit\`a
+$$\sin z  = \sum (-1)^n \frac{z^{2n+1}}{(2n+1)!}$$
+\end{defn}
+\begin{oss}Le definizioni sono ben poste, avendo le serie raggio di convergenza $\infty$
+\end{oss}
+\begin{ex}Provare che le definizioni date oggi e nella lezione precedente coincidono
+\end{ex}
+\begin{ese}Dati $z,z'\in \C$, proviamo che $e^{z+z'}=e^z+e^{z'}$
+\proof
+Siano $a_n =\frac{1}{n}z^n$ e $b_n =\frac{1}{n}(z')^n$ allora 
+$$c_n=\sum_{p=0}^n a_p b_{n-p} = \sum_{p=0}^n \left( \frac{z^p}{p!}\right)\tonde{\frac{(z')^{n-p}}{(n-p)!}} = \frac{1}{n!} \sum_{p=0}^n \frac{n!}{p! (n-p)!} z^p (z')^{n-p}  =\frac{1}{n!} \sum_{p=0}^n { n \choose p} z^p (z')^{n-p}$$ 
+dunque 
+$c_n= \frac{1}{n!}(z+z')^n$.\\
+Per quanto abbiamo visto sulle serie di potenze $\sum c_n$ converge assolutamente con 
+$$e^{z+z'} = \sum c_n = \tonde{\sum a_n} \tonde{\sum b_n} = e^z\cdot e^{z'}$$
+\endproof
+\end{ese}
+\begin{oss}Siano $z,z' \in \C$ allora 
+$e^z =e^{z'} \quad \ses \quad z'=z+i 2\pi k \text{ con } k \in \Z$\\
+infatti dall'esercizio precedente $e^{z'} \cdot e^{-z}=e^{z'-z}$.\\
+Ora $e^z=e^{Re(z)}( \cos Im (z) + i \sin Im (z)$ dunque se $w=z'-z$ otteniamo 
+$$e^z =e^{z'} \quad \ses \quad e^{w}=1 \quad \ses \quad \begin{cases} e^{Re(w)}=1  \\
+\ cos (Im(w)) +i\sin (Im(w))=1 \end{cases} 
+\quad \ses \quad \begin{cases} Re(w)=0 \\ Im(w)=2\pi k \text{ con } k \in \Z 
+\end{cases}$$
+\end{oss}
+\newpage
+\begin{defn} Sia $z\in \C\setminus \{0 \}$ allora definiamo il logaritmo del numero complesso $z$ come
+$$\log(z) = \log(\abs z ) + i arg(z)$$
+\end{defn}
+\begin{oss}Nella definizione c'\`e un'ambiguit\`a derivante dal fatto che $arg(z) \in \frac{\R}{2\pi\Z}$
+\end{oss}
+Vediamo come sia possibile definire una funzione $z\to \log (z)$ 
+\begin{defn}[branca]\bianco
+Sia $D$ un insieme aperto e connesso di $\C$ con $0\not \in D$.\\
+Diciamo che $f:\, D \to \C$ continua \`e una branca di $\log(z)$ se $e^{f(z)}=z$\\
+($f(z)$ \`e uno dei possibili valori di $\log(z)$)\\ \\ 
+Sia $D$ come sopra  e $g:\, D \to \C$ continua \`e una branca di $arg(z)$ se 
+$z=\abs z e^{i g(z)}$\\
+($g(z)$ \`e uno dei possibili valori di $arg(z)$)
+\end{defn}
+\begin{oss} Se $g$ \`e una branca di $arg(z)$ allora  $f(x)= \log(\abs z ) + i g(x)$ \`e una branca di $\log z $
+\end{oss}
+\begin{prop}Assumiamo che esista una branca di $\log(z)$ in $D$, allora tutte le altre di $\log z$ in $D$ sono della forma $f(z)+ k (2\pi i)$ per qualche $z\in \Z$.\\
+Inoltre $f(z) + k(2\pi i)$ \`e una branca di $\log(z)$ in $D$ per ogni $z$ intero
+\proof Siano $f(z)$ e $g(z)$ due branche di $log(z)$ in $D$ consideriamo la funzione 
+$$h(z) = \frac{1}{2\pi i } (g(z)-h(z)) :\, D\to \C$$
+Osserviamo che $h$ \`e continua e ha immagine contenuta in $\Z$ (essendo $f(z)$ e $g(z)$ due branche di $\log(z)$ allora $e^{f(z)}=z= e^{g(z)}$ due per quanto abbiamo osservato sull'esponenziale $f(z)$ e $g(z)$ differiscono per $k(2\pi i )$)\\
+Poich\`e $D$ \`e connesso allora $h$ \`e costante dunque $h(t)=k \, \, \forall t \in D$ dunque 
+$$\frac{1}{2\pi i}(g(t)-f(t))=k \quad \implica \quad g(t)=f(t) + 2k \pi i \, \, \forall t\in D $$
+\end{prop}
+\begin{oss}Per ogni $z\in D=\{ z\in \C \, \vert \, Re(z)>0\}$ esiste unico 
+$\phi\in \quadre{ -\frac{\pi}{2},\frac{\pi}{2}}$
+ tale che $z=\abs z e^{i \phi}$.\\
+Definiamo la funzione $Arg :\, D \to \C$ con $Arg(z)= \phi$.\\
+Se mostriamo che tale funzione \`e continua, abbiamo costruito una branca dell'argomento
+\end{oss}
+\begin{prop}$Arg:\, D \to \C$ \`e continua
+\proof Sia $U=\{ z\in D \, \vert \, abs(z)=1 \}$ sia $f:\, D \to U$ con $f(z) = \frac{z}{\abs(z)}$, chiaramente $f$ \`e continua\\
+Osserviamo che  per ogni $z\in D$  $arg(z) = arg\tonde{f(z)}$ dunque abbiamo il seguente diagramma  cui abbiamo il seguente diagramma commutativo 
+$$\begin{tikzcd}
+D \arrow[rr,"f"] \arrow[dr,"Arg"] & & U \arrow[dl,"Arg"] \\
+& \C
+\end{tikzcd}$$
+Essendo $f$ continua basta provare che $Arg:\, U \to \C$ \`e continua.\\
+Per costruzione tale mappa \`e l'inversa della mappa 
+$g:\, \left] -\frac{\pi}{2},\frac{\pi}{2}\right[ \to U $ dove $g(y)=e^{iy}$.\\
+Estendiamo tale mappa a $$\wt g :\quadre{ -\frac{\pi}{2},\frac{\pi}{2}} \to \{ u \in \C \, \vert \, \abs{u} = 1 \text{ e } Re(u) \geq 0 \}$$
+$\wt g$ \`e continua e bigettiva da un compatto ad uno spazio di Hausdorff dunque \`e un omeomorfismo, in particolare la sua inversa \`e continua, da cui anche l'inversa di $g$ ($f$) \`e continua
+\end{prop}
+\begin{defn}Chiamiamo branca principale di $\log z$ la funzione continua
+$$\log(\abs z ) + i Arg(z) \text{ per } z \in D =\{  z\in \C\, \vert \, Re(z)>0\}$$
+\end{defn} 
+\spazio 
+\begin{prop}La serie di potenze $\sum (-1)^{n+1} \frac{z^n}{n}$ converge per $\abs z <1$ ed \`e uguale alla branca principale di $\log(z+1)$
+\end{prop}
+\begin{prop}Se $f(z)$ \`e una branca di $\log z$ in un insieme aperto e connesso la funzione ammette derivata $\frac{1}{z}$
+\end{prop}
+\begin{defn}$\forall z, \alpha \in \C$ con $z\neq 0 $ poniamo 
+$$z^\alpha =e^{\alpha \log(z)}$$
+\end{defn}
+\end{document}

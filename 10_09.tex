@@ -1,0 +1,154 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 9 ottobre di Gandini}
+\section{Sottospazi topologici}
+
+\begin{defn}[Topologia di sottospazio]\bianco
+Sia $X$ uno spazio topologico e $Y \subseteq X$.\\
+La topologia indotta su $Y$ detta topologia di sottospazio \`e la topologia meno fine che rende continua l'inclusione $i :X \inclu Y $
+\begin{oss}La definizione \`e ben posta perch\`e l'intersezione di topologie che rendono $i$ continua \`e una topologia (meno fine) che rende $i$ continua
+\end{oss}
+\end{defn}
+\begin{oss}Sia $\tau_Y$ una topologia su $Y$
+$$ i \text{ continua } \ses U\cap Y = i^{-1}(U) \in \tau_Y \quad \forall U\in \tau_X$$
+\end{oss}
+\begin{prop}Sia $Y \subseteq X $ sottospazio topologico.
+$$ A \subseteq Y \text{ aperto } \ses A=U \cap Y \text{ con } U \subseteq X \text{ aperto} $$
+\proof $\implica$  $i^{-1}(U)=U \cap Y =A $ e dalla continuit\`a di $i$ segue che $A$ \`e aperto.\\
+$\implica$ In modo ovvio si verifica che $\tau=\{ U \cap Y \, \vert \, U \subseteq X \text{ aperto }\}$ \`e una topologia, tale topologia rende continua $i$.\\
+Dalla definizione di topologia di sottospazio si ha $\tau_{ssp}< \tau$ dunque $\forall A \in \tau_{ssp}$ si ha $A \in \tau$ ovvero $A=U\cap Y$ con $U$ aperto di $X$
+\endproof
+\end{prop}
+\begin{oss}\label{base_sott}Supponiamo $\B$ base per la topologia su $X$.\\
+Allora $\B'=\{ B \cap Y \, \vert \, B \in \B \}$ \`e una base per la topologia di sottospazio su $Y$
+\end{oss}
+\begin{prop}Sia $(X,d)$ metrico e $Y \subseteq X$.\\
+Allora $\left( Y, d_{Y \times Y } \right)$ \'e uno spazio metrico.\\
+La topologia di sottospazio su $Y$ coincide con la topologia indotta dalla restrizione della distanza.
+\end{prop}
+\spazio
+\begin{defn}Sia $Y\subseteq X$ sottospazio metrico.\\
+Allora diciamo che $Y$ \`e discreto se la topologia di sottospazio di $Y$ \`e quella discreta.\\
+In modo equivalente: $\forall y \in Y \quad \exists U \subseteq X \text{ aperto}$ tale che $U\cap Y =\{y\}$
+\end{defn}
+\spazio
+\begin{prop}[Propriet\`a universale delle immersioni]\bianco
+Sia $Y\subseteq X$ un sottospazio topologico, $Z$ uno spazio topologico, $f:\, Z \to Y$ allora
+$$ f\text{ continua } \ses i \circ f \text{ continua } $$
+\proof $\implica$  la funzione $i$ \`e continua per definizione, inoltre composizione di funzioni continue \`e continua da cui la tesi.\\
+$\iimplica$ Sia $i\circ f$ continua.\\
+Sia $A\subseteq Y$ un aperto allora $\exists U \subseteq X $ aperto tale che $A=U \cap Y$
+$$ f^{-1}(A)=f^{-1}(U \cap Y)= f^{-1}(i^{-1}(U)) = (i \circ f)^{-1}(U)$$ che \`e aperto per ipotesi
+\endproof
+\end{prop}
+Il prossimo teorema ci fornisce il motivo per cui la propiet\`a \`e detta universale
+\begin{thm}La propriet\`a universale caratterizza in modo unico la topologia di sottospazio di $Y \subseteq X$.\\
+Vale a dire:\\
+La topologia di sottospazio \`e l'unica topologia si $Y$ con la propriet\`a:
+$$ \forall Z \text{ spazio topologico} \quad \forall f:\, Z \to Y $$
+$$ f \text{ continua} \quad \ses \quad i \circ f \text{ continua}$$
+\proof 
+Abbiamo dimostrato che la topologia di sottospazio verifica la propriet\`a universale dobbiamo provare che \`e unica.\\
+Indichiamo con $\tau_X$ la topologia su $X$ e con  $\tau_{ssp}$ la topologia di sottospazio su $Y$.\\
+Sia $\tau_Y$ una topologia su $Y$ che verifica la propriet\`a universale, abbiamo dunque il seguente diagramma 
+$$\begin{tikzcd} & (X, \tau_X) \\
+(Z,\tau_Z) \arrow[bend left]{ur}{i \circ f} \arrow[r,"f"] &(Y,\tau_Y) \arrow[u, "i",hook]
+\end{tikzcd}$$
+\begin{itemize}
+\item 
+Prendiamo $(Z, \tau_Z)=(Y,\tau_{ssp})$ e $f=Id_Y$
+ottenendo 
+$$\begin{tikzcd} & (X, \tau_X) \\
+(Y,\tau_{ssp}) \arrow[bend left]{ur}{i } \arrow[hook]{r}{id_Y} &(Y,\tau_Y) \arrow[u, "i",hook]
+\end{tikzcd}$$
+Ora per definizione di topologia di sottospazio $i:\, (Y,\tau_{ssp}) \inclu (X,\tau_X)$ \`e continua dunque $id_Y:\, (Y,\tau_{ssp}) \to (Y,\tau_Y)$ \`e continua dunque $\tau_{Y}<\tau_{ssp}$
+\item Prendiamo $(Z,\tau_Z)= (Y,\tau_Y) $ e $f=Id_Y$ ottenendo
+$$\begin{tikzcd} & (X, \tau_X) \\
+(Y,\tau_{Y}) \arrow[bend left]{ur}{i } \arrow{r}{id_Y} &(Y,\tau_Y) \arrow[u, "i",hook]
+\end{tikzcd}$$
+Ora $id_Y:\, (Y,\tau_Y) \to (Y, \tau_Y)$ \`e continua quindi per la propriet\`a universale risulta continua anche $i:(Y,\tau_Y)\inclu (X,\tau_X)$ dunque poich\'e $\tau_{ssp}$ \`e la meno fine topologia che rende continua l'inclusione sicuramente $\tau_{ssp}<\tau_Y$
+\end{itemize}
+Valgono entrambe le inclusione dunque $\tau_Y=\tau_{ssp}$
+\endproof
+\end{thm}
+Possiamo dare una nuova definizione, equivalente alla precedente
+\begin{defn}La topologia di sottospazio \`e l'unica topologia su $Y$ con la prooiet\`a universale
+\end{defn}
+\newpage
+\section{Applicazioni aperte e chiuse}
+\begin{defn}Sia $f:\, X \to Y$ continua, allora
+\begin{itemize}
+\item $f$ \`e detta mappa aperta se $f(A)$ \`e un aperto $ \forall A$ aperto 
+\item $f$ \`e detta mappa chiusa se $f(C)$ \`e un chiuso $\forall C$ chiuso 
+\end{itemize}
+\end{defn}
+\begin{ese} Sia $X=(a,b)$.\\
+$(a,b)\inclu \R$ non \`e chiusa infatti $(a,b)$ \`e un chiuso in $X$ ma $(a,b)$ (tutto l'insieme \`e sempre un chiuso) non \`e un chiuso in $\R$. La funzione \`e invece aperta \\
+$[a,b]\inclu \R$ in modo analogo \`e chiusa ma non aperta\\
+$[a,b)\inclu \R$ non \`e aperta e nemmeno chiusa
+\end{ese} 
+\begin{oss} $f$ continua e bigettiva $\not \implica$ $f$ omeomorfismo 
+\end{oss}
+\begin{oss}
+$f:X\to Y$ continua e bigettiva, allora
+$$ f \text{ omeomorfismo } \quad \ses \quad f \text{ aperta} \quad \ses \quad f\text{ chiusa}$$
+Dove il secondo $\ses$ deriva dal fatto che gli assiomi di aperto e di chiuso sono tra loro equivalenti
+\end{oss}
+\spazio
+\section{Immersioni}
+\begin{defn}[Immersione]\bianco
+Sia $f:\, X \to Y$ continua e iniettiva.\\
+$f$ \`e detta immersione (topologica) se 
+$$ A \subseteq X \text{ aperto} \quad \ses \quad \exists U \subseteq Y \text{ aperto } \quad A=f^{-1}(U)$$
+in modo equivalente se 
+$$ C \subseteq X \text{ chiuso } \quad \ses \quad \exists Z\subseteq Y \text{ chiuso } \quad C=f^{-1}(Z)$$
+\end{defn}
+\begin{ese}Supponiamo $X\subseteq Y$ allora 
+$$i:\, X \inclu Y \text{ immersione} \quad \ses \quad \tau_X = \tau_{ssp}$$
+\end{ese}
+\begin{oss}$f:\, X \to Y $ \`e un immersione se e solo se l'applicazione indotta $\tilde{f}:\, X \to f(X)$ \`e un omeomorfismo ($f(X)$ \`e dotato della topologia di sottospazio)
+\end{oss}
+\begin{prop}Sia $f:\,X \to Y $ continua. Allora:
+\begin{enumerate}
+
+\item$f$ chiusa e iniettiva $\ses$ $f$ immersione chiusa $\ses$ $f$ immersione con $f(X)$ chiuso
+\item $f$ aperta e iniettiva $\ses$ $f$ immersione aperta $\ses$ $f$ immersione con $f(X)$ aperto 
+\end{enumerate}
+\proof Dimostriamo la proposizione $1$ l'altra \`e analoga
+\begin{itemize}
+\item 
+Chiaramente 
+$$ f \text{ chiusa e iniettiva} \iimplica f \text{ immersione chiusa} \implica f \text{ immersione con } f(X)  \text{ chiuso}$$
+\item $f$ \`e iniettiva e chiusa $\implica$ $f$ immersione chiusa.\\
+Sia $C \subseteq X $ chiuso.\\ 
+Essendo $f$ chiusa  $f(C)$ \`e un chiuso di $Y$.\\
+Inoltre essendo $f$ iniettiva $f^{-1}(f(A))=A $ per $A\subseteq X$ dunque:
+$$  C \subseteq X \text{ chiuso }  \quad \implica \quad \exists Z=f(C)\subseteq   Y \text{ chiuso} \quad f^{-1}(Z)=C$$
+Inoltre $f^{-1}(Z) $ con $Z$ chiuso in $Y$ \`e un chiuso di $X$ essendo la funzione $f$ continua
+\item $f$ immersione con $f(X)$ chiuso $\implica$ $f$ immersione chiusa.\\
+Sia $C\subseteq X$ un chiuso, allora $f(C)= Z \cap f(X) $ con $Z\subseteq Y$ chiuso, infatti, dall'osservazione precedente
+$$ \tilde{f}:\, X \to f(X) \text{ \`e un omeomorfismo dove } f(X) \text{ ha la topologia di sottospazio} $$
+Ora $f(X)$, per ipotesi, \`e chiuso dunque anche $C=Z\cap f(X)$ \`e chiuso e quindi $f$ \`e chiusa
+\end{itemize}
+\endproof
+\end{prop}
+\newpage
+\section{Sottospazi e assiomi di numerabilit\`a}
+
+\begin{oss}Sia $X$ uno spazio topologico e $Y\subseteq X$ con la topologia di sottospazio
+\begin{itemize}
+\item $X$ secondo-numerabile $\implica$ $Y$ secondo-numerabile.\\
+Segue dalla forma della base della topologia di sottospazio (Osservazione~\ref{base_sott})
+\item $X$ primo-numerabile $\implica$ $Y$ primo-numerabile.
+\item $X$ metrico separabile $\implica$ Y metrico separabile.\\
+Segue dal fatto che 
+$X$ metrico separabile $\ses$ $X$ secondo-numerabile e \\
+$X$ secondo numerabile $\implica$  $Y$ secondo-numerabile 
+\item $X$ separabile $\not \implica$ $Y$ separabile.\\
+Consideriamo $\R^2$ con la topologia di Sorgenfrey: generata dagli insiemi  $[a,b)\times [c,d)$.\\
+$\R^2$ con questa topologia \`e separabile infatti $\Q^2$ \`e numerabile e denso.\\
+Consideriamo l'insieme $Z=\{ (x,-x) \, \vert \, x\in \R \} \subseteq \R^2$.\\
+Osserviamo che ogni punto di $Z$ \`e intersezione di $Z$ con un aperto quindi $Z$ con la topologia di sottospazio \`e omeomorfo a $\R$ con la topologia discreta, per l'osservazione precedente $Z$ non pu\`o essere separabile.
+\end{itemize}
+\end{oss}
+\end{document}

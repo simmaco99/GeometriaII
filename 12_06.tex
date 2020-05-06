@@ -1,0 +1,89 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 6 Dicembre del Prof. Frigerio}
+
+\begin{ese}$GL_+(n,\R)$ si ritrae per deformazione su $SL(n,\R)$\\
+Sia $A\in  GL_+(n,\R)$ con $\det A \geq 0$.\\
+Consideriamo
+$$ A(t)= tA + \frac{(1-t)A}{\sqrt[n]{\det A}} = \left( t + \frac{1-t}{\sqrt[n]{\det A}} \right)A$$ 
+dunque $A(t) \in GL_+(n,\R)$.\\
+Possiamo definire l'omotopia
+$$ H :\, GL_+(n,\R) \\times [0,1] \to GL_+(n,\R) \qquad H(A,t)=A(t)$$
+Osserviamo che $A\in SL(n, \R)$ se e solo se $H(A,t)=A  \, \forall t \in [0,1]$.\\
+Dunque $H$ \`e l'omotopia tra $Id$ e la retrazione $r=H_0$\\
+In modo analogo si prova che $GL_+(n, \R)$ si ritrae per deformazione su $SO(n)$
+\end{ese}
+
+\begin{ese}[Pettine infinito]Sia $X=\left( \R \times \{0\} \right) \cup \Q \times \R$ 
+
+\begin{itemize}
+\item $\{(0,0)\}$ \`e un retratto di deformazione di $X$ che perci\`o \`e contraibile.\\
+
+Sia $H : \, X\to [0,1] \to X $ dato da 
+$$ H((x,y),t) = \begin{cases} (x, (1-2t)y) \text{ se } t \in \left[ 0, \frac{1}{2} \right] \\
+((2-2t)x, 0) \text{ se } t \in \left[ \frac{1}{2},1 \right]
+\end{cases}$$
+
+La funzione \`e ben definita e $H((x,y),t) \in X \, \forall (x,y) \in X$ e $\forall t \in [0,1]$.\\
+$H$ \`e continua lo sono le restrizioni sui 2 intervalli su cui \`e definita (sono ricoprimento fondamentale).\\
+$$H((x,y),0)=(x,y)\, \, \forall (x,y) \in X$$
+$$H((x,y),1)=(0,0)\, \, \forall (x,y) \in X$$
+$$H((0,0),t)=(0,0)\, \, \forall t \in [0,1]$$
+Dunque possiamo concludere che $\{(0,0)\}$ \`e un retratto di deformazione di $X$ 
+\item $\{ (0,1)\}$ non \`e un retratto di deformazione di $X$\\
+Supponiamo per assurdo, che esista $$H: X \times [0,1]\to X$$ omotopia tra $Id$ e la costante $(0,1)$ tale che $H((0,1), t)=(0,1)\, \, \forall t \in [0,1]$.\\
+Presa $x\neq 0$ i punti $(0,1)$ e $ (x,1)$ giacciono in componenti connesse distinte di $X \sbarra \{ \R \times \{ 0 \} \}$ (in particolare, giacciono in componenti connesse per archi distinte).\\
+Ora se consideriamo l'arco $ \gamma_x:[0,1]\to X$ definita da $ \gamma_x(t)=H((x,1),t)$.\\
+Tale arco \`e continuo e connette $(0,1)$ a $(x,1)$ dunque deve passare per la retta $\{ y=0\}$  dunque 
+$$ \forall x \neq 0 \quad \exists t(x)\in (0,1) \text{  tale che } H((x,1),t(x)) = (x',0)$$
+Consideriamo ora la successione $\{t_n\} \subseteq [0,1]$ definita da $t_n=t\left( \frac{1}{n} \right)$.\\
+Essendo $[0,1]$ compatto per successioni, a meno di estrarre una sottosuccessione, posso supporre $t_n \to \overline{t}$.\\
+Se pongo $y:\R^n \to \R$ la proiezione sulla seconda coordinata, dalla continnuit\`a di $H$ e $y$ ottengo
+$$ 0 = \lim_{n \to \infty} y \left( H\left( \frac{1}{n},1 \right), t_n \right) =y \left( H((0,1),\overline{t}) \right)=y(0,1)=1$$
+dove abbiamo utilizzato il fatto che $H((0,1),t)=(0,1)\, \, \forall t \in [0,1]$
+\end{itemize}
+\end{ese}
+\newpage
+\section{Gruppo fondamentale}
+\begin{defn}Sia $X$ topologico, $a,b \in X$ allora definiamo con
+$$ \Omega(a,b)=\{ \gamma :[0,1]\to X  \text{ continua con } \gamma(0)=a \, \, \gamma(1)=b\}$$
+% archi con estremi a e b
+\end{defn}
+\begin{defn}$\alpha, \beta \in \Omega(a,b)$ sono omotopi (come cammini o a estremi fissi) se $$ \exists H : [0,1] \times [0,1] \to X $$ omotopia tra $\alpha$ e $\beta$ tale che $$H(0,t)=a \text{ e } H(1,t)=b \, \,\forall t \in [0,1]$$
+\end{defn}
+\begin{defn}Il gruppo fondamentale con punto base $a$ \`e l'insieme $$\pi_1(X,a) = \frac{\Omega(a,a)}{\sim}$$
+dove $\sim$ indica la relazione di omotopia a estremi fissi.\\
+Dove l'operazione \`e data dalla giunzione $\star$
+\end{defn}
+\begin{oss}Da ora utilizzeremo le seguenti notazioni 
+\begin{itemize}
+\item   $1_a\in \Omega(a,a)$ denota il cammino costante in $a$.
+\item $\alpha\in \Omega(a,b)$ allora denotiamo con $\overline{\alpha} \in \Omega(b,a)$ il cammino $\overline{\alpha}(t)=\alpha(1-t)$
+\end{itemize}
+\end{oss}
+La giunzione di cammini non \`e associativa, dunque l'omotopia di cammini serve per avere l'associativit\`a, grazie al seguente
+\begin{lem}Sia $\varphi:\, [0,1]\to [0,1]$ continua e tale che $\varphi(0)=0$ e $\varphi(1)=1$.\\
+$$ \gamma\in \Omega(a,b) \quad \implica \quad \gamma \sim \gamma \circ \varphi$$
+\proof $H(t,s)=\gamma(st + (1-s) \varphi(t))$ \
+\`e l'omotopia ad estremi fissi cercata \endproof
+\end{lem}
+\begin{cor}\label{opass} Se $ \alpha\in \Omega(a,b)$, $\beta \in \Omega(b,c)$ e $ \gamma \in \Omega(c,d)$ allora 
+$$ (\alpha\star \beta) \star \gamma \sim \alpha\star ( \beta \star \gamma)$$
+\proof Un cammino \`e la riparametrazione dell'altro
+\end{cor}
+\begin{lem}\label{opdef}$\alpha, \alpha' \in \Omega	(a,b)$ e $\beta, \beta' \in \Omega(b,c)$
+$$ \alpha\sim \alpha' 
+\text{ e } \beta \sim 
+\beta' \quad \implica \quad \alpha\star \beta \sim \alpha' \star \beta' \text{ in } \Omega (a,c)$$
+\proof Se $H$ e $K$  sonio rispettivamente  omotopia  a estremi fissi tra $\alpha$, $\alpha'$ e $\beta$, $\beta'$
+$$ (t,s) \to \begin{cases} H(2t,s) \text{ se }  t \in \left[ 0, \frac{1}{2} \right] \\
+K(2t-1,s)  \text{ se } t \in \left[ \frac{1}{2},1 \right]
+\end{cases}$$
+\`e l'omotopia cercata. \endproof
+\end{lem}
+\begin{cor}L'operazione
+$$ \pi_1(X,a) \times \pi_1(X,a) \to \pi_1(X,a)$$
+$$ ( [\alpha], [\beta] ) \to [ \alpha\star \beta]$$
+\`e ben definita  (\ref{opdef}) e associativa (\ref{opass})
+\end{cor}
+\end{document}

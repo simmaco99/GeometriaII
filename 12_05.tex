@@ -1,0 +1,108 @@
+\input{0_Preambolo}
+\begin{document}
+\textbf{Lezione del 5 Dicembre del Prof. Frigerio}
+\begin{oss}Quando non altro specificato, supponiamo tutte le funzioni continue
+\end{oss}
+\begin{defn}Siano $f,g:\, X \to Y$ continue.\\
+Una \textbf{ omotopia } tra $f$ e $g$ \`e una mappa continua 
+$$ H:\, X \times [0,1]\to Y \quad H(x,0)=f(x) \quad  H(x,1)=g(x)\quad \forall x\in X $$
+Nel seguito indicheremo l'intervallo $[0,1]$ con $I$
+\end{defn}
+\begin{oss}$\forall t\in [0,1]$ la mappa $H_t(x)=H(x,t)$ \`e continua per cui $H$ descrive un'interpolazione continua tra $f$ e $g$: deforma $f$ in $g$
+\end{oss}
+\begin{defn}$f$ si dice \textbf{ omotopa } a $g$  e si indica con $f \sim g$ se esiste un  omotopia tra $f$ e $g$
+ \end{defn}
+ \begin{prop}Essere omotopi \`e una relazione di equivalenza sull'insieme $C(X,Y)$ delle funzioni continue da $X$ a $Y$.\\
+ L'insieme delle classi di omotopia di tali funzioni si denota con $[X,Y]$
+ \proof \bbianco
+ \begin{itemize}
+ \item Riflessiva: $f \sim f$ infatti basta prendere $H(x,t)=f(x)$ $\forall x \in X$ e $\forall t\in I$ 
+ \item Transitiva. Sia $H$ l'omotopia tra $f$ e $g$ allora $K(x,t)=H(x,1-t)$ \`e un omotopia tra $g$ e $f$
+ \item Transitiva. Sia $H$ \`e l'omotopia tra $f$ e $g$ e $K$ \`e l'omotopia tra $g$ e $h$.\\
+ Costruiamo un omotopia tra $f$ e $h$: $J:\, X \times [0,1] \to Y$ cos\`i definita 
+ $$ J(x,t)= \begin{cases} H(x,2t) \text{ se } t \in \left[ 0, \frac{1}{2} \right] \\
+ K(x,2t-1) \text{ se } t \in \left[ \frac{1}{2},1 \right]
+ \end{cases}$$
+ $J$ \`e continua in quanto \`e ben definita ed inoltre \`e continua la restrizione sui chiusi $X\times \left[ 0, \frac{1}{2} \right]$ e $ X\times \left[ \frac{1}{2},1 \right]$ (sono ricoprimento fondamentale)
+ \end{itemize}
+\endproof
+ \end{prop}
+ \begin{ese}Se $Y$ \`e convesso di $\R^n$ (e.g $\R^n$ stesso), allora $\vert [ X , Y] \vert =1$ cio\`e tutte le mappe $f:\, X \to Y$ sono omotope tra loro.\\
+ Date $f,g:\, X \to Y$ la funzione $H(x,t)= t f(x) + (1-t) g(x)$ \`e ben definita essendo $Y$ convesso ed inoltre \`e continua, dunque \`e l'omotopia cercata
+ \begin{oss} In realt\`a basta $Y$ stellato rispetto a $p\in Y$.\\
+ $H(x,t)=tf(x)+ (1-t)p$ dunque $H$ \`e un omotopia tra $f$ e la costante $p$, da cui la tesi per transitivit\`a di $\sim $ 
+ \end{oss}
+ \end{ese}
+ \spazio
+ \begin{defn}Sia $X$ uno spazio topologico, denotiamo con $\pi_0(X)$ l'insieme delle componenti connesse per archi di $X$
+ \end{defn}
+ \begin{defn}Sia $f:\, X \to Y$ allora tale funzione induce una ben definita funzione
+ $$ f_\star : \, \pi_0(X) \to \pi_0(Y)$$ 
+ definita in modo che $f(C) \subseteq f_\star(C)$ $\forall C \in \pi_0(X)$ 
+ \begin{oss}$f_\star$ manda una componente connessa di $X$ nell'unica componente connessa di $Y$ che contiene $f(C)$ (le componenti connesse sono disgiunte)
+ \end{oss}
+ \end{defn}
+ \begin{lem}Se $f\sim g$ allora $f_\star=g_\star$
+ \proof Sia $C \in \pi_0(X)$ e sia $x_0 \in C$.\\
+ Se $H$ \`e un omotopia tra $f$ e $g$, la mappa $$\gamma:\, [0,1]\to Y \quad \gamma(t) = H(x_0,t)$$
+ \`e un cammino continuo in $Y$ che congiunge $f(x_0)$ e $g(x_0)$.\\
+ $f(x_0)$ e $g(x_0)$ giacciono nella stessa componente connessa per archi di $Y$ che \`e sia $f_\star(C)$ ( contiene $f(x_0)$) sia $g_\star(C)$ (contiene $g(x_0)$.\\
+ Dato che le componenti connesse sono disgiunte si ottiene $f_\star(C)=g_\star(C)$
+ \endproof
+ \end{lem}
+ \begin{cor}Se $X \subseteq \R^n$ \`e stellato rispetto a $p$, allora c'\`e una biezione tra $[X,Y]$ e $\pi_0(Y)$ 
+ \proof Essendo $X$ stellato, \`e connesso per archi ovvero $ \vert \pi_0(X)\vert=1$.\\
+ Definiamo 
+ $$ \psi:\, C (X,Y) \to \pi_0(Y) \quad \psi(f)= f_\star(X)$$
+ Per il lemma $\psi$ induce una ben definita funzione $\varphi;\, [X,Y ]\to \pi_0(Y)$, mostriamo che $\varphi$ \`e biettiva
+ \begin{itemize}
+ \item Suriettiva. Dato $C\in \pi_0(Y)$ scelgo $y \in C$ e pongo $f(x)=y$ allora $f$ \`e continua e $\psi(f)=C$ da cui $\varphi([f])=C$ 
+ \item Iniettiva. Data $f\in C (X,Y)$ allora $f$ \`e omotopa alla costante $f(p)$ in quanto $H(x,t)= f( tx+(1-t)p)$  \`e ben definita in quanto $X$ stellato.\\
+ Dato $f,g$ con $\psi(f)=\psi(g)$ abbiamo $f(p)$ e $g(p)$ vivono nella stessa componente connessa per archi di $Y$ e dunque le costanti $f(p)$ e $g(p)$ sono omotope tramite $H(x,t)=\delta$ dove $\delta$ \`e un arco che congiunge $f(p)$ e $g(p)$.\\
+ $ f \sim f(p) \sim g(p) \sim g$ dunque $[f]=[g]$\endproof
+ \end{itemize}
+ \end{cor}
+ \spazio
+ \begin{defn}$f:\, X \to Y$ \`e un' \textbf{ equivalenza omotopica } se ammette un inversa omotopica cio\`e 
+ $$ g:\, Y \to X $$ 
+ tali che $f \circ g \sim Id_Y$ e $ g \circ f \sim Id_X$.\\
+ Due spazi si dicono \textbf{ omotopicamente equivalenti} (o omotopici) se esiste un'equivalenza omotopica tra di loro
+ \end{defn}
+ \begin{prop}Essere omotopici \`e una relazione di equivalenza, la transitivit\`a si mostra usando il seguente 
+ \begin{lem}Siano $f_0,f_1:\, X \to Y$ e $g_0,g_1:\, Y \to Z $ continue $$ f_0 \sim f_1 \text{ e } g_0 \sim g_1 \quad \implica \quad g_0 \circ f_0 \sim g_1 \circ f_1$$
+ \proof Sia $H$ \`e l'omotopia tra $f_0$ e $f_1$ e $K$ l'omotopia tra $g_0$ e $g_1$.\\
+ La mappa $ (x,t) \to K(H(x,t))$ \`e un'omotopia tra $g_0 \circ f_0 $ e $g_1 \circ f_1$
+ \end{lem}
+ \end{prop}
+ \spazio
+ \begin{defn}$X$ \`e  \textbf{ contraibile } se \`e omotopicamente equivalente ad un punto
+ \end{defn}
+\begin{prop}$X \subseteq \R^n$ stellato $\implica$ $X$ contraibile
+\proof Sia $Y=\{ q\}$, definiamo allora le funzioni
+$$ f:\, X \to Y \quad f(x)=q $$ 
+$$ g:\, Y \to X \quad g(q)=x_0 \text{ a caso } $$
+ora $f$ e $g$ sono continue inoltre $f \circ g = Id_Y \sim Id_Y$ mentre $g \circ f $ \`e omotopa a $Id_X$ poich\`e $X$ stellato per cui tutte le funzioni sono omotope tra loro
+\endproof
+\end{prop}
+\begin{prop}Se $f:\, X \to Y$  \`e equivalenza omotopica allora $f_\star:\, \pi_0(X) \to \pi_0(Y)$ \`e una bigezione
+\proof Segue dal fatto che le mappe omotope inducono la stessa mappa sui $\pi_0$ ed inoltre $( f\circ g)_\star = f_\star \circ g_\star$
+\end{prop}
+\begin{oss}$X$ contrattile $\implica$ $X$ connesso per archi.\\
+Essendo contrattile esiste una bigezione tra $\pi_0(X)$ e le componente connesse per archi del punto, Ora l'insieme fatto da un solo punto ha una sola componente connessa, dunque anche $X$ ha una sola componente connessa per archi
+\end{oss}
+\begin{defn}Sia $X$ topologico. $C \subseteq X$ di dica
+\begin{itemize}
+\item \textbf{Retratto } se $\exists r:\, X \to C$ (retrazione) continua tale che $r(x)=x$ $\forall x\in C$
+\item \textbf{Retratto di deformazione} se esiste $r$ come sopra.\\
+Inoltre esiste un omotopia $H$ tra $Id_X$ e $i \circ r$ tale che  $H(x,t)=x$ $\forall c \in C $ e $\forall t \in [0,1]$.\\
+Dove $i:\, C \to X$ \`e l'inclusione
+\end{itemize}
+\end{defn}
+\begin{ese}Se $p\in X$ allora $\{ p\}$ \`e un retratto di $X$
+\end{ese}
+\begin{ese}$S^n$ \`e un retratto di deformazione di $\R^{n+1}\sbarra \{0\}$.\\
+La retrazione \`e data da $f(x)= \frac{x}{\norma x \norma}$.\\
+L'omotopia tra $i \circ r $ e l'identit\`a \`e dato da 
+$H(x,t)=(1-t) x + t \frac{x}{\norma x \norma}$ 
+\end{ese}
+\end{document}

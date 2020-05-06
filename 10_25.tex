@@ -1,0 +1,157 @@
+\input{0_Preambolo}
+
+\begin{document}
+\textbf{Lezione dei 25 Ottobre di Gandini }
+\begin{defn}[Convesso]\bianco
+$A\subseteq \R^n$ si dice convesso se 
+$$ \forall x,y \in A \quad tx-(1-t)y \in A \quad \forall t \in [0,1]$$
+Ovvero il segmento che congiunge $2$ punti dell'insieme \`e tutto contenuto nell'insieme
+\end{defn}
+\begin{oss}$A\subseteq \R^n $ convesso $\implica $ $A$ connesso per archi $\implica$ $A$ connesso.\\
+Come cammino scelgo il segmento infatti, dalla definizione, \`e tutto contenuto nell'insieme $A$
+\end{oss}
+\spazio
+
+\begin{prop}Sia $I \subseteq \R$.\\
+I seguenti fatti sono equivalenti:
+\begin{enumerate}
+\item[(i)]$I$ \`e convesso ovvero \`e un intervallo
+\item[(ii)] $I$ \`e connesso per archi
+\item[(iii)] $I$ \`e connesso
+\end{enumerate}
+\proof (i)$\implica$(ii)$\implica$(iii).\\
+Mostriamo che (iii)$\implica$(i) in modo contronominale.\\
+Supponiamo che $I$ non sia convesso dunque 
+$$ \exists a<b<c \quad a,c\in I \quad b \not \in I $$
+dunque ottengo
+$$ I = ( (-\infty, b) \cap I ) \cup ( (b,+\infty)\cap I)$$
+ovvero $I$ si scrive come unione di $2$ aperti disgiunti, $I$ \`e sconnesso.
+\endproof
+\end{prop}
+\begin{ese}$(0,1)$ non \`e omeomorfo a $[0,1]$ \\
+Supponiamo, per assurdo che $f:\, [0,1) \to (0,1)$ sia un omeomorfismo.\\
+Ora $[0,1) \sbarra \{ 0 \} $ \`e connesso mentre $(0,1) \sbarra \{ f(0)\}$ non lo \`e.\\
+In modo analogo si prova che $(0,1), [0,1]$ e $[0,1), [0,1]$ non sono omeomorfi
+\end{ese}
+\spazio
+\begin{ese} Connesso $\not \implica$ connesso per archi \proof
+Sia 
+$$ Y = \left\{ \left. \left( x, \sin \frac{1}{x}\right) \, \right\vert \, x >0 \right\} \subseteq \R^2 $$
+$Y$ in modo ovvio \`e connesso per archi (il grafico della funzione $f(x)= \left( x , \sin \frac{1}{x}\right)$ \`e il cammino cercato)\\
+Sia 
+$$ X =\overline{Y}=Y \cup \{ (0,t) \, \vert \, \vert t\vert \leq 1 \}$$
+$X$ \`e connesso in quanto chiusura di un connesso, mostriamo che non \`e connesso per archi.\\
+Supponiamo, per assurdo, che esista un cammino 
+$$ \alpha:\, [ 0, 1]\to X \quad \alpha(0)= (0,0) \text{ e } \alpha(1)\in Y$$
+dove indicheremo $\alpha(t) = (x(t), y(y))$ 
+$$ x:\, [ 0,1]\to [0, + \infty) \text{ continue}$$
+$$y:\, [0,1]\to [-1,-1] \text{continue}$$
+Sia $$\Omega=\{ t \in (0,1) \, \vert \, x(t)=0\}=x^{-1}(\{0\})$$
+Tale insieme \`e chiuso (controimmagine di un chiuso) e limitato dunque ammette un massimo $t_0=\max \Omega$, per ipotesi $t_0<1$ infatti $\alpha(1)\in y$.\\
+Supponiamo che $y(t_0)\geq 0$ (altra analoga) dunque per continuit\`a di $y$ 
+\begin{equation}
+\label{assu1}
+ \exists \delta >0 \quad y(t) \geq - \frac{1}{2} \quad \forall t \in [t_0,t_0+\delta]
+ \end{equation}
+Ora $x ( [ t_0 ,t_0 + \delta] ) $ \`e un connesso che contiene $0=x(t_0)$ dunque
+$$ \exists \varepsilon \quad [0,\varepsilon) \subseteq x ( [t_0, t_0 +\delta])$$
+Per avere un assurdo, basta trovare $(\lambda, \mu) \in \alpha([t_0,t_0+\delta])$ con $\mu< -\frac{1}{2}$, ci\`o \`e assurdo per \ref{assu1}.\\
+Cerchiamo $$\lambda\in (0,\varepsilon] \text{ con } \sin \frac{1}{\lambda}=-1 \quad \lambda =\frac{1}{2k\pi-\frac{\pi}{2}}$$
+Dunque se prendiamo un $k>>0$ allora $\lambda\in (0, \varepsilon)$ da cui abbiamo un assurdo
+\end{ese}
+
+\newpage
+\begin{defn}[Giunzione di cammini]\bianco
+Siano $x,y,z\in X $ e  $\alpha,beta:\, [0,1]\to X $ cammini tali che 
+$$ \begin{cases} \alpha(0)=x\\
+\alpha(1)=y 
+\end{cases}\text{ e } \begin{cases} \beta(0)=y\\
+\beta(1)=z
+\end{cases}$$
+Allora la giunzione di $\alpha$ e $\beta$ \`e il cammino 
+$$ \gamma= ( \alpha \star \beta )(t) = \begin{cases} 
+\alpha(2t) \text{ se } t \in \left[ 0, \frac{1}{2}\right]\\
+\beta(2t-1) \text{ se } t \in \left[\frac{1}{2},1\right]
+\end{cases}$$
+\end{defn}
+\begin{oss}La giunzione \`e ben definita ed \`e un cammino che congiunge $x$ a $z$ infatti
+$$ \gamma(0)=x \quad \gamma(1)=z \quad \gamma\left(\frac{1}{2}\right) = \alpha(1) =\beta(0)=y$$
+Inoltre \`e continua poich\`e $[0,1]=\left[ 0, \frac{1}{2}\right] \cup \left[ \frac{1}{2}, 1 \right]$ \`e un ricoprimento chiuso finito dunque fondamentale, inoltre,$\gamma_{\vert \left[0, \frac{1}{2}\right]} $ e $\gamma_{\vert \left[ \frac{1}{2}, 1 \right]}$ sono continue dunque anche $\gamma$ lo \`e
+\end{oss}
+\begin{defn}[Componenti connesse per archi]\bianco
+Dato $x\in X$ uno spazio topologico, la componente connessa per archi di $x$ \`e il massimo connesso per archi che contiene $x$.\\
+In modo equivalente:\\
+Dato $x\in X$ la sua componente connessa per archi \`e
+$$ C_a(x) =\{ y \in X \, \vert \, \exists \alpha:\, [0,1] \to X \text{ con } \alpha(0)=x \text{ e } \alpha(1)=y \}$$
+\end{defn}
+Mostriamo che la definizione \`e ben posta
+\begin{prop}
+La relazione $\sim $ su $X$ definita come 
+$$ x\sim y \quad \ses \quad \exists:\, \alpha:\, [0,1]\to X \text{ con } \alpha(0)=x \text{ e } \alpha(1)=y$$
+\`e una relazione di equivalenza
+\proof
+\bbianco
+\begin{itemize}
+\item $\sim$ \`e riflessiva, prendo il cammino $\alpha(t)=x$ dunque $x\sim x$
+\item $\sim$ \`e simmetrica\\
+Sia $\alpha$ un cammino che congiunge $x$ con $y$ allora il cammino $\beta(t)=\alpha(1-t)$ congiunge $y$ con $x$
+\item $\sim$ \`e transitiva.\\
+SIa $\alpha$ cammino che congiunge $x$ a $y$ e $\beta$ cammino che congiunge $y$ a $z$ allora la loro giunzione congiunge $x$ a $z$
+\end{itemize}
+\endproof
+\end{prop}
+\begin{oss}Le componenti connesse per archi non sono n\`e aperte n\`e chiuse 
+\end{oss}
+\spazio
+\begin{prop}Supponiamo che ogni punto abbia un intorno connesso.\\
+Allora le componenti connesse sono aperte
+\proof Sia $x\in X$ e $C(x)$ la sua componente connessa.\\
+$$ \forall y \in C(x)  \text{ sia } U \in I(y) \text{ un intorno connesso} \quad \implica \quad U \subseteq C(y) \text{ per massimalit\`a}$$
+Ora, poich\`e  le componenti connesse formano una partizione $C(x)=C(y)$.\\
+$$ \forall y \in C(x) \quad \exists U \in I(y) \quad U \subseteq C(x)$$
+\endproof
+\end{prop}
+\begin{prop}Supponiamo che ogni punto abbia un intorno connesso per archi.\\
+Allora le componenti connesse per archi sono aperte e coincidono con le componenti connesse
+\proof
+Sia $x\in X$ e $C_a(x)$ la sua componente connessa per archi
+$$\forall y \in C_a(x) \text{ sia } U\in I(y) \text{ intorno connesso per archi}$$
+Ora $C_a(x) \cap U $ \`e connesso per archi dunque $U\subseteq C_a(x)$.\\
+Vediamo che $C_a(x)=C(x)$.\\
+Chiaramente $C_a(x) \subseteq C(x)$, mostriamo l'altra inclusione.\\
+$$C(x) = \coprod_{y \in C(x)} C_a(y) \quad \implica \quad C(x) \cap C_a(x) \text{ aperto poich\`e unione di aperti } \quad \implica \quad C(x) \text{ connesso}$$
+dunque $C_a(x)=C(x)$
+\endproof
+\end{prop}
+\begin{defn}$X$ \`e detto localmente connesso se ogni punto ammette un sistema fondamentale di intorni connessi.\\
+$X$ \`e detto localmente connesso per archi se ogni punto ammette un sistema fondamentale di intorni connessi per archi
+\end{defn}
+\spazio
+\begin{ese}Spazio connesso  per archi non localmente connesso.
+\proof Consideriamo $(\Q \times \R) \cup ( \R \times \{ 0\}$ unione delle rette verticale a distanza razionale unito ad una retta orizzantale.\\
+Tale insieme prende il nome di pettine infinito.\\
+Tale insieme \`e connesso per archi, ma non connesso.\\
+Consideriamo una palla centrata in $(y,x)$ e raggio $<x$.\\
+Allora la palla si pu\`o dividere con un irrazionale, dunque si scrive come unione di due aperti disgiunti
+\end{ese}
+\newpage
+\begin{ex}Prodotto di connessi per archi \`e connesso per archi
+\end{ex}
+\begin{ex}Prodotto di 2 connessi \`e connesso 
+\proof Supponiamo $X,Y$ connessi.\\
+Per assurdo
+$$ X \times Y = A \cup B\text{ decomposizione in aperti disgiunti}$$
+Ora anche $X = \pi_X(A) \cup \pi_X(B)$ \`e una decomposizione in aperti, essendo $X$ connesso $x_0 \in \pi_X(A) \cap \pi_X(B)$.\\
+Considero $\{x_0\} \times Y$ esse \`e omeomorfo a $Y$ dunque connesso.\\
+Sia
+$$ A_1= A \cap (\{ x_0 \times Y\}) \quad B_1= B \cap (\{ x_0 \times Y\})$$
+dunque 
+$$ \{ x_0 \} \times Y = A_1 \cup B_1 \text{ decomposizione in aperti non vuoti}$$
+dunque $$A_1 \cap A_2 \neq \emptyset \quad \implica \quad A\cap B \neq \emptyset$$
+\end{ex}
+\begin{ex}Il prodotto arbitrario di connessi \`e connesso
+\end{ex}
+\begin{ex} Sia $n>1$ allora
+$$\R^n \sbarra\{ \text{insieme numerabile} \} \text{ \`e connesso per archi} $$
+\end{ex}
+\end{document}
